@@ -20,7 +20,7 @@ int main(int argc,char* argv[])
     exemple.setX(53);
 	
     cout << "It works !" << endl;
-	if (string(argv[1]) == "hello"){
+	if ((argv[1] != NULL) && string(argv[1]) == "hello"){
 		cout << "Bonjour tout le monde !" << endl;
 	}
     return 0;
