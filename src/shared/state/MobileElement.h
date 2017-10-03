@@ -7,6 +7,7 @@ namespace state {
   class Element;
 }
 
+#include "Direction.h"
 #include "Element.h"
 
 namespace state {

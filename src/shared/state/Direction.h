@@ -5,7 +5,7 @@
 
 namespace state {
 
-  enum DIrection {
+  enum Direction {
     NONE     = 0,
     EAST     = 1,
     NORTH     = 2,

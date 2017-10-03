@@ -20,10 +20,10 @@ namespace state {
   public:
     Element ();
     ~Element ();
-    TypeId const getTypeId ();
-    bool const isStatic ();
-    bool const equals (const Element& other);
-    bool const getTeam ();
+    virtual TypeId const getTypeId ();
+    virtual bool const isStatic ();
+    virtual bool const equals (const Element& other);
+    virtual bool const getTeam ();
     // Setters and Getters
     int getM_x() const;
     void setM_x(int m_x);
