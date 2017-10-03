@@ -7,7 +7,7 @@
 #include "state/StaticELement.h"
 #include "state/MobileElement.h"
 #include "state/DIrection.h"
-#include "state/MInionStatus.h"
+#include "state/MinionStatus.h"
 #include "state/Minion.h"
 #include "state/HeroId.h"
 #include "state/HeroStatus.h"

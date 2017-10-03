@@ -5,7 +5,7 @@
 
 namespace state {
 
-  enum MInionStatus {
+  enum MinionStatus {
     NORMAL     = 1,
     DEAD     = 2
   };

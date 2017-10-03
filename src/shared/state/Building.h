@@ -16,8 +16,8 @@ namespace state {
   class Building : public state::StaticELement {
     // Attributes
   protected:
-    int MinionNumber     = 0;
-    int Team;
+    int m_MinionNumber     = 0;
+    int m_Team;
     // Operations
   public:
     void MinionGeneration ();
@@ -25,8 +25,10 @@ namespace state {
     int setTeam ();
     int getTeam ();
     // Setters and Getters
-    int getMinionNumber() const;
-    void setMinionNumber(int MinionNumber);
+    int getM_MinionNumber() const;
+    void setM_MinionNumber(int m_MinionNumber);
+    int getM_Team() const;
+    void setM_Team(int m_Team);
   };
 
 };

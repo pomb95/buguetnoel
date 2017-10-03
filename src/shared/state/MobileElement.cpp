@@ -4,3 +4,16 @@
  * and open the template in the editor.
  */
 
+#include "MobileElement.h"
+
+namespace state{
+
+    int MobileElement::Atk(const Element& other) {
+
+    }
+
+    MobileElement::MobileElement() {
+        
+    }
+
+}

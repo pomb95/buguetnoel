@@ -15,7 +15,7 @@ namespace state {
   class QG : public state::Building {
     // Attributes
   protected:
-    int LP     = 0;
+    int m_LP     = 0;
     // Operations
   public:
     QG ();
@@ -24,8 +24,8 @@ namespace state {
     int getLife ();
     TypeId const getTypeId ();
     // Setters and Getters
-    int getLP() const;
-    void setLP(int LP);
+    int getM_LP() const;
+    void setM_LP(int m_LP);
   };
 
 };

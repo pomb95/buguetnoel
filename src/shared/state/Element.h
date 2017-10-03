@@ -13,9 +13,9 @@ namespace state {
   class Element {
     // Attributes
   protected:
-    int x     = 0;
-    int y     = 0;
-    bool Team;
+    int m_x     = 0;
+    int m_y     = 0;
+    bool m_Team;
     // Operations
   public:
     Element ();
@@ -25,11 +25,12 @@ namespace state {
     bool const equals (const Element& other);
     bool const getTeam ();
     // Setters and Getters
-    int getX() const;
-    void setX(int x);
-    int getY() const;
-    void setY(int y);
-    void setTeam(bool Team);
+    int getM_x() const;
+    void setM_x(int m_x);
+    int getM_y() const;
+    void setM_y(int m_y);
+    bool getM_Team() const;
+    void setM_Team(bool m_Team);
   };
 
 };

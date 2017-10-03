@@ -8,14 +8,14 @@ namespace state {
 }
 
 #include "MobileElement.h"
-#include "MInionStatus.h"
+#include "MinionStatus.h"
 
 namespace state {
 
   /// class Minion - 
   class Minion : public state::MobileElement {
     // Associations
-    state::MInionStatus status;
+    state::MinionStatus status;
     // Attributes
   public:
      ;
@@ -26,8 +26,8 @@ namespace state {
     TypeId const getTypeId ();
     bool const isHero ();
     // Setters and Getters
-    MInionStatus getStatus() const;
-    void setStatus(MInionStatus status);
+    MinionStatus getStatus() const;
+    void setStatus(MinionStatus status);
   };
 
 };

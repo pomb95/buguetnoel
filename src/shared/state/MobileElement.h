@@ -16,12 +16,12 @@ namespace state {
     // Attributes
   protected:
     /// 	
-    int position;
-    int MP;
-    int LP;
-    int ATK;
-    int DEF;
-    int RANGE;
+    int m_position;
+    int m_MP;
+    int m_LP;
+    int m_ATK;
+    int m_DEF;
+    int m_RANGE;
     // Operations
   public:
     MobileElement ();
@@ -32,18 +32,18 @@ namespace state {
     int setLife (int );
     int getLife ();
     // Setters and Getters
-    int getPosition() const;
-    void setPosition(int position);
-    int getMP() const;
-    void setMP(int MP);
-    int getLP() const;
-    void setLP(int LP);
-    int getATK() const;
-    void setATK(int ATK);
-    int getDEF() const;
-    void setDEF(int DEF);
-    int getRANGE() const;
-    void setRANGE(int RANGE);
+    int getM_position() const;
+    void setM_position(int m_position);
+    int getM_MP() const;
+    void setM_MP(int m_MP);
+    int getM_LP() const;
+    void setM_LP(int m_LP);
+    int getM_ATK() const;
+    void setM_ATK(int m_ATK);
+    int getM_DEF() const;
+    void setM_DEF(int m_DEF);
+    int getM_RANGE() const;
+    void setM_RANGE(int m_RANGE);
   };
 
 };

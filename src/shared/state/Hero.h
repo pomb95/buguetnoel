@@ -19,8 +19,8 @@ namespace state {
     state::HeroStatus status;
     // Attributes
   protected:
-    int xp     = 0;
-    int level     = 0;
+    int m_xp     = 0;
+    int m_level     = 0;
     // Operations
   public:
     Hero (HeroId id);
@@ -31,9 +31,10 @@ namespace state {
     // Setters and Getters
     HeroStatus getStatus() const;
     void setStatus(HeroStatus status);
-    int getXp() const;
-    void setXp(int xp);
-    void setLevel(int level);
+    int getM_xp() const;
+    void setM_xp(int m_xp);
+    int getM_level() const;
+    void setM_level(int m_level);
   };
 
 };
