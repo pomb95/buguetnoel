@@ -26,9 +26,9 @@ namespace state {
   public:
     MobileElement ();
     ~MobileElement ();
-    bool const isHero ();
-    int Atk (const Element& other);
-    int move ();
+    virtual bool const isHero ();
+    virtual int Atk (const Element& other);
+    virtual move (Direction direction);
     int setLife (int );
     int getLife ();
     // Setters and Getters
