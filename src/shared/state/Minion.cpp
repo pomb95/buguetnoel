@@ -5,6 +5,7 @@
  */
 
 #include "Minion.h"
+#include "MinionStatus.h"
 
 namespace state {
 
@@ -17,11 +18,11 @@ namespace state {
     }
 
     const TypeId Minion::getTypeId() {
-
+   
     }
 
     MinionStatus Minion::getStatus() const {
-        
+        return this->status;
     }
 
     const bool Minion::isHero() {
@@ -29,7 +30,7 @@ namespace state {
     }
 
     void Minion::setStatus(MinionStatus status) {
-
+        this->status = status;
     }
 
 }

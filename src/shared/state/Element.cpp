@@ -8,7 +8,7 @@
 namespace state {
 
     Element::Element() {
-        printf("Element ")
+        printf("Element créé");
     }
     Element::~Element() {
 
