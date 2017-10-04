@@ -12,12 +12,12 @@ namespace state {
 namespace state {
 
   enum TypeId {
-    OBSTACLE     = 1,
-    COMMANDTOWER     = 2,
-    SPACE     = 3,
-    MINION     = 4,
-    HERO     = 5,
-    QG     = 6
+    SPACE     = 1,
+    OBSTACLE     = 2,
+    COMMANDTOWER     = 3,
+    QG     = 4,
+    MINION     = 5,
+    HERO
   };
 
 };

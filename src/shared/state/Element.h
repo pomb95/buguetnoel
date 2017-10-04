@@ -3,9 +3,7 @@
 #define STATE__ELEMENT__H
 
 
-namespace state {
-  class Element;
-}
+#include "TypeId.h"
 
 namespace state {
 
@@ -13,24 +11,27 @@ namespace state {
   class Element {
     // Attributes
   protected:
-    int m_x     = 0;
-    int m_y     = 0;
-    bool m_Team;
+    TypeId m_TypeId;
+    int PosX;
+    int m_PosY;
+    int m_Team;
     // Operations
   public:
     Element ();
+    Element (TypeId typeId, int PosX, int PosY, int Team);
     ~Element ();
-    virtual TypeId const getTypeId ();
-    virtual bool const isStatic ();
-    virtual bool const equals (const Element& other);
-    virtual bool const getTeam ();
+    TypeId getTypeId ();
+    void setTeam (int Team);
+    int getTeam ();
     // Setters and Getters
-    int getM_x() const;
-    void setM_x(int m_x);
-    int getM_y() const;
-    void setM_y(int m_y);
-    bool getM_Team() const;
-    void setM_Team(bool m_Team);
+    TypeId getM_TypeId() const;
+    void setM_TypeId(TypeId m_TypeId);
+    int getPosX() const;
+    void setPosX(int PosX);
+    int getM_PosY() const;
+    void setM_PosY(int m_PosY);
+    int getM_Team() const;
+    void setM_Team(int m_Team);
   };
 
 };
