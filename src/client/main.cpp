@@ -15,10 +15,7 @@ using namespace std;
 using namespace state;
 
 int main(int argc,char* argv[]) 
-{
-    Exemple exemple;
-    exemple.setX(53);
-	
+{	
     cout << "It works !" << endl;
 	if ((argv[1] != NULL) && string(argv[1]) == "hello"){
 		cout << "Bonjour tout le monde !" << endl;

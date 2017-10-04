@@ -9,6 +9,7 @@ namespace state {
 
   /// class Element - 
   class Element {
+    // Associations
     // Attributes
   protected:
     TypeId m_TypeId;
