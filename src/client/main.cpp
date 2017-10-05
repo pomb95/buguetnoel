@@ -17,8 +17,11 @@ using namespace state;
 int main(int argc,char* argv[]) 
 {	
     cout << "It works !" << endl;
-	if ((argv[1] != NULL) && string(argv[1]) == "hello"){
-		cout << "Bonjour tout le monde !" << endl;
+	if ((argv[1] != NULL) && string(argv[1]) == "state"){
+            Enutrof hero1;
+            Sram hero2;
+            hero1.Attack(hero2);
+            hero1.Attack(hero2);
 	}
     return 0;
 }

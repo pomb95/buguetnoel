@@ -2,6 +2,11 @@
 #ifndef STATE__ELEMENT__H
 #define STATE__ELEMENT__H
 
+#include <string>
+
+namespace state {
+  class Element;
+}
 
 #include "TypeId.h"
 
@@ -11,6 +16,10 @@ namespace state {
   class Element {
     // Associations
     // Attributes
+  public:
+    int m_Life;
+    int m_ATK;
+    std::string m_Name;
   protected:
     TypeId m_TypeId;
     int PosX;
@@ -19,11 +28,10 @@ namespace state {
     // Operations
   public:
     Element ();
-    Element (TypeId typeId, int PosX, int PosY, int Team);
     ~Element ();
-    TypeId getTypeId ();
-    void setTeam (int Team);
-    int getTeam ();
+    virtual void Attack (Element& other);
+    virtual void getDamage (int damage);
+    bool isAlive ();
     // Setters and Getters
     TypeId getM_TypeId() const;
     void setM_TypeId(TypeId m_TypeId);
