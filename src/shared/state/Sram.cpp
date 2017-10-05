@@ -9,6 +9,7 @@
 namespace state {
     Sram::Sram(){
         m_Name = "Sram";
+	std::cout <<"C'est un " << m_Name << std::endl;
     }
     
     Sram::~Sram(){

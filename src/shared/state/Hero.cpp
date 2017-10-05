@@ -11,7 +11,7 @@ namespace state {
         m_Name = "Hero";
         m_Life = 10;
         m_ATK = 5;
-        std::cout << m_Name <<" created" << std::endl;
+        std::cout << "C'est un " <<m_Name << std::endl;
     }
     
     Hero::~Hero(){

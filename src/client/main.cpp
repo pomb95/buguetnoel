@@ -16,12 +16,12 @@ using namespace state;
 
 int main(int argc,char* argv[]) 
 {	
-    cout << "It works !" << endl;
+
 	if ((argv[1] != NULL) && string(argv[1]) == "state"){
-            Enutrof hero1;
-            Sram hero2;
-            hero1.Attack(hero2);
-            hero1.Attack(hero2);
+           
+	    State state;
+            state.listElement[0].Attack(state.listElement[1]);
+            state.listElement[0].Attack(state.listElement[1]);
 	}
     return 0;
 }
