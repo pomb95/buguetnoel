@@ -3,20 +3,11 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
+
 #include <iostream>
-#include "Hero.h"
+#include "Minion.h"
 
 namespace state {
-    Hero::Hero() {
-        m_Name = "Hero";
-        m_Life = 10;
-        m_ATK = 5;
-        std::cout << "C'est un " <<m_Name << std::endl;
-    }
-    
-    Hero::~Hero(){
-    
-    }
-       
-   
+    Minion::Minion() {}
+    Minion::~Minion() {}
 }

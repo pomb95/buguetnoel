@@ -12,9 +12,7 @@ namespace state {
         std::cout << m_Name <<" created" << std::endl;
     }
 
-    Element::~Element() {
-
-    }
+    Element::~Element() {}
     
     void Element::getDamage(int damage) {
         m_Life -= damage;
