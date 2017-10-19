@@ -9,10 +9,8 @@
 namespace state{
     
     State::State(){
-	 Enutrof hero1;
-	addElement(hero1);
-         Sram hero2;
-        addElement(hero2);
+	
+       
     }
     
     State::~State(){

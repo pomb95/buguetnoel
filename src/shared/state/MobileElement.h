@@ -4,6 +4,7 @@
 
 
 namespace state {
+  class MobileElement;
   class Element;
 }
 
@@ -13,10 +14,20 @@ namespace state {
 
   /// class MobileElement - 
   class MobileElement : public state::Element {
+    // Attributes
+  public:
+    int Team;
+    int Life;
+    int ATK;
     // Operations
   public:
     MobileElement ();
     ~MobileElement ();
+    void Attack (MobileElement victime);
+    bool isAlive ();
+    /// 	
+    /// @param damage		(???) 
+    void getDamage (int damage);
     // Setters and Getters
   };
 

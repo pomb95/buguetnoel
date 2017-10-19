@@ -10,6 +10,7 @@ void testSFML() {
 // Fin test SFML
 
 #include "state.h"
+//#include "renderer.h"
 
 using namespace std;
 using namespace state;
@@ -19,9 +20,33 @@ int main(int argc,char* argv[])
 
 	if ((argv[1] != NULL) && string(argv[1]) == "state"){
            
-	    State state;
-            state.listElement[0].Attack(state.listElement[1]);
-            state.listElement[0].Attack(state.listElement[1]);
-	}
+	     Hero hero1;
+             Hero hero2;
+	     hero1.Attack(hero2);
+
+
+		
+}
+
+if ((argv[1] != NULL) && string(argv[1]) == "render"){
+           
+	    sf::RenderWindow window(sf::VideoMode(512, 256), "Tilemap");
+
+while (window.isOpen())
+    {
+        // on gère les évènements
+        sf::Event event;
+        while (window.pollEvent(event))
+        {
+            if(event.type == sf::Event::Closed)
+		
+                window.close();
+        }
+
+	window.clear();
+window.display();	
+}
+}
+      
     return 0;
 }

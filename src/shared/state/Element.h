@@ -4,10 +4,6 @@
 
 #include <string>
 
-namespace state {
-  class Element;
-}
-
 #include "TypeId.h"
 
 namespace state {
@@ -17,30 +13,22 @@ namespace state {
     // Associations
     // Attributes
   public:
-    int m_Life;
-    int m_ATK;
-    std::string m_Name;
+    std::string Name;
   protected:
-    TypeId m_TypeId;
+    TypeId typeId;
     int PosX;
-    int m_PosY;
-    int m_Team;
+    int PosY;
     // Operations
   public:
     Element ();
     ~Element ();
-    virtual void Attack (Element& other);
-    virtual void getDamage (int damage);
-    bool isAlive ();
     // Setters and Getters
-    TypeId getM_TypeId() const;
-    void setM_TypeId(TypeId m_TypeId);
+    TypeId getTypeId() const;
+    void setTypeId(TypeId typeId);
     int getPosX() const;
     void setPosX(int PosX);
-    int getM_PosY() const;
-    void setM_PosY(int m_PosY);
-    int getM_Team() const;
-    void setM_Team(int m_Team);
+    int getPosY() const;
+    void setPosY(int PosY);
   };
 
 };

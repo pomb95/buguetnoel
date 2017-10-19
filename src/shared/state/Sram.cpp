@@ -8,8 +8,8 @@
 
 namespace state {
     Sram::Sram(){
-        m_Name = "Sram";
-	std::cout <<"C'est un " << m_Name << std::endl;
+        Name = "Sram";
+	std::cout <<"C'est un " << Name << std::endl;
     }
     
     Sram::~Sram(){

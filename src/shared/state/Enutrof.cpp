@@ -8,8 +8,8 @@
 
 namespace state {
     Enutrof::Enutrof(){
-        m_Name = "Enutrof";
-	std::cout <<"C'est un " << m_Name << std::endl;
+        Name = "Enutrof";
+	std::cout <<"C'est un " << Name << std::endl;
     }
     
     Enutrof::~Enutrof(){

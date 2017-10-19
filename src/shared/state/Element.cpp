@@ -8,13 +8,13 @@
 
 namespace state {
     Element::Element(){
-        m_Name = "Element";
-        std::cout << m_Name <<" created" << std::endl;
+        Name = "Element";
+        std::cout << " created" << std::endl;
     }
 
     Element::~Element() {}
     
-    void Element::getDamage(int damage) {
+   /* void Element::getDamage(int damage) {
         m_Life -= damage;
         std::cout << "Un " << m_Name << " reçoit des dégâts !" << std::endl;
         if (!isAlive()) { std::cout << "Un " << m_Name << " est mort :(" << std::endl;}
@@ -27,5 +27,5 @@ namespace state {
        
     bool Element::isAlive() {
             return m_Life > 0 ;
-    }
+    }*/
 }
