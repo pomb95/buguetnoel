@@ -5,22 +5,22 @@
  */
 
 #include <iostream>
-#include "QG.h"
+#include "CommandCenter.h"
 
 namespace state {
-    QG::QG() : Building() {
-        Name = "QG";
+    CommandCenter::CommandCenter() : Building() {
+        Name = "Command Center";
         Life = 500;
         std::cout << Name << "created" << std::endl;
     }
-    QG::~QG() {}
+    CommandCenter::~CommandCenter() {}
     
-    void QG::getDamage (int damage){
+    void CommandCenter::getDamage (int damage){
         Life -= damage;
         std::cout << "Un " << Name << " reçoit des dégâts !" << std::endl;
     }
     
-    bool QG::isAlive (){
+    bool CommandCenter::isAlive (){
         return Life > 0 ;
     }
 }

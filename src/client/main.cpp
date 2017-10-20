@@ -25,7 +25,9 @@ int main(int argc,char* argv[])
              Sacrieur hero3;
 	     hero1.Attack(hero2);
              hero3.Attack(hero1);
-             QG qg1;
+             Building bat;
+             CommandTower com;
+             CommandCenter QG1;
 
 		
 }

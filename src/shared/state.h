@@ -13,7 +13,7 @@
 #include "state/Minion.h"
 #include "state/Decor.h"
 #include "state/Building.h"
-#include "state/QG.h"
+#include "state/CommandCenter.h"
 #include "state/CommandTower.h"
 #include "state/DecorId.h"
 #include "state/Eniripsa.h"
