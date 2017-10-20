@@ -10,7 +10,7 @@
 namespace state {
     CommandTower::CommandTower() : Building() {
         Name = "Command Tower";
-        std::cout << Name << "created" << std::endl;
+        std::cout << Name << " created" << std::endl;
     }
     CommandTower::~CommandTower() {}
 }

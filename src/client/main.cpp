@@ -20,17 +20,8 @@ int main(int argc,char* argv[])
 
 	if ((argv[1] != NULL) && string(argv[1]) == "state"){
            
-	     Enutrof hero1;
-             Sram hero2;
-             Sacrieur hero3;
-	     hero1.Attack(hero2);
-             hero3.Attack(hero1);
-             Building bat;
-             CommandTower com;
-             CommandCenter QG1;
-
-		
-}
+            State state;
+        }
 
 if ((argv[1] != NULL) && string(argv[1]) == "render"){
            

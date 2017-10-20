@@ -9,7 +9,15 @@
 namespace state{
     
     State::State(){
-	
+	Enutrof hero1;
+        Sram hero2;
+        Sacrieur hero3;
+	hero1.Attack(hero2);
+        hero3.Attack(hero1);
+        Building bat;
+        CommandTower com;
+        CommandCenter QG1;
+        Minion minion1;
     }
     
     State::~State(){

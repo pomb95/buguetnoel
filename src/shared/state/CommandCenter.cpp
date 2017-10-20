@@ -11,7 +11,7 @@ namespace state {
     CommandCenter::CommandCenter() : Building() {
         Name = "Command Center";
         Life = 500;
-        std::cout << Name << "created" << std::endl;
+        std::cout << Name << " created" << std::endl;
     }
     CommandCenter::~CommandCenter() {}
     
