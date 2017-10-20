@@ -9,11 +9,14 @@
 namespace state {
     Element::Element(){
         Name = "Element";
-        std::cout << " created" << std::endl;
+        std::cout << Name <<" created" << std::endl;
     }
 
     Element::~Element() {}
     
+    const std::string& Element::getName() const{
+        return this->Name;
+    }
    /* void Element::getDamage(int damage) {
         m_Life -= damage;
         std::cout << "Un " << m_Name << " reçoit des dégâts !" << std::endl;

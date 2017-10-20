@@ -9,7 +9,9 @@
 namespace state {
     Sram::Sram(){
         Name = "Sram";
-	std::cout <<"C'est un " << Name << std::endl;
+        Range = 7;
+        ATK = 10;
+	std::cout << Name <<" created" << std::endl;
     }
     
     Sram::~Sram(){

@@ -13,11 +13,18 @@ namespace state {
 
   /// class QG - 
   class QG : public state::Building {
+    // Attributes
+  protected:
+    int Life;
     // Operations
   public:
     QG ();
     ~QG ();
+    void getDamage (int damage);
+    bool isAlive ();
     // Setters and Getters
+    int getLife() const;
+    void setLife(int Life);
   };
 
 };

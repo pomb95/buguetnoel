@@ -8,6 +8,11 @@
 #include "Minion.h"
 
 namespace state {
-    Minion::Minion() {}
+    Minion::Minion() : MobileElement() {
+        Name = "Minion";
+        Life = 50;
+        Range = 1;
+        ATK = 5;
+    }
     Minion::~Minion() {}
 }

@@ -15,20 +15,32 @@ namespace state {
   /// class MobileElement - 
   class MobileElement : public state::Element {
     // Attributes
-  public:
+  protected:
     int Team;
     int Life;
     int ATK;
+    int Range;
+    int Movement;
     // Operations
   public:
     MobileElement ();
     ~MobileElement ();
-    void Attack (MobileElement victime);
+    void Attack (MobileElement& victime);
     bool isAlive ();
     /// 	
     /// @param damage		(???) 
     void getDamage (int damage);
     // Setters and Getters
+    int getTeam() const;
+    void setTeam(int Team);
+    int getLife() const;
+    void setLife(int Life);
+    int getATK() const;
+    void setATK(int ATK);
+    int getRange() const;
+    void setRange(int Range);
+    int getMovement() const;
+    void setMovement(int Movement);
   };
 
 };

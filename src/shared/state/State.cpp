@@ -10,7 +10,6 @@ namespace state{
     
     State::State(){
 	
-       
     }
     
     State::~State(){

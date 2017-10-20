@@ -8,6 +8,12 @@
 #include "Sacrieur.h"
 
 namespace state {
-    Sacrieur::Sacrieur() {}
+    Sacrieur::Sacrieur() : Hero() {
+        Name = "Sacrieur";
+        Life = 150;
+        Range = 1;
+        ATK = 50;
+        std::cout << Name << " created" << std::endl;
+    }
     Sacrieur::~Sacrieur() {}
 }

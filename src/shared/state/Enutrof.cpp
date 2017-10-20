@@ -9,7 +9,11 @@
 namespace state {
     Enutrof::Enutrof(){
         Name = "Enutrof";
-	std::cout <<"C'est un " << Name << std::endl;
+        Life = 25;
+        Range = 9;
+        Movement = 5;
+        ATK = 15;
+	std::cout << Name <<" created" << std::endl;
     }
     
     Enutrof::~Enutrof(){

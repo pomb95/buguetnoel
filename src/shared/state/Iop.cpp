@@ -8,6 +8,12 @@
 #include "Iop.h"
 
 namespace state {
-    Iop::Iop() {}
+    Iop::Iop() : Hero() {
+        Name = "Iop";
+        Life = 75;
+        Range = 3;
+        ATK = 20;
+        std::cout << Name <<" created" << std::endl;
+    }
     Iop::~Iop() {}
 }

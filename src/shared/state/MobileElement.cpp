@@ -8,22 +8,26 @@
 #include "MobileElement.h"
 
 namespace state{
-    MobileElement::MobileElement() {}
+    MobileElement::MobileElement() {
+        Movement = 5;
+        std::cout << "Mobile Element created" << std::endl;
+    }
     MobileElement::~MobileElement() {}
 
-        void MobileElement::Attack (MobileElement victime){
-	victime.getDamage(ATK); ;
-}
+    void MobileElement::Attack(MobileElement &victime){
+        std::cout << Name << " attaque " <<  victime.getName() << std::endl;
+	victime.getDamage(ATK); 
+    }
 
 
-void MobileElement::getDamage(int damage) {
+    void MobileElement::getDamage(int damage) {
         Life -= damage;
         std::cout << "Un " << Name << " reçoit des dégâts !" << std::endl;
         //if (!isAlive()) { std::cout << "Un " << Name << " est mort :(" << std::endl;}
     }
 
-bool MobileElement::isAlive() {
-            return Life > 0 ;
+    bool MobileElement::isAlive() {
+        return Life > 0 ;
     }
 	
 }

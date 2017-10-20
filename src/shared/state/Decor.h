@@ -8,13 +8,11 @@ namespace state {
 }
 
 #include "StaticElement.h"
-#include "DecorId.h"
 
 namespace state {
 
   /// class Decor - 
   class Decor : public state::StaticElement {
-    // Associations
     // Operations
   public:
     Decor ();

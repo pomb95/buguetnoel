@@ -4,6 +4,12 @@
 
 
 namespace state {
+  class Decor;
+}
+
+#include "Decor.h"
+
+namespace state {
 
   enum DecorId {
     ROCK     = 1,

@@ -8,6 +8,9 @@
 #include "CommandTower.h"
 
 namespace state {
-    CommandTower::CommandTower() {}
+    CommandTower::CommandTower() : Building() {
+        Name = "Command Tower";
+        std::cout << Name << "created" << std::endl;
+    }
     CommandTower::~CommandTower() {}
 }

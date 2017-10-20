@@ -8,6 +8,11 @@
 #include "Building.h"
 
 namespace state {
-    Building::Building() {}
+    Building::Building() : StaticElement() {
+        ATK = 10;
+        Range = 5;
+        std::cout << "Building created" << std::endl;
+    }
     Building::~Building() {}
+    
 }

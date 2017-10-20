@@ -7,11 +7,9 @@
 #include "Hero.h"
 
 namespace state {
-    Hero::Hero() {
+    Hero::Hero() : MobileElement() {
         Name = "Hero";
-        Life = 10;
-        ATK = 5;
-        std::cout << "C'est un " << Name << std::endl;
+        std::cout << Name <<" created" << std::endl;
     }
     
     Hero::~Hero(){

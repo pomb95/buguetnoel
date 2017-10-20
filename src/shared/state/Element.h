@@ -12,12 +12,11 @@ namespace state {
   class Element {
     // Associations
     // Attributes
-  public:
-    std::string Name;
   protected:
     TypeId typeId;
     int PosX;
     int PosY;
+    std::string Name;
     // Operations
   public:
     Element ();
@@ -29,6 +28,8 @@ namespace state {
     void setPosX(int PosX);
     int getPosY() const;
     void setPosY(int PosY);
+    const std::string& getName() const;
+    void setName(const std::string& Name);
   };
 
 };
