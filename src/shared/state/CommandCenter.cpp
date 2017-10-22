@@ -23,4 +23,5 @@ namespace state {
     bool CommandCenter::isAlive (){
         return Life > 0 ;
     }
+    
 }

@@ -5,6 +5,7 @@
 
 namespace state {
   class MobileElement;
+  class CommandCenter;
   class Element;
 }
 
@@ -26,6 +27,7 @@ namespace state {
     MobileElement ();
     ~MobileElement ();
     void Attack (MobileElement& victime);
+    void Attack (CommandCenter& victime);
     bool isAlive ();
     /// 	
     /// @param damage		(???) 

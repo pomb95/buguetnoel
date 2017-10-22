@@ -14,18 +14,13 @@ namespace state {
   /// class Building - 
   class Building : public state::StaticElement {
     // Attributes
-  protected:
-    int ATK;
-    int Range;
+  public:
+    int Team;
     // Operations
   public:
     Building ();
     ~Building ();
     // Setters and Getters
-    int getATK() const;
-    void setATK(int ATK);
-    int getRange() const;
-    void setRange(int Range);
   };
 
 };

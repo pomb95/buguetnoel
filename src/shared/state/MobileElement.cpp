@@ -6,6 +6,7 @@
 
 #include <iostream>
 #include "MobileElement.h"
+#include "CommandCenter.h"
 
 namespace state{
     MobileElement::MobileElement() {
@@ -18,7 +19,11 @@ namespace state{
         std::cout << Name << " attaque " <<  victime.getName() << std::endl;
 	victime.getDamage(ATK); 
     }
-
+    
+    void MobileElement::Attack (CommandCenter &victime){
+        std::cout << Name << " attaque " <<  victime.getName() << std::endl;
+	victime.getDamage(ATK); 
+    }
 
     void MobileElement::getDamage(int damage) {
         Life -= damage;

@@ -18,6 +18,7 @@ namespace state{
         CommandTower com;
         CommandCenter QG1;
         Minion minion1;
+        minion1.Attack(QG1);
     }
     
     State::~State(){
