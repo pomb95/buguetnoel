@@ -6,9 +6,15 @@
 
 namespace state {
   class Element;
+  class Hero;
+  class Minion;
+  class Building;
 }
 
 #include "Element.h"
+#include "Hero.h"
+#include "Minion.h"
+#include "Building.h"
 
 namespace state {
 
@@ -18,11 +24,17 @@ namespace state {
     // Attributes
   public:
     std::vector<Element> listElement;
+    std::vector<Hero> listHero;
+    std::vector<Minion> listMinion;
+    std::vector<Hero> listBuilding;
     // Operations
   public:
     State ();
     ~State ();
     void addElement (Element element);
+    void addHero (Hero hero);
+    void addMinion (Minion minion);
+    void addBuilding (Building building);
     // Setters and Getters
   };
 
