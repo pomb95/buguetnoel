@@ -14,6 +14,7 @@ namespace state {
         Range = 1;
         ATK = 5;
         typeId = MINION;
+        std::cout << " Minion Created" << std::endl;
     }
     Minion::~Minion() {}
 }

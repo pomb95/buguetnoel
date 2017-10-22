@@ -8,6 +8,8 @@
 #include "StaticElement.h"
 
 namespace state {
-    StaticElement::StaticElement() : Element() {}
+    StaticElement::StaticElement() : Element() {
+        std::cout <<" Static Element created >>"; 
+    }
     StaticElement::~StaticElement() {}
 }

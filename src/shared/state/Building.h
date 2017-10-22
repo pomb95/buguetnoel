@@ -4,6 +4,7 @@
 
 
 namespace state {
+  class MobileElement;
   class StaticElement;
 }
 
@@ -16,10 +17,12 @@ namespace state {
     // Attributes
   public:
     int Team;
+    int ATK;
     // Operations
   public:
     Building ();
     ~Building ();
+    void Attack  (MobileElement& victime);
     // Setters and Getters
   };
 

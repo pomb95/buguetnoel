@@ -20,6 +20,8 @@ namespace state{
         Minion minion1;
         minion1.Attack(QG1);
         QG1.getStatus();
+        QG1.Attack(hero2);
+        hero2.getStatus();
         
     }
     

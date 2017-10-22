@@ -10,8 +10,13 @@
 
 namespace state {
     Building::Building() : StaticElement() {
-        std::cout << "Building created" << std::endl;
+        ATK = 10;
+        std::cout << " Building created >> ";
     }
     Building::~Building() {}
-       
+    
+    void Building::Attack(MobileElement &victime){
+        std::cout << Name << " attaque " <<  victime.getName() << std::endl;
+	victime.getDamage(ATK);
+    }
 }
