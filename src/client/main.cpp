@@ -39,8 +39,7 @@ while (render.window.isOpen())
                 render.window.close();
         }
 
-	render.window.clear();
-render.window.display();	
+		
 }
 }
       

@@ -3,7 +3,7 @@
 #define RENDER__TEXTURES__H
 
 #include <SFML/Graphics.hpp>
-#include <SFML/Graphics.hpp>
+#include <state/Element.h>
 
 namespace render {
 

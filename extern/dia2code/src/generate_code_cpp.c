@@ -681,7 +681,6 @@ struct stdlib_includes {
    int stdlib;
    int vector;
    int memory;
-   int limits;
    int map;
    int unordered_map;
    int set;
@@ -692,10 +691,10 @@ struct stdlib_includes {
    int array;   
    int thread;
    int mutex;
-   int random;
    int graphics;
-   int sfmlGraphics;
-   int jsoncpp;
+   int state1;
+   int state2;
+
 };
 
 void print_include_stdlib(struct stdlib_includes* si,char* name) {
@@ -710,19 +709,28 @@ void print_include_stdlib(struct stdlib_includes* si,char* name) {
        ||  strstr(name,"int64_t")
        ||  strstr(name,"uint64_t"))) {
            print ("#include <stdint.h>\n");
+	   
            si->stdint = 1;
        }
        if (!si->stdlib && strstr(name,"size_t")) {
            print ("#include <stdlib.h>\n");
            si->stdlib = 1;
        }
+	if (!si->graphics && strstr(name,"sf::")) {
+           print ("#include <SFML/Graphics.hpp>\n");
+           si->graphics = 1;
+       }
+	if (!si->state1 && strstr(name,"state::Element")) {
+           print ("#include <state/Element.h>\n");
+           si->state1 = 1;
+       }
+      if (!si->state2 && strstr(name,"state::State")) {
+           print ("#include <state/State.h>\n");
+           si->state2 = 1;
+       }
        if (!si->string && strstr(name,"std::string")) {
            print ("#include <string>\n");
            si->string = 1;
-       }
-       if (!si->graphics && strstr(name,"sf::")) {
-           print ("#include <SFML/Graphics.hpp>\n");
-           si->graphics = 1;
        }
        if (!si->array && strstr(name,"std::array")) {
            print ("#include <array>\n");
@@ -739,10 +747,6 @@ void print_include_stdlib(struct stdlib_includes* si,char* name) {
        if (!si->set && strstr(name,"std::set")) {
            print ("#include <set>\n");
            si->set = 1;
-       }
-       if (!si->limits && strstr(name,"std::numeric_limits")) {
-           print ("#include <limits>\n");
-           si->limits = 1;
        }
        if (!si->list && strstr(name,"std::list")) {
            print ("#include <list>\n");
@@ -781,26 +785,8 @@ void print_include_stdlib(struct stdlib_includes* si,char* name) {
            print ("#include <memory>\n");
            si->memory = 1;
        }
-       if (!si->random 
-       && (strstr(name,"std::mt19937")
-       ||  strstr(name,"std::random_device")
-       ||  strstr(name,"std::uniform_int_distribution"))) {
-           print ("#include <random>\n");
-           si->random = 1;
-       }
-       if (!si->sfmlGraphics 
-       && (strstr(name,"sf::RenderWindow")
-       ||  strstr(name,"sf::VertexArray")
-       ||  strstr(name,"sf::Texture"))) {
-           print ("#include <SFML/Graphics.hpp>\n");
-           si->sfmlGraphics = 1;
-       }       
-       if (!si->jsoncpp
-       && (strstr(name,"Json::") == name)) {
-           print ("#include <json/json.h>\n");
-           si->jsoncpp = 1;
-       }       
     }
+
 }
 
 void

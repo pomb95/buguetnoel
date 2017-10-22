@@ -2,6 +2,7 @@
 #ifndef STATE__STATICELEMENT__H
 #define STATE__STATICELEMENT__H
 
+#include <state/Element.h>
 
 namespace state {
   class Element;

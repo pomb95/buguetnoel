@@ -3,7 +3,6 @@
 #define RENDER__RENDER__H
 
 #include <SFML/Graphics.hpp>
-#include <SFML/Graphics.hpp>
 
 namespace render {
 

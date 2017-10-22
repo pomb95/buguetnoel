@@ -4,7 +4,6 @@
 
 #include <SFML/Graphics.hpp>
 #include <vector>
-#include <SFML/Graphics.hpp>
 
 namespace render {
   class Textures;
@@ -21,12 +20,12 @@ namespace render {
     sf::View view;
     int type;
     std::vector<sf::Sprite> list_sprite;
-    std::vector<render::Textures> list_texture;
+    std::vector<Textures> list_texture;
     // Operations
   public:
-    View (int view);
+    View ();
     ~View ();
-    void init (const state::State& state);
+    void init ();
     void draw (sf::RenderWindow& window);
     void add_Sprite (sf::Sprite sprite);
     // Setters and Getters

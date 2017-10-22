@@ -2,6 +2,7 @@
 #ifndef STATE__MOBILEELEMENT__H
 #define STATE__MOBILEELEMENT__H
 
+#include <state/Element.h>
 
 namespace state {
   class MobileElement;
