@@ -14,11 +14,13 @@ namespace state{
         Sacrieur hero3;
 	hero1.Attack(hero2);
         hero3.Attack(hero1);
-        Building bat;
+        hero1.getStatus();
         CommandTower com;
         CommandCenter QG1;
         Minion minion1;
         minion1.Attack(QG1);
+        QG1.getStatus();
+        
     }
     
     State::~State(){

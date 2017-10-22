@@ -13,6 +13,7 @@ namespace state {
         Life = 50;
         Range = 1;
         ATK = 5;
+        typeId = MINION;
     }
     Minion::~Minion() {}
 }

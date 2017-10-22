@@ -14,7 +14,8 @@ namespace state {
   enum DecorId {
     ROCK     = 1,
     WATER     = 2,
-    TREE     = 3
+    TREE     = 3,
+    PATH     = 4
   };
 
 };

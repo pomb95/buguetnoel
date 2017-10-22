@@ -22,6 +22,7 @@ namespace state {
     ~CommandCenter ();
     void getDamage (int damage);
     bool isAlive ();
+    void getStatus ();
     // Setters and Getters
     int getLife() const;
     void setLife(int Life);

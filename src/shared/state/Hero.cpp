@@ -9,12 +9,13 @@
 namespace state {
     Hero::Hero() : MobileElement() {
         Name = "Hero";
+        typeId = HERO;
         std::cout << Name <<" created" << std::endl;
     }
     
     Hero::~Hero(){
     
-    }
+    } 
 
    
 }

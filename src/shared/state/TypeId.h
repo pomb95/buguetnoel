@@ -9,7 +9,7 @@ namespace state {
     SPACE     = 1,
     OBSTACLE     = 2,
     COMMANDTOWER     = 3,
-    QG     = 4,
+    COMMANDCENTER     = 4,
     MINION     = 5,
     HERO
   };

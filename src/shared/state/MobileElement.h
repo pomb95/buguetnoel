@@ -32,6 +32,7 @@ namespace state {
     /// 	
     /// @param damage		(???) 
     void getDamage (int damage);
+    void getStatus ();
     // Setters and Getters
     int getTeam() const;
     void setTeam(int Team);
