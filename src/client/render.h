@@ -4,5 +4,6 @@
 
 #include "render/Render.h"
 #include "render/Tiles.h"
+#include "render/Textures.h"
 #include "render/View.h"
 #endif

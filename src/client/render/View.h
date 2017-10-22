@@ -7,6 +7,12 @@
 #include <SFML/Graphics.hpp>
 
 namespace render {
+  class Textures;
+}
+
+#include "Textures.h"
+
+namespace render {
 
   /// class View - 
   class View {
