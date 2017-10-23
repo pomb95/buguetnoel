@@ -17,6 +17,7 @@ namespace state {
   public:
     CommandTower ();
     ~CommandTower ();
+    void getStatus ();
     // Setters and Getters
   };
 

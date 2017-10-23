@@ -10,6 +10,7 @@
 
 namespace state{
     MobileElement::MobileElement() : Element() {
+        Team = 0;
         Movement = 5;
         Life = 10;
         ATK = 10;

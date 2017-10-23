@@ -10,6 +10,7 @@
 
 namespace state {
     Building::Building() : StaticElement() {
+        Team = 0;
         ATK = 10;
         std::cout << " Building created >> ";
     }
