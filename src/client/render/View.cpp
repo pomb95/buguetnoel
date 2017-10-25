@@ -67,10 +67,10 @@ private:
 
 TileMap Background;
 render::Tiles tile;
-std::string level_1_path = "res/level1.png";
+std::string level_1_path = "res/level3.png";
 std::string tile_texture_path = "res/terre_herbe.png";
 sf::Vector2u tile_dim(28, 28);
-
+render::Textures texture;
 
 
 
@@ -89,12 +89,15 @@ render::View::~View() {
 
 }
 
-void render::View::init() {
+void render::View::init(state::State& state_game) {
 
 
         tile.convert(level_1_path);
         std::cout<<  *tile.tiles <<"   "<<tile.tiles[1]<<"   "<<tile.tiles[2]<<"   "<<tile.tiles[3]<<"   "<<tile.tiles[4] << std::endl;
         Background.load(tile_texture_path, tile_dim, tile.tiles, tile.image_dim.x, tile.image_dim.y);
+        state_game.iop.setPosX(static_cast<int> (tile.pos_iop.x));
+        state_game.iop.setPosY(static_cast<int> (tile.pos_iop.y));
+        texture.load_texture(state_game.iop);
         
 }
 
@@ -107,7 +110,9 @@ void render::View::draw(sf::RenderWindow& window) {
        tile.convert(level_1_path);
         std::cout<<  *tile.tiles <<"   "<<tile.tiles[1]<<"   "<<tile.tiles[2]<<"   "<<tile.tiles[3]<<"   "<<tile.tiles[4] << std::endl;
         Background.load(tile_texture_path, tile_dim, tile.tiles, tile.image_dim.x, tile.image_dim.y);
-                window.draw(Background);
+        window.draw(Background);
+        window.draw(texture.spritef);
+                
  
 
 }

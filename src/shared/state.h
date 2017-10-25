@@ -4,9 +4,10 @@
 
 #include "state/TypeId.h"
 #include "state/Element.h"
-#include "state/State.h"
 #include "state/MobileElement.h"
 #include "state/Hero.h"
+#include "state/Iop.h"
+#include "state/State.h"
 #include "state/Enutrof.h"
 #include "state/Sram.h"
 #include "state/StaticElement.h"
@@ -17,6 +18,5 @@
 #include "state/CommandTower.h"
 #include "state/DecorId.h"
 #include "state/Eniripsa.h"
-#include "state/Iop.h"
 #include "state/Sacrieur.h"
 #endif

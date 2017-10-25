@@ -14,9 +14,9 @@ namespace state {
     // Attributes
   protected:
     TypeId typeId;
+    std::string Name;
     int PosX;
     int PosY;
-    std::string Name;
     // Operations
   public:
     Element ();
@@ -24,12 +24,12 @@ namespace state {
     // Setters and Getters
     TypeId getTypeId() const;
     void setTypeId(TypeId typeId);
+    const std::string& getName() const;
+    void setName(const std::string& Name);
     int getPosX() const;
     void setPosX(int PosX);
     int getPosY() const;
     void setPosY(int PosY);
-    const std::string& getName() const;
-    void setName(const std::string& Name);
   };
 
 };

@@ -3,6 +3,7 @@
 #define RENDER__RENDER__H
 
 #include <SFML/Graphics.hpp>
+#include <state/State.h>
 
 namespace render {
 
@@ -15,6 +16,7 @@ namespace render {
   public:
     Render ();
     ~Render ();
+    void init (state::State state_game);
     // Setters and Getters
   };
 

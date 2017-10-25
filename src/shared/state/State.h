@@ -5,9 +5,11 @@
 #include <vector>
 
 namespace state {
+  class Iop;
   class Element;
 }
 
+#include "Iop.h"
 #include "Element.h"
 
 namespace state {
@@ -16,6 +18,8 @@ namespace state {
   class State {
     // Associations
     // Attributes
+  public:
+    Iop iop;
   private:
     std::vector<Element> listElement;
     // Operations

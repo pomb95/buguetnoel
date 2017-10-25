@@ -9,7 +9,7 @@
 namespace state{
     
     State::State(){
-	Enutrof hero1;
+	/*Enutrof hero1;
         Sram hero2;
         Sacrieur hero3;
 	hero1.Attack(hero2);
@@ -21,7 +21,9 @@ namespace state{
         minion1.Attack(QG1);
         QG1.getStatus();
         QG1.Attack(hero2);
-        hero2.getStatus();
+        hero2.getStatus();*/
+        
+        Iop hero;
         
     }
     

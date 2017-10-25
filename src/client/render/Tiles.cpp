@@ -70,17 +70,12 @@ void render::Tiles::convert(std::string path) {
                 }
             } else tab[i + j * static_cast<int> (image_dim.y)] = 4;
 
-            /*if (static_cast<int> (image.getPixel(i, j).r) == 150) {
-                //state::Element tour(i*28,j*28,16);
-                size++;
-                pos_tour.push_back(sf::Vector2i(i * 28, j * 28));
+            if (static_cast<int> (image.getPixel(i, j).r) == 150) {
+                
+                pos_iop=sf::Vector2i(i * 28, j * 28);
             }
 
-            if (static_cast<int> (image.getPixel(i, j).r) == 100) {
-
-
-                pos_chiffre.push_back(sf::Vector2i(i * 28, j * 28));
-            }*/
+       
 
         }
 

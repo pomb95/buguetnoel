@@ -3,7 +3,6 @@
 #define RENDER__TILES__H
 
 #include <SFML/Graphics.hpp>
-#include <vector>
 #include <string>
 
 namespace render {
@@ -14,7 +13,7 @@ namespace render {
   public:
     const int* tiles;
     int size;
-    std::vector<sf::Vector2i> pos_tour;
+    sf::Vector2i pos_iop;
     const int* tiles_territory;
     sf::Image image;
     sf::Vector2u image_dim;

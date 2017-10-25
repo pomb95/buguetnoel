@@ -25,8 +25,9 @@ int main(int argc,char* argv[])
         }
 
 if ((argv[1] != NULL) && string(argv[1]) == "render"){
-           
+    State state; 
     Render render;
+    render.init(state);
 
 while (render.window.isOpen())
     {

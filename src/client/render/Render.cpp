@@ -10,15 +10,22 @@ std::string window_title = "Dofus";
 render::View view;
 
  render::Render::Render (){
-      window.create(sf::VideoMode(window_width, window_heigth), window_title);
-    window.setPosition(pos_window);
-    window.setFramerateLimit(frame_fps_limit);
-    view.init();
-    view.draw(window);
-      window.display();
+  
     
  }
  
  render::Render::~Render (){
+     
+ }
+ 
+ 
+ void render::Render::init(state::State state_game){
+     
+    window.create(sf::VideoMode(window_width, window_heigth), window_title);
+    window.setPosition(pos_window);
+    window.setFramerateLimit(frame_fps_limit);
+    view.init(state_game);
+    view.draw(window);
+      window.display();
      
  }
