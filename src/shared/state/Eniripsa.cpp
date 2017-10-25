@@ -12,6 +12,7 @@ namespace state {
         Name = "Eniripsa";
         Range = 5;
         ATK = 10;
+        typeId = ENI;
         std::cout << Name <<" created" << std::endl;
     }
     Eniripsa::~Eniripsa() {}

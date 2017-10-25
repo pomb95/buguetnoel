@@ -11,6 +11,7 @@ namespace state {
         Name = "Sram";
         Range = 7;
         ATK = 10;
+        typeId = SRAM;
 	std::cout << Name <<" created" << std::endl;
     }
     

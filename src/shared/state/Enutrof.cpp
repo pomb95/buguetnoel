@@ -13,6 +13,7 @@ namespace state {
         Range = 9;
         Movement = 5;
         ATK = 15;
+        typeId = ENU;
 	std::cout << Name <<" created" << std::endl;
     }
     

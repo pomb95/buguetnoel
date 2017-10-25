@@ -70,7 +70,22 @@ render::Tiles tile;
 std::string level_1_path = "res/level3.png";
 std::string tile_texture_path = "res/terre_herbe.png";
 sf::Vector2u tile_dim(28, 28);
-render::Textures texture;
+render::Textures texture1;
+render::Textures texture2;
+render::Textures texture3;
+render::Textures texture4;
+render::Textures texture5;
+render::Textures texture6;
+render::Textures texture7;
+render::Textures texture8;
+render::Textures texture9;
+render::Textures texture10;
+render::Textures texture11;
+render::Textures texture12;
+render::Textures texture13;
+render::Textures texture14;
+render::Textures texture15;
+render::Textures texture16;
 
 
 
@@ -91,13 +106,35 @@ render::View::~View() {
 
 void render::View::init(state::State& state_game) {
 
-
+        
         tile.convert(level_1_path);
-        std::cout<<  *tile.tiles <<"   "<<tile.tiles[1]<<"   "<<tile.tiles[2]<<"   "<<tile.tiles[3]<<"   "<<tile.tiles[4] << std::endl;
         Background.load(tile_texture_path, tile_dim, tile.tiles, tile.image_dim.x, tile.image_dim.y);
-        state_game.iop.setPosX(static_cast<int> (tile.pos_iop.x));
-        state_game.iop.setPosY(static_cast<int> (tile.pos_iop.y));
-        texture.load_texture(state_game.iop);
+        
+        
+        state_game.list_eniripsa[0].setPosX(static_cast<int> (tile.list_pos_hero[0].x));
+        state_game.list_eniripsa[0].setPosY(static_cast<int> (tile.list_pos_hero[0].y));
+        texture1.load_texture(state_game.list_eniripsa[0]);
+        list_sprite.push_back(texture1.sprite);
+        
+        state_game.list_iop[0].setPosX(static_cast<int> (tile.list_pos_hero[1].x));
+        state_game.list_iop[0].setPosY(static_cast<int> (tile.list_pos_hero[1].y));
+        texture2.load_texture(state_game.list_iop[0]);
+        list_sprite.push_back(texture2.sprite);
+        
+        state_game.list_sram[0].setPosX(static_cast<int> (tile.list_pos_hero[2].x));
+        state_game.list_sram[0].setPosY(static_cast<int> (tile.list_pos_hero[2].y));
+        texture3.load_texture(state_game.list_sram[0]);
+        list_sprite.push_back(texture3.sprite);
+        
+        state_game.list_enutrof[0].setPosX(static_cast<int> (tile.list_pos_hero[3].x));
+        state_game.list_enutrof[0].setPosY(static_cast<int> (tile.list_pos_hero[3].y));
+        texture4.load_texture(state_game.list_enutrof[0]);
+        list_sprite.push_back(texture4.sprite);
+        
+        
+        
+      
+        
         
 }
 
@@ -107,11 +144,11 @@ void render::View::add_Sprite(sf::Sprite sprite) {
 
 
 void render::View::draw(sf::RenderWindow& window) {
-       tile.convert(level_1_path);
-        std::cout<<  *tile.tiles <<"   "<<tile.tiles[1]<<"   "<<tile.tiles[2]<<"   "<<tile.tiles[3]<<"   "<<tile.tiles[4] << std::endl;
-        Background.load(tile_texture_path, tile_dim, tile.tiles, tile.image_dim.x, tile.image_dim.y);
-        window.draw(Background);
-        window.draw(texture.spritef);
+    window.draw(Background);
+      for (unsigned i = 0; i<list_sprite.size(); i++) {
+                window.draw(list_sprite[i]);
+                
+            }
                 
  
 

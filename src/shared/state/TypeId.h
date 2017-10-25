@@ -11,7 +11,11 @@ namespace state {
     COMMANDTOWER     = 3,
     COMMANDCENTER     = 4,
     MINION     = 5,
-    HERO
+    ENI,
+    SRAM,
+    IOP,
+    ENU,
+    SACRI
   };
 
 };

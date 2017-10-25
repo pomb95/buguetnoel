@@ -71,8 +71,23 @@ void render::Tiles::convert(std::string path) {
             } else tab[i + j * static_cast<int> (image_dim.y)] = 4;
 
             if (static_cast<int> (image.getPixel(i, j).r) == 150) {
+                list_pos_hero.push_back(sf::Vector2i(i * 28, j * 28));
                 
-                pos_iop=sf::Vector2i(i * 28, j * 28);
+            }
+            
+            if (static_cast<int> (image.getPixel(i, j).b) == 150) {
+                list_pos_center.push_back(sf::Vector2i(i * 28, j * 28));
+                
+            }
+            
+            if (static_cast<int> (image.getPixel(i, j).g) == 150) {
+                list_pos_tower.push_back(sf::Vector2i(i * 28, j * 28));
+                
+            }
+            
+             if ((static_cast<int> (image.getPixel(i, j).g) == 150)&&(static_cast<int> (image.getPixel(i, j).r) == 150)) {
+                list_pos_decor.push_back(sf::Vector2i(i * 28, j * 28));
+                
             }
 
        

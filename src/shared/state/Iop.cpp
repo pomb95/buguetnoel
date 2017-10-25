@@ -13,6 +13,7 @@ namespace state {
         Life = 75;
         Range = 3;
         ATK = 20;
+        typeId = IOP;
         std::cout << Name <<" created" << std::endl;
     }
     Iop::~Iop() {}
