@@ -4,6 +4,7 @@
 
 #include <SFML/Graphics.hpp>
 #include <vector>
+#include <state/State.h>
 
 namespace render {
   class Textures;
@@ -25,7 +26,7 @@ namespace render {
   public:
     View ();
     ~View ();
-    void init ();
+    void init (state::State& state_game);
     void draw (sf::RenderWindow& window);
     void add_Sprite (sf::Sprite sprite);
     // Setters and Getters

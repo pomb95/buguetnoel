@@ -9,7 +9,6 @@
 namespace state {
     Hero::Hero(int team) : MobileElement(team) {
         Name = "Hero";
-        typeId = HERO;
         std::cout << Name <<" created >> ";
     }
     

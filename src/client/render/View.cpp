@@ -1,4 +1,3 @@
-
 #include <render/View.h>
 #include <iostream>
 #include "state/State.h"
@@ -67,9 +66,10 @@ private:
 
 TileMap Background;
 render::Tiles tile;
-std::string level_1_path = "res/level1.png";
+std::string level_1_path = "res/level3.png";
 std::string tile_texture_path = "res/terre_herbe.png";
 sf::Vector2u tile_dim(28, 28);
+
 
 
 
@@ -89,12 +89,58 @@ render::View::~View() {
 
 }
 
-void render::View::init() {
+void render::View::init(state::State& state_game) {
 
-
+        
         tile.convert(level_1_path);
-        std::cout<<  *tile.tiles <<"   "<<tile.tiles[1]<<"   "<<tile.tiles[2]<<"   "<<tile.tiles[3]<<"   "<<tile.tiles[4] << std::endl;
         Background.load(tile_texture_path, tile_dim, tile.tiles, tile.image_dim.x, tile.image_dim.y);
+        
+        
+        //initialisation de la liste textures
+        for (unsigned j = 0; j < state_game.list_element.size(); j++) {
+                render::Textures texture;
+                list_texture.push_back(texture);
+            }
+         int nb_hero=0;
+            int nb_tower=0;
+            int nb_center=0;
+        // on donne les positions 
+        for (unsigned i = 0; i<state_game.list_element.size(); i++) {
+           
+            
+            if((state_game.list_element[i].getTypeId()==7)||(state_game.list_element[i].getTypeId()==6)||
+                    (state_game.list_element[i].getTypeId()==8)||(state_game.list_element[i].getTypeId()==9)||(state_game.list_element[i].getTypeId()==10)){
+                
+                state_game.list_element[i].setPosX(static_cast<int> (tile.list_pos_hero[nb_hero].x));
+            state_game.list_element[i].setPosY(static_cast<int> (tile.list_pos_hero[nb_hero].y));
+            list_texture[i].load_texture(state_game.list_element[i]);
+            this->add_Sprite(list_texture[i].sprite);
+               nb_hero++;
+            }
+           
+           if(state_game.list_element[i].getTypeId()==3){
+                 state_game.list_element[i].setPosX(static_cast<int> (tile.list_pos_tower[nb_tower].x));
+            state_game.list_element[i].setPosY(static_cast<int> (tile.list_pos_tower[nb_tower].y));
+            list_texture[i].load_texture(state_game.list_element[i]);
+            this->add_Sprite(list_texture[i].sprite);
+               nb_tower++; 
+            }
+            
+            if(state_game.list_element[i].getTypeId()==4){
+                 state_game.list_element[i].setPosX(static_cast<int> (tile.list_pos_center[nb_center].x));
+            state_game.list_element[i].setPosY(static_cast<int> (tile.list_pos_center[nb_center].y));
+            list_texture[i].load_texture(state_game.list_element[i]);
+            this->add_Sprite(list_texture[i].sprite);
+            nb_center++;
+            }
+            
+            
+            
+            }
+        
+        
+       
+        
         
 }
 
@@ -104,10 +150,12 @@ void render::View::add_Sprite(sf::Sprite sprite) {
 
 
 void render::View::draw(sf::RenderWindow& window) {
-       tile.convert(level_1_path);
-        std::cout<<  *tile.tiles <<"   "<<tile.tiles[1]<<"   "<<tile.tiles[2]<<"   "<<tile.tiles[3]<<"   "<<tile.tiles[4] << std::endl;
-        Background.load(tile_texture_path, tile_dim, tile.tiles, tile.image_dim.x, tile.image_dim.y);
-                window.draw(Background);
+    window.draw(Background);
+      for (unsigned i = 0; i<list_sprite.size(); i++) {
+                window.draw(list_sprite[i]);
+                
+            }
+                
  
 
 }

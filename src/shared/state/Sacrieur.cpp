@@ -13,6 +13,7 @@ namespace state {
         Life = 150;
         Range = 1;
         ATK = 50;
+        typeId = SACRI;
         std::cout << Name << " created" << std::endl;
     }
     Sacrieur::~Sacrieur() {}

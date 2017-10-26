@@ -9,6 +9,7 @@
 
 namespace state{
     
+<<<<<<< HEAD
     State::State () {
         
         std::vector<std::vector<Element> > tabElement;
@@ -41,6 +42,64 @@ namespace state{
         
         getTabSize(tabElement);
         //getTabElement(tabElement);
+=======
+    State::State(){
+	/*Enutrof hero1;
+        Sram hero2;
+        Sacrieur hero3;
+	hero1.Attack(hero2);
+        hero3.Attack(hero1);
+        hero1.getStatus();
+        CommandTower com;
+        CommandCenter QG1;
+        Minion minion1;
+        minion1.Attack(QG1);
+        QG1.getStatus();
+        QG1.Attack(hero2);
+        hero2.getStatus();*/
+        
+       
+        
+        CommandTower tour1;
+        list_element.push_back(tour1);
+        
+        CommandTower tour2;
+        list_element.push_back(tour2);
+        
+        CommandTower tour3;
+        list_element.push_back(tour3);
+        
+        CommandTower tour4;
+        list_element.push_back(tour4);
+        
+   
+        CommandCenter center1;
+        list_element.push_back(center1);
+        
+        CommandCenter center2;
+        list_element.push_back(center2);
+        
+         Iop hero1;
+        list_element.push_back(hero1);
+        
+        Eniripsa hero2;
+        list_element.push_back(hero2);
+        
+        Sram hero3;
+        list_element.push_back(hero3);
+        
+        Enutrof hero4;
+        list_element.push_back(hero4);
+        
+    
+        
+        
+        
+        
+        
+        
+        
+>>>>>>> 3d4de6fffa770b1939867eb06b543b61cc83ca74
         
     }
     
@@ -66,6 +125,7 @@ namespace state{
         }
     }*/
     
+<<<<<<< HEAD
     void State::initTabElement (std::vector<std::vector<Element> >& tab){
          tab.push_back(std::vector<Element>(0));
          tab.push_back(std::vector<Element>(0));
@@ -73,3 +133,6 @@ namespace state{
     }
 }
 
+=======
+}
+>>>>>>> 3d4de6fffa770b1939867eb06b543b61cc83ca74

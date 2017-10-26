@@ -14,9 +14,12 @@ namespace render {
   public:
     const int* tiles;
     int size;
-    std::vector<sf::Vector2i> pos_tour;
+    std::vector<sf::Vector2i> list_pos_hero;
     const int* tiles_territory;
     sf::Image image;
+    std::vector<sf::Vector2i> list_pos_decor;
+    std::vector<sf::Vector2i> list_pos_tower;
+    std::vector<sf::Vector2i> list_pos_center;
     sf::Vector2u image_dim;
     // Operations
   public:
