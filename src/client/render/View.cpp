@@ -69,7 +69,7 @@ TileMap Background;
 render::Tiles tile;
 std::string level_1_path = "res/level3.png";
 std::string tile_texture_path = "res/terre_herbe.png";
-sf::Vector2u tile_dim(28, 28);
+sf::Vector2u tile_dim(50, 28);
 render::Textures texture1;
 render::Textures texture2;
 render::Textures texture3;
@@ -130,7 +130,39 @@ void render::View::init(state::State& state_game) {
         state_game.list_enutrof[0].setPosY(static_cast<int> (tile.list_pos_hero[3].y));
         texture4.load_texture(state_game.list_enutrof[0]);
         list_sprite.push_back(texture4.sprite);
+
+	state_game.list_sacrieur[0].setPosX(static_cast<int> (tile.list_pos_hero[4].x));
+        state_game.list_sacrieur[0].setPosY(static_cast<int> (tile.list_pos_hero[4].y));
+        texture5.load_texture(state_game.list_sacrieur[0]);
+        list_sprite.push_back(texture5.sprite);
+	
+	state_game.list_sram[1].setPosX(static_cast<int> (tile.list_pos_hero[5].x));
+        state_game.list_sram[1].setPosY(static_cast<int> (tile.list_pos_hero[5].y));
+        texture6.load_texture(state_game.list_sram[1]);
+        list_sprite.push_back(texture6.sprite);
+
+	state_game.list_CommandCenter[0].setPosX(static_cast<int> (tile.list_pos_center[0].x));
+        state_game.list_CommandCenter[0].setPosY(static_cast<int> (tile.list_pos_center[0].y));
+        texture7.load_texture(state_game.list_CommandCenter[0]);
+        list_sprite.push_back(texture7.sprite);
+
+	state_game.list_CommandCenter[1].setPosX(static_cast<int> (tile.list_pos_center[1].x));
+        state_game.list_CommandCenter[1].setPosY(static_cast<int> (tile.list_pos_center[1].y));
+        texture8.load_texture(state_game.list_CommandCenter[1]);
+        list_sprite.push_back(texture8.sprite);
+
+	state_game.list_CommandTower[0].setPosX(static_cast<int> (tile.list_pos_tower[0].x));
+        state_game.list_CommandTower[0].setPosY(static_cast<int> (tile.list_pos_tower[0].y));
+        texture9.load_texture(state_game.list_CommandTower[0]);
+        list_sprite.push_back(texture9.sprite);
+
+	state_game.list_CommandTower[1].setPosX(static_cast<int> (tile.list_pos_tower[1].x));
+        state_game.list_CommandTower[1].setPosY(static_cast<int> (tile.list_pos_tower[1].y));
+        texture10.load_texture(state_game.list_CommandTower[1]);
+        list_sprite.push_back(texture10.sprite);
+
         
+
         
         
       

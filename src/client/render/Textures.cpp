@@ -51,7 +51,7 @@ void render::Textures::load_texture(const state::Element element) {
         
         path="res/sacri.png";
         scale=sf::Vector2f(0.4,0.4);
-                std::cout<<"sacri"<<std::endl; 
+        std::cout<<"sacri"<<std::endl; 
         
     }
     
@@ -59,14 +59,14 @@ void render::Textures::load_texture(const state::Element element) {
         
         path="res/tower.png";
         scale=sf::Vector2f(0.4,0.4);
-                std::cout<<"tower"<<std::endl; 
+        std::cout<<"tower"<<std::endl; 
         
     }
      if(element.getTypeId()==4){
         
         path="res/center.png";
-        scale=sf::Vector2f(0.4,0.4);
-                std::cout<<"eni"<<std::endl; 
+        scale=sf::Vector2f(0.3,0.3);
+        std::cout<<"center"<<std::endl; 
         
     }
         
