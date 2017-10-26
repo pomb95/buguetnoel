@@ -68,7 +68,7 @@ TileMap Background;
 render::Tiles tile;
 std::string level_1_path = "res/level3.png";
 std::string tile_texture_path = "res/terre_herbe.png";
-sf::Vector2u tile_dim(28, 28);
+sf::Vector2u tile_dim(25, 25);
 
 
 
