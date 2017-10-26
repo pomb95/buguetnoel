@@ -8,7 +8,7 @@
 #include "Minion.h"
 
 namespace state {
-    Minion::Minion(int team) : MobileElement(team) {
+    Minion::Minion() : MobileElement() {
         Name = "Minion";
         Life = 50;
         Range = 1;

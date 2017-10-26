@@ -8,7 +8,7 @@
 #include "Sacrieur.h"
 
 namespace state {
-    Sacrieur::Sacrieur(int team) : Hero(team) {
+    Sacrieur::Sacrieur() : Hero() {
         Name = "Sacrieur";
         Life = 150;
         Range = 1;

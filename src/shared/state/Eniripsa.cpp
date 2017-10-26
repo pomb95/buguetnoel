@@ -8,7 +8,7 @@
 #include "Eniripsa.h"
 
 namespace state {
-    Eniripsa::Eniripsa(int team) : Hero(team) {
+    Eniripsa::Eniripsa() : Hero() {
         Name = "Eniripsa";
         Range = 5;
         ATK = 10;
