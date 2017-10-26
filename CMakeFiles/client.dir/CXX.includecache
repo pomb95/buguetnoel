@@ -1,0 +1,388 @@
+#IncludeRegexLine: ^[ 	]*#[ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/buguet/Documents/Projet IS/plt/src/client/main.cpp
+iostream
+-
+SFML/Graphics.hpp
+-
+state.h
+/home/buguet/Documents/Projet IS/plt/src/client/state.h
+render.h
+/home/buguet/Documents/Projet IS/plt/src/client/render.h
+
+/home/buguet/Documents/Projet IS/plt/src/client/render.h
+render/Render.h
+/home/buguet/Documents/Projet IS/plt/src/client/render/Render.h
+render/Tiles.h
+/home/buguet/Documents/Projet IS/plt/src/client/render/Tiles.h
+render/Textures.h
+/home/buguet/Documents/Projet IS/plt/src/client/render/Textures.h
+render/View.h
+/home/buguet/Documents/Projet IS/plt/src/client/render/View.h
+
+/home/buguet/Documents/Projet IS/plt/src/client/render/Render.cpp
+Render.h
+/home/buguet/Documents/Projet IS/plt/src/client/render/Render.h
+View.h
+/home/buguet/Documents/Projet IS/plt/src/client/render/View.h
+iostream
+-
+
+/home/buguet/Documents/Projet IS/plt/src/client/render/Render.h
+SFML/Graphics.hpp
+-
+state/State.h
+-
+
+/home/buguet/Documents/Projet IS/plt/src/client/render/Textures.cpp
+render/Textures.h
+-
+iostream
+-
+
+/home/buguet/Documents/Projet IS/plt/src/client/render/Textures.h
+SFML/Graphics.hpp
+-
+state/Element.h
+-
+
+/home/buguet/Documents/Projet IS/plt/src/client/render/Tiles.cpp
+render/Tiles.h
+/home/buguet/Documents/Projet IS/plt/src/client/render/render/Tiles.h
+SFML/Graphics.hpp
+-
+
+/home/buguet/Documents/Projet IS/plt/src/client/render/Tiles.h
+SFML/Graphics.hpp
+-
+vector
+-
+string
+-
+
+/home/buguet/Documents/Projet IS/plt/src/client/render/View.cpp
+render/View.h
+-
+iostream
+-
+state/State.h
+/home/buguet/Documents/Projet IS/plt/src/client/render/state/State.h
+Render.h
+/home/buguet/Documents/Projet IS/plt/src/client/render/Render.h
+Tiles.h
+/home/buguet/Documents/Projet IS/plt/src/client/render/Tiles.h
+Textures.h
+/home/buguet/Documents/Projet IS/plt/src/client/render/Textures.h
+
+/home/buguet/Documents/Projet IS/plt/src/client/render/View.h
+SFML/Graphics.hpp
+-
+vector
+-
+state/State.h
+-
+Textures.h
+/home/buguet/Documents/Projet IS/plt/src/client/render/Textures.h
+
+/home/buguet/Documents/Projet IS/plt/src/shared/state/Building.cpp
+iostream
+-
+Building.h
+/home/buguet/Documents/Projet IS/plt/src/shared/state/Building.h
+MobileElement.h
+/home/buguet/Documents/Projet IS/plt/src/shared/state/MobileElement.h
+
+/home/buguet/Documents/Projet IS/plt/src/shared/state/Building.h
+StaticElement.h
+/home/buguet/Documents/Projet IS/plt/src/shared/state/StaticElement.h
+
+/home/buguet/Documents/Projet IS/plt/src/shared/state/CommandCenter.cpp
+iostream
+-
+CommandCenter.h
+/home/buguet/Documents/Projet IS/plt/src/shared/state/CommandCenter.h
+
+/home/buguet/Documents/Projet IS/plt/src/shared/state/CommandCenter.h
+Building.h
+/home/buguet/Documents/Projet IS/plt/src/shared/state/Building.h
+
+/home/buguet/Documents/Projet IS/plt/src/shared/state/CommandTower.cpp
+iostream
+-
+CommandTower.h
+/home/buguet/Documents/Projet IS/plt/src/shared/state/CommandTower.h
+
+/home/buguet/Documents/Projet IS/plt/src/shared/state/CommandTower.h
+Building.h
+/home/buguet/Documents/Projet IS/plt/src/shared/state/Building.h
+
+/home/buguet/Documents/Projet IS/plt/src/shared/state/Decor.cpp
+iostream
+-
+Decor.h
+/home/buguet/Documents/Projet IS/plt/src/shared/state/Decor.h
+
+/home/buguet/Documents/Projet IS/plt/src/shared/state/Decor.h
+StaticElement.h
+/home/buguet/Documents/Projet IS/plt/src/shared/state/StaticElement.h
+
+/home/buguet/Documents/Projet IS/plt/src/shared/state/Element.cpp
+iostream
+-
+Element.h
+/home/buguet/Documents/Projet IS/plt/src/shared/state/Element.h
+
+/home/buguet/Documents/Projet IS/plt/src/shared/state/Element.h
+string
+-
+TypeId.h
+/home/buguet/Documents/Projet IS/plt/src/shared/state/TypeId.h
+
+/home/buguet/Documents/Projet IS/plt/src/shared/state/Eniripsa.cpp
+iostream
+-
+Eniripsa.h
+/home/buguet/Documents/Projet IS/plt/src/shared/state/Eniripsa.h
+
+/home/buguet/Documents/Projet IS/plt/src/shared/state/Eniripsa.h
+Hero.h
+/home/buguet/Documents/Projet IS/plt/src/shared/state/Hero.h
+
+/home/buguet/Documents/Projet IS/plt/src/shared/state/Enutrof.cpp
+iostream
+-
+Enutrof.h
+/home/buguet/Documents/Projet IS/plt/src/shared/state/Enutrof.h
+
+/home/buguet/Documents/Projet IS/plt/src/shared/state/Enutrof.h
+Hero.h
+/home/buguet/Documents/Projet IS/plt/src/shared/state/Hero.h
+
+/home/buguet/Documents/Projet IS/plt/src/shared/state/Hero.cpp
+iostream
+-
+Hero.h
+/home/buguet/Documents/Projet IS/plt/src/shared/state/Hero.h
+
+/home/buguet/Documents/Projet IS/plt/src/shared/state/Hero.h
+MobileElement.h
+/home/buguet/Documents/Projet IS/plt/src/shared/state/MobileElement.h
+
+/home/buguet/Documents/Projet IS/plt/src/shared/state/Iop.cpp
+iostream
+-
+Iop.h
+/home/buguet/Documents/Projet IS/plt/src/shared/state/Iop.h
+
+/home/buguet/Documents/Projet IS/plt/src/shared/state/Iop.h
+Hero.h
+/home/buguet/Documents/Projet IS/plt/src/shared/state/Hero.h
+
+/home/buguet/Documents/Projet IS/plt/src/shared/state/Minion.cpp
+iostream
+-
+Minion.h
+/home/buguet/Documents/Projet IS/plt/src/shared/state/Minion.h
+
+/home/buguet/Documents/Projet IS/plt/src/shared/state/Minion.h
+MobileElement.h
+/home/buguet/Documents/Projet IS/plt/src/shared/state/MobileElement.h
+
+/home/buguet/Documents/Projet IS/plt/src/shared/state/MobileElement.cpp
+iostream
+-
+MobileElement.h
+/home/buguet/Documents/Projet IS/plt/src/shared/state/MobileElement.h
+CommandCenter.h
+/home/buguet/Documents/Projet IS/plt/src/shared/state/CommandCenter.h
+
+/home/buguet/Documents/Projet IS/plt/src/shared/state/MobileElement.h
+state/Element.h
+-
+Element.h
+/home/buguet/Documents/Projet IS/plt/src/shared/state/Element.h
+
+/home/buguet/Documents/Projet IS/plt/src/shared/state/Sacrieur.cpp
+iostream
+-
+Sacrieur.h
+/home/buguet/Documents/Projet IS/plt/src/shared/state/Sacrieur.h
+
+/home/buguet/Documents/Projet IS/plt/src/shared/state/Sacrieur.h
+Hero.h
+/home/buguet/Documents/Projet IS/plt/src/shared/state/Hero.h
+
+/home/buguet/Documents/Projet IS/plt/src/shared/state/Sram.cpp
+iostream
+-
+Sram.h
+/home/buguet/Documents/Projet IS/plt/src/shared/state/Sram.h
+
+/home/buguet/Documents/Projet IS/plt/src/shared/state/Sram.h
+Hero.h
+/home/buguet/Documents/Projet IS/plt/src/shared/state/Hero.h
+
+/home/buguet/Documents/Projet IS/plt/src/shared/state/State.cpp
+iostream
+-
+state.h
+/home/buguet/Documents/Projet IS/plt/src/shared/state/state.h
+
+/home/buguet/Documents/Projet IS/plt/src/shared/state/StaticElement.cpp
+iostream
+-
+StaticElement.h
+/home/buguet/Documents/Projet IS/plt/src/shared/state/StaticElement.h
+
+/home/buguet/Documents/Projet IS/plt/src/shared/state/StaticElement.h
+state/Element.h
+-
+Element.h
+/home/buguet/Documents/Projet IS/plt/src/shared/state/Element.h
+
+/home/buguet/Documents/Projet IS/plt/src/shared/state/TypeId.h
+
+src/client/render/Textures.h
+SFML/Graphics.hpp
+-
+state/Element.h
+-
+
+src/client/render/Tiles.h
+SFML/Graphics.hpp
+-
+vector
+-
+string
+-
+
+src/client/render/View.h
+SFML/Graphics.hpp
+-
+vector
+-
+state/State.h
+-
+Textures.h
+src/client/render/Textures.h
+
+src/shared/state.h
+state/TypeId.h
+src/shared/state/TypeId.h
+state/Element.h
+src/shared/state/Element.h
+state/State.h
+src/shared/state/State.h
+state/MobileElement.h
+src/shared/state/MobileElement.h
+state/Hero.h
+src/shared/state/Hero.h
+state/Enutrof.h
+src/shared/state/Enutrof.h
+state/Sram.h
+src/shared/state/Sram.h
+state/StaticElement.h
+src/shared/state/StaticElement.h
+state/Minion.h
+src/shared/state/Minion.h
+state/Decor.h
+src/shared/state/Decor.h
+state/Building.h
+src/shared/state/Building.h
+state/CommandCenter.h
+src/shared/state/CommandCenter.h
+state/CommandTower.h
+src/shared/state/CommandTower.h
+state/DecorId.h
+src/shared/state/DecorId.h
+state/Eniripsa.h
+src/shared/state/Eniripsa.h
+state/Iop.h
+src/shared/state/Iop.h
+state/Sacrieur.h
+src/shared/state/Sacrieur.h
+state/RaceId.h
+src/shared/state/RaceId.h
+
+src/shared/state/Building.h
+StaticElement.h
+src/shared/state/StaticElement.h
+
+src/shared/state/CommandCenter.h
+Building.h
+src/shared/state/Building.h
+
+src/shared/state/CommandTower.h
+Building.h
+src/shared/state/Building.h
+
+src/shared/state/Decor.h
+StaticElement.h
+src/shared/state/StaticElement.h
+
+src/shared/state/DecorId.h
+Decor.h
+src/shared/state/Decor.h
+
+src/shared/state/Element.h
+string
+-
+TypeId.h
+src/shared/state/TypeId.h
+
+src/shared/state/Eniripsa.h
+Hero.h
+src/shared/state/Hero.h
+
+src/shared/state/Enutrof.h
+Hero.h
+src/shared/state/Hero.h
+
+src/shared/state/Hero.h
+MobileElement.h
+src/shared/state/MobileElement.h
+
+src/shared/state/Iop.h
+Hero.h
+src/shared/state/Hero.h
+
+src/shared/state/Minion.h
+MobileElement.h
+src/shared/state/MobileElement.h
+
+src/shared/state/MobileElement.h
+state/Element.h
+-
+Element.h
+src/shared/state/Element.h
+
+src/shared/state/RaceId.h
+
+src/shared/state/Sacrieur.h
+Hero.h
+src/shared/state/Hero.h
+
+src/shared/state/Sram.h
+Hero.h
+src/shared/state/Hero.h
+
+src/shared/state/State.h
+vector
+-
+Element.h
+src/shared/state/Element.h
+
+src/shared/state/StaticElement.h
+state/Element.h
+-
+Element.h
+src/shared/state/Element.h
+
+src/shared/state/TypeId.h
+
