@@ -14,7 +14,7 @@ void render::Textures::load_texture(const state::Element element) {
     
     std::string path;
     sf::Vector2f scale(0.4,0.4);
-    sf::Vector2i dim(650, 900);
+    sf::Vector2i dim(500, 900);
     
     if(element.getTypeId()==6){
         

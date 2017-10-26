@@ -6,9 +6,16 @@
 #include <state/Element.h>
 
 namespace render {
+  class View;
+}
+
+#include "View.h"
+
+namespace render {
 
   /// class Textures - 
   class Textures {
+    // Associations
     // Attributes
   public:
     sf::Sprite sprite;
