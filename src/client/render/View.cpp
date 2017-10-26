@@ -70,22 +70,8 @@ render::Tiles tile;
 std::string level_1_path = "res/level3.png";
 std::string tile_texture_path = "res/terre_herbe.png";
 sf::Vector2u tile_dim(28, 28);
-render::Textures texture1;
-render::Textures texture2;
-render::Textures texture3;
-render::Textures texture4;
-render::Textures texture5;
-render::Textures texture6;
-render::Textures texture7;
-render::Textures texture8;
-render::Textures texture9;
-render::Textures texture10;
-render::Textures texture11;
-render::Textures texture12;
-render::Textures texture13;
-render::Textures texture14;
-render::Textures texture15;
-render::Textures texture16;
+
+
 
 
 
@@ -111,29 +97,50 @@ void render::View::init(state::State& state_game) {
         Background.load(tile_texture_path, tile_dim, tile.tiles, tile.image_dim.x, tile.image_dim.y);
         
         
-        state_game.list_eniripsa[0].setPosX(static_cast<int> (tile.list_pos_hero[0].x));
-        state_game.list_eniripsa[0].setPosY(static_cast<int> (tile.list_pos_hero[0].y));
-        texture1.load_texture(state_game.list_eniripsa[0]);
-        list_sprite.push_back(texture1.sprite);
+        //initialisation de la liste textures
+        for (unsigned j = 0; j < state_game.list_element.size(); j++) {
+                render::Textures texture;
+                list_texture.push_back(texture);
+            }
+         int nb_hero=0;
+            int nb_tower=0;
+            int nb_center=0;
+        // on donne les positions 
+        for (unsigned i = 0; i<state_game.list_element.size(); i++) {
+           
+            
+            if((state_game.list_element[i].getTypeId()==7)||(state_game.list_element[i].getTypeId()==6)||
+                    (state_game.list_element[i].getTypeId()==8)||(state_game.list_element[i].getTypeId()==9)||(state_game.list_element[i].getTypeId()==10)){
+                
+                state_game.list_element[i].setPosX(static_cast<int> (tile.list_pos_hero[nb_hero].x));
+            state_game.list_element[i].setPosY(static_cast<int> (tile.list_pos_hero[nb_hero].y));
+            list_texture[i].load_texture(state_game.list_element[i]);
+            this->add_Sprite(list_texture[i].sprite);
+               nb_hero++;
+            }
+           
+           if(state_game.list_element[i].getTypeId()==3){
+                 state_game.list_element[i].setPosX(static_cast<int> (tile.list_pos_tower[nb_tower].x));
+            state_game.list_element[i].setPosY(static_cast<int> (tile.list_pos_tower[nb_tower].y));
+            list_texture[i].load_texture(state_game.list_element[i]);
+            this->add_Sprite(list_texture[i].sprite);
+               nb_tower++; 
+            }
+            
+            if(state_game.list_element[i].getTypeId()==4){
+                 state_game.list_element[i].setPosX(static_cast<int> (tile.list_pos_center[nb_center].x));
+            state_game.list_element[i].setPosY(static_cast<int> (tile.list_pos_center[nb_center].y));
+            list_texture[i].load_texture(state_game.list_element[i]);
+            this->add_Sprite(list_texture[i].sprite);
+            nb_center++;
+            }
+            
+            
+            
+            }
         
-        state_game.list_iop[0].setPosX(static_cast<int> (tile.list_pos_hero[1].x));
-        state_game.list_iop[0].setPosY(static_cast<int> (tile.list_pos_hero[1].y));
-        texture2.load_texture(state_game.list_iop[0]);
-        list_sprite.push_back(texture2.sprite);
         
-        state_game.list_sram[0].setPosX(static_cast<int> (tile.list_pos_hero[2].x));
-        state_game.list_sram[0].setPosY(static_cast<int> (tile.list_pos_hero[2].y));
-        texture3.load_texture(state_game.list_sram[0]);
-        list_sprite.push_back(texture3.sprite);
-        
-        state_game.list_enutrof[0].setPosX(static_cast<int> (tile.list_pos_hero[3].x));
-        state_game.list_enutrof[0].setPosY(static_cast<int> (tile.list_pos_hero[3].y));
-        texture4.load_texture(state_game.list_enutrof[0]);
-        list_sprite.push_back(texture4.sprite);
-        
-        
-        
-      
+       
         
         
 }

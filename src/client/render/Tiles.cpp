@@ -85,10 +85,7 @@ void render::Tiles::convert(std::string path) {
                 
             }
             
-             if ((static_cast<int> (image.getPixel(i, j).g) == 150)&&(static_cast<int> (image.getPixel(i, j).r) == 150)) {
-                list_pos_decor.push_back(sf::Vector2i(i * 28, j * 28));
-                
-            }
+           
 
        
 

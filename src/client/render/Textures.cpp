@@ -66,7 +66,7 @@ void render::Textures::load_texture(const state::Element element) {
         
         path="res/center.png";
         scale=sf::Vector2f(0.4,0.4);
-                std::cout<<"eni"<<std::endl; 
+                std::cout<<"center"<<std::endl; 
         
     }
         

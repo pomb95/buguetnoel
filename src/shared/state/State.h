@@ -5,27 +5,9 @@
 #include <vector>
 
 namespace state {
-  class Iop;
-  class Eniripsa;
-  class Enutrof;
-  class Sacrieur;
-  class Sram;
-  class CommandCenter;
-  class CommandTower;
-  class Decor;
-  class Minion;
   class Element;
 }
 
-#include "Iop.h"
-#include "Eniripsa.h"
-#include "Enutrof.h"
-#include "Sacrieur.h"
-#include "Sram.h"
-#include "CommandCenter.h"
-#include "CommandTower.h"
-#include "Decor.h"
-#include "Minion.h"
 #include "Element.h"
 
 namespace state {
@@ -35,15 +17,7 @@ namespace state {
     // Associations
     // Attributes
   public:
-    std::vector<Iop> list_iop;
-    std::vector<Eniripsa> list_eniripsa;
-    std::vector<Enutrof> list_enutrof;
-    std::vector<Sacrieur> list_sacrieur;
-    std::vector<Sram> list_sram;
-    std::vector<CommandCenter> list_CommandCenter;
-    std::vector<CommandTower> list_CommandTower;
-    std::vector<Decor> list_decor;
-    std::vector<Minion> list_minion;
+    std::vector<Element> list_element;
     // Operations
   public:
     State ();
