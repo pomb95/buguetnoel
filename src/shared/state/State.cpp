@@ -61,26 +61,8 @@ namespace state{
         
         
         
-<<<<<<< HEAD
-=======
-        Iop hero6;
-        list_iop.push_back(hero6);
-	
-	Sram hero7;
-        list_sram.push_back(hero7);
->>>>>>> 07717267373da672ce6434b69cf43e6ec8e2b378
         
-        CommandCenter Center1;
-	list_CommandCenter.push_back(Center1);
-	
-	CommandCenter Center2;
-	list_CommandCenter.push_back(Center2);
-
-	CommandTower Tower1;
-	list_CommandTower.push_back(Tower1);
-
-	CommandTower Tower2;
-	list_CommandTower.push_back(Tower2);
+        
         
         
     }
