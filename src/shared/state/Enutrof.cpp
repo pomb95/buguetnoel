@@ -7,7 +7,7 @@
 #include "Enutrof.h"
 
 namespace state {
-    Enutrof::Enutrof(){
+    Enutrof::Enutrof(int team): Hero(team){
         Name = "Enutrof";
         Life = 25;
         Range = 9;

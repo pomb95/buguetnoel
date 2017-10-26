@@ -15,7 +15,7 @@ namespace state {
   class Enutrof : public state::Hero {
     // Operations
   public:
-    Enutrof ();
+    Enutrof (int team);
     ~Enutrof ();
     // Setters and Getters
   };

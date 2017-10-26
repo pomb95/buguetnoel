@@ -8,7 +8,7 @@
 #include "Iop.h"
 
 namespace state {
-    Iop::Iop() : Hero() {
+    Iop::Iop(int team) : Hero(team) {
         Name = "Iop";
         Life = 75;
         Range = 3;

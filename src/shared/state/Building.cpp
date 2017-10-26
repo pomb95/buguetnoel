@@ -9,10 +9,10 @@
 #include "MobileElement.h"
 
 namespace state {
-    Building::Building() : StaticElement() {
-        Team = 0;
+    Building::Building(int team) : StaticElement() {
+        Team = team;
         ATK = 10;
-        std::cout << " Building created >> ";
+        std::cout << " Building created in team " << team <<" >> ";
     }
     Building::~Building() {}
     

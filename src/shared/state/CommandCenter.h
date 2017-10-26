@@ -18,7 +18,7 @@ namespace state {
     int Life;
     // Operations
   public:
-    CommandCenter ();
+    CommandCenter (int team);
     ~CommandCenter ();
     void getDamage (int damage);
     bool isAlive ();

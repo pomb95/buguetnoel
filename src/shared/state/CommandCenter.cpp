@@ -8,7 +8,7 @@
 #include "CommandCenter.h"
 
 namespace state {
-    CommandCenter::CommandCenter() : Building() {
+    CommandCenter::CommandCenter(int team) : Building(team) {
         Name = "Command Center";
         typeId = COMMANDCENTER;
         Life = 500;
@@ -33,6 +33,7 @@ namespace state {
         std::cout << "TypeId : " << typeId << std::endl;
         std::cout << "Team : " << Team << std::endl;
         std::cout << "Life : " << Life << std::endl;
+        std::cout << "ATK : " << ATK << std::endl;
         std::cout << "Etat : " << isAlive() << std::endl;
         std::cout << " " << std::endl;
     }

@@ -15,7 +15,7 @@ namespace state {
   class Eniripsa : public state::Hero {
     // Operations
   public:
-    Eniripsa ();
+    Eniripsa (int team);
     ~Eniripsa ();
     // Setters and Getters
   };

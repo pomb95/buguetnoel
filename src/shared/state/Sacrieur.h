@@ -15,7 +15,7 @@ namespace state {
   class Sacrieur : public state::Hero {
     // Operations
   public:
-    Sacrieur ();
+    Sacrieur (int team);
     ~Sacrieur ();
     // Setters and Getters
   };

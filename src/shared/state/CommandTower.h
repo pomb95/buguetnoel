@@ -15,7 +15,7 @@ namespace state {
   class CommandTower : public state::Building {
     // Operations
   public:
-    CommandTower ();
+    CommandTower (int team);
     ~CommandTower ();
     void getStatus ();
     // Setters and Getters

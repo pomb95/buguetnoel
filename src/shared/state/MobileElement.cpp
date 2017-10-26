@@ -9,13 +9,13 @@
 #include "CommandCenter.h"
 
 namespace state{
-    MobileElement::MobileElement() : Element() {
-        Team = 0;
+    MobileElement::MobileElement(int team) : Element() {
+        Team = team;
         Movement = 5;
         Life = 10;
         ATK = 10;
         Range = 5;
-        std::cout << " Mobile Element created >> ";
+        std::cout << " Mobile Element created in Team "<< Team <<" >> ";
     }
     MobileElement::~MobileElement() {}
 

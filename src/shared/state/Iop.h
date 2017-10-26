@@ -15,7 +15,7 @@ namespace state {
   class Iop : public state::Hero {
     // Operations
   public:
-    Iop ();
+    Iop (int team);
     ~Iop ();
     // Setters and Getters
   };

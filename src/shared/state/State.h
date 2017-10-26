@@ -17,11 +17,14 @@ namespace state {
     // Associations
     // Attributes
   private:
-    std::vector<Element> listElement;
+    std::vector<std::vector<Element> >  tabElement;
     // Operations
   public:
     State ();
     ~State ();
+    void  getTabSize (std::vector<std::vector<Element> > & tab);
+    void initTabElement (std::vector<std::vector<Element> > & tab);
+    void getTabElement (std::vector<std::vector<Element> >& tab);
     // Setters and Getters
   };
 

@@ -15,7 +15,7 @@ namespace state {
   class Minion : public state::MobileElement {
     // Operations
   public:
-    Minion ();
+    Minion (int team);
     ~Minion ();
     // Setters and Getters
   };

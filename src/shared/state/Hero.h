@@ -15,7 +15,7 @@ namespace state {
   class Hero : public state::MobileElement {
     // Operations
   public:
-    Hero ();
+    Hero (int team);
     ~Hero ();
     // Setters and Getters
   };

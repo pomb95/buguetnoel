@@ -15,7 +15,7 @@ namespace state {
   class Sram : public state::Hero {
     // Operations
   public:
-    Sram ();
+    Sram (int team);
     ~Sram ();
     // Setters and Getters
   };

@@ -7,7 +7,7 @@
 #include "Sram.h"
 
 namespace state {
-    Sram::Sram(){
+    Sram::Sram(int team) : Hero(team){
         Name = "Sram";
         Range = 7;
         ATK = 10;

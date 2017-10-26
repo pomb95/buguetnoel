@@ -20,7 +20,7 @@ namespace state {
     int ATK;
     // Operations
   public:
-    Building ();
+    Building (int team);
     ~Building ();
     void Attack  (MobileElement& victime);
     // Setters and Getters

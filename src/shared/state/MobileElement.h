@@ -25,7 +25,7 @@ namespace state {
     int Movement;
     // Operations
   public:
-    MobileElement ();
+    MobileElement (int team);
     ~MobileElement ();
     void Attack (MobileElement& victime);
     void Attack (CommandCenter& victime);

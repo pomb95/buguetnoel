@@ -8,10 +8,19 @@
 #include "CommandTower.h"
 
 namespace state {
-    CommandTower::CommandTower() : Building() {
+    CommandTower::CommandTower(int team) : Building(team) {
         Name = "Command Tower";
         typeId = COMMANDTOWER;
         std::cout << Name << " created" << std::endl;
     }
     CommandTower::~CommandTower() {}
+    
+    void CommandTower::getStatus (){
+        std::cout << " " << std::endl;
+        std::cout << "Name : " << Name << std::endl;
+        std::cout << "TypeId : " << typeId << std::endl;
+        std::cout << "ATK : " << ATK << std::endl;
+        std::cout << "Team : " << Team << std::endl;
+        std::cout << " " << std::endl;
+    }
 }
