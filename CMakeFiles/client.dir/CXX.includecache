@@ -1,0 +1,146 @@
+#IncludeRegexLine: ^[ 	]*#[ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/buguet/Documents/Projet IS/plt/src/client/main.cpp
+iostream
+-
+SFML/Graphics.hpp
+-
+state.h
+/home/buguet/Documents/Projet IS/plt/src/client/state.h
+render.h
+/home/buguet/Documents/Projet IS/plt/src/client/render.h
+
+/home/buguet/Documents/Projet IS/plt/src/client/render/Render.cpp
+Render.h
+/home/buguet/Documents/Projet IS/plt/src/client/render/Render.h
+View.h
+/home/buguet/Documents/Projet IS/plt/src/client/render/View.h
+iostream
+-
+
+/home/buguet/Documents/Projet IS/plt/src/client/render/Textures.cpp
+render/Textures.h
+-
+iostream
+-
+
+/home/buguet/Documents/Projet IS/plt/src/client/render/Tiles.cpp
+render/Tiles.h
+/home/buguet/Documents/Projet IS/plt/src/client/render/render/Tiles.h
+SFML/Graphics.hpp
+-
+
+/home/buguet/Documents/Projet IS/plt/src/client/render/View.cpp
+render/View.h
+-
+iostream
+-
+state/State.h
+/home/buguet/Documents/Projet IS/plt/src/client/render/state/State.h
+Render.h
+/home/buguet/Documents/Projet IS/plt/src/client/render/Render.h
+Tiles.h
+/home/buguet/Documents/Projet IS/plt/src/client/render/Tiles.h
+Textures.h
+/home/buguet/Documents/Projet IS/plt/src/client/render/Textures.h
+
+/home/buguet/Documents/Projet IS/plt/src/shared/state/Building.cpp
+iostream
+-
+Building.h
+/home/buguet/Documents/Projet IS/plt/src/shared/state/Building.h
+MobileElement.h
+/home/buguet/Documents/Projet IS/plt/src/shared/state/MobileElement.h
+
+/home/buguet/Documents/Projet IS/plt/src/shared/state/CommandCenter.cpp
+iostream
+-
+CommandCenter.h
+/home/buguet/Documents/Projet IS/plt/src/shared/state/CommandCenter.h
+
+/home/buguet/Documents/Projet IS/plt/src/shared/state/CommandTower.cpp
+iostream
+-
+CommandTower.h
+/home/buguet/Documents/Projet IS/plt/src/shared/state/CommandTower.h
+
+/home/buguet/Documents/Projet IS/plt/src/shared/state/Decor.cpp
+iostream
+-
+Decor.h
+/home/buguet/Documents/Projet IS/plt/src/shared/state/Decor.h
+
+/home/buguet/Documents/Projet IS/plt/src/shared/state/Element.cpp
+iostream
+-
+Element.h
+/home/buguet/Documents/Projet IS/plt/src/shared/state/Element.h
+
+/home/buguet/Documents/Projet IS/plt/src/shared/state/Eniripsa.cpp
+iostream
+-
+Eniripsa.h
+/home/buguet/Documents/Projet IS/plt/src/shared/state/Eniripsa.h
+
+/home/buguet/Documents/Projet IS/plt/src/shared/state/Enutrof.cpp
+iostream
+-
+Enutrof.h
+/home/buguet/Documents/Projet IS/plt/src/shared/state/Enutrof.h
+
+/home/buguet/Documents/Projet IS/plt/src/shared/state/Hero.cpp
+iostream
+-
+Hero.h
+/home/buguet/Documents/Projet IS/plt/src/shared/state/Hero.h
+
+/home/buguet/Documents/Projet IS/plt/src/shared/state/Iop.cpp
+iostream
+-
+Iop.h
+/home/buguet/Documents/Projet IS/plt/src/shared/state/Iop.h
+
+/home/buguet/Documents/Projet IS/plt/src/shared/state/Minion.cpp
+iostream
+-
+Minion.h
+/home/buguet/Documents/Projet IS/plt/src/shared/state/Minion.h
+
+/home/buguet/Documents/Projet IS/plt/src/shared/state/MobileElement.cpp
+iostream
+-
+MobileElement.h
+/home/buguet/Documents/Projet IS/plt/src/shared/state/MobileElement.h
+CommandCenter.h
+/home/buguet/Documents/Projet IS/plt/src/shared/state/CommandCenter.h
+
+/home/buguet/Documents/Projet IS/plt/src/shared/state/Sacrieur.cpp
+iostream
+-
+Sacrieur.h
+/home/buguet/Documents/Projet IS/plt/src/shared/state/Sacrieur.h
+
+/home/buguet/Documents/Projet IS/plt/src/shared/state/Sram.cpp
+iostream
+-
+Sram.h
+/home/buguet/Documents/Projet IS/plt/src/shared/state/Sram.h
+
+/home/buguet/Documents/Projet IS/plt/src/shared/state/State.cpp
+iostream
+-
+state.h
+/home/buguet/Documents/Projet IS/plt/src/shared/state/state.h
+
+/home/buguet/Documents/Projet IS/plt/src/shared/state/StaticElement.cpp
+iostream
+-
+StaticElement.h
+/home/buguet/Documents/Projet IS/plt/src/shared/state/StaticElement.h
+
