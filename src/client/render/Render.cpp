@@ -2,8 +2,13 @@
 #include "View.h"
 #include <iostream>
 
+<<<<<<< HEAD
 int window_width = 900;
 int window_heigth = 900;
+=======
+int window_width = 1000;
+int window_heigth = 810;
+>>>>>>> 07717267373da672ce6434b69cf43e6ec8e2b378
 sf::Vector2i pos_window(0, 0);
 int frame_fps_limit = 60;
 std::string window_title = "Dofus";
