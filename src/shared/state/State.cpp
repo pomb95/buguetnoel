@@ -31,11 +31,7 @@ namespace state{
         CommandTower tour2;
         list_element.push_back(tour2);
         
-        CommandTower tour3;
-        list_element.push_back(tour3);
-        
-        CommandTower tour4;
-        list_element.push_back(tour4);
+       
         
    
         CommandCenter center1;
@@ -56,6 +52,11 @@ namespace state{
         Enutrof hero4;
         list_element.push_back(hero4);
         
+        Sacrieur hero5;
+        list_element.push_back(hero5);
+        
+        Iop hero6;
+        list_element.push_back(hero6);
     
         
         
