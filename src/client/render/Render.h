@@ -6,9 +6,16 @@
 #include <state/State.h>
 
 namespace render {
+  class View;
+}
+
+#include "View.h"
+
+namespace render {
 
   /// class Render - 
   class Render {
+    // Associations
     // Attributes
   public:
     sf::RenderWindow window;

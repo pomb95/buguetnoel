@@ -8,14 +8,17 @@
 
 namespace render {
   class Textures;
+  class Tiles;
 }
 
 #include "Textures.h"
+#include "Tiles.h"
 
 namespace render {
 
   /// class View - 
   class View {
+    // Associations
     // Attributes
   public:
     sf::View view;
