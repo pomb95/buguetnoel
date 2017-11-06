@@ -98,5 +98,12 @@ void render::Tiles::convert(std::string path) {
 }
 
 void render::Tiles::getListPosHero() {
-    std::cout << (int)list_pos_hero[0][0] << std::endl;
+    if (list_pos_hero.size() != 0){
+        std::cout << list_pos_hero[0].x << std::endl;
+        std::cout << list_pos_hero[0].y << std::endl;
+    }
+    else
+    {
+        std::cout << "list_pos_hero vide" << std::endl;
+    }
 }
