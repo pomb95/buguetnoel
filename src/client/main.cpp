@@ -11,6 +11,7 @@ void testSFML() {
 
 #include "state.h"
 #include "render.h"
+#include "render/Tiles.h"
 
 using namespace std;
 using namespace state;
@@ -22,13 +23,15 @@ int main(int argc,char* argv[])
 	if ((argv[1] != NULL) && string(argv[1]) == "state"){
            
             State state;
+            
+           
         }
 
 if ((argv[1] != NULL) && string(argv[1]) == "render"){
     State state; 
     Render render;
     render.init(state);
-
+    Tiles::getListHero();
 while (render.window.isOpen())
     {
         // on gère les évènements

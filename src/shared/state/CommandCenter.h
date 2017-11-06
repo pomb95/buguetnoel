@@ -20,7 +20,6 @@ namespace state {
   public:
     CommandCenter ();
     ~CommandCenter ();
-    void getDamage (int damage);
     bool isAlive ();
     void getStatus ();
     // Setters and Getters

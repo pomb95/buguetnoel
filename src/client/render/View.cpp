@@ -65,7 +65,7 @@ private:
 };
 
 TileMap Background;
-render::Tiles tile;
+render::Tiles tile;    
 std::string level_1_path = "res/level3.png";
 std::string tile_texture_path = "res/terre_herbe.png";
 sf::Vector2u tile_dim(28, 28);
@@ -79,10 +79,8 @@ sf::Vector2u tile_dim(28, 28);
 
 
 
-
 render::View::View() {
     this->type = type;
-
 }
 
 render::View::~View() {
@@ -90,6 +88,8 @@ render::View::~View() {
 }
 
 void render::View::init(state::State& state_game) {
+
+
 
         
         tile.convert(level_1_path);

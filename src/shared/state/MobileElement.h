@@ -5,8 +5,6 @@
 #include <state/Element.h>
 
 namespace state {
-  class MobileElement;
-  class CommandCenter;
   class Element;
 }
 
@@ -27,12 +25,7 @@ namespace state {
   public:
     MobileElement ();
     ~MobileElement ();
-    void Attack (MobileElement& victime);
-    void Attack (CommandCenter& victime);
     bool isAlive ();
-    /// 	
-    /// @param damage		(???) 
-    void getDamage (int damage);
     void getStatus ();
     // Setters and Getters
     int getTeam() const;

@@ -1,5 +1,6 @@
 #include "render/Tiles.h"
 #include <SFML/Graphics.hpp>
+#include <iostream>
 
 render::Tiles::Tiles() {
 
@@ -94,4 +95,8 @@ void render::Tiles::convert(std::string path) {
 
 
     tiles = tab;
+}
+
+void render::Tiles::getListPosHero() {
+    std::cout << (int)list_pos_hero[0][0] << std::endl;
 }

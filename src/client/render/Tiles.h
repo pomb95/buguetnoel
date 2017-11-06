@@ -26,6 +26,7 @@ namespace render {
     void convert (std::string path);
     Tiles ();
     ~Tiles ();
+    void getListPosHero ();
     // Setters and Getters
   };
 

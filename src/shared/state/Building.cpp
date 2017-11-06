@@ -16,8 +16,8 @@ namespace state {
     }
     Building::~Building() {}
     
-    void Building::Attack(MobileElement &victime){
+    /*void Building::Attack(MobileElement &victime){
         std::cout << Name << " attaque " <<  victime.getName() << std::endl;
 	victime.getDamage(ATK);
-    }
+    }*/
 }
