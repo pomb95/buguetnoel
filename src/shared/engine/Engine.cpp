@@ -4,3 +4,7 @@
  * and open the template in the editor.
  */
 
+#include "Engine.h"
+
+engine::Engine::Engine() {}
+engine::Engine::~Engine() {}

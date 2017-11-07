@@ -6,6 +6,12 @@
 #include <vector>
 #include <string>
 
+namespace state {
+  class State;
+}
+
+#include "state/State.h"
+
 namespace render {
 
   /// class Tiles - 

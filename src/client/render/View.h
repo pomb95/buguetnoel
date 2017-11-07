@@ -8,6 +8,11 @@
 
 namespace render {
   class Textures;
+};
+namespace state {
+  class State;
+};
+namespace render {
   class Tiles;
 }
 

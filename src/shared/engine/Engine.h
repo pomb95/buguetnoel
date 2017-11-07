@@ -2,27 +2,15 @@
 #ifndef ENGINE__ENGINE__H
 #define ENGINE__ENGINE__H
 
-#include <state/State.h>
-#include <map>
-#include <memory>
-
-namespace engine {
-  class Command;
-}
 
 namespace engine {
 
   /// class Engine - 
   class Engine {
-    // Attributes
-  public:
-    state::State currentState;
-    std::map<int, std::unique_ptr<Command>> currentCommands;
     // Operations
   public:
     Engine ();
     ~Engine ();
-    void addCommand (int priority, Command* cmd);
     // Setters and Getters
   };
 

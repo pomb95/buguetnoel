@@ -5,10 +5,14 @@
 #include <SFML/Graphics.hpp>
 #include <state/State.h>
 
+namespace state {
+  class State;
+};
 namespace render {
   class View;
 }
 
+#include "state/State.h"
 #include "View.h"
 
 namespace render {

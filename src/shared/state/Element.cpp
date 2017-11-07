@@ -39,10 +39,12 @@ void Element::setPosX(int PosX){
 void Element::setPosY(int PosY){
     this->PosY=PosY;
 }
+
 TypeId Element::getTypeId() const{
     return typeId;
 }     
-        
+   
+
             
         
         

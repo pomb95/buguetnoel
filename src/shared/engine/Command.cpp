@@ -4,3 +4,7 @@
  * and open the template in the editor.
  */
 
+#include "Command.h"
+
+engine::Command::Command() {}
+engine::Command::~Command() {}

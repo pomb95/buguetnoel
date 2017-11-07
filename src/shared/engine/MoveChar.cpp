@@ -1,9 +1,9 @@
 #include "MoveChar.h"
 #include <iostream>
 #include "Command.h"
-#include <state/State.h>
+#include <state/MobileElement.h>
 
-/*engine::MoveChar::MoveChar(){
+engine::MoveChar::MoveChar() : Command(){
     
 }
 
@@ -11,6 +11,26 @@ engine::MoveChar::~MoveChar(){
     
 }
 
-void engine::MoveChar::Move(state::State &state, int Direction){
-    
-}*/
+void engine::MoveChar::Move(state::MobileElement perso, int Direction) {
+    switch (Direction) {
+        case 6 : { std::cout << perso.getName() << " se déplace à droite" << std::endl;
+                   perso.setPosX(perso.getPosX() + 28);
+                   break;
+        }
+        case 8 : { std::cout << perso.getName() << " se déplace en haut" << std::endl;
+                   perso.setPosY(perso.getPosY() - 28);
+                   break;
+        }
+        case 2 : { std::cout << perso.getName() << " se déplace à bas" << std::endl;
+                   perso.setPosY(perso.getPosY() + 28);
+                   break;
+        }
+        case 4 : { std::cout << perso.getName() << " se déplace à bas" << std::endl;
+                   perso.setPosX(perso.getPosX() - 28);
+                   break;
+        }
+        default:
+            break;
+                 
+    }
+}

@@ -11,42 +11,49 @@ void testSFML() {
 
 #include "state.h"
 #include "render.h"
-#include "render/Tiles.h"
+#include "engine.h"
 
 using namespace std;
 using namespace state;
 using namespace render;
+using namespace engine;
 
 int main(int argc,char* argv[]) 
 {	
 
-	if ((argv[1] != NULL) && string(argv[1]) == "state"){
+    if ((argv[1] != NULL) && string(argv[1]) == "state"){
            
-            State state;
+        State state;
             
            
         }
 
-if ((argv[1] != NULL) && string(argv[1]) == "render"){
-    State state; 
-    Render render;
-    render.init(state);
-   /* Tiles tile;
-    tile.getListPosHero();*/
-while (render.window.isOpen())
-    {
-        // on gère les évènements
-        sf::Event event;
-        while (render.window.pollEvent(event))
+    if ((argv[1] != NULL) && string(argv[1]) == "render"){
+        State state; 
+        Render render;
+        render.init(state);
+       
+        while (render.window.isOpen())
         {
-            if(event.type == sf::Event::Closed)
+            // on gère les évènements
+            sf::Event event;
+            while (render.window.pollEvent(event))
+            {
+                if(event.type == sf::Event::Closed)
 		
-                render.window.close();
+                    render.window.close();
+            }
         }
-
-		
-}
-}
+    } 
+    
+    if ((argv[1] != NULL) && string(argv[1]) == "engine"){
+       
+        State state;
+        Engine engine;
+        
+    }
+        
+        
       
     return 0;
 }

@@ -2,12 +2,15 @@
 #ifndef ENGINE__MOVECHAR__H
 #define ENGINE__MOVECHAR__H
 
-#include <state/State.h>
 
+namespace state {
+  class MobileElement;
+};
 namespace engine {
   class Command;
 }
 
+#include "state/MobileElement.h"
 #include "Command.h"
 
 namespace engine {
@@ -18,7 +21,7 @@ namespace engine {
   public:
     MoveChar ();
     ~MoveChar ();
-    void Move (state::State& state, int Direction);
+    void Move (state::MobileElement  perso, int Direction);
     // Setters and Getters
   };
 
