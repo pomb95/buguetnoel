@@ -99,8 +99,12 @@ void render::Tiles::convert(std::string path) {
 
 void render::Tiles::getListPosHero() {
     if (list_pos_hero.size() != 0){
-        std::cout << list_pos_hero[0].x << std::endl;
-        std::cout << list_pos_hero[0].y << std::endl;
+        std::cout << "perso1_x : " <<list_pos_hero[0].x << std::endl;
+        std::cout << "perso1_y : "<<list_pos_hero[0].y << std::endl;
+        std::cout <<"perso2_x : "<< list_pos_hero[1].x << std::endl;
+        std::cout <<"perso2_y : "<< list_pos_hero[1].y << std::endl;
+        std::cout <<"perso3_x : "<< list_pos_hero[2].x << std::endl;
+        std::cout <<"perso3_y : "<< list_pos_hero[2].y << std::endl;
     }
     else
     {

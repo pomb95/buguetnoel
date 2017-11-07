@@ -4,6 +4,9 @@
 #include "Render.h"
 #include "Tiles.h"
 #include "Textures.h"
+#include "state.h"
+#include "render.h"
+#include "render/Tiles.h"
 
 
 class TileMap : public sf::Drawable, public sf::Transformable {
@@ -66,13 +69,9 @@ private:
 
 TileMap Background;
 render::Tiles tile;    
-std::string level_1_path = "res/level3.png";
-std::string tile_texture_path = "res/terre_herbe.png";
+std::string level_1_path = "res/level_test.png";
+std::string tile_texture_path = "res/gravier_herbe.png";
 sf::Vector2u tile_dim(28, 28);
-
-
-
-
 
 
 
@@ -94,6 +93,8 @@ void render::View::init(state::State& state_game) {
         
         tile.convert(level_1_path);
         Background.load(tile_texture_path, tile_dim, tile.tiles, tile.image_dim.x, tile.image_dim.y);
+tile.getListPosHero();
+	std::cout <<"bonjour"<<std::endl;
         
         
         //initialisation de la liste textures
