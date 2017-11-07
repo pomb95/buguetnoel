@@ -2,11 +2,16 @@
 #ifndef ENGINE__COMMAND__H
 #define ENGINE__COMMAND__H
 
+#include <state/State.h>
 
+namespace state {
+  class State;
+};
 namespace engine {
   class Engine;
 }
 
+#include "state/State.h"
 #include "Engine.h"
 
 namespace engine {
@@ -18,6 +23,7 @@ namespace engine {
   public:
     Command ();
     ~Command ();
+    virtual void execute (state::State& state) = 0;
     // Setters and Getters
   };
 

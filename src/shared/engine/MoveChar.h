@@ -2,26 +2,30 @@
 #ifndef ENGINE__MOVECHAR__H
 #define ENGINE__MOVECHAR__H
 
+#include <state/State.h>
 
 namespace state {
-  class MobileElement;
+  class State;
 };
 namespace engine {
   class Command;
 }
 
-#include "state/MobileElement.h"
 #include "Command.h"
 
 namespace engine {
 
   /// class MoveChar - 
   class MoveChar : public engine::Command {
+    // Attributes
+  public:
+    int character;
+    int direction;
     // Operations
   public:
-    MoveChar ();
+    MoveChar (int c, int d);
     ~MoveChar ();
-    void Move (state::MobileElement  perso, int Direction);
+    void execute (state::State& state);
     // Setters and Getters
   };
 

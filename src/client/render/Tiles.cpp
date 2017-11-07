@@ -10,7 +10,7 @@ render::Tiles::~Tiles() {
 
 };
 
-void render::Tiles::convert(std::string path) {
+void render::Tiles::convert(const std::string &path) {
     sf::Image image1;
 
     image1.loadFromFile(path);
@@ -98,7 +98,7 @@ void render::Tiles::convert(std::string path) {
 }
 /* en divisant chaque list_pos_x [X] par 28 on obtient les coordonnées en pixel.
 L'image est taillée 24 pixels sur 24 */
-void render::Tiles::getListPosHero() {
+void render::Tiles::getListPosHero() const {
     if (list_pos_hero.size() != 0){
         std::cout <<"perso 1: "<< list_pos_hero[0].x<<","<<list_pos_hero[0].y<< std::endl;
         std::cout <<"perso 2 : "<< list_pos_hero[1].x <<","<< list_pos_hero[1].y << std::endl;
@@ -112,7 +112,7 @@ else
     }}
 
 /* essayer de faire une boucle mais fonctionne pas*/
-void render::Tiles::getListPosTower() {
+void render::Tiles::getListPosTower() const {
     if (list_pos_tower.size() != 0){
 /*for(int i=0;i=sizeof(list_pos_tower) ;i++){   
 	std::cout <<"Tour1 : " << i <<list_pos_tower[i].x <<","<< list_pos_tower[i].y<< std::endl;}}
@@ -127,7 +127,7 @@ else
 
 /* Decor aussi??? je sais pas*/
 
-void render::Tiles::getListPosCenter() {
+void render::Tiles::getListPosCenter() const {
     if (list_pos_center.size() != 0){
         std::cout <<"Center1_x : "<< list_pos_center[0].x<<","<< list_pos_center[0].y << std::endl;
 	std::cout <<"Center2_x : "<< list_pos_center[1].x<<","<< list_pos_center[1].y << std::endl;

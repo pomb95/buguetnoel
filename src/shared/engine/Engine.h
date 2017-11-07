@@ -2,15 +2,32 @@
 #ifndef ENGINE__ENGINE__H
 #define ENGINE__ENGINE__H
 
+#include <state/State.h>
+#include <vector>
+
+namespace state {
+  class State;
+};
+namespace engine {
+  class Command;
+}
+
+#include "state/State.h"
 
 namespace engine {
 
   /// class Engine - 
   class Engine {
+    // Attributes
+  public:
+    state::State currentState;
+    std::vector<Command*> commands;
     // Operations
   public:
     Engine ();
     ~Engine ();
+    void addCommand (Command* cmd);
+    void Update ();
     // Setters and Getters
   };
 

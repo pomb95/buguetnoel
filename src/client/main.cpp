@@ -24,12 +24,13 @@ int main(int argc,char* argv[])
     if ((argv[1] != NULL) && string(argv[1]) == "state"){
            
         State state;
-            
+        state.init();  
            
         }
 
     if ((argv[1] != NULL) && string(argv[1]) == "render"){
-        State state; 
+        State state;
+        state.init();
         Render render;
         render.init(state);
        
@@ -49,7 +50,12 @@ int main(int argc,char* argv[])
     if ((argv[1] != NULL) && string(argv[1]) == "engine"){
        
         State state;
+        Render render;
         Engine engine;
+        
+        render.init(state);
+        state.init();
+      
         
     }
         

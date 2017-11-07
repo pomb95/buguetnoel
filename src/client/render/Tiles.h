@@ -29,13 +29,13 @@ namespace render {
     sf::Vector2u image_dim;
     // Operations
   public:
-    void convert (std::string path);
+    void convert (const std::string &  path);
     Tiles ();
     ~Tiles ();
-    void getListPosHero ();
-    void getListPosTower ();
+    void getListPosHero () const;
+    void getListPosTower () const;
     /// 	
-    void getListPosCenter ();
+    void getListPosCenter () const;
     // Setters and Getters
   };
 
