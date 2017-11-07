@@ -31,7 +31,7 @@ if ((argv[1] != NULL) && string(argv[1]) == "render"){
     State state; 
     Render render;
     render.init(state);
-    /*Tiles tile;
+   /* Tiles tile;
     tile.getListPosHero();*/
 while (render.window.isOpen())
     {

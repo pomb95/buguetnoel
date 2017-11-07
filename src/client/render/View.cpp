@@ -94,6 +94,8 @@ void render::View::init(state::State& state_game) {
         tile.convert(level_1_path);
         Background.load(tile_texture_path, tile_dim, tile.tiles, tile.image_dim.x, tile.image_dim.y);
 tile.getListPosHero();
+tile.getListPosCenter();
+tile.getListPosTower();
 	std::cout <<"bonjour"<<std::endl;
         
         

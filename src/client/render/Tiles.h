@@ -27,6 +27,9 @@ namespace render {
     Tiles ();
     ~Tiles ();
     void getListPosHero ();
+    void getListPosTower ();
+    /// 	
+    void getListPosCenter ();
     // Setters and Getters
   };
 
