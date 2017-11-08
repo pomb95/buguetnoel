@@ -9,7 +9,7 @@ render::Textures::~Textures() {
 
 };
 
-void render::Textures::load_texture(const state::Element &element) {
+void render::Textures::load_texture( state::Element& element) {
 
     
     std::string path;

@@ -10,10 +10,10 @@ render::Tiles::~Tiles() {
 
 };
 
-void render::Tiles::convert(const std::string &path) {
+void render::Tiles::convert(const state::State state_game) {
     sf::Image image1;
 
-    image1.loadFromFile(path);
+    image1.loadFromFile(state_game.path);
     this->image = image1;
     image_dim = image.getSize();
 

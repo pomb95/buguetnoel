@@ -2,11 +2,7 @@
 #ifndef ENGINE__MOVECHAR__H
 #define ENGINE__MOVECHAR__H
 
-#include <state/State.h>
 
-namespace state {
-  class State;
-};
 namespace engine {
   class Command;
 }
@@ -17,15 +13,10 @@ namespace engine {
 
   /// class MoveChar - 
   class MoveChar : public engine::Command {
-    // Attributes
-  public:
-    int character;
-    int direction;
     // Operations
   public:
     MoveChar (int c, int d);
     ~MoveChar ();
-    void execute (state::State& state);
     // Setters and Getters
   };
 

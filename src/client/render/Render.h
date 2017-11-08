@@ -12,7 +12,6 @@ namespace render {
   class View;
 }
 
-#include "state/State.h"
 #include "View.h"
 
 namespace render {
@@ -27,7 +26,8 @@ namespace render {
   public:
     Render ();
     ~Render ();
-    void init (state::State state_game);
+    void init (state::State& state_game);
+    void Update (state::State& state_game);
     // Setters and Getters
   };
 

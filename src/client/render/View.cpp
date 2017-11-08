@@ -69,7 +69,7 @@ private:
 
 TileMap Background;
 render::Tiles tile;    
-std::string level_1_path = "res/level_test.png";
+//std::string level_1_path = "res/level_test.png";
 std::string tile_texture_path = "res/gravier_herbe.png";
 sf::Vector2u tile_dim(28, 28);
 
@@ -91,12 +91,12 @@ void render::View::init(state::State& state_game) {
 
 
         
-        tile.convert(level_1_path);
+        tile.convert(state_game);
         Background.load(tile_texture_path, tile_dim, tile.tiles, tile.image_dim.x, tile.image_dim.y);
-tile.getListPosHero();
-tile.getListPosCenter();
-tile.getListPosTower();
-	std::cout <<"bonjour"<<std::endl;
+        //tile.getListPosHero(); 
+       // tile.getListPosCenter();
+        //tile.getListPosTower();
+	
         
         
         //initialisation de la liste textures
@@ -104,7 +104,7 @@ tile.getListPosTower();
                 render::Textures texture;
                 list_texture.push_back(texture);
             }
-         int nb_hero=0;
+            int nb_hero=0;
             int nb_tower=0;
             int nb_center=0;
         // on donne les positions 
@@ -161,4 +161,28 @@ void render::View::draw(sf::RenderWindow& window) {
                 
  
 
+}
+
+void render::View::Update(state::State& state_game){
+    
+
+           
+         
+        // on donne les positions 
+        for (unsigned i = 0; i<state_game.list_element.size(); i++) {
+           
+            
+            if((state_game.list_element[i].getTypeId()==7)||(state_game.list_element[i].getTypeId()==6)||
+                    (state_game.list_element[i].getTypeId()==8)||(state_game.list_element[i].getTypeId()==9)||(state_game.list_element[i].getTypeId()==10)){
+                
+     
+            list_sprite[i].setPosition(state_game.list_element[i].getPosX(),state_game.list_element[i].getPosY());
+            
+ 
+               
+            }
+           
+        }
+        
+        
 }

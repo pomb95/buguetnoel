@@ -9,7 +9,8 @@
 namespace state{
     
     State::State(){ 
-        
+        path="res/level3.png";
+        enable_render=0;
     }
     
     State::~State(){
@@ -52,6 +53,16 @@ namespace state{
     
     std::vector<Element> State::getListeElement() {
         return list_element;
+    }
+    
+    void state::State::Update(){
+        
+      /*  std::cout <<"perso 1 : "<< list_element[0].getPosX() <<","<< list_element[0].getPosY() << std::endl;
+    std::cout <<"perso 2 : "<< list_element[1].getPosX() <<","<< list_element[1].getPosY() << std::endl;
+    std::cout <<"perso 3 : "<< list_element[2].getPosX() <<","<< list_element[2].getPosY() << std::endl;
+    std::cout <<"perso 4 : "<< list_element[3].getPosX() <<","<< list_element[3].getPosY() << std::endl;
+    std::cout <<"perso 5 : "<< list_element[4].getPosX() <<","<< list_element[4].getPosY() << std::endl;
+    std::cout <<"perso 6 : "<< list_element[5].getPosX() <<","<< list_element[5].getPosY() << std::endl;*/
     }
 
     

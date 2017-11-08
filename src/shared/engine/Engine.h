@@ -13,6 +13,7 @@ namespace engine {
 }
 
 #include "state/State.h"
+#include "Command.h"
 
 namespace engine {
 
@@ -21,13 +22,13 @@ namespace engine {
     // Attributes
   public:
     state::State currentState;
-    std::vector<Command*> commands;
+    std::vector<Command> commands;
     // Operations
   public:
     Engine ();
     ~Engine ();
-    void addCommand (Command* cmd);
-    void Update ();
+    void addCommand (Command cmd);
+    void Update (state::State& state_game);
     // Setters and Getters
   };
 

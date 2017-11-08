@@ -37,6 +37,7 @@ namespace render {
     void init (state::State& state_game);
     void draw (sf::RenderWindow& window);
     void add_Sprite (sf::Sprite sprite);
+    void Update (state::State& state_game);
     // Setters and Getters
   };
 

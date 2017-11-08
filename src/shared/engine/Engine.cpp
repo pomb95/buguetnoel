@@ -7,18 +7,25 @@
 #include "Engine.h"
 #include "Command.h"
 #include "MoveChar.h"
+#include <iostream>
 
 
-engine::Engine::Engine() {}
+engine::Engine::Engine() {
+    engine::MoveChar command1(1,2);
+    this->addCommand(command1);
+
+
+}
 
 engine::Engine::~Engine() {}
 
-void engine::Engine::addCommand(Command* cmd){
+void engine::Engine::addCommand(Command cmd){
     commands.push_back(cmd);
 }
 
-void engine::Engine::Update() {
-    for (Command& command: commands){
-        command -> Command::execute(&currentState);
-    }
+void engine::Engine::Update(state::State& state_game) {
+    
+    commands[0].execute(state_game);
+    state_game.enable_render=1;
+    
 }

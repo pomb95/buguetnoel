@@ -17,7 +17,7 @@ namespace render {
   public:
     Textures ();
     ~Textures ();
-    void load_texture (const state::Element & element);
+    void load_texture (state::Element& element);
     // Setters and Getters
   };
 

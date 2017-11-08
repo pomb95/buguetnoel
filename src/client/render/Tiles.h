@@ -4,7 +4,7 @@
 
 #include <SFML/Graphics.hpp>
 #include <vector>
-#include <string>
+#include <state/State.h>
 
 namespace state {
   class State;
@@ -29,7 +29,7 @@ namespace render {
     sf::Vector2u image_dim;
     // Operations
   public:
-    void convert (const std::string &  path);
+    void convert (const state::State  state_game);
     Tiles ();
     ~Tiles ();
     void getListPosHero () const;

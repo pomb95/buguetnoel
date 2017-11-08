@@ -19,11 +19,16 @@ namespace engine {
   /// class Command - 
   class Command {
     // Associations
+    // Attributes
+  public:
+    int Id;
+    int character;
+    int direction;
     // Operations
   public:
     Command ();
     ~Command ();
-    virtual void execute (state::State& state) = 0;
+    void execute (state::State& state);
     // Setters and Getters
   };
 
