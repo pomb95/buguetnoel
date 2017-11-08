@@ -13,15 +13,15 @@ namespace state {
         typeId = COMMANDCENTER;
         Life = 500;
         ATK = 15;
-        std::cout << Name << " created " << std::endl;
+       // std::cout << Name << " created " << std::endl;
     }
     CommandCenter::~CommandCenter() {}
     
-    void CommandCenter::getDamage (int damage){
+    /*void CommandCenter::getDamage (int damage){
         Life -= damage;
         std::cout << "Un " << Name << " reçoit des dégâts !" << std::endl;
         if (!isAlive()) std::cout << "Un " << Name << " a été détruit :(" << std::endl;
-    }
+    }*/
     
     bool CommandCenter::isAlive(){
         return Life > 0 ;

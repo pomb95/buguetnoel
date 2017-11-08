@@ -3,6 +3,7 @@
 #define STATE__STATE__H
 
 #include <vector>
+#include <string>
 
 namespace state {
   class Element;
@@ -18,10 +19,15 @@ namespace state {
     // Attributes
   public:
     std::vector<Element> list_element;
+    std::string path;
+    int enable_render;
     // Operations
   public:
     State ();
     ~State ();
+    void init ();
+    std::vector<Element> getListeElement ();
+    void Update ();
     // Setters and Getters
   };
 

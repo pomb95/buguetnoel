@@ -9,7 +9,7 @@
 namespace state {
     Hero::Hero() : MobileElement() {
         Name = "Hero";
-        std::cout << Name <<" created >> ";
+       // std::cout << Name <<" created >> ";
     }
     
     Hero::~Hero(){

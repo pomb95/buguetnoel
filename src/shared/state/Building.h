@@ -4,7 +4,6 @@
 
 
 namespace state {
-  class MobileElement;
   class StaticElement;
 }
 
@@ -22,7 +21,6 @@ namespace state {
   public:
     Building ();
     ~Building ();
-    void Attack  (MobileElement& victime);
     // Setters and Getters
   };
 

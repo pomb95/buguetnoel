@@ -11,7 +11,7 @@ namespace state {
         Name = "Element";
         PosX = 0;
         PosY = 0;
-        std::cout << Name <<" created >>";
+      //  std::cout << Name <<" created >>";
         
     }
 
@@ -39,10 +39,12 @@ void Element::setPosX(int PosX){
 void Element::setPosY(int PosY){
     this->PosY=PosY;
 }
+
 TypeId Element::getTypeId() const{
     return typeId;
 }     
-        
+   
+
             
         
         

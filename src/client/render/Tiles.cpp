@@ -1,5 +1,6 @@
 #include "render/Tiles.h"
 #include <SFML/Graphics.hpp>
+#include <iostream>
 
 render::Tiles::Tiles() {
 
@@ -9,10 +10,10 @@ render::Tiles::~Tiles() {
 
 };
 
-void render::Tiles::convert(std::string path) {
+void render::Tiles::convert(const state::State state_game) {
     sf::Image image1;
 
-    image1.loadFromFile(path);
+    image1.loadFromFile(state_game.path);
     this->image = image1;
     image_dim = image.getSize();
 
@@ -95,3 +96,44 @@ void render::Tiles::convert(std::string path) {
 
     tiles = tab;
 }
+/* en divisant chaque list_pos_x [X] par 28 on obtient les coordonnées en pixel.
+L'image est taillée 24 pixels sur 24 */
+void render::Tiles::getListPosHero() const {
+    if (list_pos_hero.size() != 0){
+        std::cout <<"perso 1: "<< list_pos_hero[0].x<<","<<list_pos_hero[0].y<< std::endl;
+        std::cout <<"perso 2 : "<< list_pos_hero[1].x <<","<< list_pos_hero[1].y << std::endl;
+        std::cout <<"perso 3 : "<< list_pos_hero[2].x <<","<< list_pos_hero[2].y << std::endl;
+ 	std::cout <<"perso 4 : "<< list_pos_hero[3].x<<","<< list_pos_hero[3].y << std::endl;
+        std::cout <<"perso 5 : "<< list_pos_hero[4].x<<","<< list_pos_hero[4].y << std::endl;
+        std::cout <<"perso 6 : "<< list_pos_hero[5].x<<","<< list_pos_hero[5].y << std::endl;}
+else
+    {
+        std::cout << "La liste de Hero est vide" << std::endl;
+    }}
+
+/* essayer de faire une boucle mais fonctionne pas*/
+void render::Tiles::getListPosTower() const {
+    if (list_pos_tower.size() != 0){
+/*for(int i=0;i=sizeof(list_pos_tower) ;i++){   
+	std::cout <<"Tour1 : " << i <<list_pos_tower[i].x <<","<< list_pos_tower[i].y<< std::endl;}}
+*/
+	std::cout <<"Tour1 : " << list_pos_tower[0].x <<","<< list_pos_tower[0].y<< std::endl;
+        std::cout <<"Tour2 : " << list_pos_tower[1].x<<","<< list_pos_tower[1].y << std::endl;}
+else
+    {
+        std::cout << "La liste de Tower est vide" << std::endl;
+    }}
+ 
+
+/* Decor aussi??? je sais pas*/
+
+void render::Tiles::getListPosCenter() const {
+    if (list_pos_center.size() != 0){
+        std::cout <<"Center1_x : "<< list_pos_center[0].x<<","<< list_pos_center[0].y << std::endl;
+	std::cout <<"Center2_x : "<< list_pos_center[1].x<<","<< list_pos_center[1].y << std::endl;
+    }
+else
+    {
+        std::cout << "list_pos_hero vide" << std::endl;
+    }}
+    

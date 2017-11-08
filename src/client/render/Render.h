@@ -5,6 +5,9 @@
 #include <SFML/Graphics.hpp>
 #include <state/State.h>
 
+namespace state {
+  class State;
+};
 namespace render {
   class View;
 }
@@ -23,7 +26,8 @@ namespace render {
   public:
     Render ();
     ~Render ();
-    void init (state::State state_game);
+    void init (state::State& state_game);
+    void Update (state::State& state_game);
     // Setters and Getters
   };
 

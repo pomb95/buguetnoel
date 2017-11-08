@@ -19,7 +19,7 @@ namespace state{
     }
     MobileElement::~MobileElement() {}
 
-    void MobileElement::Attack(MobileElement &victime){
+    /*void MobileElement::Attack(MobileElement &victime){
         std::cout << Name << " attaque " <<  victime.getName() << std::endl;
 	victime.getDamage(ATK); 
     }
@@ -34,7 +34,7 @@ namespace state{
         if (Life < 0) Life = 0;
         std::cout << "Un " << Name << " reçoit des dégâts !" << std::endl;
         if (!isAlive()) std::cout << "Un " << Name << " est mort :(" << std::endl;
-    }
+    }*/
 
     bool MobileElement::isAlive() {
         return Life > 0 ;

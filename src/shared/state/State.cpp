@@ -8,39 +8,19 @@
 
 namespace state{
     
-    State::State(){
-	/*Enutrof hero1;
-        Sram hero2;
-        Sacrieur hero3;
-	hero1.Attack(hero2);
-        hero3.Attack(hero1);
-        hero1.getStatus();
-        CommandTower com;
-        CommandCenter QG1;
-        Minion minion1;
-        minion1.Attack(QG1);
-        QG1.getStatus();
-        QG1.Attack(hero2);
-        hero2.getStatus();*/
+    State::State(){ 
+        path="res/level3.png";
+        enable_render=0;
+    }
+    
+    State::~State(){
         
-       
+    }
+    
+    void State::init(){
         
-        CommandTower tour1;
-        list_element.push_back(tour1);
         
-        CommandTower tour2;
-        list_element.push_back(tour2);
-        
-       
-        
-   
-        CommandCenter center1;
-        list_element.push_back(center1);
-        
-        CommandCenter center2;
-        list_element.push_back(center2);
-        
-         Iop hero1;
+        Iop hero1;
         list_element.push_back(hero1);
         
         Eniripsa hero2;
@@ -57,22 +37,33 @@ namespace state{
         
         Iop hero6;
         list_element.push_back(hero6);
-    
         
+        CommandTower tour1;
+        list_element.push_back(tour1);
         
+        CommandTower tour2;
+        list_element.push_back(tour2);
         
+        CommandCenter center1;
+        list_element.push_back(center1);
         
-        
-        
-        
-        
+        CommandCenter center2;
+        list_element.push_back(center2);
     }
     
-    State::~State(){
-        
+    std::vector<Element> State::getListeElement() {
+        return list_element;
     }
     
-    
-    
+    void state::State::Update(){
+        
+      /*  std::cout <<"perso 1 : "<< list_element[0].getPosX() <<","<< list_element[0].getPosY() << std::endl;
+    std::cout <<"perso 2 : "<< list_element[1].getPosX() <<","<< list_element[1].getPosY() << std::endl;
+    std::cout <<"perso 3 : "<< list_element[2].getPosX() <<","<< list_element[2].getPosY() << std::endl;
+    std::cout <<"perso 4 : "<< list_element[3].getPosX() <<","<< list_element[3].getPosY() << std::endl;
+    std::cout <<"perso 5 : "<< list_element[4].getPosX() <<","<< list_element[4].getPosY() << std::endl;
+    std::cout <<"perso 6 : "<< list_element[5].getPosX() <<","<< list_element[5].getPosY() << std::endl;*/
+    }
+
     
 }
