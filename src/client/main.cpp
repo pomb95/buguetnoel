@@ -45,7 +45,7 @@ int main(int argc, char* argv[]) {
     }
 
     if ((argv[1] != NULL) && string(argv[1]) == "engine") {
-
+        std::cout<<"Appuyer sur B pour deplacer l'eni vers le bas "<<std::endl;
         State state;
         Render render;
         Engine engine;
@@ -65,11 +65,11 @@ int main(int argc, char* argv[]) {
 
                 if (event.type == sf::Event::KeyPressed) {
                     if (sf::Keyboard::isKeyPressed(sf::Keyboard::B)) {
-                        std::cout<<state.enable_render<<" init "<<std::endl;
+                        
                         engine.Update(state);
-                        std::cout<<state.enable_render<<" engine update"<<std::endl;
+                        std::cout<<"l'autorisation de rendu est "<<state.enable_render<<" engine update a été fait"<<std::endl;
                         render.Update(state);
-                       std::cout<<state.enable_render<<" render update"<<std::endl;
+                       std::cout<<"l'autorisation de rendu est "<<state.enable_render<<" render update a été fait"<<std::endl;
                         
                     }
 

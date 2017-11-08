@@ -11,7 +11,7 @@ namespace state {
     CommandTower::CommandTower() : Building() {
         Name = "Command Tower";
         typeId = COMMANDTOWER;
-        std::cout << Name << " created" << std::endl;
+      //  std::cout << Name << " created" << std::endl;
     }
     CommandTower::~CommandTower() {}
 }

@@ -20,7 +20,7 @@ void render::Textures::load_texture( state::Element& element) {
         
         path="res/eni.png";
         scale=sf::Vector2f(0.2,0.2);
-          std::cout<<"eni"<<std::endl;      
+         // std::cout<<"eni"<<std::endl;      
         
     }
     
@@ -28,7 +28,7 @@ void render::Textures::load_texture( state::Element& element) {
         
         path="res/sram.png";
         scale=sf::Vector2f(0.2,0.2);
-           std::cout<<"sram"<<std::endl;      
+         //  std::cout<<"sram"<<std::endl;      
         
     }
     
@@ -36,7 +36,7 @@ void render::Textures::load_texture( state::Element& element) {
         
         path="res/iop.png";
         scale=sf::Vector2f(0.050,0.05);
-                std::cout<<"iop"<<std::endl; 
+              //  std::cout<<"iop"<<std::endl; 
         
     }
     
@@ -44,14 +44,14 @@ void render::Textures::load_texture( state::Element& element) {
         
         path="res/enu.png";
         scale=sf::Vector2f(0.2,0.2);
-                std::cout<<"enu"<<std::endl; 
+              //  std::cout<<"enu"<<std::endl; 
         
     }
     if(element.getTypeId()==10){
         
         path="res/sacri.png";
         scale=sf::Vector2f(0.2,0.2);
-                std::cout<<"sacri"<<std::endl; 
+               // std::cout<<"sacri"<<std::endl; 
         
     }
     
@@ -59,14 +59,14 @@ void render::Textures::load_texture( state::Element& element) {
         
         path="res/tower.png";
         scale=sf::Vector2f(0.28,0.28);
-                std::cout<<"tower"<<std::endl; 
+               // std::cout<<"tower"<<std::endl; 
         
     }
      if(element.getTypeId()==4){
         
         path="res/center.png";
         scale=sf::Vector2f(0.28,0.28);
-                std::cout<<"center"<<std::endl; 
+                //std::cout<<"center"<<std::endl; 
         
     }
         

@@ -11,7 +11,7 @@
 engine::Command::Command() {}
 engine::Command::~Command() {}
 void engine::Command::execute (state::State& state){
-    if(Id==1){std::cout<<"yoyoyo"<<std::endl;
+    if(Id==1){
    
         if(direction==6)
          { std::cout << state.list_element[character].getName() << " se déplace à droite" << std::endl;

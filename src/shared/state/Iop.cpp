@@ -14,7 +14,7 @@ namespace state {
         Range = 3;
         ATK = 20;
         typeId = IOP;
-        std::cout << Name <<" created" << std::endl;
+        //std::cout << Name <<" created" << std::endl;
     }
     Iop::~Iop() {}
 }

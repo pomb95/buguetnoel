@@ -13,7 +13,7 @@ namespace state {
         typeId = COMMANDCENTER;
         Life = 500;
         ATK = 15;
-        std::cout << Name << " created " << std::endl;
+       // std::cout << Name << " created " << std::endl;
     }
     CommandCenter::~CommandCenter() {}
     

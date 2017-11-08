@@ -11,7 +11,7 @@ namespace state {
         Name = "Element";
         PosX = 0;
         PosY = 0;
-        std::cout << Name <<" created >>";
+      //  std::cout << Name <<" created >>";
         
     }
 

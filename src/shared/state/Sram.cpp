@@ -12,7 +12,7 @@ namespace state {
         Range = 7;
         ATK = 10;
         typeId = SRAM;
-	std::cout << Name <<" created" << std::endl;
+	//std::cout << Name <<" created" << std::endl;
     }
     
     Sram::~Sram(){

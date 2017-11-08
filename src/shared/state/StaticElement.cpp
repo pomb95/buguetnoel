@@ -9,7 +9,7 @@
 
 namespace state {
     StaticElement::StaticElement() : Element() {
-        std::cout <<" Static Element created >>"; 
+      //  std::cout <<" Static Element created >>"; 
     }
     StaticElement::~StaticElement() {}
 }
