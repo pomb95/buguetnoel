@@ -58,11 +58,17 @@ void engine::Engine::testInit(){
     this->addCommand(command1);
     this->addCommand(command1);
     this->addCommand(check);
+    command1.setDirection(4);
     this->addCommand(command1);
     this->addCommand(command1);
+    this->addCommand(command1);
+    this->addCommand(command1);
+    this->addCommand(check);
     command1.setMoveChar(3,6);//test collision droite avec enu
+    check.setCharacter(3);
     this->addCommand(command1);
     this->addCommand(command1);
+    this->addCommand(check);
     this->addCommand(command1);
     this->addCommand(command1);
 //test pour attack

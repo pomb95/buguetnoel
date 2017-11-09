@@ -95,7 +95,7 @@ void engine::Command::execute (state::State& state){
                 y2 += increment;
                 
             }
-            if (e == 0) std::cout << "aucun element à portée" << std::endl;
+            if (e == 0) std::cout << state.list_element[character].getName() << " ne voit rien" << std::endl;
         }
 }
 
