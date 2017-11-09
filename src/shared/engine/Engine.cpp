@@ -25,7 +25,7 @@ void engine::Engine::addCommand(Command cmd){
 
 
 void engine::Engine::Update(state::State& state_game) {
-    std::cout << "Nombre de commandes : " << commands.size() << std::endl;    
+    std::cout << "IL reste  : " << commands.size() <<"commandes"<< std::endl;    
     if(!commands.empty()){
         commands[0].execute(state_game);  
         commands.erase(commands.begin()); 
@@ -44,5 +44,21 @@ void engine::Engine::testInit(){
     command1.setDirection(8);
     this->addCommand(command1);
     this->addCommand(command1);
+    this->addCommand(command1);
+    this->addCommand(command1);
+    this->addCommand(command1);
+    this->addCommand(command1);
+    this->addCommand(command1);//test collision haut avec Eni
+    this->addCommand(command1);
+    this->addCommand(command1);
+    this->addCommand(command1);
+    this->addCommand(command1);
+engine::MoveChar command3(3,6); //test collision droite avec enu
+    this->addCommand(command3);
+    this->addCommand(command3);
+    this->addCommand(command3);
+    this->addCommand(command3);
+
+
     
 }

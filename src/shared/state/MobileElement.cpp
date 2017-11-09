@@ -15,7 +15,7 @@ namespace state{
         Life = 10;
         ATK = 10;
         Range = 5;
-        std::cout << " Mobile Element created >> ";
+        //std::cout << " Mobile Element created >> ";
     }
     MobileElement::~MobileElement() {}
 
