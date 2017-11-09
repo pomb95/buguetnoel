@@ -68,28 +68,34 @@ void engine::Command::execute (state::State& state){
             int increment = 1;
             int y2 = 0;
             int posX = state.list_element[character].getPosX();
-            std::cout << "posX = " << posX << std::endl;
+            //std::cout << "posX = " << posX << std::endl;
             int posY = state.list_element[character].getPosY();
-            std::cout << "posY = " << posY << std::endl;
+            //std::cout << "posY = " << posY << std::endl;
             int r = state.list_element[character].getRange();
-            for (int x = posX-r*28; x < posX + r*28; x += 28){
-                std::cout << "CheckX = " << x << std::endl;
-                for (int y = posY-y2; y <= posY + y2; y+=28){
-                    std::cout << "CheckY = " << y << std::endl;
+            //std::cout << "range = " << r << std::endl;
+            for (int x = posX-r*28; x <= posX + r*28; x += 28){
+                //std::cout << "CheckX = " << x << std::endl;
+                //std::cout << "increment = " << increment << std::endl;
+                for (int y = posY-y2*28; y <= posY + y2*28; y+=28){
+                    //std::cout << "CheckY = " << y << std::endl;
                     for (int z = 0; z < (int)state.getListElement().size(); z++){
-                        std::cout << "element actuel : " << state.list_element[z].getName() << std::endl;
-                        if (x == state.list_element[z].getPosX() && y == state.list_element[z].getPosY() && x != posX && y != posY){
-                            std::cout << state.list_element[character].getName() << " voit un " << state.list_element[z].getName() << std::endl; 
-                            e = 1;
+                        //std::cout << "element actuel : " << state.list_element[z].getName() << std::endl;
+                        if (x == state.list_element[z].getPosX() && y == state.list_element[z].getPosY()){
+                            if (x != posX || y != posY){
+                                std::cout << state.list_element[character].getName() << " voit un " << state.list_element[z].getName() << std::endl; 
+                                e = 1;
+                            }
+                            
                         }
                     }
                     
                 }
+                //std::cout << " " << std::endl;
                 if (x == posX) increment = -1;
-                y2 += increment*28;
+                y2 += increment;
                 
             }
-            if (not e) std::cout << "aucun element à portée" << std::endl;
+            if (e == 0) std::cout << "aucun element à portée" << std::endl;
         }
 }
 
