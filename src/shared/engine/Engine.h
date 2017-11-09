@@ -20,7 +20,7 @@ namespace engine {
   /// class Engine - 
   class Engine {
     // Attributes
-  public:
+  private:
     state::State currentState;
     std::vector<Command> commands;
     // Operations
@@ -29,6 +29,8 @@ namespace engine {
     ~Engine ();
     void addCommand (Command cmd);
     void Update (state::State& state_game);
+    void testInit ();
+    void clearCommands ();
     // Setters and Getters
   };
 
