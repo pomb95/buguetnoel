@@ -42,7 +42,11 @@ void Element::setPosY(int PosY){
 
 TypeId Element::getTypeId() const{
     return typeId;
-}     
+}  
+
+int Element::getRange() const{
+    return Range;
+}
    
 
             

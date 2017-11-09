@@ -17,6 +17,7 @@ namespace state {
     std::string Name;
     int PosX;
     int PosY;
+    int Range;
     // Operations
   public:
     Element ();
@@ -30,6 +31,8 @@ namespace state {
     void setPosX(int PosX);
     int getPosY() const;
     void setPosY(int PosY);
+    int getRange() const;
+    void setRange(int Range);
   };
 
 };

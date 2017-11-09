@@ -27,7 +27,7 @@ void engine::Engine::addCommand(Command cmd){
 
 
 void engine::Engine::Update(state::State& state_game) {
-    std::cout << "IL reste  : " << commands.size() <<"commandes"<< std::endl;    
+    std::cout << "IL reste  : " << commands.size() <<"commandes "<< std::endl;    
     if(!commands.empty()){
         commands[0].execute(state_game);  
         commands.erase(commands.begin()); 

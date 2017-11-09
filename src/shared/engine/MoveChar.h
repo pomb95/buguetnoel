@@ -21,8 +21,6 @@ namespace engine {
   public:
     MoveChar (int c, int d);
     ~MoveChar ();
-    void setDirection (int d);
-    void setCharacter (int c);
     void setMoveChar (int c, int d);
     // Setters and Getters
   };
