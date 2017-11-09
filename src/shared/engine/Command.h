@@ -24,6 +24,9 @@ namespace engine {
     int Id;
     int character;
     int direction;
+    int attaquant;
+    int victime;
+    int degat;
     // Operations
   public:
     Command ();

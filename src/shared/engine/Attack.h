@@ -19,7 +19,7 @@ namespace engine {
   class Attack : public engine::Command {
     // Operations
   public:
-    Attack (int c, int d);
+    Attack (int c, int d, int degat);
     ~Attack ();
     void setVictime (int d);
     void setAttaquant (int c);

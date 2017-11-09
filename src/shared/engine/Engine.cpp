@@ -7,6 +7,7 @@
 #include "Engine.h"
 #include "Command.h"
 #include "MoveChar.h"
+#include "Attack.h"
 #include <iostream>
 #include <vector>
 
