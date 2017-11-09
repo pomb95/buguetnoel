@@ -51,7 +51,7 @@ namespace state{
         list_element.push_back(center2);
     }
     
-    std::vector<Element> State::getListeElement() {
+    std::vector<Element> State::getListElement() {
         return list_element;
     }
     

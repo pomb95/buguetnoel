@@ -7,6 +7,7 @@
 #include "Engine.h"
 #include "Command.h"
 #include "MoveChar.h"
+#include "CheckAround.h"
 #include "Attack.h"
 #include <iostream>
 #include <vector>
@@ -27,7 +28,7 @@ void engine::Engine::addCommand(Command cmd){
 
 
 void engine::Engine::Update(state::State& state_game) {
-    std::cout << "IL reste  : " << commands.size() <<"commandes "<< std::endl;    
+    std::cout << "Il reste  : " << commands.size() <<" commandes "<< std::endl;    
     if(!commands.empty()){
         commands[0].execute(state_game);  
         commands.erase(commands.begin()); 
@@ -37,29 +38,33 @@ void engine::Engine::Update(state::State& state_game) {
 
 
 void engine::Engine::testInit(){
+    engine::CheckAround check(1);
     engine::MoveChar command1(1,2);
     this->addCommand(command1);
     this->addCommand(command1);
-    command1.setDirection(6);
+    this->addCommand(check);
+    command1.setDirection(4);
     this->addCommand(command1);
     this->addCommand(command1);
-    command1.setDirection(8);
-    this->addCommand(command1);
-    this->addCommand(command1);
-    this->addCommand(command1);
-    this->addCommand(command1);
-    this->addCommand(command1);
-    this->addCommand(command1);
-    this->addCommand(command1);//test collision haut avec Eni
+    command1.setDirection(2);
     this->addCommand(command1);
     this->addCommand(command1);
     this->addCommand(command1);
+    this->addCommand(check);
     this->addCommand(command1);
-    engine::MoveChar command3(3,6); //test collision droite avec enu
-    this->addCommand(command3);
-    this->addCommand(command3);
-    this->addCommand(command3);
-    this->addCommand(command3);
+    this->addCommand(command1);
+    this->addCommand(command1);
+    this->addCommand(command1);
+    this->addCommand(command1);
+    this->addCommand(command1);
+    this->addCommand(check);
+    this->addCommand(command1);
+    this->addCommand(command1);
+    command1.setMoveChar(3,6);//test collision droite avec enu
+    this->addCommand(command1);
+    this->addCommand(command1);
+    this->addCommand(command1);
+    this->addCommand(command1);
 //test pour attack
 engine::Attack command2(1,2,10); // L'éni attaque le sram
 

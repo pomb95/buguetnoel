@@ -26,7 +26,7 @@ namespace state {
     State ();
     ~State ();
     void init ();
-    std::vector<Element> getListeElement ();
+    std::vector<Element> getListElement ();
     void Update ();
     // Setters and Getters
   };

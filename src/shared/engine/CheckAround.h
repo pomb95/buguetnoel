@@ -26,9 +26,9 @@ namespace engine {
   public:
     CheckAround (int c);
     ~CheckAround ();
-    void Check ();
     void addElementChecked (state::Element e);
     void clearListelementChecked ();
+    void setCheck ();
     // Setters and Getters
   };
 
