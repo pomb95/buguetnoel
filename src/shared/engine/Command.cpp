@@ -56,4 +56,5 @@ void engine::Command::execute (state::State& state){
                     
     
     }
+	if(Id==2){std::cout << "Nous sommes dan l'attaque" << std::endl;}
 }

@@ -20,6 +20,7 @@ engine::Engine::~Engine() {}
 
 void engine::Engine::addCommand(Command cmd){
     commands.push_back(cmd);
+    
 }
 
 
@@ -53,12 +54,17 @@ void engine::Engine::testInit(){
     this->addCommand(command1);
     this->addCommand(command1);
     this->addCommand(command1);
-engine::MoveChar command3(3,6); //test collision droite avec enu
+    engine::MoveChar command3(3,6); //test collision droite avec enu
     this->addCommand(command3);
     this->addCommand(command3);
     this->addCommand(command3);
     this->addCommand(command3);
+//test pour attack
+engine::Attack command2(1,2,10); // L'éni attaque le sram
 
+this-> addCommand(command2);
+
+std::cout<< "commande ajouté attaque" <<std::endl;
 
     
 }

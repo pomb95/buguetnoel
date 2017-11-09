@@ -12,6 +12,8 @@ namespace state {
         Name = "Eniripsa";
         Range = 5;
         ATK = 10;
+	Life = 20;
+	Alive = 1; // en vie 
         typeId = ENI;
        // std::cout << Name <<" created" << std::endl;
     }

@@ -16,15 +16,17 @@ namespace state {
     // Attributes
   protected:
     int Life;
+    bool Alive;
     // Operations
   public:
     CommandCenter ();
     ~CommandCenter ();
-    bool isAlive ();
     void getStatus ();
     // Setters and Getters
     int getLife() const;
     void setLife(int Life);
+    bool getAlive() const;
+    void setAlive(bool Alive);
   };
 
 };

@@ -23,9 +23,12 @@ namespace state {
         if (!isAlive()) std::cout << "Un " << Name << " a été détruit :(" << std::endl;
     }*/
     
-    bool CommandCenter::isAlive(){
+    /*bool CommandCenter::isAlive(){
         return Life > 0 ;
-    }
+    
+
+		
+	}*/
     
     void CommandCenter::getStatus(){
         std::cout << " " << std::endl;
@@ -33,7 +36,7 @@ namespace state {
         std::cout << "TypeId : " << typeId << std::endl;
         std::cout << "Team : " << Team << std::endl;
         std::cout << "Life : " << Life << std::endl;
-        std::cout << "Etat : " << isAlive() << std::endl;
+        //std::cout << "Etat : " << isAlive() << std::endl;
         std::cout << " " << std::endl;
     }
     

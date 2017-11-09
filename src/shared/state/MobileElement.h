@@ -21,11 +21,11 @@ namespace state {
     int ATK;
     int Range;
     int Movement;
+    bool Alive;
     // Operations
   public:
     MobileElement ();
     ~MobileElement ();
-    bool isAlive ();
     void getStatus ();
     // Setters and Getters
     int getTeam() const;
@@ -38,6 +38,8 @@ namespace state {
     void setRange(int Range);
     int getMovement() const;
     void setMovement(int Movement);
+    bool getAlive() const;
+    void setAlive(bool Alive);
   };
 
 };

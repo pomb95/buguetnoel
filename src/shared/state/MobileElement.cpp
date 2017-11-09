@@ -36,9 +36,9 @@ namespace state{
         if (!isAlive()) std::cout << "Un " << Name << " est mort :(" << std::endl;
     }*/
 
-    bool MobileElement::isAlive() {
-        return Life > 0 ;
-    }
+    //bool MobileElement::isAlive() {
+      //  return Life > 0 ;
+   // }
     
     void MobileElement::getStatus() {
         std::cout << " " << std::endl;
@@ -51,7 +51,7 @@ namespace state{
         std::cout << "Range : " << Range << std::endl;
         std::cout << "Movement : " << Movement << std::endl;
         std::cout << "Life : " << Life << std::endl;
-        std::cout << "Etat : " << isAlive() << std::endl;
+        //std::cout << "Etat : " << isAlive() << std::endl;
         std::cout << " " << std::endl;
     }
 	
