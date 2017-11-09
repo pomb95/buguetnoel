@@ -5,4 +5,6 @@
 #include "engine/Command.h"
 #include "engine/Engine.h"
 #include "engine/MoveChar.h"
+#include "engine/Attack.h"
+#include "engine/CheckAround.h"
 #endif

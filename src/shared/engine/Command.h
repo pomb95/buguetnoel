@@ -20,16 +20,31 @@ namespace engine {
   class Command {
     // Associations
     // Attributes
-  public:
+  protected:
     int Id;
     int character;
     int direction;
+    int attaquant;
+    int victime;
+    int degat;
     // Operations
   public:
     Command ();
     ~Command ();
     void execute (state::State& state);
     // Setters and Getters
+    int getId() const;
+    void setId(int Id);
+    int getCharacter() const;
+    void setCharacter(int character);
+    int getDirection() const;
+    void setDirection(int direction);
+    int getAttaquant() const;
+    void setAttaquant(int attaquant);
+    int getVictime() const;
+    void setVictime(int victime);
+    int getDegat() const;
+    void setDegat(int degat);
   };
 
 };

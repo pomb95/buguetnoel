@@ -19,13 +19,12 @@ namespace state {
     int Team;
     int Life;
     int ATK;
-    int Range;
     int Movement;
+    bool Alive;
     // Operations
   public:
     MobileElement ();
     ~MobileElement ();
-    bool isAlive ();
     void getStatus ();
     // Setters and Getters
     int getTeam() const;
@@ -34,10 +33,10 @@ namespace state {
     void setLife(int Life);
     int getATK() const;
     void setATK(int ATK);
-    int getRange() const;
-    void setRange(int Range);
     int getMovement() const;
     void setMovement(int Movement);
+    bool getAlive() const;
+    void setAlive(bool Alive);
   };
 
 };
