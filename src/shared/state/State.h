@@ -4,6 +4,7 @@
 
 #include <vector>
 #include <string>
+#include <state/Element.h>
 
 namespace state {
   class Element;
@@ -21,6 +22,8 @@ namespace state {
     std::vector<Element> list_element;
     std::string path;
     int enable_render;
+    int  nb_hero;
+    int enable_state;
     // Operations
   public:
     State ();
@@ -28,6 +31,7 @@ namespace state {
     void init ();
     std::vector<Element> getListElement ();
     void Update ();
+    void addElement (state::Element  element);
     // Setters and Getters
   };
 

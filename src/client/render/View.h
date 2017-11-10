@@ -17,6 +17,7 @@ namespace render {
 }
 
 #include "Textures.h"
+#include "state/State.h"
 #include "Tiles.h"
 
 namespace render {
@@ -35,7 +36,7 @@ namespace render {
     View ();
     ~View ();
     void init (state::State& state_game);
-    void draw (sf::RenderWindow& window);
+    void draw (sf::RenderWindow& window, const state::State state_game);
     void add_Sprite (sf::Sprite sprite);
     void Update (state::State& state_game);
     // Setters and Getters

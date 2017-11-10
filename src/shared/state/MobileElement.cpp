@@ -54,5 +54,9 @@ namespace state{
         //std::cout << "Etat : " << isAlive() << std::endl;
         std::cout << " " << std::endl;
     }
+    
+    
+   
+  
 	
 }

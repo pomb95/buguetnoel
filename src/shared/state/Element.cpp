@@ -11,6 +11,7 @@ namespace state {
         Name = "Element";
         PosX = 0;
         PosY = 0;
+        Alive = 1;
       //  std::cout << Name <<" created >>";
         
     }
@@ -47,6 +48,18 @@ TypeId Element::getTypeId() const{
 int Element::getRange() const{
     return Range;
 }
+
+int Element::getLife() const {
+        return Life;
+    }
+
+void Element::setLife(int Life){
+    if (this->Life>0){
+        this->Life=Life;
+        }else{
+        this->Life=0;
+        }
+    }
    
 
             

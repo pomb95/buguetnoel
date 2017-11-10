@@ -9,6 +9,7 @@
 #include <iostream>
 
 
+
 engine::Command::Command() {}
 engine::Command::~Command() {}
 void engine::Command::execute (state::State& state){
@@ -58,7 +59,14 @@ void engine::Command::execute (state::State& state){
     
     }
 	if(Id==2){
-            std::cout << "Nous sommes dan l'attaque" << std::endl;
+            if(state.list_element[victime].Alive==1){
+            state.list_element[victime].setLife(state.list_element[victime].getLife()-degat);
+            std::cout << state.list_element[attaquant].getName() << " a attaqué " <<  state.list_element[victime].getName() << ". Ilreste lui " << state.list_element[victime].getLife() << " point de vie." <<std::endl;
+            }
+            else
+            {
+                std::cout << state.list_element[victime].getName()<< " est déjà mort" <<std::endl;
+            }
         }
     
         if(Id == 3){

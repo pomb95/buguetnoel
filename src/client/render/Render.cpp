@@ -26,7 +26,7 @@ render::View view;
     window.setPosition(pos_window);
     window.setFramerateLimit(frame_fps_limit);
     view.init(state_game);
-    view.draw(window);
+    view.draw(window,state_game);
     window.display();
       
      
@@ -39,9 +39,10 @@ render::View view;
      if(state_game.enable_render==1){
     window.clear();
     view.Update(state_game);
-    view.draw(window);
+    view.draw(window,state_game);
     window.display();
     state_game.enable_render=0;
+    std::cout <<" Render ::: On a notifié que le rendu a été fait de l'état"<<std::endl;
      }
      
  }

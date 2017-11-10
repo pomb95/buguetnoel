@@ -16,27 +16,18 @@ namespace state {
   class MobileElement : public state::Element {
     // Attributes
   protected:
-    int Team;
-    int Life;
     int ATK;
     int Movement;
-    bool Alive;
     // Operations
   public:
     MobileElement ();
     ~MobileElement ();
     void getStatus ();
     // Setters and Getters
-    int getTeam() const;
-    void setTeam(int Team);
-    int getLife() const;
-    void setLife(int Life);
     int getATK() const;
     void setATK(int ATK);
     int getMovement() const;
     void setMovement(int Movement);
-    bool getAlive() const;
-    void setAlive(bool Alive);
   };
 
 };

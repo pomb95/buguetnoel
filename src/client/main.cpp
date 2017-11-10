@@ -67,9 +67,9 @@ int main(int argc, char* argv[]) {
                 if (event.type == sf::Event::KeyPressed) {
                     if (sf::Keyboard::isKeyPressed(sf::Keyboard::B)) {
                         engine.Update(state);
-                        std::cout<<"l'autorisation de rendu est "<<state.enable_render<<" engine update a été fait"<<std::endl;
+                        state.Update();
                         render.Update(state);
-                       std::cout<<"l'autorisation de rendu est "<<state.enable_render<<" render update a été fait"<<std::endl;
+                      
                         
                     }
 

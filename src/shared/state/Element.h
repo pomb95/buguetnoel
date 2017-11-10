@@ -12,12 +12,16 @@ namespace state {
   class Element {
     // Associations
     // Attributes
+  public:
+    int Alive;
   protected:
     TypeId typeId;
     std::string Name;
     int PosX;
     int PosY;
     int Range;
+    int Team;
+    int Life;
     // Operations
   public:
     Element ();
@@ -33,6 +37,10 @@ namespace state {
     void setPosY(int PosY);
     int getRange() const;
     void setRange(int Range);
+    int getTeam() const;
+    void setTeam(int Team);
+    int getLife() const;
+    void setLife(int Life);
   };
 
 };

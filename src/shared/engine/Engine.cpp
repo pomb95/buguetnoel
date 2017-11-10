@@ -33,50 +33,22 @@ void engine::Engine::Update(state::State& state_game) {
         commands[0].execute(state_game);  
         commands.erase(commands.begin()); 
     }
-    state_game.enable_render=1;
+    state_game.enable_state=1;
+std::cout << "Engine :::On a notifié à l'état que une commande a été executé "<< std::endl; 
 }
 
 
 void engine::Engine::testInit(){
-    engine::CheckAround check(1);
     engine::MoveChar command1(1,2);
     this->addCommand(command1);
-    this->addCommand(command1);
-    this->addCommand(check);
-    command1.setDirection(4);
-    this->addCommand(command1);
-    this->addCommand(command1);
-    command1.setDirection(2);
-    this->addCommand(command1);
-    this->addCommand(command1);
-    this->addCommand(command1);
-    this->addCommand(check);
-    this->addCommand(command1);
-    this->addCommand(command1);
-    this->addCommand(command1);
-    this->addCommand(command1);
-    this->addCommand(command1);
-    this->addCommand(command1);
-    this->addCommand(check);
-    command1.setDirection(4);
-    this->addCommand(command1);
-    this->addCommand(command1);
-    this->addCommand(command1);
-    this->addCommand(command1);
-    this->addCommand(check);
-    command1.setMoveChar(3,6);//test collision droite avec enu
-    check.setCharacter(3);
-    this->addCommand(command1);
-    this->addCommand(command1);
-    this->addCommand(check);
-    this->addCommand(command1);
-    this->addCommand(command1);
 //test pour attack
-engine::Attack command2(1,2,10); // L'éni attaque le sram
+    engine::Attack command2(1,2,5); // L'éni attaque le sram
 
-this-> addCommand(command2);
+    this-> addCommand(command2);
+    this-> addCommand(command2);
+    this-> addCommand(command2);
+    this-> addCommand(command2);
 
-std::cout<< "commande ajouté attaque" <<std::endl;
 
     
 }

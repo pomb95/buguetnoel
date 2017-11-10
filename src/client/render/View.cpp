@@ -152,10 +152,12 @@ void render::View::add_Sprite(sf::Sprite sprite) {
 }
 
 
-void render::View::draw(sf::RenderWindow& window) {
+void render::View::draw(sf::RenderWindow& window ,state::State state_game) {
     window.draw(Background);
+    
       for (unsigned i = 0; i<list_sprite.size(); i++) {
-                window.draw(list_sprite[i]);
+          if (state_game.list_element[i].Alive==1)
+            window.draw(list_sprite[i]);
                 
             }
                 
