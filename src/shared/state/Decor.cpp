@@ -8,6 +8,8 @@
 #include "Decor.h"
 
 namespace state {
-    Decor::Decor() {}
+    Decor::Decor() {
+        typeId=COEUR;
+    }
     Decor::~Decor() {}
 }

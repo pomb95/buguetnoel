@@ -15,7 +15,8 @@ namespace state {
     SRAM,
     IOP,
     ENU,
-    SACRI
+    SACRI,
+    COEUR
   };
 
 };

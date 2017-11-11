@@ -15,7 +15,6 @@
 #include "state/Building.h"
 #include "state/CommandCenter.h"
 #include "state/CommandTower.h"
-#include "state/DecorId.h"
 #include "state/Eniripsa.h"
 #include "state/Iop.h"
 #include "state/Sacrieur.h"

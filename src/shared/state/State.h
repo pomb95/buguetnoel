@@ -24,6 +24,8 @@ namespace state {
     int enable_render;
     int  nb_hero;
     int enable_state;
+    int nb_tower;
+    int nb_center;
     // Operations
   public:
     State ();

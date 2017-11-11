@@ -31,6 +31,9 @@ namespace render {
     int type;
     std::vector<sf::Sprite> list_sprite;
     std::vector<Textures> list_texture;
+    int nb_hero;
+    int nb_tower;
+    int nb_center;
     // Operations
   public:
     View ();

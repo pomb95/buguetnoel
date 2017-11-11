@@ -13,6 +13,8 @@ namespace state{
         enable_render=0;
         enable_state=0;
         nb_hero=0;
+        nb_tower=0;
+        nb_center=0;
     }
     
     State::~State(){
@@ -51,6 +53,14 @@ namespace state{
         
         CommandCenter center2;
         this->addElement(center2);
+        
+        Decor coeur;
+        
+        for (int i = 0; i<nb_hero*10; i++) {
+            this->addElement(coeur);
+            
+        }
+        
     }
     
     std::vector<Element> State::getListElement() {
@@ -67,6 +77,17 @@ namespace state{
                 }
             }
         }
+      
+        for (unsigned i = nb_hero+nb_tower+nb_center; i<list_element.size(); i++) {
+           
+            if(list_element[i].Alive==1){
+                if(list_element[static_cast<int>(i/10)-1].getLife()<=i%10){
+                    list_element[i].Alive=0;
+                 std::cout << list_element[static_cast<int>(i/10)].getName() << " a un coeur en moins ***." <<std::endl;
+                }
+            }
+        }
+        
         enable_state=0;
         enable_render=1;
          std::cout <<" State ::: On a notifié au rendu que l'état a changé et au moteur que les modifications ont été effectué "<<std::endl;
@@ -81,6 +102,14 @@ namespace state{
         list_element.push_back(element);
         
         }
+    else if(element.getTypeId()==4){
+        nb_center++;
+        list_element.push_back(element);
+    }
+    else if(element.getTypeId()==3){
+        nb_tower++;
+        list_element.push_back(element);
+    }
     else
         {
          list_element.push_back(element);

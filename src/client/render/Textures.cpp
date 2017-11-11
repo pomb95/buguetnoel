@@ -35,7 +35,7 @@ void render::Textures::load_texture( state::Element& element) {
     if(element.getTypeId()==8){
         
         path="res/iop.png";
-        scale=sf::Vector2f(0.050,0.05);
+        scale=sf::Vector2f(0.2,0.2);
               //  std::cout<<"iop"<<std::endl; 
         
     }
@@ -69,6 +69,16 @@ void render::Textures::load_texture( state::Element& element) {
                 //std::cout<<"center"<<std::endl; 
         
     }
+    
+    if(element.getTypeId()==11){
+        
+        path="res/coeur.png";
+        scale=sf::Vector2f(0.25,0.25);
+                //std::cout<<"center"<<std::endl; 
+        
+    }
+    
+    
         
  
     texture.loadFromFile(path);

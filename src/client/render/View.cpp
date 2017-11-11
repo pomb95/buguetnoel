@@ -79,7 +79,10 @@ sf::Vector2u tile_dim(28, 28);
 
 
 render::View::View() {
-    this->type = type;
+    
+    nb_hero=0;
+    nb_tower=0;
+    nb_center=0;
 }
 
 render::View::~View() {
@@ -104,9 +107,7 @@ void render::View::init(state::State& state_game) {
                 render::Textures texture;
                 list_texture.push_back(texture);
             }
-            int nb_hero=0;
-            int nb_tower=0;
-            int nb_center=0;
+          
         // on donne les positions 
         for (unsigned i = 0; i<state_game.list_element.size(); i++) {
            
@@ -137,15 +138,28 @@ void render::View::init(state::State& state_game) {
             nb_center++;
             }
             
+            if(state_game.list_element[i].getTypeId()==11){
+      
+            state_game.list_element[i].setPosX(static_cast<int> (tile.list_pos_hero[static_cast<int> ((i-(nb_center+nb_tower+nb_hero))/10)].x+(static_cast<int> (i-(nb_center+nb_tower+nb_hero))%10)*5));
+            state_game.list_element[i].setPosY(static_cast<int> (tile.list_pos_hero[static_cast<int> ((i-(nb_center+nb_tower+nb_hero))/10)].y-4));
+            list_texture[i].load_texture(state_game.list_element[i]);
+            this->add_Sprite(list_texture[i].sprite);}
+        }  
+                  
+                
             
             
-            }
+}
+            
+            
+            
+            
         
         
        
         
         
-}
+
 
 void render::View::add_Sprite(sf::Sprite sprite) {
     list_sprite.push_back(sprite);
@@ -175,16 +189,24 @@ void render::View::Update(state::State& state_game){
            
             
             if((state_game.list_element[i].getTypeId()==7)||(state_game.list_element[i].getTypeId()==6)||
-                    (state_game.list_element[i].getTypeId()==8)||(state_game.list_element[i].getTypeId()==9)||(state_game.list_element[i].getTypeId()==10)){
+                    (state_game.list_element[i].getTypeId()==8)||(state_game.list_element[i].getTypeId()==9)||
+                    (state_game.list_element[i].getTypeId()==10)){
                 
      
             list_sprite[i].setPosition(state_game.list_element[i].getPosX(),state_game.list_element[i].getPosY());
             
- 
-               
             }
-           
+              if(state_game.list_element[i].getTypeId()==11){
+                  
+                   
+                  int sel=static_cast<int> ((i-(nb_center+nb_tower+nb_hero))/10);
+         
+                  std::cout<<sel<< state_game.list_element[sel].getName()<<std::endl;
+                     
+                   list_sprite[i].setPosition(static_cast<int> (state_game.list_element[sel].getPosX()+(static_cast<int> (i-(nb_center+nb_tower+nb_hero))%10)*5),state_game.list_element[sel].getPosY()-4);
+              }
         }
+           
+    }
         
         
-}
