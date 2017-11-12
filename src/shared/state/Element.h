@@ -14,6 +14,7 @@ namespace state {
     // Attributes
   public:
     int Alive;
+    int direction;
   protected:
     TypeId typeId;
     std::string Name;

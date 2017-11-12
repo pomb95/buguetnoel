@@ -16,6 +16,19 @@ namespace state {
         typeId = SRAM;
 	//std::cout << Name <<" created" << std::endl;
     }
+     Sram::Sram(int team){
+        Name = "Sram";
+        Range = 7;
+        ATK = 10;
+	Life = 10;
+	Alive = 1;
+        typeId = SRAM;
+        Team=team;
+        if(Team==0)
+            direction=0;
+        else direction=1;
+	//std::cout << Name <<" created" << std::endl;
+    }
     
     Sram::~Sram(){
         

@@ -17,6 +17,7 @@ namespace state {
   public:
     Sram ();
     ~Sram ();
+    Sram (int Team);
     // Setters and Getters
   };
 

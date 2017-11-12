@@ -21,7 +21,9 @@ void engine::Command::execute (state::State& state){
 				       std::cout << "déplacement pas possible"<<std::endl;}
 
                   		 else {std::cout << state.list_element[character].getName() << " se déplace : droite" << std::endl;
-				       state.list_element[character].setPosX(state.list_element[character].getPosX() + 28);}
+				       state.list_element[character].setPosX(state.list_element[character].getPosX() + 28);
+                                 state.list_element[character].direction=1;
+                                 }
                  
                                  }
 
@@ -48,7 +50,8 @@ void engine::Command::execute (state::State& state){
 				      std::cout << "déplacement pas possible"<<std::endl;}
 
 				else{ std::cout << state.list_element[character].getName() << " se déplace : gauche" << std::endl;
-                   		      state.list_element[character].setPosX(state.list_element[character].getPosX() - 28);}
+                   		      state.list_element[character].setPosX(state.list_element[character].getPosX() - 28);
+                                 state.list_element[character].direction=0;}
                    
         }else{
             std::cout<<"cette direction n'existe pas :)"<<std::endl;

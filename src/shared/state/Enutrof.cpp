@@ -17,6 +17,20 @@ namespace state {
 	//std::cout << Name <<" created" << std::endl;
     }
     
+    Enutrof::Enutrof(int team ){
+        Name = "Enutrof";
+        Life = 25;
+        Range = 9;
+        Movement = 5;
+        ATK = 15;
+        typeId = ENU;
+        Team=team;
+        if(Team==0)
+            direction=0;
+        else direction=1;
+	//std::cout << Name <<" created" << std::endl;
+    }
+    
     Enutrof::~Enutrof(){
         
     }

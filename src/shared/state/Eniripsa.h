@@ -17,6 +17,7 @@ namespace state {
   public:
     Eniripsa ();
     ~Eniripsa ();
+    Eniripsa (int Team);
     // Setters and Getters
   };
 

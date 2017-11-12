@@ -12,6 +12,7 @@ namespace state {
         PosX = 0;
         PosY = 0;
         Alive = 1;
+        direction=0;
       //  std::cout << Name <<" created >>";
         
     }

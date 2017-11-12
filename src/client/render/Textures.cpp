@@ -18,17 +18,19 @@ void render::Textures::load_texture( state::Element& element) {
     
     if(element.getTypeId()==6){
         
-        path="res/eni.png";
+        path="res/sprite_eni.png";
         scale=sf::Vector2f(0.2,0.2);
-         // std::cout<<"eni"<<std::endl;      
+         // std::cout<<"eni"<<std::endl;
+        sprite.setTextureRect(sf::IntRect(element.direction*225, 0, 225, 225));
         
     }
     
     if(element.getTypeId()==7){
         
-        path="res/sram.png";
+        path="res/sprite_sram.png";
         scale=sf::Vector2f(0.2,0.2);
-         //  std::cout<<"sram"<<std::endl;      
+         //  std::cout<<"sram"<<std::endl;
+        sprite.setTextureRect(sf::IntRect(element.direction*250, 0, 250, 250));
         
     }
     
@@ -42,9 +44,10 @@ void render::Textures::load_texture( state::Element& element) {
     
     if(element.getTypeId()==9){
         
-        path="res/enu.png";
+        path="res/sprite_enu.png";
         scale=sf::Vector2f(0.2,0.2);
-              //  std::cout<<"enu"<<std::endl; 
+              //  std::cout<<"enu"<<std::endl;
+        sprite.setTextureRect(sf::IntRect(element.direction*248, 0, 248, 248));
         
     }
     if(element.getTypeId()==10){
@@ -81,7 +84,9 @@ void render::Textures::load_texture( state::Element& element) {
     
         
  
-    texture.loadFromFile(path);
+    if (!texture.loadFromFile(path)) {
+        std::cout << "Erreur de chargement du sprite" << path << std::endl;
+    }
     
     sprite.setTexture(texture);
     sprite.setPosition(element.getPosX(),element.getPosY());

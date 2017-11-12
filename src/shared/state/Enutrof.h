@@ -17,6 +17,7 @@ namespace state {
   public:
     Enutrof ();
     ~Enutrof ();
+    Enutrof (int Team);
     // Setters and Getters
   };
 

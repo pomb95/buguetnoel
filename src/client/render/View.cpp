@@ -78,6 +78,7 @@ sf::Vector2u tile_dim(28, 28);
 
 
 
+
 render::View::View() {
     
     nb_hero=0;
@@ -172,6 +173,8 @@ void render::View::draw(sf::RenderWindow& window ,state::State state_game) {
       for (unsigned i = 0; i<list_sprite.size(); i++) {
           if (state_game.list_element[i].Alive==1)
             window.draw(list_sprite[i]);
+          if ((state_game.list_element[i].Alive==0)&&(state_game.list_element[i].getTypeId()!=11))
+            window.draw(list_sprite[i]);
                 
             }
                 
@@ -180,29 +183,36 @@ void render::View::draw(sf::RenderWindow& window ,state::State state_game) {
 }
 
 void render::View::Update(state::State& state_game){
-    
-
+   
            
          
         // on donne les positions 
         for (unsigned i = 0; i<state_game.list_element.size(); i++) {
-           
+          
             
             if((state_game.list_element[i].getTypeId()==7)||(state_game.list_element[i].getTypeId()==6)||
-                    (state_game.list_element[i].getTypeId()==8)||(state_game.list_element[i].getTypeId()==9)||
-                    (state_game.list_element[i].getTypeId()==10)){
-                
-     
+                    (state_game.list_element[i].getTypeId()==9)){
+                if(state_game.list_element[i].Alive==0){
+                    list_sprite[i].setTextureRect(sf::IntRect(2*250, 0, 250, 250));
+                   
+                    
+                }
+                    
+            if(state_game.list_element[i].Alive==1){
             list_sprite[i].setPosition(state_game.list_element[i].getPosX(),state_game.list_element[i].getPosY());
-            
+            if(state_game.list_element[i].getTypeId()==6)
+            list_sprite[i].setTextureRect(sf::IntRect(state_game.list_element[i].direction*225, 0, 225, 225));
+            if(state_game.list_element[i].getTypeId()==7)
+            list_sprite[i].setTextureRect(sf::IntRect(state_game.list_element[i].direction*250, 0, 250, 250));
+            if(state_game.list_element[i].getTypeId()==9)
+            list_sprite[i].setTextureRect(sf::IntRect(state_game.list_element[i].direction*248, 0, 248, 248));
+            }
             }
               if(state_game.list_element[i].getTypeId()==11){
                   
-                   
+                  
+                
                   int sel=static_cast<int> ((i-(nb_center+nb_tower+nb_hero))/10);
-         
-                  std::cout<<sel<< state_game.list_element[sel].getName()<<std::endl;
-                     
                    list_sprite[i].setPosition(static_cast<int> (state_game.list_element[sel].getPosX()+(static_cast<int> (i-(nb_center+nb_tower+nb_hero))%10)*5),state_game.list_element[sel].getPosY()-4);
               }
         }
