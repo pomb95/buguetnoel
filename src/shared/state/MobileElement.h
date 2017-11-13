@@ -14,20 +14,12 @@ namespace state {
 
   /// class MobileElement - 
   class MobileElement : public state::Element {
-    // Attributes
-  protected:
-    int ATK;
-    int Movement;
     // Operations
   public:
     MobileElement ();
     ~MobileElement ();
     void getStatus ();
     // Setters and Getters
-    int getATK() const;
-    void setATK(int ATK);
-    int getMovement() const;
-    void setMovement(int Movement);
   };
 
 };

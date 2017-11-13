@@ -7,7 +7,6 @@
 
 namespace engine {
   class Engine;
-  class Command;
 };
 namespace state {
   class State;
@@ -17,11 +16,17 @@ namespace ai {
 
   /// class Ai - 
   class Ai {
+    // Attributes
+  public:
+    int Id;
+    int Team;
+    std::vector<int> listElementChecked;
     // Operations
   public:
-    virtual void run (engine::Engine& engine, int character) = 0;
-  protected:
-    void listCommands (std::vector<engine::Command*>& list, const state::State& state, int character);
+    void play (engine::Engine& engine, int character, state::State& state);
+    Ai ();
+    ~Ai ();
+    Ai (int Team);
     // Setters and Getters
   };
 

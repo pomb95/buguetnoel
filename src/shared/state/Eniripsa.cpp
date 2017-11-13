@@ -15,6 +15,7 @@ namespace state {
 	Life = 20;
 	Alive = 1; // en vie 
         typeId = ENI;
+        Movement=3;
         
        // std::cout << Name <<" created" << std::endl;
     }
@@ -27,6 +28,7 @@ namespace state {
 	Alive = 1; // en vie 
         typeId = ENI;
         Team=team;
+        Movement=3;
         if(Team==0)
             direction=0;
         else direction=1;

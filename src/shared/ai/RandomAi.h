@@ -3,9 +3,6 @@
 #define AI__RANDOMAI__H
 
 
-namespace engine {
-  class Engine;
-};
 namespace ai {
   class Ai;
 }
@@ -16,14 +13,11 @@ namespace ai {
 
   /// class RandomAi - 
   class RandomAi : public ai::Ai {
-    // Attributes
-  public:
-    int RandomNumber;
     // Operations
   public:
     RandomAi ( );
     ~RandomAi ();
-    void run (engine::Engine& engine, int character);
+    RandomAi (int Team);
     // Setters and Getters
   };
 

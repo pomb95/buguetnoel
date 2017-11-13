@@ -13,7 +13,6 @@ namespace state {
 }
 
 #include "Command.h"
-#include "state/State.h"
 
 namespace engine {
 
@@ -21,9 +20,10 @@ namespace engine {
   class Engine {
     // Attributes
   public:
+    int char_sel;
     std::vector<Command> commands;
-  private:
-    state::State currentState;
+    int mov_left;
+    int att_left;
     // Operations
   public:
     Engine ();

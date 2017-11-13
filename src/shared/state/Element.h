@@ -16,6 +16,8 @@ namespace state {
     int Team;
     int Alive;
     int direction;
+    int ATK;
+    int Movement;
   protected:
     TypeId typeId;
     std::string Name;

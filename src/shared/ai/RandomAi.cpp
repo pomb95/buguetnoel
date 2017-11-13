@@ -7,9 +7,9 @@
 #include <iostream>
 #include "RandomAi.h"
 
-ai::RandomAi::RandomAi() {}
+ai::RandomAi::RandomAi() {
+Id=1;}
 ai::RandomAi::~RandomAi() {}
-
-void ai::RandomAi::run(engine::Engine& engine, int character){
-    
-}
+ai::RandomAi::RandomAi(int team) {
+Id=1;
+Team=team;}
