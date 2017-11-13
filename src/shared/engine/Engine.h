@@ -2,27 +2,28 @@
 #ifndef ENGINE__ENGINE__H
 #define ENGINE__ENGINE__H
 
-#include <state/State.h>
 #include <vector>
+#include <state/State.h>
 
-namespace state {
-  class State;
-};
 namespace engine {
   class Command;
+};
+namespace state {
+  class State;
 }
 
-#include "state/State.h"
 #include "Command.h"
+#include "state/State.h"
 
 namespace engine {
 
   /// class Engine - 
   class Engine {
     // Attributes
+  public:
+    std::vector<Command> commands;
   private:
     state::State currentState;
-    std::vector<Command> commands;
     // Operations
   public:
     Engine ();

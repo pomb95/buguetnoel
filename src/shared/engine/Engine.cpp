@@ -34,24 +34,12 @@ void engine::Engine::Update(state::State& state_game) {
         commands.erase(commands.begin()); 
     }
     state_game.enable_state=1;
-std::cout << "Engine :::On a notifié à l'état que une commande a été executé "<< std::endl; 
+//std::cout << "Engine :::On a notifié à l'état que une commande a été executé "<< std::endl; 
 }
 
 
 void engine::Engine::testInit(){
-    engine::MoveChar command1(1,2);
-    this->addCommand(command1);
-    engine::MoveChar command4(1,6);
-    this->addCommand(command4);
-    engine::MoveChar command3(1,4);
-    this->addCommand(command3);
-//test pour attack
-    engine::Attack command2(1,2,5); // L'éni attaque le sram
-
-    this-> addCommand(command2);
-    this-> addCommand(command2);
-    this-> addCommand(command2);
-  
+   
 
 
     

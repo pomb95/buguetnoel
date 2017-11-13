@@ -14,7 +14,7 @@ engine::Command::Command() {}
 engine::Command::~Command() {}
 void engine::Command::execute (state::State& state){
     if(Id==1){
-		std::cout << "position actuelle : " << state.list_element[character].getPosX() << ", " <<state.list_element[character].getPosY() << std::endl;
+		//std::cout << "position actuelle : " << state.list_element[character].getPosX() << ", " <<state.list_element[character].getPosY() << std::endl;
    
         	if(direction==6){ std::cout << state.list_element[character].getName() << " veut se déplacer vers la droite" << std::endl;
 			  	 if  ( state.list_element[character].getPosX()==672){
@@ -57,23 +57,35 @@ void engine::Command::execute (state::State& state){
             std::cout<<"cette direction n'existe pas :)"<<std::endl;
         }
         
-        std::cout << "new position : " << state.list_element[character].getPosX() << ", " << state.list_element[character].getPosY() << std::endl;
+        //std::cout << "new position : " << state.list_element[character].getPosX() << ", " << state.list_element[character].getPosY() << std::endl;
                     
     
     }
 	if(Id==2){
-            if(state.list_element[victime].Alive==1){
-            state.list_element[victime].setLife(state.list_element[victime].getLife()-degat);
-            std::cout << state.list_element[attaquant].getName() << " a attaqué " <<  state.list_element[victime].getName() << ". Ilreste lui " << state.list_element[victime].getLife() << " point de vie." <<std::endl;
+            
+            
+            
+            
+            if((state.list_element[victime].getPosX()>state.list_element[attaquant].getPosX()-state.list_element[attaquant].getRange()*28)&&
+                (state.list_element[victime].getPosX()<state.list_element[attaquant].getPosX()+(state.list_element[attaquant].getRange()+1)*28)&&
+                    (state.list_element[victime].getPosY()<state.list_element[attaquant].getPosY()+(state.list_element[attaquant].getRange()+1)*28)&&
+                    (state.list_element[victime].getPosY()>state.list_element[attaquant].getPosY()-state.list_element[attaquant].getRange()*28)){
+            
+                if(state.list_element[victime].Alive==1){
+                if(state.list_element[victime].Team!=state.list_element[attaquant].Team){
+                    state.list_element[victime].setLife(state.list_element[victime].getLife()-degat);
+                    std::cout << state.list_element[attaquant].getName() << " a attaqué " <<  state.list_element[victime].getName() << ". Ilreste lui " << state.list_element[victime].getLife() << " point de vie." <<std::endl;
+                }else
+                {std::cout<<"Impossible d'attaquer un personnages de la même équipe"<<std::endl;}
             }
             else
             {
                 std::cout << state.list_element[victime].getName()<< " est déjà mort" <<std::endl;
-            }
+            }}else{std::cout<<state.list_element[victime].getName()<<" est hors porté"<<std::endl;}
         }
     
         if(Id == 3){
-            std::cout << "position " << state.list_element[4].getName() <<" : "<< state.list_element[4].getPosX() << ", " << state.list_element[4].getPosY() << std::endl;
+            std::cout << "position " << state.list_element[character].getName() <<" : "<< state.list_element[character].getPosX() << ", " << state.list_element[character].getPosY() << std::endl;
             std::cout << "Detection des éléments..." << std::endl;
             int e = 0;
             int increment = 1;
@@ -82,7 +94,7 @@ void engine::Command::execute (state::State& state){
             //std::cout << "posX = " << posX << std::endl;
             int posY = state.list_element[character].getPosY();
             //std::cout << "posY = " << posY << std::endl;
-            int r = state.list_element[character].getRange();
+            int r = 10 ;//state.list_element[character].getRange();
             //std::cout << "range = " << r << std::endl;
             for (int x = posX-r*28; x <= posX + r*28; x += 28){
                 //std::cout << "CheckX = " << x << std::endl;
@@ -94,6 +106,7 @@ void engine::Command::execute (state::State& state){
                         if (x == state.list_element[z].getPosX() && y == state.list_element[z].getPosY()){
                             if (x != posX || y != posY){
                                 std::cout << state.list_element[character].getName() << " voit un " << state.list_element[z].getName() << std::endl; 
+                                listElementChecked.push_back(state.list_element[z]);
                                 e = 1;
                             }
                             

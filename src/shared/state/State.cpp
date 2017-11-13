@@ -83,14 +83,14 @@ namespace state{
             if(list_element[i].Alive==1){
                 if(list_element[static_cast<int>(i/10)-1].getLife()<=static_cast<int>(i%10)){
                     list_element[i].Alive=0;
-                 std::cout << list_element[static_cast<int>(i/10)].getName() << " a un coeur en moins ***." <<std::endl;
+                // std::cout << list_element[static_cast<int>(i/10)].getName() << " a un coeur en moins ***." <<std::endl;
                 }
             }
         }
         
         enable_state=0;
         enable_render=1;
-         std::cout <<" State ::: On a notifié au rendu que l'état a changé et au moteur que les modifications ont été effectué "<<std::endl;
+         //std::cout <<" State ::: On a notifié au rendu que l'état a changé et au moteur que les modifications ont été effectué "<<std::endl;
         }
     }
     void state::State::addElement(state::Element element){

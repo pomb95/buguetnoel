@@ -3,7 +3,6 @@
 #define ENGINE__CHECKAROUND__H
 
 #include <state/Element.h>
-#include <vector>
 
 namespace state {
   class Element;
@@ -19,9 +18,6 @@ namespace engine {
 
   /// class CheckAround - 
   class CheckAround : public engine::Command {
-    // Attributes
-  private:
-    std::vector<state::Element> listElementChecked;
     // Operations
   public:
     CheckAround (int c);
