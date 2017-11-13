@@ -1,6 +1,7 @@
 #include "Render.h"
 #include "View.h"
 #include <iostream>
+#include <unistd.h>
 
 
 int window_width = 1000;
@@ -42,7 +43,8 @@ render::View view;
     view.draw(window,state_game);
     window.display();
     state_game.enable_render=0;
-    std::cout <<" Render ::: On a notifié que le rendu a été fait de l'état"<<std::endl;
+    sleep(1);
+   // std::cout <<" Render ::: On a notifié que le rendu a été fait de l'état"<<std::endl;
      }
      
  }

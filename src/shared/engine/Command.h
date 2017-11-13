@@ -2,15 +2,19 @@
 #ifndef ENGINE__COMMAND__H
 #define ENGINE__COMMAND__H
 
+#include <state/Element.h>
+#include <vector>
 #include <state/State.h>
 
 namespace state {
+  class Element;
   class State;
 };
 namespace engine {
   class Engine;
 }
 
+#include "state/Element.h"
 #include "state/State.h"
 #include "Engine.h"
 
@@ -20,6 +24,8 @@ namespace engine {
   class Command {
     // Associations
     // Attributes
+  public:
+    std::vector<state::Element> listElementChecked;
   protected:
     int Id;
     int character;

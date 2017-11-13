@@ -7,11 +7,14 @@ void testSFML() {
     sf::Texture texture;
 }
 
+
+
 // Fin test SFML
 
 #include "state.h"
 #include "render.h"
 #include "engine.h"
+
 
 using namespace std;
 using namespace state;
@@ -49,7 +52,6 @@ int main(int argc, char* argv[]) {
         State state;
         Render render;
         Engine engine;
-        engine.testInit();
         state.init();
         render.init(state);
 
@@ -66,9 +68,41 @@ int main(int argc, char* argv[]) {
 
                 if (event.type == sf::Event::KeyPressed) {
                     if (sf::Keyboard::isKeyPressed(sf::Keyboard::B)) {
+                        engine::MoveChar command1(1,2);
+                        engine.addCommand(command1);
+                        engine::MoveChar command4(1,6);
+                        engine.addCommand(command4);
+                        engine::MoveChar command3(1,4);
+                        engine.addCommand(command3);
+                        
+                         //test pour attack
+                        engine::Attack command2(1,2,5); // L'éni attaque le sram
+
+                        engine.addCommand(command2);
+                        engine.addCommand(command3);
+                         engine.addCommand(command2);
+                        engine.addCommand(command3);
+                         engine.addCommand(command2);
+                        engine.addCommand(command3);
+                         engine.addCommand(command2);
+                        engine.addCommand(command3);
+                        engine.addCommand(command2);
+                         engine.addCommand(command3);
+                        engine.addCommand(command2);
+                         engine.addCommand(command3);
+                        engine.addCommand(command2);
+                        engine::Attack command5(1,3,5);
+                        engine.addCommand(command5);
+                        
+                         
+                        while(!engine.commands.empty()){
                         engine.Update(state);
                         state.Update();
                         render.Update(state);
+                        
+                        
+                        }
+                        
                       
                         
                     }
@@ -85,3 +119,4 @@ int main(int argc, char* argv[]) {
 
     return 0;
 }
+
