@@ -7,6 +7,7 @@
 
 namespace engine {
   class Engine;
+  class Command;
 };
 namespace state {
   class State;
@@ -20,7 +21,7 @@ namespace ai {
   public:
     virtual void run (engine::Engine& engine, int character) = 0;
   protected:
-    void listCommands (std::vector<engine::Command*>>& list, const state::State& state, int character);
+    void listCommands (std::vector<engine::Command*>& list, const state::State& state, int character);
     // Setters and Getters
   };
 
