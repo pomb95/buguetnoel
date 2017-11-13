@@ -13,6 +13,7 @@
 engine::Command::Command() {}
 engine::Command::~Command() {}
 void engine::Command::execute (state::State& state){
+    //Commande de déplacement
     if(Id==1){
 		//std::cout << "position actuelle : " << state.list_element[character].getPosX() << ", " <<state.list_element[character].getPosY() << std::endl;
    
@@ -61,9 +62,8 @@ void engine::Command::execute (state::State& state){
                     
     
     }
-	if(Id==2){
-            
-            
+        //attaque
+	if(Id==2){    
             
             
             if((state.list_element[victime].getPosX()>state.list_element[attaquant].getPosX()-state.list_element[attaquant].getRange()*28)&&
@@ -83,7 +83,7 @@ void engine::Command::execute (state::State& state){
                 std::cout << state.list_element[victime].getName()<< " est déjà mort" <<std::endl;
             }}else{std::cout<<state.list_element[victime].getName()<<" est hors porté"<<std::endl;}
         }
-    
+        //Detection des éléments
         if(Id == 3){
             std::cout << "position " << state.list_element[character].getName() <<" : "<< state.list_element[character].getPosX() << ", " << state.list_element[character].getPosY() << std::endl;
             std::cout << "Detection des éléments..." << std::endl;
