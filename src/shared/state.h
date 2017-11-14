@@ -18,4 +18,6 @@
 #include "state/Eniripsa.h"
 #include "state/Iop.h"
 #include "state/Sacrieur.h"
+#include "state/Coeur.h"
+#include "state/Selecteur.h"
 #endif

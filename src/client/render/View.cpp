@@ -100,7 +100,7 @@ void render::View::init(state::State& state_game) {
         //tile.getListPosHero(); 
        // tile.getListPosCenter();
         //tile.getListPosTower();
-	
+        
         
         
         //initialisation de la liste textures
@@ -145,12 +145,18 @@ void render::View::init(state::State& state_game) {
             state_game.list_element[i].setPosY(static_cast<int> (tile.list_pos_hero[static_cast<int> ((i-(nb_center+nb_tower+nb_hero))/10)].y-4));
             list_texture[i].load_texture(state_game.list_element[i]);
             this->add_Sprite(list_texture[i].sprite);}
-        }  
+          
                   
-                
+        if(state_game.list_element[i].getTypeId()==12){
             
+            state_game.list_element[i].setPosX(static_cast<int> (state_game.list_element[0].getPosX()+15));//tile.list_pos_hero[static_cast<int> ((i-(nb_center+nb_tower+nb_hero))/10)].x+(static_cast<int> (i-(nb_center+nb_tower+nb_hero))%10)*5));
+            state_game.list_element[i].setPosY(static_cast<int> (state_game.list_element[0].getPosY()+42));//tile.list_pos_hero[static_cast<int> ((i-(nb_center+nb_tower+nb_hero))/10)].y-7));
+            list_texture[i].load_texture(state_game.list_element[i]);
+            this->add_Sprite(list_texture[i].sprite);}
+        }       
+}    
             
-}
+
             
             
             
@@ -163,18 +169,18 @@ void render::View::init(state::State& state_game) {
 
 
 void render::View::add_Sprite(sf::Sprite sprite) {
-    list_sprite.push_back(sprite);
+    list_sprite_element.push_back(sprite);
 }
 
 
 void render::View::draw(sf::RenderWindow& window ,state::State state_game) {
     window.draw(Background);
     
-      for (unsigned i = 0; i<list_sprite.size(); i++) {
+      for (unsigned i = 0; i<list_sprite_element.size(); i++) {
           if (state_game.list_element[i].Alive==1)
-            window.draw(list_sprite[i]);
+            window.draw(list_sprite_element[i]);
           if ((state_game.list_element[i].Alive==0)&&(state_game.list_element[i].getTypeId()!=11))
-            window.draw(list_sprite[i]);
+            window.draw(list_sprite_element[i]);
                 
             }
                 
@@ -193,19 +199,19 @@ void render::View::Update(state::State& state_game){
             if((state_game.list_element[i].getTypeId()==7)||(state_game.list_element[i].getTypeId()==6)||
                     (state_game.list_element[i].getTypeId()==9)){
                 if(state_game.list_element[i].Alive==0){
-                    list_sprite[i].setTextureRect(sf::IntRect(2*250, 0, 250, 250));
+                    list_sprite_element[i].setTextureRect(sf::IntRect(2*250, 0, 250, 250));
                    
                     
                 }
                     
             if(state_game.list_element[i].Alive==1){
-            list_sprite[i].setPosition(state_game.list_element[i].getPosX(),state_game.list_element[i].getPosY());
+            list_sprite_element[i].setPosition(state_game.list_element[i].getPosX(),state_game.list_element[i].getPosY());
             if(state_game.list_element[i].getTypeId()==6)
-            list_sprite[i].setTextureRect(sf::IntRect(state_game.list_element[i].direction*225, 0, 225, 225));
+            list_sprite_element[i].setTextureRect(sf::IntRect(state_game.list_element[i].direction*225, 0, 225, 225));
             if(state_game.list_element[i].getTypeId()==7)
-            list_sprite[i].setTextureRect(sf::IntRect(state_game.list_element[i].direction*250, 0, 250, 250));
+            list_sprite_element[i].setTextureRect(sf::IntRect(state_game.list_element[i].direction*250, 0, 250, 250));
             if(state_game.list_element[i].getTypeId()==9)
-            list_sprite[i].setTextureRect(sf::IntRect(state_game.list_element[i].direction*248, 0, 248, 248));
+            list_sprite_element[i].setTextureRect(sf::IntRect(state_game.list_element[i].direction*248, 0, 248, 248));
             }
             }
               if(state_game.list_element[i].getTypeId()==11){
@@ -213,8 +219,17 @@ void render::View::Update(state::State& state_game){
                   
                 
                   int sel=static_cast<int> ((i-(nb_center+nb_tower+nb_hero))/10);
-                   list_sprite[i].setPosition(static_cast<int> (state_game.list_element[sel].getPosX()+(static_cast<int> (i-(nb_center+nb_tower+nb_hero))%10)*5),state_game.list_element[sel].getPosY()-4);
+                   list_sprite_element[i].setPosition(static_cast<int> (state_game.list_element[sel].getPosX()+(static_cast<int> (i-(nb_center+nb_tower+nb_hero))%10)*5),state_game.list_element[sel].getPosY()-4);
               }
+            
+            if(state_game.list_element[i].getTypeId()==12){
+                
+                for(int p=0;p<nb_hero;p++)
+                {
+                    if(state_game.list_element[p].selected==1)
+                        list_sprite_element[i].setPosition(state_game.list_element[p].getPosX()+15,state_game.list_element[p].getPosY()+42);
+                }
+            }
         }
            
     }

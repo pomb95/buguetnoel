@@ -13,6 +13,7 @@ namespace state {
         PosY = 0;
         Alive = 1;
         direction=0;
+        selected=0;
       //  std::cout << Name <<" created >>";
         
     }

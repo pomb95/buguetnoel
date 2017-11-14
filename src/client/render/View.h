@@ -29,11 +29,12 @@ namespace render {
   public:
     sf::View view;
     int type;
-    std::vector<sf::Sprite> list_sprite;
+    std::vector<sf::Sprite> list_sprite_element;
     std::vector<Textures> list_texture;
     int nb_hero;
     int nb_tower;
     int nb_center;
+    std::vector<sf::Sprite> list_sprite_decor;
     // Operations
   public:
     View ();

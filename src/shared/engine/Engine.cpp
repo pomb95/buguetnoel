@@ -32,6 +32,7 @@ void engine::Engine::addCommand(Command cmd){
 
 void engine::Engine::Update(state::State& state_game) {
    // std::cout << "Il reste  : " << commands.size() <<" commandes "<< std::endl;    
+    state_game.list_element[char_sel].selected=1;
     if(!commands.empty()){
         commands[0].execute(state_game);  
         if(commands[0].getId()==1)
@@ -44,10 +45,13 @@ void engine::Engine::Update(state::State& state_game) {
     
         if(mov_left==0)
         {
+        state_game.list_element[char_sel].selected=0;
         char_sel=(char_sel+1)%6;
         mov_left=state_game.list_element[char_sel].Movement;
+        state_game.list_element[char_sel].selected=1;
         
         }
+    //std::cout<<state_game.list_element[char_sel].getName()<<std::endl;
 //std::cout << "Engine :::On a notifié à l'état que une commande a été executé "<< std::endl; 
 }
 

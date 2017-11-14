@@ -9,7 +9,7 @@
 
 namespace state {
     Decor::Decor() {
-        typeId=COEUR;
+        
     }
     Decor::~Decor() {}
 }

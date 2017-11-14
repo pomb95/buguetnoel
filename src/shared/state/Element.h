@@ -18,6 +18,7 @@ namespace state {
     int direction;
     int ATK;
     int Movement;
+    int selected;
   protected:
     TypeId typeId;
     std::string Name;

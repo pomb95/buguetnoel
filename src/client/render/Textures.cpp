@@ -80,7 +80,13 @@ void render::Textures::load_texture( state::Element& element) {
                 //std::cout<<"center"<<std::endl; 
         
     }
-    
+    if(element.getTypeId()==12){
+        
+        path="res/sel-perso.png";
+        scale=sf::Vector2f(0.25,0.25);
+                //std::cout<<"center"<<std::endl; 
+        
+    }
     
         
  

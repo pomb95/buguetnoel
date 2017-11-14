@@ -16,7 +16,8 @@ namespace state {
     IOP,
     ENU,
     SACRI,
-    COEUR
+    COEUR,
+    SELECTEUR
   };
 
 };

@@ -54,12 +54,14 @@ namespace state{
         CommandCenter center2;
         this->addElement(center2);
         
-        Decor coeur;
+        Coeur coeur;
         
         for (int i = 0; i<nb_hero*10; i++) {
             this->addElement(coeur);
             
         }
+        Selecteur sel;
+        this->addElement(sel);
         
     }
     
