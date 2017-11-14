@@ -70,6 +70,8 @@ namespace state{
     }
     
     void state::State::Update(){
+        int team0=0;
+        int team1=0;
         if(enable_state==1){
         for (int i = 0; i<nb_hero; i++) {
             if(list_element[i].Alive==1){
@@ -89,6 +91,35 @@ namespace state{
                 }
             }
         }
+        for (int h=0;h<6;h++)
+            if(list_element[h].Alive==1)
+                if(list_element[h].Team==1)
+                {team1=team1+1;}
+                else{
+                    team0=team0+1;}
+        
+            if(team0==0){
+                std::cout<<"-------------------------------------"<<std::endl;
+                std::cout<<"-------------------------------------"<<std::endl;
+                std::cout<<"**********TEAM 1 A GAGNE*************"<<std::endl;
+                std::cout<<"-------------------------------------"<<std::endl;
+                std::cout<<"-------------------------------------"<<std::endl;
+                
+                
+                fin=1;
+            } 
+                if(team1==0){
+                std::cout<<"-------------------------------------"<<std::endl;
+                std::cout<<"-------------------------------------"<<std::endl;
+                std::cout<<"**********TEAM 0 A GAGNE*************"<<std::endl;
+                std::cout<<"-------------------------------------"<<std::endl;
+                std::cout<<"-------------------------------------"<<std::endl;
+                
+                
+                
+                fin=1;
+            } 
+        
         
         enable_state=0;
         enable_render=1;

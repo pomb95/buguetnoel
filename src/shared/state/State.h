@@ -26,6 +26,7 @@ namespace state {
     int enable_state;
     int nb_tower;
     int nb_center;
+    int fin;
     // Operations
   public:
     State ();

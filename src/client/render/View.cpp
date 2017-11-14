@@ -150,7 +150,7 @@ void render::View::init(state::State& state_game) {
         if(state_game.list_element[i].getTypeId()==12){
             
             state_game.list_element[i].setPosX(static_cast<int> (state_game.list_element[0].getPosX()+15));//tile.list_pos_hero[static_cast<int> ((i-(nb_center+nb_tower+nb_hero))/10)].x+(static_cast<int> (i-(nb_center+nb_tower+nb_hero))%10)*5));
-            state_game.list_element[i].setPosY(static_cast<int> (state_game.list_element[0].getPosY()+42));//tile.list_pos_hero[static_cast<int> ((i-(nb_center+nb_tower+nb_hero))/10)].y-7));
+            state_game.list_element[i].setPosY(static_cast<int> (state_game.list_element[0].getPosY()+44));//tile.list_pos_hero[static_cast<int> ((i-(nb_center+nb_tower+nb_hero))/10)].y-7));
             list_texture[i].load_texture(state_game.list_element[i]);
             this->add_Sprite(list_texture[i].sprite);}
         }       
@@ -226,9 +226,16 @@ void render::View::Update(state::State& state_game){
                 
                 for(int p=0;p<nb_hero;p++)
                 {
-                    if(state_game.list_element[p].selected==1)
-                        list_sprite_element[i].setPosition(state_game.list_element[p].getPosX()+15,state_game.list_element[p].getPosY()+42);
-                }
+                    if(state_game.list_element[p].selected==1){
+                         if(state_game.list_element[p].getTypeId()==7)
+                        list_sprite_element[i].setPosition(state_game.list_element[p].getPosX()+15,state_game.list_element[p].getPosY()+44);
+                 if(state_game.list_element[p].getTypeId()==6)
+                        list_sprite_element[i].setPosition(state_game.list_element[p].getPosX()+13,state_game.list_element[p].getPosY()+40);
+                 if(state_game.list_element[p].getTypeId()==9)
+                        list_sprite_element[i].setPosition(state_game.list_element[p].getPosX()+16,state_game.list_element[p].getPosY()+35);
+                
+                    }
+                        }
             }
         }
            

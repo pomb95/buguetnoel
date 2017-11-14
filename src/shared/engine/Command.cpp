@@ -17,40 +17,40 @@ void engine::Command::execute (state::State& state){
     if(Id==1){
 		//std::cout << "position actuelle : " << state.list_element[character].getPosX() << ", " <<state.list_element[character].getPosY() << std::endl;
    
-        	if(direction==6){ std::cout << state.list_element[character].getName() << " veut se déplacer vers la droite" << std::endl;
+        	if(direction==6){ //std::cout << state.list_element[character].getName() << " veut se déplacer vers la droite" << std::endl;
 			  	 if  ( state.list_element[character].getPosX()==672){
 				       std::cout << "déplacement pas possible"<<std::endl;}
 
-                  		 else {std::cout << state.list_element[character].getName() << " se déplace : droite" << std::endl;
+                  		 else {//std::cout << state.list_element[character].getName() << " se déplace : droite" << std::endl;
 				       state.list_element[character].setPosX(state.list_element[character].getPosX() + 28);
                                  state.list_element[character].direction=1;
                                  }
                  
                                  }
 
-                else if(direction==8){ std::cout << state.list_element[character].getName() << " veut se déplacer vers le haut" << std::endl;
+                else if(direction==8){// std::cout << state.list_element[character].getName() << " veut se déplacer vers le haut" << std::endl;
 				if  ( state.list_element[character].getPosY()==0){
 				      std::cout << "déplacement pas possible"<<std::endl;}
 
-				else{ std::cout << state.list_element[character].getName() << " se déplace : haut" << std::endl;
+				else{ //std::cout << state.list_element[character].getName() << " se déplace : haut" << std::endl;
 				      state.list_element[character].setPosY(state.list_element[character].getPosY() - 28);}
                   
                               }
 
-                else if(direction==2){ std::cout << state.list_element[character].getName() << " veut se déplacer en bas" << std::endl;
+                else if(direction==2){ //std::cout << state.list_element[character].getName() << " veut se déplacer en bas" << std::endl;
 				if  ( state.list_element[character].getPosY()==672){
 				      std::cout << "déplacement pas possible"<<std::endl;}
 
-				else{ std::cout << state.list_element[character].getName() << " se déplace : bas" << std::endl;
+				else{ //std::cout << state.list_element[character].getName() << " se déplace : bas" << std::endl;
                    		      state.list_element[character].setPosY(state.list_element[character].getPosY() + 28);}
                   
                               }
 
-                else if(direction==4){ std::cout << state.list_element[character].getName() << " veut se déplacer à gauche" << std::endl;
+                else if(direction==4){ //std::cout << state.list_element[character].getName() << " veut se déplacer à gauche" << std::endl;
 				if  ( state.list_element[character].getPosX()==0){
 				      std::cout << "déplacement pas possible"<<std::endl;}
 
-				else{ std::cout << state.list_element[character].getName() << " se déplace : gauche" << std::endl;
+				else{ //std::cout << state.list_element[character].getName() << " se déplace : gauche" << std::endl;
                    		      state.list_element[character].setPosX(state.list_element[character].getPosX() - 28);
                                  state.list_element[character].direction=0;}
                    
