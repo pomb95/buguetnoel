@@ -125,6 +125,8 @@ if ((argv[1] != NULL) && string(argv[1]) == "randomAi") {
         render.init(state);
         ai::RandomAi bot1(0);
         ai::RandomAi bot2(1);
+        bot1.init();
+        bot2.init();
         state.Update();
         
 
@@ -143,15 +145,15 @@ if ((argv[1] != NULL) && string(argv[1]) == "randomAi") {
                         
                         
                          
-                        while(1==1){
-                            bot1.play(engine,engine.char_sel,state);
-                            bot2.play(engine,engine.char_sel,state);
+                       
+                        bot1.play(engine,engine.char_sel,state);
+                        bot2.play(engine,engine.char_sel,state);
                         engine.Update(state);
                         state.Update();
                         render.Update(state);
                         
                         
-                        }
+                        
                         
                       
                         

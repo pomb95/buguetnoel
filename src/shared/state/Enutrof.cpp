@@ -9,8 +9,8 @@
 namespace state {
     Enutrof::Enutrof(){
         Name = "Enutrof";
-        Life = 25;
-        Range = 7;
+        Life = 10;
+        Range = 50;
         Movement = 3;
         ATK = 5;
         typeId = ENU;
@@ -19,8 +19,8 @@ namespace state {
     
     Enutrof::Enutrof(int team ){
         Name = "Enutrof";
-        Life = 25;
-        Range = 7;
+        Life = 10;
+        Range = 50;
         Movement = 3;
         ATK = 5;
         typeId = ENU;

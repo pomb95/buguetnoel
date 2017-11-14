@@ -694,6 +694,8 @@ struct stdlib_includes {
    int graphics;
    int state1;
    int state2;
+   int state3;
+   int state4;
 
 };
 
@@ -727,6 +729,14 @@ void print_include_stdlib(struct stdlib_includes* si,char* name) {
       if (!si->state2 && strstr(name,"state::State")) {
            print ("#include <state/State.h>\n");
            si->state2 = 1;
+       }
+      if (!si->state3 && strstr(name,"engine::MoveChar")) {
+           print ("#include <engine/MoveChar.h>\n");
+           si->state3 = 1;
+       }
+      if (!si->state4 && strstr(name,"engine::Attack")) {
+           print ("#include <engine/Attack.h>\n");
+           si->state4 = 1;
        }
        if (!si->string && strstr(name,"std::string")) {
            print ("#include <string>\n");

@@ -43,7 +43,7 @@ render::View view;
     view.draw(window,state_game);
     window.display();
     state_game.enable_render=0;
-    sleep(1);
+    usleep(10);
    // std::cout <<" Render ::: On a notifié que le rendu a été fait de l'état"<<std::endl;
      }
      

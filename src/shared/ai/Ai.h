@@ -6,11 +6,14 @@
 #include <state/State.h>
 
 namespace engine {
+  class Command;
   class Engine;
 };
 namespace state {
   class State;
 }
+
+#include "engine/Command.h"
 
 namespace ai {
 
@@ -21,12 +24,14 @@ namespace ai {
     int Id;
     int Team;
     std::vector<int> listElementChecked;
+    std::vector<engine::Command> list_att;
+    std::vector<engine::Command> list_mov;
     // Operations
   public:
     void play (engine::Engine& engine, int character, state::State& state);
     Ai ();
     ~Ai ();
-    Ai (int Team);
+    void init ( );
     // Setters and Getters
   };
 

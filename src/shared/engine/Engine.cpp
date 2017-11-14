@@ -37,6 +37,8 @@ void engine::Engine::Update(state::State& state_game) {
         commands[0].execute(state_game);  
         if(commands[0].getId()==1)
             mov_left=mov_left-1;
+        if(commands[0].getId()==2)
+            att_left=att_left-1;
         
         commands.erase(commands.begin()); 
     }
@@ -44,10 +46,15 @@ void engine::Engine::Update(state::State& state_game) {
     
     
         if(mov_left==0)
+            if(att_left==0)
         {
         state_game.list_element[char_sel].selected=0;
+        
         char_sel=(char_sel+1)%6;
+        while(state_game.list_element[char_sel].Alive==0)
+            char_sel=(char_sel+1)%6;
         mov_left=state_game.list_element[char_sel].Movement;
+        att_left=1;
         state_game.list_element[char_sel].selected=1;
         
         }
