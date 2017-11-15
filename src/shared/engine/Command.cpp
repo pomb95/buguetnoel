@@ -23,7 +23,7 @@ void engine::Command::execute (state::State& state){
 
                   		 else {//std::cout << state.list_element[character].getName() << " se déplace : droite" << std::endl;
 				       state.list_element[character].setPosX(state.list_element[character].getPosX() + 28);
-                                 state.list_element[character].direction=1;
+                                 state.list_element[character].setDirection(1);
                                  }
                  
                                  }
@@ -52,7 +52,7 @@ void engine::Command::execute (state::State& state){
 
 				else{ //std::cout << state.list_element[character].getName() << " se déplace : gauche" << std::endl;
                    		      state.list_element[character].setPosX(state.list_element[character].getPosX() - 28);
-                                 state.list_element[character].direction=0;}
+                                 state.list_element[character].setDirection(0);}
                    
         }else{
             std::cout<<"cette direction n'existe pas :)"<<std::endl;
@@ -71,10 +71,10 @@ void engine::Command::execute (state::State& state){
                     (state.list_element[victime].getPosY()<state.list_element[attaquant].getPosY()+(state.list_element[attaquant].getRange()+1)*28)&&
                     (state.list_element[victime].getPosY()>state.list_element[attaquant].getPosY()-state.list_element[attaquant].getRange()*28)){
             
-                if(state.list_element[victime].Alive==1){
-                if(state.list_element[victime].Team!=state.list_element[attaquant].Team){
+                if(state.list_element[victime].getAlive()==1){
+                if(state.list_element[victime].getTeam()!=state.list_element[attaquant].getTeam()){
                     state.list_element[victime].setLife(state.list_element[victime].getLife()-degat);
-                    std::cout << state.list_element[attaquant].getName()<< " de l'equipe "<< state.list_element[attaquant].Team<< " a attaqué " <<  state.list_element[victime].getName() <<" de l'equipe "<< state.list_element[victime].Team<< ". Ilreste lui " << state.list_element[victime].getLife() << " point de vie." <<std::endl;
+                    std::cout << state.list_element[attaquant].getName()<< " de l'equipe "<< state.list_element[attaquant].getTeam()<< " a attaqué " <<  state.list_element[victime].getName() <<" de l'equipe "<< state.list_element[victime].getTeam()<< ". Ilreste lui " << state.list_element[victime].getLife() << " point de vie." <<std::endl;
                 }else
                 {std::cout<<"Impossible d'attaquer un personnages de la même équipe"<<std::endl;}
             }

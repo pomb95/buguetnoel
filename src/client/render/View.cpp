@@ -177,9 +177,9 @@ void render::View::draw(sf::RenderWindow& window ,state::State state_game) {
     window.draw(Background);
     
       for (unsigned i = 0; i<list_sprite_element.size(); i++) {
-          if (state_game.list_element[i].Alive==1)
+          if (state_game.list_element[i].getAlive()==1)
             window.draw(list_sprite_element[i]);
-          if ((state_game.list_element[i].Alive==0)&&(state_game.list_element[i].getTypeId()!=11))
+          if ((state_game.list_element[i].getAlive()==0)&&(state_game.list_element[i].getTypeId()!=11))
             window.draw(list_sprite_element[i]);
                 
             }
@@ -198,20 +198,20 @@ void render::View::Update(state::State& state_game){
             
             if((state_game.list_element[i].getTypeId()==7)||(state_game.list_element[i].getTypeId()==6)||
                     (state_game.list_element[i].getTypeId()==9)){
-                if(state_game.list_element[i].Alive==0){
+                if(state_game.list_element[i].getAlive()==0){
                     list_sprite_element[i].setTextureRect(sf::IntRect(2*250, 0, 250, 250));
                    
                     
                 }
                     
-            if(state_game.list_element[i].Alive==1){
+            if(state_game.list_element[i].getAlive()==1){
             list_sprite_element[i].setPosition(state_game.list_element[i].getPosX(),state_game.list_element[i].getPosY());
             if(state_game.list_element[i].getTypeId()==6)
-            list_sprite_element[i].setTextureRect(sf::IntRect(state_game.list_element[i].direction*225, 0, 225, 225));
+            list_sprite_element[i].setTextureRect(sf::IntRect(state_game.list_element[i].getDirection()*225, 0, 225, 225));
             if(state_game.list_element[i].getTypeId()==7)
-            list_sprite_element[i].setTextureRect(sf::IntRect(state_game.list_element[i].direction*250, 0, 250, 250));
+            list_sprite_element[i].setTextureRect(sf::IntRect(state_game.list_element[i].getDirection()*250, 0, 250, 250));
             if(state_game.list_element[i].getTypeId()==9)
-            list_sprite_element[i].setTextureRect(sf::IntRect(state_game.list_element[i].direction*248, 0, 248, 248));
+            list_sprite_element[i].setTextureRect(sf::IntRect(state_game.list_element[i].getDirection()*248, 0, 248, 248));
             }
             }
               if(state_game.list_element[i].getTypeId()==11){
@@ -226,7 +226,7 @@ void render::View::Update(state::State& state_game){
                 
                 for(int p=0;p<nb_hero;p++)
                 {
-                    if(state_game.list_element[p].selected==1){
+                    if(state_game.list_element[p].getSelected()==1){
                          if(state_game.list_element[p].getTypeId()==7)
                         list_sprite_element[i].setPosition(state_game.list_element[p].getPosX()+15,state_game.list_element[p].getPosY()+44);
                  if(state_game.list_element[p].getTypeId()==6)

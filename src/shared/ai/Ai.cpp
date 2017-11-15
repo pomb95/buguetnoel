@@ -57,7 +57,7 @@ void ai::Ai::play(engine::Engine& engine,int character,state::State& state){
         
         
         
-        if(state.list_element[character].Team==Team){
+        if(state.list_element[character].getTeam()==Team){
             
                 if(engine.mov_left!=0){
                     

@@ -8,8 +8,10 @@
 #include "RandomAi.h"
 
 ai::RandomAi::RandomAi() {
-Id=1;}
+    Id=1;
+}
 ai::RandomAi::~RandomAi() {}
 ai::RandomAi::RandomAi(int team) {
-Id=1;
-Team=team;}
+    Id=1;
+    Team=team;
+}

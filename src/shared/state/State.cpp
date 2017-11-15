@@ -74,9 +74,9 @@ namespace state{
         int team1=0;
         if(enable_state==1){
         for (int i = 0; i<nb_hero; i++) {
-            if(list_element[i].Alive==1){
+            if(list_element[i].getAlive()==1){
                 if(list_element[i].getLife()==0){
-                    list_element[i].Alive=0;
+                    list_element[i].setAlive(0);
                  std::cout << list_element[i].getName() << " est mort." <<std::endl;
                 }
             }
@@ -84,16 +84,16 @@ namespace state{
       
         for (unsigned i = nb_hero+nb_tower+nb_center; i<list_element.size(); i++) {
            
-            if(list_element[i].Alive==1){
+            if(list_element[i].getAlive()==1){
                 if(list_element[static_cast<int>(i/10)-1].getLife()<=static_cast<int>(i%10)){
-                    list_element[i].Alive=0;
+                    list_element[i].setAlive(0);
                 // std::cout << list_element[static_cast<int>(i/10)].getName() << " a un coeur en moins ***." <<std::endl;
                 }
             }
         }
         for (int h=0;h<6;h++){
-            if(list_element[h].Alive==1){
-                if(list_element[h].Team==1)
+            if(list_element[h].getAlive()==1){
+                if(list_element[h].getTeam()==1)
                 {team1=team1+1;}
                 else{
                     team0=team0+1;}}}

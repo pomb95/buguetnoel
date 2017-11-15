@@ -32,7 +32,7 @@ void engine::Engine::addCommand(Command cmd){
 
 void engine::Engine::Update(state::State& state_game) {
    // std::cout << "Il reste  : " << commands.size() <<" commandes "<< std::endl;    
-    state_game.list_element[char_sel].selected=1;
+    state_game.list_element[char_sel].setSelected(1);
     if(!commands.empty()){
         commands[0].execute(state_game);  
         if(commands[0].getId()==1)
@@ -48,14 +48,14 @@ void engine::Engine::Update(state::State& state_game) {
         if(mov_left==0)
             if(att_left==0)
         {
-        state_game.list_element[char_sel].selected=0;
+        state_game.list_element[char_sel].setSelected(0);
         
         char_sel=(char_sel+1)%6;
         while(state_game.list_element[char_sel].getLife()<=0)
             char_sel=(char_sel+1)%6;
-        mov_left=state_game.list_element[char_sel].Movement;
+        mov_left=state_game.list_element[char_sel].getMovement();
         att_left=1;
-        state_game.list_element[char_sel].selected=1;
+        state_game.list_element[char_sel].setSelected(1);
         
         }
     //std::cout<<state_game.list_element[char_sel].getName()<<std::endl;

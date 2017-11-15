@@ -27,60 +27,91 @@ namespace state {
 
     
     
-int Element::getPosX() const{
-    return PosX;
-}
+    int Element::getPosX() const{
+        return PosX;
+    }
 
-int Element::getPosY() const{
-    return PosY;
-}
+    int Element::getPosY() const{
+        return PosY;
+    }
         
-void Element::setPosX(int PosX){
-    this->PosX=PosX;
-}
+    void Element::setPosX(int PosX){
+        this->PosX=PosX;
+    }
  
-void Element::setPosY(int PosY){
-    this->PosY=PosY;
-}
+    void Element::setPosY(int PosY){
+        this->PosY=PosY;
+    }
 
-TypeId Element::getTypeId() const{
-    return typeId;
-}  
+    TypeId Element::getTypeId() const{
+        return typeId;
+    }  
 
-int Element::getRange() const{
-    return Range;
-}
+    int Element::getRange() const{
+        return Range;
+    }
 
-int Element::getLife() const {
+    int Element::getLife() const {
         return Life;
     }
 
-void Element::setLife(int Life){
-    if (this->Life>0){
-        this->Life=Life;
-        }else{
-        this->Life=0;
+    void Element::setLife(int Life){
+        if (this->Life>0){
+            this->Life=Life;
+            }else{
+            this->Life=0;
+            }
         }
-    }
-   
 
-            
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
+    int Element::getTeam() const {
+        return Team;
+    }
+
+    void Element::setTeam(int Team) {
+        this->Team = Team;
+    }
+
+    int Element::getAlive() const {
+        return Alive;
+    }
+    
+    void Element::setAlive(int Alive) {
+        this->Alive = Alive;
+    }
+    
+    int Element::getDirection() const {
+        return direction;
+    }
+    void Element::setDirection(int direction) {
+        this->direction = direction;
+    }
+
+    int Element::getATK() const {
+        return ATK;
+    }
+    int Element::getMovement() const {
+        return Movement;
+    }
+
+    int Element::getSelected() const {
+        return selected;
+    }
+
+    void Element::setATK(int ATK) {
+        this->ATK = ATK;
+    }
+
+    void Element::setMovement(int Movement) {
+        this->Movement=Movement;
+    }
+
+    void Element::setSelected(int selected) {
+        this->selected = selected;
+    }
+
+
+
+
+
         
 }
