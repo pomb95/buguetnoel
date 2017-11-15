@@ -4,8 +4,8 @@
 #include <unistd.h>
 
 
-int window_width = 650;
-int window_heigth = 650;
+int window_width = 672;
+int window_heigth = 672;
 sf::Vector2i pos_window(0, 0);
 int frame_fps_limit = 60;
 std::string window_title = "Dofus";

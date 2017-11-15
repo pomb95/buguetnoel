@@ -9,6 +9,7 @@
 #include <iostream>
 #include <engine/MoveChar.h>
 #include <engine/Attack.h>
+#include <sys/time.h>
 
 
 ai::Ai::Ai(){
@@ -49,26 +50,33 @@ void ai::Ai::init(){
 void ai::Ai::play(engine::Engine& engine,int character,state::State& state){
     if (Id==1){
         
+         struct timeval time; 
+         gettimeofday(&time,NULL);
+         std::srand((time.tv_sec * 1000) + (time.tv_usec / 1000));
+
+        
         
         
         if(state.list_element[character].Team==Team){
             
                 if(engine.mov_left!=0){
+                    
                      int random=std::rand();
                      engine::Command command=list_mov[random%list_mov.size()];
                      command.setCharacter(character);
                     engine.addCommand(command);}else
                     {
                      if(engine.att_left!=0){
+                        
                          int random=std::rand();
                       engine::Command command=list_att[(random+1)%list_att.size()];
                       command.setAttaquant(character);
                     engine.addCommand(command);
                      }
                     }
-                }else{
-            std::cout<<"Ce n'est pas le tour de l'IA "<<Team<<std::endl;
-                }
+                }//else{
+            //std::cout<<"Ce n'est pas le tour de l'IA "<<Team<<std::endl;
+               // }
         }
        
     

@@ -5,6 +5,7 @@
 state::Selecteur::Selecteur(){
     
     typeId=SELECTEUR;
+    Name="Selecteur";
 
 }
 

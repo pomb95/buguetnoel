@@ -18,7 +18,7 @@ void engine::Command::execute (state::State& state){
 		//std::cout << "position actuelle : " << state.list_element[character].getPosX() << ", " <<state.list_element[character].getPosY() << std::endl;
    
         	if(direction==6){ //std::cout << state.list_element[character].getName() << " veut se déplacer vers la droite" << std::endl;
-			  	 if  ( state.list_element[character].getPosX()==672){
+			  	 if  ( state.list_element[character].getPosX()>=672){
 				       std::cout << "déplacement pas possible"<<std::endl;}
 
                   		 else {//std::cout << state.list_element[character].getName() << " se déplace : droite" << std::endl;
@@ -29,7 +29,7 @@ void engine::Command::execute (state::State& state){
                                  }
 
                 else if(direction==8){// std::cout << state.list_element[character].getName() << " veut se déplacer vers le haut" << std::endl;
-				if  ( state.list_element[character].getPosY()==0){
+				if  ( state.list_element[character].getPosY()<=0){
 				      std::cout << "déplacement pas possible"<<std::endl;}
 
 				else{ //std::cout << state.list_element[character].getName() << " se déplace : haut" << std::endl;
@@ -38,7 +38,7 @@ void engine::Command::execute (state::State& state){
                               }
 
                 else if(direction==2){ //std::cout << state.list_element[character].getName() << " veut se déplacer en bas" << std::endl;
-				if  ( state.list_element[character].getPosY()==672){
+				if  ( state.list_element[character].getPosY()>=672){
 				      std::cout << "déplacement pas possible"<<std::endl;}
 
 				else{ //std::cout << state.list_element[character].getName() << " se déplace : bas" << std::endl;
@@ -47,7 +47,7 @@ void engine::Command::execute (state::State& state){
                               }
 
                 else if(direction==4){ //std::cout << state.list_element[character].getName() << " veut se déplacer à gauche" << std::endl;
-				if  ( state.list_element[character].getPosX()==0){
+				if  ( state.list_element[character].getPosX()<=0){
 				      std::cout << "déplacement pas possible"<<std::endl;}
 
 				else{ //std::cout << state.list_element[character].getName() << " se déplace : gauche" << std::endl;
@@ -74,7 +74,7 @@ void engine::Command::execute (state::State& state){
                 if(state.list_element[victime].Alive==1){
                 if(state.list_element[victime].Team!=state.list_element[attaquant].Team){
                     state.list_element[victime].setLife(state.list_element[victime].getLife()-degat);
-                    std::cout << state.list_element[attaquant].getName() << " a attaqué " <<  state.list_element[victime].getName() << ". Ilreste lui " << state.list_element[victime].getLife() << " point de vie." <<std::endl;
+                    std::cout << state.list_element[attaquant].getName()<< " de l'equipe "<< state.list_element[attaquant].Team<< " a attaqué " <<  state.list_element[victime].getName() <<" de l'equipe "<< state.list_element[victime].Team<< ". Ilreste lui " << state.list_element[victime].getLife() << " point de vie." <<std::endl;
                 }else
                 {std::cout<<"Impossible d'attaquer un personnages de la même équipe"<<std::endl;}
             }

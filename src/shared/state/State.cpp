@@ -91,12 +91,12 @@ namespace state{
                 }
             }
         }
-        for (int h=0;h<6;h++)
-            if(list_element[h].Alive==1)
+        for (int h=0;h<6;h++){
+            if(list_element[h].Alive==1){
                 if(list_element[h].Team==1)
                 {team1=team1+1;}
                 else{
-                    team0=team0+1;}
+                    team0=team0+1;}}}
         
             if(team0==0){
                 std::cout<<"-------------------------------------"<<std::endl;
