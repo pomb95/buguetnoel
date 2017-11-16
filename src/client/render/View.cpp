@@ -184,7 +184,7 @@ void render::View::draw(sf::RenderWindow& window ,state::State state_game) {
                 
             }
     
-    for (unsigned i = 0; i<state_game.nb_hero; i++) {
+    for (int i = 0; i<state_game.nb_hero; i++) {
           if (state_game.list_element[i].getAlive()==1)
             window.draw(list_sprite_element[i]);
           if ((state_game.list_element[i].getAlive()==0)&&(state_game.list_element[i].getTypeId()!=11))

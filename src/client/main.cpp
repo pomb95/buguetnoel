@@ -116,7 +116,7 @@ int main(int argc, char* argv[]) {
 
     }
 
-if ((argv[1] != NULL) && string(argv[1]) == "randomAi") {
+if ((argv[1] != NULL) && string(argv[1]) == "random_ai") {
         std::cout<<"Appuyer sur B pour effectuer une action "<<std::endl;
         State state;
         Render render;
