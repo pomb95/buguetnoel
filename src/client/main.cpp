@@ -75,7 +75,7 @@ int main(int argc, char* argv[]) {
                         engine.addCommand(command4);
                         engine::MoveChar command3(1,4);
                         engine.addCommand(command3);
-                        
+
                          //test pour attack
                         engine::Attack command2(1,2,5); // L'éni attaque le sram
 
@@ -94,22 +94,22 @@ int main(int argc, char* argv[]) {
                         engine.addCommand(command2);
                         engine::Attack command5(1,3,5);
                         engine.addCommand(command5);
-                        
-                         
+
+
                         while(!engine.commands.empty()){
                         engine.Update(state);
                         state.Update();
                         render.Update(state);
-                        
-                        
+
+
                         }
-                        
-                      
-                        
+
+
+
                     }
 
-                } 
-                
+                }
+
             }
         }
 
@@ -128,7 +128,7 @@ if ((argv[1] != NULL) && string(argv[1]) == "random_ai") {
         bot1.init();
         bot2.init();
         state.Update();
-        
+
 
         while (render.window.isOpen()) {
             // on gère les évènements
@@ -141,29 +141,29 @@ if ((argv[1] != NULL) && string(argv[1]) == "random_ai") {
 
                 if (event.type == sf::Event::KeyPressed) {
                     if (sf::Keyboard::isKeyPressed(sf::Keyboard::B)) {
-                       
-                        
-                        
-                         
-                       
+
+
+
+
+
                         bot1.play(engine,engine.char_sel,state);
                         bot2.play(engine,engine.char_sel,state);
                         engine.Update(state);
                         state.Update();
                         render.Update(state);
-                        
-                        
-                        
-                        
-                      
-                        
+
+
+
+
+
+
                     }
 
-                } 
+                }
                if(state.fin==1)
                {state.fin=0;
                    render.window.close();
-                   
+
                }
             }
         }
@@ -173,4 +173,3 @@ if ((argv[1] != NULL) && string(argv[1]) == "random_ai") {
 
     return 0;
 }
-

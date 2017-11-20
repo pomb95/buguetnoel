@@ -12,18 +12,14 @@
 #include <sys/time.h>
 
 
-ai::Ai::Ai(){
-    
-    
-}
+ai::Ai::Ai() {}
 
 
-ai::Ai::~Ai(){
-    
-}
+ai::Ai::~Ai() {}
+
 
 void ai::Ai::init(){
-    
+
     engine::MoveChar command1(0,2);
     engine::MoveChar command2(0,4);
     engine::MoveChar command3(0,6);
@@ -32,7 +28,7 @@ void ai::Ai::init(){
     list_mov.push_back(command2);
     list_mov.push_back(command3);
     list_mov.push_back(command4);
-    
+
     engine::Attack command5(0,0,5);
     engine::Attack command6(0,1,5);
     engine::Attack command7(0,2,5);
@@ -46,39 +42,3 @@ void ai::Ai::init(){
     list_att.push_back(command9);
     list_att.push_back(command10);
 }
-
-void ai::Ai::play(engine::Engine& engine,int character,state::State& state){
-    if (Id==1){
-        
-         struct timeval time; 
-         gettimeofday(&time,NULL);
-         std::srand((time.tv_sec * 1000) + (time.tv_usec / 1000));
-
-        
-        
-        
-        if(state.list_element[character].getTeam()==Team){
-            
-                if(engine.mov_left!=0){
-                    
-                     int random=std::rand();
-                     engine::Command command=list_mov[random%list_mov.size()];
-                     command.setCharacter(character);
-                    engine.addCommand(command);}else
-                    {
-                     if(engine.att_left!=0){
-                        
-                         int random=std::rand();
-                      engine::Command command=list_att[(random+1)%list_att.size()];
-                      command.setAttaquant(character);
-                    engine.addCommand(command);
-                     }
-                    }
-                }//else{
-            //std::cout<<"Ce n'est pas le tour de l'IA "<<Team<<std::endl;
-               // }
-        }
-       
-    
-}
-

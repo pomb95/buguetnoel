@@ -28,7 +28,7 @@ namespace ai {
     std::vector<engine::Command> list_mov;
     // Operations
   public:
-    void play (engine::Engine& engine, int character, state::State& state);
+    virtual void play (engine::Engine& engine, int character, state::State& state) = 0;
     Ai ();
     ~Ai ();
     void init ( );
