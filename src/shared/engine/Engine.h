@@ -24,6 +24,7 @@ namespace engine {
     std::vector<Command> commands;
     int mov_left;
     int att_left;
+    std::vector<int> list_role;
     // Operations
   public:
     Engine ();

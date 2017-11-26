@@ -23,7 +23,7 @@ ai::RandomAi::RandomAi(int team) {
 }
 
 void ai::RandomAi::play(engine::Engine& engine,int character,state::State& state){
-    if (Id==1){
+
 
          struct timeval time;
          gettimeofday(&time,NULL);
@@ -52,7 +52,7 @@ void ai::RandomAi::play(engine::Engine& engine,int character,state::State& state
                 }//else{
             //std::cout<<"Ce n'est pas le tour de l'IA "<<Team<<std::endl;
                // }
-        }
+        
 
 
 }

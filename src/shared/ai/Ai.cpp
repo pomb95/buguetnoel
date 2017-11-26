@@ -25,9 +25,13 @@ void ai::Ai::init(){
     engine::MoveChar command3(0,6);
     engine::MoveChar command4(0,8);
     list_mov.push_back(command1);
+    score_mov.push_back(0);
     list_mov.push_back(command2);
+    score_mov.push_back(1);
     list_mov.push_back(command3);
+    score_mov.push_back(0);
     list_mov.push_back(command4);
+    score_mov.push_back(0);
 
     engine::Attack command5(0,0,5);
     engine::Attack command6(0,1,5);
@@ -36,9 +40,15 @@ void ai::Ai::init(){
     engine::Attack command9(0,4,5);
     engine::Attack command10(0,5,5);
     list_att.push_back(command5);
+    score_att.push_back(0);      
     list_att.push_back(command6);
+    score_att.push_back(0);
     list_att.push_back(command7);
+    score_att.push_back(0);
     list_att.push_back(command8);
+    score_att.push_back(0);
     list_att.push_back(command9);
+    score_att.push_back(0);
     list_att.push_back(command10);
+    score_att.push_back(0);
 }
