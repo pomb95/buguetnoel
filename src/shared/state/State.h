@@ -27,6 +27,8 @@ namespace state {
     int nb_tower;
     int nb_center;
     int fin;
+    int width     = 672;
+    int height     = 672;
     // Operations
   public:
     State ();

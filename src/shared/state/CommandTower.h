@@ -18,6 +18,9 @@ namespace state {
     CommandTower ();
     ~CommandTower ();
     void getStatus ();
+    /// 	
+    /// @param Team		(???) 
+    CommandTower (int Team);
     // Setters and Getters
   };
 

@@ -18,7 +18,7 @@ namespace state {
     }
      Sram::Sram(int team){
         Name = "Sram";
-        Range = 50;
+        Range = 5;
         ATK = 10;
 	Life = 10;
 	Alive = 1;

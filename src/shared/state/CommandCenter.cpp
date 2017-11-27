@@ -12,10 +12,22 @@ namespace state {
         Name = "Command Center";
         typeId = COMMANDCENTER;
         Life = 500;
-        ATK = 15;
+        ATK = 2;
        // std::cout << Name << " created " << std::endl;
     }
     CommandCenter::~CommandCenter() {}
+
+	CommandCenter::CommandCenter(int team){
+	Name = "Command Center";
+        typeId = COMMANDCENTER;
+        Life = 50;
+        ATK = 7;
+	Range = 5;
+	Team= team;
+ 	if(Team==0)
+           direction=0;
+        else direction=1;
+}
     
     /*void CommandCenter::getDamage (int damage){
         Life -= damage;

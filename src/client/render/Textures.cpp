@@ -1,5 +1,6 @@
 #include <render/Textures.h>
 #include <iostream>
+#include "state.h"
 
 render::Textures::Textures() {
 
@@ -38,7 +39,6 @@ void render::Textures::load_texture( state::Element& element) {
         
         path="res/iop.png";
         scale=sf::Vector2f(0.2,0.2);
-              //  std::cout<<"iop"<<std::endl; 
         
     }
     
@@ -46,10 +46,10 @@ void render::Textures::load_texture( state::Element& element) {
         
         path="res/sprite_enu.png";
         scale=sf::Vector2f(0.2,0.2);
-              //  std::cout<<"enu"<<std::endl;
         sprite.setTextureRect(sf::IntRect(element.getDirection()*248, 0, 248, 248));
         
     }
+
     if(element.getTypeId()==10){
         
         path="res/sacri.png";
@@ -87,7 +87,7 @@ void render::Textures::load_texture( state::Element& element) {
         
     }
     
-        
+
  
     if (!texture.loadFromFile(path)) {
         std::cout << "Erreur de chargement du sprite" << path << std::endl;

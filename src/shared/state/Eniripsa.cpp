@@ -22,7 +22,7 @@ namespace state {
     
      Eniripsa::Eniripsa(int team) : Hero() {
         Name = "Eniripsa";
-        Range = 50;
+        Range = 5;
         ATK = 10;
 	Life = 10;
 	Alive = 1; // en vie 

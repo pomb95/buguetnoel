@@ -6,6 +6,8 @@
 #include <iostream>
 #include "state.h"
 
+using namespace std;
+
 namespace state{
     
     State::State(){ 
@@ -42,24 +44,34 @@ namespace state{
         Enutrof hero6(1);
         this->addElement(hero6);
         
-        CommandTower tour1;
-        this->addElement(tour1);
+        CommandTower tour1(0);
+        this->addElement(tour1);	
         
-        CommandTower tour2;
+        CommandTower tour2(1);
         this->addElement(tour2);
         
-        CommandCenter center1;
+        CommandCenter center1(0);
         this->addElement(center1);
         
-        CommandCenter center2;
+        CommandCenter center2(1);
         this->addElement(center2);
         
-        Coeur coeur;
+        Coeur coeur_heros;
+	Coeur coeur_tower;
+	Coeur coeur_center;
         
         for (int i = 0; i<nb_hero*10; i++) {
-            this->addElement(coeur);
+            this->addElement(coeur_heros);
             
         }
+
+	for (int j=0; j<nb_tower*20;j++){
+		this->addElement(coeur_tower);
+	}
+
+	for (int j=0; j<nb_center*50;j++){
+		this->addElement(coeur_center);
+	}
         Selecteur sel;
         this->addElement(sel);
         

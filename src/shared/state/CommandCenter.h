@@ -22,6 +22,7 @@ namespace state {
     CommandCenter ();
     ~CommandCenter ();
     void getStatus ();
+    CommandCenter (int Team);
     // Setters and Getters
     int getLife() const;
     void setLife(int Life);

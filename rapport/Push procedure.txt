@@ -4,5 +4,8 @@ pour commit ==> git commit -m "test..."
 pour ajouter un tag ==> git tag -f 1.1
 pour push ==> git push
 pour push les tags ==> git push -f --tags
+pour pusher forcé sur le tag => git push -f --tag NOM_DU_TAG
+pour pusher forcé sur le tag => git push -f --tags NOM_DU_TAG
+
 
 

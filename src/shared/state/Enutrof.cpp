@@ -20,7 +20,7 @@ namespace state {
     Enutrof::Enutrof(int team ){
         Name = "Enutrof";
         Life = 10;
-        Range = 50;
+        Range = 5;
         Movement = 3;
         ATK = 5;
         typeId = ENU;

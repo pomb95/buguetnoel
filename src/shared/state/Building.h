@@ -13,10 +13,6 @@ namespace state {
 
   /// class Building - 
   class Building : public state::StaticElement {
-    // Attributes
-  public:
-    int Team;
-    int ATK;
     // Operations
   public:
     Building ();
