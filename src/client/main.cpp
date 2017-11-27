@@ -123,8 +123,8 @@ if ((argv[1] != NULL) && string(argv[1]) == "random_ai") {
         Engine engine;
         state.init();
         render.init(state);
-        ai::HeuristicAi bot1(0);
-        ai::HeuristicAi bot2(1);
+        ai::RandomAi bot1(0);
+        ai::RandomAi bot2(1);
         bot1.init();
         bot2.init();
         state.Update();
@@ -195,7 +195,6 @@ if ((argv[1] != NULL) && string(argv[1]) == "heuristic_ai") {
 
                 if (event.type == sf::Event::KeyPressed) {
                     if (sf::Keyboard::isKeyPressed(sf::Keyboard::B)) {
-
 
 
 

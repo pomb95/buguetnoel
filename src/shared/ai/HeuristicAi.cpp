@@ -28,17 +28,17 @@ void ai::HeuristicAi::play(engine::Engine& engine,int character,state::State& st
 int id_max_mov = 0;
 int id_max_att = 0;
 int value = 0;
-
+engine.addCommand(check);
 if(state.list_element[character].getTeam()==Team){
 
     if(engine.mov_left!=0){
         for (unsigned i=0; i<score_mov.size(); i++)
             if (score_mov[i] > value) {
                 value = score_mov[i];
-               
+
                 }
-        
-        
+
+
         for (unsigned i=0; i<list_mov.size(); i++)
             if (score_mov[i] == value) {
                 id_max_mov = i;
@@ -47,14 +47,14 @@ if(state.list_element[character].getTeam()==Team){
         engine::Command command=list_mov[id_max_mov];
         command.setCharacter(character);
         engine.addCommand(command);
-                
-    }else
-       {
+
+    }
+    else {
         if(engine.att_left!=0){
             for (unsigned i=0; i<score_att.size(); i++)
                 if (score_att[i] > value) {
                     value = score_att[i];
-               
+
                     }
 
             for (unsigned i=0; i<list_att.size(); i++)
@@ -65,12 +65,7 @@ if(state.list_element[character].getTeam()==Team){
             engine::Command command=list_att[id_max_att];
             command.setAttaquant(character);
             engine.addCommand(command);
-            }
-                    }
-}//else{
-            //std::cout<<"Ce n'est pas le tour de l'IA "<<Team<<std::endl;
-               // }
-        
-
-
+                }
+        }
+    }
 }

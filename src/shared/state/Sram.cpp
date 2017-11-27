@@ -9,7 +9,7 @@
 namespace state {
     Sram::Sram(){
         Name = "Sram";
-        Range = 50;
+        Range = 5;
         ATK = 10;
 	Life = 10;
 	Alive = 1;
@@ -29,8 +29,8 @@ namespace state {
         else direction=1;
 	//std::cout << Name <<" created" << std::endl;
     }
-    
+
     Sram::~Sram(){
-        
+
     }
 }

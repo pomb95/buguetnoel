@@ -28,6 +28,7 @@ namespace ai {
     std::vector<engine::Command> list_mov;
     std::vector<int> score_att;
     std::vector<int> score_mov;
+    engine::Command check;
     // Operations
   public:
     virtual void play (engine::Engine& engine, int character, state::State& state) = 0;

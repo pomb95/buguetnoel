@@ -4,11 +4,12 @@
  * and open the template in the editor.
  */
 
-#include "Ai.h"
+#include "ai.h"
 #include <cstdlib>
 #include <iostream>
 #include <engine/MoveChar.h>
 #include <engine/Attack.h>
+#include <engine/CheckAround.h>
 #include <sys/time.h>
 
 
@@ -19,7 +20,9 @@ ai::Ai::~Ai() {}
 
 
 void ai::Ai::init(){
-
+    engine::CheckAround command0(0);
+    check = command0;
+    
     engine::MoveChar command1(0,2);
     engine::MoveChar command2(0,4);
     engine::MoveChar command3(0,6);
@@ -40,7 +43,7 @@ void ai::Ai::init(){
     engine::Attack command9(0,4,5);
     engine::Attack command10(0,5,5);
     list_att.push_back(command5);
-    score_att.push_back(0);      
+    score_att.push_back(0);
     list_att.push_back(command6);
     score_att.push_back(0);
     list_att.push_back(command7);

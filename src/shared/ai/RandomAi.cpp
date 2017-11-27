@@ -11,6 +11,7 @@
 #include <iostream>
 #include <engine/MoveChar.h>
 #include <engine/Attack.h>
+#include <engine/CheckAround.h>
 #include <sys/time.h>
 
 ai::RandomAi::RandomAi() {
@@ -31,9 +32,8 @@ void ai::RandomAi::play(engine::Engine& engine,int character,state::State& state
 
 
 
-
+        engine.addCommand(check);
         if(state.list_element[character].getTeam()==Team){
-
                 if(engine.mov_left!=0){
 
                      int random=std::rand();
@@ -52,7 +52,7 @@ void ai::RandomAi::play(engine::Engine& engine,int character,state::State& state
                 }//else{
             //std::cout<<"Ce n'est pas le tour de l'IA "<<Team<<std::endl;
                // }
-        
+
 
 
 }
