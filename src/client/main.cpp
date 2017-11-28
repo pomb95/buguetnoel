@@ -1,20 +1,16 @@
 #include <iostream>
-
-// Les lignes suivantes ne servent qu'à vérifier que la compilation avec SFML fonctionne
 #include <SFML/Graphics.hpp>
-
-void testSFML() {
-    sf::Texture texture;
-}
-
-
-
-// Fin test SFML
-
 #include "state.h"
 #include "render.h"
 #include "engine.h"
 #include "ai.h"
+
+// Les lignes suivantes ne servent qu'à vérifier que la compilation avec SFML fonctionne
+void testSFML() {
+    sf::Texture texture;
+}
+
+// Fin test SFML
 
 
 using namespace std;
@@ -25,98 +21,83 @@ using namespace engine;
 int main(int argc, char* argv[]) {
 
     if ((argv[1] != NULL) && string(argv[1]) == "state") {
-
-        State state;
-        state.init();
-
+	 State state;
+         state.init();
     }
 
-    if ((argv[1] != NULL) && string(argv[1]) == "render") {
-        State state;
-        state.init();
-        Render render;
-        render.init(state);
+    if ((argv[1] != NULL) && string(argv[1]) == "render") {   		   //Livrable 2.1
+         State state;
+         state.init();
+         Render render;
+         render.init(state);
 
-        while (render.window.isOpen()) {
-            // on gère les évènements
-            sf::Event event;
-            while (render.window.pollEvent(event)) {
-                if (event.type == sf::Event::Closed)
-
-                    render.window.close();
-            }
-        }
+         while (render.window.isOpen()) {                                  // on gère les évènements
+                sf::Event event;
+                while (render.window.pollEvent(event)) {
+                       if (event.type == sf::Event::Closed)		   // On teste la fermeture de la fenetre
+                           render.window.close();
+                }
+         }
     }
 
-    if ((argv[1] != NULL) && string(argv[1]) == "engine") {
+    if ((argv[1] != NULL) && string(argv[1]) == "engine") {                //Livrable 2.2
         std::cout<<"Appuyer sur B pour effectuer une action "<<std::endl;
         State state;
         Render render;
         Engine engine;
         state.init();
         render.init(state);
-
         state.Update();
 
         while (render.window.isOpen()) {
-            // on gère les évènements
-            sf::Event event;
-            while (render.window.pollEvent(event)) {
-                if (event.type == sf::Event::Closed) {
+               sf::Event event;
+               while (render.window.pollEvent(event)) {
+                      if (event.type == sf::Event::Closed) {
+                          render.window.close();
+                      }
 
-                    render.window.close();
-                }
-
-                if (event.type == sf::Event::KeyPressed) {
-                    if (sf::Keyboard::isKeyPressed(sf::Keyboard::B)) {
-                        engine::MoveChar command1(1,2);
-                        engine.addCommand(command1);
-                        engine::MoveChar command4(1,6);
-                        engine.addCommand(command4);
-                        engine::MoveChar command3(1,4);
-                        engine.addCommand(command3);
-
-                         //test pour attack
-                        engine::Attack command2(1,2,5); // L'éni attaque le sram
-
-                        engine.addCommand(command2);
-                        engine.addCommand(command3);
-                         engine.addCommand(command2);
-                        engine.addCommand(command3);
-                         engine.addCommand(command2);
-                        engine.addCommand(command3);
-                         engine.addCommand(command2);
-                        engine.addCommand(command3);
-                        engine.addCommand(command2);
-                         engine.addCommand(command3);
-                        engine.addCommand(command2);
-                         engine.addCommand(command3);
-                        engine.addCommand(command2);
-                        engine::Attack command5(1,3,5);
-                        engine.addCommand(command5);
+                      if (event.type == sf::Event::KeyPressed) {
+                          if (sf::Keyboard::isKeyPressed(sf::Keyboard::B)) {              //on teste la pression du bouton B.
+                              engine::MoveChar command1(1,2);                             // On crée la commande "deplacement bas au héro 1
+                              engine.addCommand(command1);			          // On ajoute la commande a éxécuter
+                              engine::MoveChar command4(1,6);				  // Déplacement droite
+		              engine.addCommand(command4);
+			      engine::MoveChar command3(1,4);                             // déplacement gauche
+		              engine.addCommand(command3);
+			      engine::Attack command2(1,2,5);           // L'éni attaque le sram          //test pour attack
+                              engine.addCommand(command2);
+                              engine.addCommand(command3);
+                              engine.addCommand(command2);
+                              engine.addCommand(command3);
+                              engine.addCommand(command2);
+                              engine.addCommand(command3);
+                              engine.addCommand(command2);
+                              engine.addCommand(command3);
+                              engine.addCommand(command2);
+                              engine.addCommand(command3);
+                              engine.addCommand(command2);
+                              engine.addCommand(command3);
+                              engine.addCommand(command2);
+                              engine::Attack command5(1,3,5);            // le héros 1 attaque le personnage 3 , de 5 dégats.
+                              engine.addCommand(command5);
 
 
-                        while(!engine.commands.empty()){
-                        engine.Update(state);
-                        state.Update();
-                        render.Update(state);
+                              while(!engine.commands.empty()){
+                                    engine.Update(state);
+                                    state.Update();
+                                    render.Update(state);
+			      }
 
+			  }
 
-                        }
+                      }    
 
+                }       
 
-
-                    }
-
-                }
-
-            }
         }
-
-
     }
 
-if ((argv[1] != NULL) && string(argv[1]) == "random_ai") {
+    if ((argv[1] != NULL) && string(argv[1]) == "random_ai") {
         std::cout<<"Appuyer sur B pour effectuer une action "<<std::endl;
         State state;
         Render render;
@@ -131,95 +112,71 @@ if ((argv[1] != NULL) && string(argv[1]) == "random_ai") {
 
 
         while (render.window.isOpen()) {
-            // on gère les évènements
-            sf::Event event;
-            while (render.window.pollEvent(event)) {
-                if (event.type == sf::Event::Closed) {
+               sf::Event event;
+               while (render.window.pollEvent(event)) {
+                      if (event.type == sf::Event::Closed) {
+                          render.window.close();
+                      }
 
-                    render.window.close();
+                      if (event.type == sf::Event::KeyPressed) {
+                          if (sf::Keyboard::isKeyPressed(sf::Keyboard::B)) {
+
+		                bot1.play(engine,engine.char_sel,state);
+		                bot2.play(engine,engine.char_sel,state);
+		                engine.Update(state);
+		                state.Update();
+		                render.Update(state);
+                          }
+                      }
+
+               	      if(state.fin==1){  
+                         state.fin=0;
+                         render.window.close();
+                      }
                 }
-
-                if (event.type == sf::Event::KeyPressed) {
-                    if (sf::Keyboard::isKeyPressed(sf::Keyboard::B)) {
-
-
-
-
-
-                        bot1.play(engine,engine.char_sel,state);
-                        bot2.play(engine,engine.char_sel,state);
-                        engine.Update(state);
-                        state.Update();
-                        render.Update(state);
-
-
-
-
-
-
-                    }
-
-                }
-               if(state.fin==1)
-               {state.fin=0;
-                   render.window.close();
-
-               }
-            }
-        }
-
-
+         }
     }
-if ((argv[1] != NULL) && string(argv[1]) == "heuristic_ai") {
-        std::cout<<"Appuyer sur B pour effectuer une action "<<std::endl;
-        State state;
-        Render render;
-        Engine engine;
-        state.init();
-        render.init(state);
-        ai::HeuristicAi bot1(0);
-        ai::HeuristicAi bot2(1);
-        bot1.init();
-        bot2.init();
-        state.Update();
+
+
+
+    if ((argv[1] != NULL) && string(argv[1]) == "heuristic_ai") {
+	std::cout<<"Appuyer sur B pour effectuer une action "<<std::endl;
+	State state;
+	Render render;
+	Engine engine;
+	state.init();
+	render.init(state);
+	ai::HeuristicAi bot1(0);
+	ai::HeuristicAi bot2(1);
+	bot1.init();
+	bot2.init();
+	state.Update();
 
 
         while (render.window.isOpen()) {
-            // on gère les évènements
-            sf::Event event;
-            while (render.window.pollEvent(event)) {
-                if (event.type == sf::Event::Closed) {
+               sf::Event event;
+               while (render.window.pollEvent(event)) {
+                      
+		      if(event.type == sf::Event::Closed) {
+                         render.window.close();
+                      }
 
-                    render.window.close();
-                }
+                      if(event.type == sf::Event::KeyPressed) {
+                          if(sf::Keyboard::isKeyPressed(sf::Keyboard::B)) {
+                        	bot1.play(engine,engine.char_sel,state);
+                        	bot2.play(engine,engine.char_sel,state);
+                        	engine.Update(state);
+                       	 	state.Update();
+                        	render.Update(state);
+			  }
+		       }
 
-                if (event.type == sf::Event::KeyPressed) {
-                    if (sf::Keyboard::isKeyPressed(sf::Keyboard::B)) {
-
-
-
-
-                        bot1.play(engine,engine.char_sel,state);
-                        bot2.play(engine,engine.char_sel,state);
-                        engine.Update(state);
-                        state.Update();
-                        render.Update(state);
-
-
-
-
-
-
-                    }
-
-                }
-               if(state.fin==1)
-               {state.fin=0;
-                   render.window.close();
-
-               }
-            }
-        }
+               	      if(state.fin==1){
+               		 state.fin=0;
+                         render.window.close();
+		      }
+                 }
+          }
 
 
     }
