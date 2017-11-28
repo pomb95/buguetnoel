@@ -20,20 +20,21 @@ ai::Ai::~Ai() {}
 
 
 void ai::Ai::init(){
-    
+    //implémentation des commandes de déplacement
     engine::MoveChar command1(0,2);
     engine::MoveChar command2(0,4);
     engine::MoveChar command3(0,6);
     engine::MoveChar command4(0,8);
+    //poids initial des commandes
     list_mov.push_back(command1);
     score_mov.push_back(0);
     list_mov.push_back(command2);
-    score_mov.push_back(1);
+    score_mov.push_back(0);
     list_mov.push_back(command3);
     score_mov.push_back(0);
     list_mov.push_back(command4);
     score_mov.push_back(0);
-
+    //idem pour attaquer
     engine::Attack command5(0,0,5);
     engine::Attack command6(0,1,5);
     engine::Attack command7(0,2,5);
@@ -52,4 +53,10 @@ void ai::Ai::init(){
     score_att.push_back(0);
     list_att.push_back(command10);
     score_att.push_back(0);
+}
+
+void ai::Ai::clearListInt(std::vector<int> score){
+    for (unsigned int i = 0; i < score.size(); i++){
+        score[i] = 0;
+    }
 }

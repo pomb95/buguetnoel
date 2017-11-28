@@ -14,6 +14,8 @@ namespace state {
 }
 
 #include "engine/Command.h"
+#include "state/State.h"
+#include "engine/Engine.h"
 
 namespace ai {
 
@@ -28,13 +30,13 @@ namespace ai {
     std::vector<engine::Command> list_mov;
     std::vector<int> score_att;
     std::vector<int> score_mov;
-    engine::Command check;
     // Operations
   public:
     virtual void play (engine::Engine& engine, int character, state::State& state) = 0;
     Ai ();
     ~Ai ();
     void init ( );
+    void clearListInt (std::vector<int> score);
     // Setters and Getters
   };
 

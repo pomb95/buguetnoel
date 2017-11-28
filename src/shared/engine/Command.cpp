@@ -5,6 +5,7 @@
  */
 
 #include "Command.h"
+#include "ai.h"
 #include "CheckAround.h"
 #include <iostream>
 #include <math.h>
@@ -106,9 +107,9 @@ void engine::Command::execute (state::State& state){
             }
 	   }
 	    else{std::cout<<state.list_element[victime].getName()<<" est hors porté"<<std::endl;}
-        }
+    }
         //Detection des éléments
-        if(Id == 3){
+        /*if(Id == 3){
             std::cout << "position " << state.list_element[character].getName() <<" : "<< state.list_element[character].getPosX() << ", " << state.list_element[character].getPosY() << std::endl;
             std::cout << "Detection des éléments..." << std::endl;
             int e = 0;
@@ -138,7 +139,7 @@ void engine::Command::execute (state::State& state){
                                 else if ( y > posY && x == posX) {std::cout << "il est en bas" << std::endl;}
                                 else if ( y > posY && x < posX) {std::cout << "il est en bas à gauche" << std::endl;}
                                 else if ( y == posY && x < posX) {std::cout << "il est à gauche" << std::endl;}
-                                std::cout << "Distance = " << sqrt(pow((x-posX),2)+pow((y-posY),2)) << std::endl;
+                                std::cout << "Distance = " << distance(x,y,posX,posY) << std::endl;
                                 listElementChecked.push_back(state.list_element[z]);
                                 e = 1;
                             }
@@ -155,8 +156,13 @@ void engine::Command::execute (state::State& state){
                 y2 += increment;
 
             }
-            if (e == 0) std::cout << state.list_element[character].getName() << " ne voit rien" << std::endl;
-        }
+            if (e){
+                std::cout << listElementChecked.size()<< " éléments à portée " << std::endl;
+            }
+            else{
+                std::cout << state.list_element[character].getName() << " ne voit rien" << std::endl;
+            }
+        }*/
 }
 
 int engine::Command::getAttaquant() const {

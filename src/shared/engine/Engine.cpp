@@ -52,14 +52,6 @@ void engine::Engine::Update(state::State& state_game) {
 
         char_sel=(char_sel+1)%6;
 
-
-
-
-
-
-
-
-
         while(state_game.list_element[char_sel].getLife()<=0)
             char_sel=(char_sel+1)%6;
         mov_left=state_game.list_element[char_sel].getMovement();
@@ -73,8 +65,4 @@ void engine::Engine::Update(state::State& state_game) {
 
 
 void engine::Engine::testInit(){
-
-
-
-
 }

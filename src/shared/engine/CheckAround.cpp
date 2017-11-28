@@ -13,7 +13,7 @@ engine::CheckAround::CheckAround(int c) {
 }
 
 engine::CheckAround::~CheckAround(){
-    
+
 }
 
 void engine::CheckAround::addElementChecked(state::Element e) {
@@ -25,8 +25,3 @@ void engine::CheckAround::clearListelementChecked() {
         listElementChecked.pop_back();
     }
 }
-
-
-
-
-
