@@ -58,9 +58,15 @@ namespace state{
         
         Coeur coeur_heros;
 	Coeur coeur_tower;
-	Coeur coeur_center;
+	//Coeur coeur_center;
+	
+	/*Portee portee;
+	for (int i= 0;i< nb_hero*5;i++){
+	this -> addElement(portee);
+	}*/
+	
         
-        for (int i = 0; i<nb_hero*10; i++) {
+        for (int i = 0; i<nb_hero*list_element[1].getLife(); i++) {
             this->addElement(coeur_heros);
             
         }
@@ -69,9 +75,9 @@ namespace state{
 		this->addElement(coeur_tower);
 	}
 
-	for (int j=0; j<nb_center*50;j++){
+	/*for (int j=0; j<nb_center*50;j++){
 		this->addElement(coeur_center);
-	}
+	}*/
         Selecteur sel;
         this->addElement(sel);
         
@@ -155,6 +161,7 @@ namespace state{
         nb_tower++;
         list_element.push_back(element);
     }
+	
     else
         {
          list_element.push_back(element);

@@ -1,6 +1,7 @@
 #include <render/Textures.h>
 #include <iostream>
 #include "state.h"
+#include "SFML/Graphics.hpp"
 
 render::Textures::Textures() {
 
@@ -86,16 +87,26 @@ void render::Textures::load_texture( state::Element& element) {
                 //std::cout<<"center"<<std::endl; 
         
     }
+  
+    if(element.getTypeId()==13){
+	path="res/portee.png";
+	scale=sf::Vector2f(0.5,0.5);
+		std::cout<<"portee"<<std::endl;
+    }
     
-
- 
     if (!texture.loadFromFile(path)) {
         std::cout << "Erreur de chargement du sprite" << path << std::endl;
     }
     
-    sprite.setTexture(texture);
-    sprite.setPosition(element.getPosX(),element.getPosY());
-    sprite.setScale(scale);
+    	sprite.setTexture(texture);
+	if(element.getTeam()==1){
+    	   sprite.setColor(sf::Color(150,150,255));
+	}
+        else{ 
+	     sprite.setColor(sf::Color(205,90,80));
+	};
+    	sprite.setPosition(element.getPosX(),element.getPosY());
+    	sprite.setScale(scale);
            
 
 

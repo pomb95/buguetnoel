@@ -140,19 +140,30 @@ void render::View::init(state::State& state_game) {
             
             if(state_game.list_element[i].getTypeId()==11){
       
-            state_game.list_element[i].setPosX(static_cast<int> (tile.list_pos_hero[static_cast<int> ((i-(nb_center+nb_tower+nb_hero))/10)].x+(static_cast<int> (i-(nb_center+nb_tower+nb_hero))%10)*5));
-            state_game.list_element[i].setPosY(static_cast<int> (tile.list_pos_hero[static_cast<int> ((i-(nb_center+nb_tower+nb_hero))/10)].y-4));
-            list_texture[i].load_texture(state_game.list_element[i]);
-            this->add_Sprite(list_texture[i].sprite);}
-          
-                  
-        if(state_game.list_element[i].getTypeId()==12){
+               state_game.list_element[i].setPosX(static_cast<int> (tile.list_pos_hero[static_cast<int> ((i-(nb_center+nb_tower+nb_hero))/10)].x+(static_cast<int> (i-(nb_center+nb_tower+nb_hero))%10)*5));
+               state_game.list_element[i].setPosY(static_cast<int> (tile.list_pos_hero[static_cast<int> ((i-(nb_center+nb_tower+nb_hero))/10)].y-4));
+               list_texture[i].load_texture(state_game.list_element[i]);
+               this->add_Sprite(list_texture[i].sprite);
+	    }
+                
+            if(state_game.list_element[i].getTypeId()==12){
             
-            state_game.list_element[i].setPosX(static_cast<int> (state_game.list_element[0].getPosX()+15));//tile.list_pos_hero[static_cast<int> ((i-(nb_center+nb_tower+nb_hero))/10)].x+(static_cast<int> (i-(nb_center+nb_tower+nb_hero))%10)*5));
-            state_game.list_element[i].setPosY(static_cast<int> (state_game.list_element[0].getPosY()+44));//tile.list_pos_hero[static_cast<int> ((i-(nb_center+nb_tower+nb_hero))/10)].y-7));
-            list_texture[i].load_texture(state_game.list_element[i]);
-            this->add_Sprite(list_texture[i].sprite);}
-        }       
+            	state_game.list_element[i].setPosX(static_cast<int> (state_game.list_element[0].getPosX()+15));//tile.list_pos_hero[static_cast<int> ((i-(nb_center+nb_tower+nb_hero))/10)].x+(static_cast<int> (i-(nb_center+nb_tower+nb_hero))%10)*5));
+            	state_game.list_element[i].setPosY(static_cast<int> (state_game.list_element[0].getPosY()+44));//tile.list_pos_hero[static_cast<int> ((i-(nb_center+nb_tower+nb_hero))/10)].y-7));
+            	list_texture[i].load_texture(state_game.list_element[i]);
+            	this->add_Sprite(list_texture[i].sprite);
+	    }
+	
+	   /* if(state_game.list_element[i].getTypeId()==13){
+		//for (int j=1; j<list_element[i].getRange
+		state_game.list_element[i].setPosX(static_cast<int> (state_game.list_element[0].getPosX()+28));
+            	state_game.list_element[i].setPosY(static_cast<int> (state_game.list_element[0].getPosY()+56));
+            	list_texture[i].load_texture(state_game.list_element[i]);
+            	this->add_Sprite(list_texture[i].sprite);
+	    }*/
+
+
+             }
 }    
             
 
