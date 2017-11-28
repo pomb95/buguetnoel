@@ -31,8 +31,8 @@ void ai::RandomAi::play(engine::Engine& engine,int character,state::State& state
          std::srand((time.tv_sec * 1000) + (time.tv_usec / 1000));
 
 
-
-        engine.addCommand(check);
+        engine::CheckAround command0(character);
+        engine.addCommand(command0);
         if(state.list_element[character].getTeam()==Team){
                 if(engine.mov_left!=0){
 

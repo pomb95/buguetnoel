@@ -20,8 +20,6 @@ ai::Ai::~Ai() {}
 
 
 void ai::Ai::init(){
-    engine::CheckAround command0(0);
-    check = command0;
     
     engine::MoveChar command1(0,2);
     engine::MoveChar command2(0,4);

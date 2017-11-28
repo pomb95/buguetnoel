@@ -11,6 +11,7 @@
 #include <iostream>
 #include <engine/MoveChar.h>
 #include <engine/Attack.h>
+#include <engine/CheckAround.h>
 #include <sys/time.h>
 
 ai::HeuristicAi::HeuristicAi() {
@@ -28,7 +29,8 @@ void ai::HeuristicAi::play(engine::Engine& engine,int character,state::State& st
 int id_max_mov = 0;
 int id_max_att = 0;
 int value = 0;
-engine.addCommand(check);
+engine::CheckAround command0(character);
+engine.addCommand(command0);
 if(state.list_element[character].getTeam()==Team){
 
     if(engine.mov_left!=0){

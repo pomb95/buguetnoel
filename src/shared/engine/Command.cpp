@@ -142,6 +142,9 @@ void engine::Command::execute (state::State& state){
                                 listElementChecked.push_back(state.list_element[z]);
                                 e = 1;
                             }
+                            else{
+                              std::cout << "Aucun élément à proximité" << std::endl;
+                            }
 
                         }
                     }
