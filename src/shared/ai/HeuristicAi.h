@@ -26,7 +26,8 @@ namespace ai {
     ~HeuristicAi ();
     HeuristicAi (int Team);
     void play (engine::Engine& engine, int character, state::State& state);
-    void check (state::State& state, int character);
+    void scor_mov (state::State& state, int character);
+    void scor_att (state::State& state, int character);
     // Setters and Getters
   };
 
