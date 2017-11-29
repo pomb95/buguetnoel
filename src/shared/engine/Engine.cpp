@@ -31,7 +31,7 @@ void engine::Engine::addCommand(Command cmd){
 
 
 void engine::Engine::Update(state::State& state_game) {
-   // std::cout << "Il reste  : " << commands.size() <<" commandes "<< std::endl;
+    //std::cout << "Il reste  : " << commands.size() <<" commandes "<< std::endl;
     state_game.list_element[char_sel].setSelected(1);
     while(!commands.empty()){
         commands[0].execute(state_game);

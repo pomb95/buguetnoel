@@ -18,7 +18,7 @@ engine::Command::~Command() {}
 void engine::Command::execute (state::State& state){
     //Commande de déplacement
     if(Id==1){
-            //		std::cout << "position actuelle : " << state.list_element[0].getPosX() << ", " <<state.list_element[0].getPosY() << std::endl;
+            		//std::cout << "position actuelle : " << state.list_element[character].getPosX() << ", " <<state.list_element[character].getPosY() << std::endl;
             //std::cout << "position actuelle : " << state.list_element[1].getPosX() << ", " <<state.list_element[1].getPosY() << std::endl;
             //std::cout << "position actuelle : " << state.list_element[2].getPosX() << ", " state.list_element[2].getPosY() << std::endl;
             //std::cout << "position actuelle : " << state.list_element[3].getPosX() << ", " <<state.list_element[3].getPosY() << std::endl;
@@ -32,14 +32,18 @@ void engine::Command::execute (state::State& state){
             //std::cout << "nombre d'element " << state.list_element[7].getName() << std::endl;
 
 
-        	if(direction==6){ if  ( state.list_element[character].getPosX()>=672-28){
+        	if(direction==5){ 
+                              }
+
+                else if(direction==6){
+				if  ( state.list_element[character].getPosX()>=672-40){
 				      std::cout << "déplacement pas possible"<<std::endl;}
 
 				else{ 
-				      state.list_element[character].setPosY(state.list_element[character].getPosX() + 28);}
+				      state.list_element[character].setPosX(state.list_element[character].getPosY() + 28);}
 
                               }
-
+                        
                 else if(direction==8){
 				if  ( state.list_element[character].getPosY()<=0){
 				      std::cout << "déplacement pas possible"<<std::endl;}
@@ -63,7 +67,7 @@ void engine::Command::execute (state::State& state){
 				if  ( state.list_element[character].getPosX()<=0){
 				      std::cout << "déplacement pas possible"<<std::endl;}
 
-				else{ 
+				else{
                    		      state.list_element[character].setPosX(state.list_element[character].getPosX() - 28);
                                  state.list_element[character].setDirection(0);}
 
@@ -71,7 +75,7 @@ void engine::Command::execute (state::State& state){
             std::cout<<"cette direction n'existe pas :)"<<std::endl;
         }
 
-        std::cout << "new position : " << state.list_element[character].getPosX() << ", " << state.list_element[character].getPosY() << std::endl;
+        //std::cout << "new position : " << state.list_element[character].getPosX() << ", " << state.list_element[character].getPosY() << std::endl;
 
 
     }

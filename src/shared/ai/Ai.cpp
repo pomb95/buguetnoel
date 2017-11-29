@@ -25,6 +25,7 @@ void ai::Ai::init(){
     engine::MoveChar command2(0,4);
     engine::MoveChar command3(0,6);
     engine::MoveChar command4(0,8);
+    engine::MoveChar command(0,5);
     //poids initial des commandes
     list_mov.push_back(command1);
     score_mov.push_back(0);
@@ -33,6 +34,8 @@ void ai::Ai::init(){
     list_mov.push_back(command3);
     score_mov.push_back(0);
     list_mov.push_back(command4);
+    score_mov.push_back(0);
+    list_mov.push_back(command);
     score_mov.push_back(0);
     //idem pour attaquer
     engine::Attack command5(0,0,5);
