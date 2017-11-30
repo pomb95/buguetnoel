@@ -48,11 +48,7 @@ namespace state {
     }
 
     void Element::setLife(int Life){
-        if (this->Life>0){
-            this->Life=Life;
-            }else{
-            this->Life=0;
-            }
+        this->Life = Life;
         }
 
     int Element::getTeam() const {

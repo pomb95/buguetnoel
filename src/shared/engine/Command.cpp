@@ -40,7 +40,7 @@ void engine::Command::execute (state::State& state){
 				      std::cout << "déplacement pas possible"<<std::endl;}
 
 				else{
-				      state.list_element[character].setPosX(state.list_element[character].getPosY() + 28);}
+				      state.list_element[character].setPosX(state.list_element[character].getPosX() + 28);}
 
                               }
 
