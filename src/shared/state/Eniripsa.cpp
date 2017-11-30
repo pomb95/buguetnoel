@@ -11,9 +11,9 @@ namespace state {
     Eniripsa::Eniripsa() : Hero() {
         Name = "Eniripsa";
         Range = 5;
-        ATK = 10;
-	Life = 10;
-	Alive = 1; // en vie
+        ATK = 2;
+	    Life = 10;
+	    Alive = 1; // en vie
         typeId = ENI;
         Movement=3;
 
@@ -23,9 +23,9 @@ namespace state {
      Eniripsa::Eniripsa(int team) : Hero() {
         Name = "Eniripsa";
         Range = 5;
-        ATK = 10;
-	Life = 10;
-	Alive = 1; // en vie
+        ATK = 2;
+     	Life = 10;
+    	Alive = 1; // en vie
         typeId = ENI;
         Team=team;
         Movement=3;

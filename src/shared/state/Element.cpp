@@ -10,18 +10,15 @@ namespace state {
         direction=0;
         selected=0;
       //  std::cout << Name <<" created >>";
-        
+
     }
 
     Element::~Element() {}
-    
+
     const std::string& Element::getName() const{
         return this->Name;
     }
 
-
-    
-    
     int Element::getPosX() const{
         return PosX;
     }
@@ -29,18 +26,18 @@ namespace state {
     int Element::getPosY() const{
         return PosY;
     }
-        
+
     void Element::setPosX(int PosX){
         this->PosX=PosX;
     }
- 
+
     void Element::setPosY(int PosY){
         this->PosY=PosY;
     }
 
     TypeId Element::getTypeId() const{
         return typeId;
-    }  
+    }
 
     int Element::getRange() const{
         return Range;
@@ -69,11 +66,11 @@ namespace state {
     int Element::getAlive() const {
         return Alive;
     }
-    
+
     void Element::setAlive(int Alive) {
         this->Alive = Alive;
     }
-    
+
     int Element::getDirection() const {
         return direction;
     }
@@ -108,5 +105,5 @@ namespace state {
 
 
 
-        
+
 }

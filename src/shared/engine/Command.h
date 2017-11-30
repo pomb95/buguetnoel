@@ -32,7 +32,6 @@ namespace engine {
     int direction;
     int attaquant;
     int victime;
-    int degat;
     // Operations
   public:
     Command ();
@@ -49,8 +48,6 @@ namespace engine {
     void setAttaquant(int attaquant);
     int getVictime() const;
     void setVictime(int victime);
-    int getDegat() const;
-    void setDegat(int degat);
   };
 
 };

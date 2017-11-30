@@ -5,13 +5,9 @@
 
 namespace engine {
   class Command;
-};
-namespace state {
-  class MobileElement;
 }
 
 #include "Command.h"
-#include "state/MobileElement.h"
 
 namespace engine {
 
@@ -19,11 +15,11 @@ namespace engine {
   class Attack : public engine::Command {
     // Operations
   public:
-    Attack (int c, int d, int degat);
     ~Attack ();
     void setVictime (int d);
     void setAttaquant (int c);
     void setAttack (int c, int d);
+    Attack (int c, int d);
     // Setters and Getters
   };
 

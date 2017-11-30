@@ -64,7 +64,7 @@ int main(int argc, char* argv[]) {
 		              engine.addCommand(command4);
 			      engine::MoveChar command3(1,4);                             // déplacement gauche
 		              engine.addCommand(command3);
-			      engine::Attack command2(1,2,5);           // L'éni attaque le sram          //test pour attack
+			      engine::Attack command2(1,2);           // L'éni attaque le sram          //test pour attack
                               engine.addCommand(command2);
                               engine.addCommand(command3);
                               engine.addCommand(command2);
@@ -78,7 +78,7 @@ int main(int argc, char* argv[]) {
                               engine.addCommand(command2);
                               engine.addCommand(command3);
                               engine.addCommand(command2);
-                              engine::Attack command5(1,3,5);            // le héros 1 attaque le personnage 3 , de 5 dégats.
+                              engine::Attack command5(1,3);            // le héros 1 attaque le personnage 3 , de 5 dégats.
                               engine.addCommand(command5);
 
 
@@ -90,9 +90,9 @@ int main(int argc, char* argv[]) {
 
 			  }
 
-                      }    
+                      }
 
-                }       
+                }
 
         }
     }
@@ -129,7 +129,7 @@ int main(int argc, char* argv[]) {
                           }
                       }
 
-               	      if(state.fin==1){  
+               	      if(state.fin==1){
                          state.fin=0;
                          render.window.close();
                       }
@@ -156,7 +156,7 @@ int main(int argc, char* argv[]) {
         while (render.window.isOpen()) {
                sf::Event event;
                while (render.window.pollEvent(event)) {
-                      
+
 		      if(event.type == sf::Event::Closed) {
                          render.window.close();
                       }

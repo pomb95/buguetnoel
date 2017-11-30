@@ -38,12 +38,12 @@ void ai::Ai::init(){
     list_mov.push_back(command);
     score_mov.push_back(0);
     //idem pour attaquer
-    engine::Attack command5(0,0,5);
-    engine::Attack command6(0,1,5);
-    engine::Attack command7(0,2,5);
-    engine::Attack command8(0,3,5);
-    engine::Attack command9(0,4,5);
-    engine::Attack command10(0,5,5);
+    engine::Attack command5(0,0);
+    engine::Attack command6(0,1);
+    engine::Attack command7(0,2);
+    engine::Attack command8(0,3);
+    engine::Attack command9(0,4);
+    engine::Attack command10(0,5);
     list_att.push_back(command5);
     score_att.push_back(0);
     list_att.push_back(command6);
