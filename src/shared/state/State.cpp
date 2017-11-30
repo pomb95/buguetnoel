@@ -57,13 +57,7 @@ namespace state{
         this->addElement(center2);
         
         Coeur coeur_heros;
-	Coeur coeur_tower;
-	//Coeur coeur_center;
-	
-	/*Portee portee;
-	for (int i= 0;i< nb_hero*5;i++){
-	this -> addElement(portee);
-	}*/
+
 	
         
         for (int i = 0; i<nb_hero*list_element[1].getLife(); i++) {
@@ -71,13 +65,6 @@ namespace state{
             
         }
 
-	for (int j=0; j<nb_tower*20;j++){
-		this->addElement(coeur_tower);
-	}
-
-	/*for (int j=0; j<nb_center*50;j++){
-		this->addElement(coeur_center);
-	}*/
         Selecteur sel;
         this->addElement(sel);
         

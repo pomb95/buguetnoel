@@ -90,13 +90,13 @@ void engine::Command::execute (state::State& state){
 
                 if(state.list_element[victime].getAlive()==1){
                 if(state.list_element[victime].getTeam()!=state.list_element[attaquant].getTeam()){
-                    state.list_element[victime].setLife(state.list_element[victime].getLife()-state.list_element[character].getATK());
+                    state.list_element[victime].setLife(state.list_element[victime].getLife()-state.list_element[attaquant].getATK());
                     if (state.list_element[victime].getLife() < 0){
                         state.list_element[victime].setLife(0);
                     }
                     std::cout << state.list_element[attaquant].getName()<< " de l'equipe "<< state.list_element[attaquant].getTeam()<< " a attaqué " <<  state.list_element[victime].getName() <<" de l'equipe "<< state.list_element[victime].getTeam()<< ". Il lui reste " << state.list_element[victime].getLife() << " point de vie." <<std::endl;
                 }else
-                {std::cout<<"Impossible d'attaquer un personnages de la même équipe"<<std::endl;}
+                {std::cout<<"Adversaire est trop loin"<<std::endl;}
             }
             else
             {

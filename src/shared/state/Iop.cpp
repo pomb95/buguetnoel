@@ -10,7 +10,7 @@
 namespace state {
     Iop::Iop() : Hero() {
         Name = "Iop";
-        Life = 75;
+        Life = 10;
         Range = 3;
         ATK = 3;
         typeId = IOP;
