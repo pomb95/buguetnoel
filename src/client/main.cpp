@@ -232,7 +232,7 @@ int main(int argc, char* argv[]) {
                         	         //bot2.play(engine,engine.char_sel,state.list_state[tour2]);
                         	         //engine.Update(listState[0]);
                                       std::cout << "Rollback" << std::endl;
-                                     render.Update(listState[0]);
+                                     render.Update(listState[tour2]);
                                      tour2--;
                                }
                            }
