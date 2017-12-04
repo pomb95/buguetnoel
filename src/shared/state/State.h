@@ -4,10 +4,12 @@
 
 #include <vector>
 #include <string>
+#include <state/State.h>
 #include <state/Element.h>
 
 namespace state {
   class Element;
+  class State;
 }
 
 #include "Element.h"
@@ -29,6 +31,7 @@ namespace state {
     int fin;
     int width     = 672;
     int height     = 672;
+    std::vector<state::State> list_state;
     // Operations
   public:
     State ();
@@ -37,6 +40,8 @@ namespace state {
     std::vector<Element> getListElement ();
     void Update ();
     void addElement (state::Element  element);
+    state::State  clone ();
+    void addState (state::State state);
     // Setters and Getters
   };
 

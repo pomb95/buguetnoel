@@ -181,5 +181,83 @@ int main(int argc, char* argv[]) {
 
     }
 
+    if ((argv[1] != NULL) && string(argv[1]) == "rollback") {
+	       std::cout<<"Appuyer sur B pour effectuer une action "<<std::endl;
+           int tour = 0;
+           int tour2 = 0;
+           std::vector<state::State> listState;
+           State state;
+	       Render render;
+	       Engine engine;
+	       state.init();
+           //state.addState(state.clone());
+           listState.push_back(state);
+           render.init(state);
+           ai::HeuristicAi bot1(0);
+           ai::HeuristicAi bot2(1);
+           bot1.init();
+           bot2.init();
+           state.Update();
+           sf::Clock temps;
+
+
+        while (render.window.isOpen()) {
+               sf::Event event;
+               while (render.window.pollEvent(event)) {
+
+		      if(event.type == sf::Event::Closed) {
+                         render.window.close();
+              }
+                      if(tour < 10){
+                     //10 premiers coups
+                          if(event.type == sf::Event::KeyPressed) {
+                              if(sf::Keyboard::isKeyPressed(sf::Keyboard::B)) {
+                        	         bot1.play(engine,engine.char_sel,state);
+                        	         bot2.play(engine,engine.char_sel,state);
+                        	         engine.Update(state);
+                       	 	         state.Update();
+                        	         render.Update(state);
+                                     //state.addState(state.clone());
+                                     listState.push_back(state);
+                                     tour ++;
+                                     tour2++;
+                                 }
+                         }
+                       }
+                     if( tour >= 10 && tour2 > 0){//rollback sur les tours precendents
+
+                          if(event.type == sf::Event::KeyPressed) {
+                              if(sf::Keyboard::isKeyPressed(sf::Keyboard::B)) {
+                        	         //bot1.play(engine,engine.char_sel,state.list_state[tour2]);
+                        	         //bot2.play(engine,engine.char_sel,state.list_state[tour2]);
+                        	         //engine.Update(listState[0]);
+                                      std::cout << "Rollback" << std::endl;
+                                     render.Update(listState[0]);
+                                     tour2--;
+                               }
+                           }
+		              }
+
+               	      if(state.fin==1){
+               		 state.fin=0;
+                         render.window.close();
+		      }
+                 }
+          }
+
+
+    }
+
+    else{
+        std::cout << "Commande inconnue, essayez :" << std::endl;
+        std::cout << "  state" << std::endl;
+        std::cout << "  render" << std::endl;
+        std::cout << "  engine" << std::endl;
+        std::cout << "  random_ai" << std::endl;
+        std::cout << "  heuristic_ai"<<std::endl;
+        std::cout << "  rollback"<<std::endl;
+
+    }
+
     return 0;
 }
