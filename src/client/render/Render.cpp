@@ -37,7 +37,11 @@ render::View view;
 
 
  void render::Render::Update(state::State& state_game){
+<<<<<<< HEAD
 
+=======
+    
+>>>>>>> 0031185f00524acc9800dc7be628089142d5c180
       //if(state_game.enable_render==1){
       window.clear();
       view.Update(state_game);
@@ -46,6 +50,11 @@ render::View view;
       state_game.enable_render=0;
       usleep(10);
    // std::cout <<" Render ::: On a notifié que le rendu a été fait de l'état"<<std::endl;
+<<<<<<< HEAD
      //}
 
+=======
+    // }
+     
+>>>>>>> 0031185f00524acc9800dc7be628089142d5c180
  }

@@ -230,10 +230,18 @@ int main(int argc, char* argv[]) {
                           if(event.type == sf::Event::KeyPressed) {
                               std::cout << "Rollback" << std::endl;
                               if(sf::Keyboard::isKeyPressed(sf::Keyboard::B)) {
+<<<<<<< HEAD
                                      std::cout << "Epoque : " << tour2 << std::endl;
                         	         engine.Update(state, 1);
                                      state.Update();
                                      render.Update(state);
+=======
+                        	         //bot1.play(engine,engine.char_sel,state.list_state[tour2]);
+                        	         //bot2.play(engine,engine.char_sel,state.list_state[tour2]);
+                        	         //engine.Update(listState[0]);
+                                      std::cout << "Rollback" << std::endl;
+                                     render.Update(listState[tour2]);
+>>>>>>> 0031185f00524acc9800dc7be628089142d5c180
                                      tour2--;
                                }
                            }
