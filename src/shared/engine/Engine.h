@@ -25,12 +25,13 @@ namespace engine {
     int mov_left;
     int att_left;
     std::vector<int> list_role;
+    std::vector<Command> save_commands;
     // Operations
   public:
     Engine ();
     ~Engine ();
     void addCommand (Command cmd);
-    void Update (state::State& state_game);
+    void Update (state::State& state_game, bool rollback = 0);
     void testInit ();
     void clearCommands ();
     // Setters and Getters

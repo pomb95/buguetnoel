@@ -37,6 +37,7 @@ namespace engine {
     Command ();
     ~Command ();
     void execute (state::State& state);
+    void undo (state::State& state);
     // Setters and Getters
     int getId() const;
     void setId(int Id);

@@ -208,7 +208,7 @@ int main(int argc, char* argv[]) {
 		      if(event.type == sf::Event::Closed) {
                          render.window.close();
               }
-                      if(tour < 10){
+                      if(tour < 20){
                      //10 premiers coups
                           if(event.type == sf::Event::KeyPressed) {
                               if(sf::Keyboard::isKeyPressed(sf::Keyboard::B)) {
@@ -218,21 +218,22 @@ int main(int argc, char* argv[]) {
                        	 	         state.Update();
                         	         render.Update(state);
                                      //state.addState(state.clone());
-                                     listState.push_back(state);
+                                     //listState.push_back(state);
+                                     std::cout << "Epoque : " << tour << std::endl;
                                      tour ++;
                                      tour2++;
                                  }
                          }
                        }
-                     if( tour >= 10 && tour2 > 0){//rollback sur les tours precendents
+                     if( tour >= 20 && tour2 > 1){//rollback sur les tours precendents
 
                           if(event.type == sf::Event::KeyPressed) {
+                              std::cout << "Rollback" << std::endl;
                               if(sf::Keyboard::isKeyPressed(sf::Keyboard::B)) {
-                        	         //bot1.play(engine,engine.char_sel,state.list_state[tour2]);
-                        	         //bot2.play(engine,engine.char_sel,state.list_state[tour2]);
-                        	         //engine.Update(listState[0]);
-                                      std::cout << "Rollback" << std::endl;
-                                     render.Update(listState[0]);
+                                     std::cout << "Epoque : " << tour2 << std::endl;
+                        	         engine.Update(state, 1);
+                                     state.Update();
+                                     render.Update(state);
                                      tour2--;
                                }
                            }

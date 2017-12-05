@@ -15,30 +15,30 @@ render::View view;
 //méthodes
 
  render::Render::Render (){
-  
+
  }
- 
+
  render::Render::~Render (){
-     
+
  }
- 
- 
+
+
  void render::Render::init(state::State& state_game){
-     
+
       window.create(sf::VideoMode(window_width, window_heigth), window_title);
       window.setPosition(pos_window);
       window.setFramerateLimit(frame_fps_limit);
       view.init(state_game);
       view.draw(window,state_game);
       window.display();
-      
-     
+
+
 }
 
- 
+
  void render::Render::Update(state::State& state_game){
-    
-      if(state_game.enable_render==1){
+
+      //if(state_game.enable_render==1){
       window.clear();
       view.Update(state_game);
       view.draw(window,state_game);
@@ -46,7 +46,6 @@ render::View view;
       state_game.enable_render=0;
       usleep(10);
    // std::cout <<" Render ::: On a notifié que le rendu a été fait de l'état"<<std::endl;
-     }
-     
+     //}
+
  }
- 
