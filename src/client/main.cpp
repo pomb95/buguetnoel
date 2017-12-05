@@ -217,6 +217,7 @@ int main(int argc, char* argv[]) {
                         	         engine.Update(state);
                        	 	         state.Update();
                         	         render.Update(state);
+                                         listState.push_back(state);
                                      //state.addState(state.clone());
                                      //listState.push_back(state);
                                      std::cout << "Epoque : " << tour << std::endl;
@@ -239,7 +240,7 @@ int main(int argc, char* argv[]) {
                         	         //bot2.play(engine,engine.char_sel,state.list_state[tour2]);
                         	         //engine.Update(listState[0]);
                                       std::cout << "Rollback" << std::endl;
-                                     render.Update(listState[tour2]);
+                                     render.Update(listState[tour2-1]);
                                      tour2--;
                                }
                            }
