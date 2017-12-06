@@ -170,7 +170,7 @@ void ai::HeuristicAi::scor_mov(state::State& state, int character,engine::Engine
     for(int i=0;i<state.nb_hero;i++)
         if(state.list_element[i].getAlive()==1)
         if(state.list_element[character].getTeam()!=state.list_element[i].getTeam()){
-           // std::cout<<"Le joueur est a "<<distance(posX,posY,static_cast<int>(state.list_element[i].getPosX()),static_cast<int>(state.list_element[i].getPosY()))[0]<<" du "<<state.list_element[i].getName()<<" adverse"<<std::endl;
+           //fffffffffffffffffffffffffffffffffffffffffffffffffffff std::cout<<"Le joueur est a "<<distance(posX,posY,static_cast<int>(state.list_element[i].getPosX()),static_cast<int>(state.list_element[i].getPosY()))[0]<<" du "<<state.list_element[i].getName()<<" adverse"<<std::endl;
            
             if(distance(posX,posY,static_cast<int>(state.list_element[i].getPosX()),static_cast<int>(state.list_element[i].getPosY()))[0]<min){
                 min=distance(posX,posY,static_cast<int>(state.list_element[i].getPosX()),static_cast<int>(state.list_element[i].getPosY()))[0];

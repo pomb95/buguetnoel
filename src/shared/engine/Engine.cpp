@@ -25,7 +25,6 @@ engine::Engine::~Engine() {}
 
 void engine::Engine::addCommand(Command cmd){
     commands.push_back(cmd);
-    save_commands.push_back(cmd);
 }
 
 
@@ -36,6 +35,7 @@ void engine::Engine::Update(state::State& state_game, bool rollback) {
         state_game.list_element[char_sel].setSelected(1);
         while(!commands.empty()){
             commands[0].execute(state_game);
+            save_commands.push_back(commands[0]);
             if(commands[0].getId()==1)
                 mov_left=mov_left-1;
             if(commands[0].getId()==2)
@@ -67,27 +67,26 @@ void engine::Engine::Update(state::State& state_game, bool rollback) {
         state_game.list_element[char_sel].setSelected(1);
         //while(!save_commands.empty()){
             save_commands[save_commands.size()-1].undo(state_game);
-            if(commands[save_commands.size()-1].getId()==1)
+            if(save_commands[save_commands.size()-1].getId()==1)
                 mov_left=mov_left+1;
-            if(commands[save_commands.size()-1].getId()==2)
+            if(save_commands[save_commands.size()-1].getId()==2)
                 att_left=att_left+1;
-
+       
             save_commands.pop_back();
         //}
         state_game.enable_state=1;
 
 
-            if(mov_left==0)
-                if(att_left==0)
+            if(mov_left==3)
+                if(att_left==1)
             {
             state_game.list_element[char_sel].setSelected(0);
-
-            char_sel=(char_sel+1)%6;
-
-            while(state_game.list_element[char_sel].getLife()<=0)
-                char_sel=(char_sel+1)%6;
-            mov_left=state_game.list_element[char_sel].getMovement();
-            att_left=1;
+            
+            char_sel=(char_sel-1)%6;
+            std::cout<<att_left<<std::endl;
+           
+            mov_left=0;
+            att_left=0;
             state_game.list_element[char_sel].setSelected(1);
 
             }

@@ -190,15 +190,13 @@ int main(int argc, char* argv[]) {
 	       Render render;
 	       Engine engine;
 	       state.init();
-           //state.addState(state.clone());
-           listState.push_back(state);
            render.init(state);
            ai::HeuristicAi bot1(0);
            ai::HeuristicAi bot2(1);
            bot1.init();
            bot2.init();
            state.Update();
-           sf::Clock temps;
+          
 
 
         while (render.window.isOpen()) {
@@ -218,29 +216,22 @@ int main(int argc, char* argv[]) {
                        	 	         state.Update();
                         	         render.Update(state);
                                          listState.push_back(state);
-                                     //state.addState(state.clone());
-                                     //listState.push_back(state);
                                      std::cout << "Epoque : " << tour << std::endl;
                                      tour ++;
                                      tour2++;
                                  }
                          }
                        }
-                     if( tour >= 20 && tour2 > 1){//rollback sur les tours precendents
+                     if( tour >= 20 && tour2 > 0){//rollback sur les tours precendents
 
                           if(event.type == sf::Event::KeyPressed) {
                               std::cout << "Rollback" << std::endl;
                               if(sf::Keyboard::isKeyPressed(sf::Keyboard::B)) {
                                      std::cout << "Epoque : " << tour2 << std::endl;
-                        	         engine.Update(state, 1);
+                        	     engine.Update(state, 1);
                                      state.Update();
                                      render.Update(state);
-
-                        	         //bot1.play(engine,engine.char_sel,state.list_state[tour2]);
-                        	         //bot2.play(engine,engine.char_sel,state.list_state[tour2]);
-                        	         //engine.Update(listState[0]);
-                                      std::cout << "Rollback" << std::endl;
-                                     render.Update(listState[tour2-1]);
+                                     
                                      tour2--;
                                }
                            }

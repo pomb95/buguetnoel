@@ -95,6 +95,12 @@ namespace state{
                 // std::cout << list_element[static_cast<int>(i/10)].getName() << " a un coeur en moins ***." <<std::endl;
                 }
             }
+            else {if(list_element[static_cast<int>(i/10)-1].getLife()>static_cast<int>(i%10)){
+                    list_element[i].setAlive(1);
+                // std::cout << list_element[static_cast<int>(i/10)].getName() << " a un coeur en moins ***." <<std::endl;
+                }
+                
+            }
         }
         for (int h=0;h<6;h++){
             if(list_element[h].getAlive()==1){

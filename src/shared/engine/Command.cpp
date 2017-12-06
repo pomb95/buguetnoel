@@ -186,16 +186,16 @@ if(Id==2){
                 if (state.list_element[victime].getLife() < 0){
                     state.list_element[victime].setLife(0);
                 }
-                std::cout << state.list_element[attaquant].getName()<< " de l'equipe "<< state.list_element[attaquant].getTeam()<< " a attaqué " <<  state.list_element[victime].getName() <<" de l'equipe "<< state.list_element[victime].getTeam()<< ". Il lui reste " << state.list_element[victime].getLife() << " point de vie." <<std::endl;
+                std::cout << state.list_element[victime].getName() <<" de l'equipe "<< state.list_element[victime].getTeam()<< " a retrouvé  " << state.list_element[attaquant].getATK() << " point de vie." <<std::endl;
             }else
-            {std::cout<<"Adversaire est trop loin"<<std::endl;}
+            {std::cout<<"Aucun dégat n'a été infligé"<<std::endl;}
         }
         else
         {
-            std::cout << state.list_element[victime].getName()<< " est déjà mort" <<std::endl;
+            std::cout << "Aucun dégat n'a été infligé"<<std::endl;
         }
    }
-    else{std::cout<<state.list_element[victime].getName()<<" est hors porté"<<std::endl;}
+    else{std::cout<<"Aucun dégat n'a été infligé"<<std::endl;}
 }
 
 }
