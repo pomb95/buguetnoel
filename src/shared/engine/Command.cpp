@@ -180,7 +180,7 @@ if(Id==2){
                 (state.list_element[victime].getPosY()<state.list_element[attaquant].getPosY()+(state.list_element[attaquant].getRange()+1)*28)&&
                 (state.list_element[victime].getPosY()>state.list_element[attaquant].getPosY()-state.list_element[attaquant].getRange()*28)){
 
-            if(state.list_element[victime].getAlive()==1){
+           
             if(state.list_element[victime].getTeam()!=state.list_element[attaquant].getTeam()){
                 state.list_element[victime].setLife(state.list_element[victime].getLife()+state.list_element[attaquant].getATK());
                 if (state.list_element[victime].getLife() < 0){
@@ -189,11 +189,7 @@ if(Id==2){
                 std::cout << state.list_element[victime].getName() <<" de l'equipe "<< state.list_element[victime].getTeam()<< " a retrouvé  " << state.list_element[attaquant].getATK() << " point de vie." <<std::endl;
             }else
             {std::cout<<"Aucun dégat n'a été infligé"<<std::endl;}
-        }
-        else
-        {
-            std::cout << "Aucun dégat n'a été infligé"<<std::endl;
-        }
+        
    }
     else{std::cout<<"Aucun dégat n'a été infligé"<<std::endl;}
 }

@@ -2,21 +2,26 @@
 #ifndef AI__MINMAX__H
 #define AI__MINMAX__H
 
-#include <engine/MoveChar.h>
-#include <engine/Attack.h>
 #include <vector>
 #include <state/State.h>
 
+namespace engine {
+  class Command;
+};
 namespace ai {
   class Node;
 };
 namespace state {
   class State;
 };
+namespace engine {
+  class Engine;
+};
 namespace ai {
   class Ai;
 }
 
+#include "engine/Command.h"
 #include "Node.h"
 #include "state/State.h"
 #include "Ai.h"
@@ -24,21 +29,21 @@ namespace ai {
 namespace ai {
 
   /// class MinMax - 
-  class MinMax {
+  class MinMax : public ai::Ai {
     // Attributes
   public:
-    engine::MoveChar action_mov;
-    engine::Attack action_att;
+    engine::Command list_command;
     std::vector<ai::Node> tree;
     state::State state_tempo;
     // Operations
   public:
     MinMax ();
     ~MinMax ();
-    void create_tree (const state::State& state, int team, int id, int depth);
-    void recursive (int depth, state::State& state, int depart, std::vector<engine::MoveChar> record, int ordre);
-    void score (ai::Node& node, const state::State& state, int team, int id);
-    int solve (const state::State& state, int team, int id, std::vector<ai::Node> tree);
+    void create_tree (state::State& state, const engine::Engine& engine, int depth);
+    void recursive (int depth, state::State& state, int depart, std::vector<engine::Command> record, int ordre);
+    void score (ai::Node& node, const state::State& state, int team);
+    int solve (const state::State& state, int team, std::vector<ai::Node> tree);
+    void play (engine::Engine& engine, int character, state::State& state);
     // Setters and Getters
   };
 

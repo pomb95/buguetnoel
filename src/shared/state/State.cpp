@@ -85,6 +85,12 @@ namespace state{
                  std::cout << list_element[i].getName() << " est mort." <<std::endl;
                 }
             }
+            if(list_element[i].getAlive()==0){
+                if(list_element[i].getLife()>0){
+                    list_element[i].setAlive(1);
+                 std::cout << list_element[i].getName() << " est réanimé." <<std::endl;
+                }
+            }
         }
 
         for (unsigned i = nb_hero+nb_tower+nb_center; i<list_element.size(); i++) {

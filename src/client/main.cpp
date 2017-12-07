@@ -206,8 +206,8 @@ int main(int argc, char* argv[]) {
 		      if(event.type == sf::Event::Closed) {
                          render.window.close();
               }
-                      if(tour < 20){
-                     //10 premiers coups
+                      if(tour < 40){
+                    
                           if(event.type == sf::Event::KeyPressed) {
                               if(sf::Keyboard::isKeyPressed(sf::Keyboard::B)) {
                         	         bot1.play(engine,engine.char_sel,state);
@@ -222,7 +222,7 @@ int main(int argc, char* argv[]) {
                                  }
                          }
                        }
-                     if( tour >= 20 && tour2 > 0){//rollback sur les tours precendents
+                     if( tour >= 40 && tour2 > 0){//rollback sur les tours precendents
 
                           if(event.type == sf::Event::KeyPressed) {
                               std::cout << "Rollback" << std::endl;
@@ -247,16 +247,51 @@ int main(int argc, char* argv[]) {
 
     }
 
-    else{
-        std::cout << "Commande inconnue, essayez :" << std::endl;
-        std::cout << "  state" << std::endl;
-        std::cout << "  render" << std::endl;
-        std::cout << "  engine" << std::endl;
-        std::cout << "  random_ai" << std::endl;
-        std::cout << "  heuristic_ai"<<std::endl;
-        std::cout << "  rollback"<<std::endl;
+    if ((argv[1] != NULL) && string(argv[1]) == "minmax") {
+	       std::cout<<"Appuyer sur B pour effectuer une action "<<std::endl;
+  
+           State state;
+	       Render render;
+	       Engine engine;
+	       state.init();
+           render.init(state);
+           ai::MinMax bot;
+           
+           state.Update();
+          
 
+
+        while (render.window.isOpen()) {
+               sf::Event event;
+               while (render.window.pollEvent(event)) {
+
+		      if(event.type == sf::Event::Closed) {
+                         render.window.close();
+              }
+                     if(event.type == sf::Event::KeyPressed) {
+                          if(sf::Keyboard::isKeyPressed(sf::Keyboard::B)) {
+                        	        // bot.play(state,engine.char_sel,engine);
+                        	        
+                        	         engine.Update(state);
+                       	 	         state.Update();
+                        	         render.Update(state);
+                                       
+                          }
+                     }
+                               
+                           
+		              
+
+               	      if(state.fin==1){
+               		 state.fin=0;
+                         render.window.close();
+		      }
+                 }
+        }
     }
+          
 
+
+  
     return 0;
 }

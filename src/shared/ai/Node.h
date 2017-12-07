@@ -16,18 +16,18 @@ namespace ai {
     // Attributes
   protected:
     int team;
-    int* score;
+    int score;
     int id;
     int width;
     int nb_child;
-    int* ind_sol;
+    int ind_sol;
     int depth;
     // Operations
   public:
     Node ();
     ~Node ();
     Node (int depth);
-    Node (int depth, int width, int team, int id);
+    Node (int depth, int width, int team);
     int get_ind_sol ();
     int get_score ();
     void set_score (int score);
@@ -35,16 +35,16 @@ namespace ai {
     // Setters and Getters
     int getTeam() const;
     void setTeam(int team);
-    const int*& getScore() const;
-    void setScore(const int*& score);
+    int getScore() const;
+    void setScore(int score);
     int getId() const;
     void setId(int id);
     int getWidth() const;
     void setWidth(int width);
     int getNb_child() const;
     void setNb_child(int nb_child);
-    const int*& getInd_sol() const;
-    void setInd_sol(const int*& ind_sol);
+    int getInd_sol() const;
+    void setInd_sol(int ind_sol);
     int getDepth() const;
     void setDepth(int depth);
   };
