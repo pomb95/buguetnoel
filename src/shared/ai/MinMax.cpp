@@ -5,15 +5,20 @@
 ai::MinMax::MinMax() {
 
 
-}
+}  
 
 ai::MinMax::~MinMax() {
 
 }
 
+ai::MinMax::MinMax(int team) {
+Team=team;
+
+}
+
 
 void ai::MinMax::play(engine::Engine& engine,int character,state::State& state){
-    create_tree(state,engine,1);
+    create_tree(state,engine,2);
     
     engine::Command command=list_mov[solve(state, state.list_element[character].getTeam(),tree)];
     command.setCharacter(engine.char_sel);
@@ -24,12 +29,12 @@ void ai::MinMax::create_tree(state::State& state,const engine::Engine& engine, i
     state_tempo = state.clone();
     std::vector<engine::Command> record;
     
-    int team = state.list_element[engine.char_sel].getTeam();
 
-    ai::Node origine(0, 0, team);
+
+    ai::Node origine(0, 0, Team);
     tree.push_back(origine);
 
-    this->recursive(1, state_tempo, engine.mov_left + engine.att_left, record, depth);
+    this->recursive(depth, state_tempo, engine.mov_left + engine.att_left, record, 1);
 
 
 
@@ -37,6 +42,15 @@ void ai::MinMax::create_tree(state::State& state,const engine::Engine& engine, i
 }
 
 void ai::MinMax::recursive(int depth, state::State& state, int depart, std::vector<engine::Command> record, int ordre) {
+
+
+
+
+
+
+
+
+
 /*
     if (ordre > 0) {
 

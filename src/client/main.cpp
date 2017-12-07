@@ -255,8 +255,11 @@ int main(int argc, char* argv[]) {
 	       Engine engine;
 	       state.init();
            render.init(state);
-           ai::MinMax bot;
-           
+           ai::MinMax bot1(1);
+           ai::MinMax bot0(0);
+	   bot1.init();
+           bot0.init();
+
            state.Update();
           
 
@@ -270,8 +273,8 @@ int main(int argc, char* argv[]) {
               }
                      if(event.type == sf::Event::KeyPressed) {
                           if(sf::Keyboard::isKeyPressed(sf::Keyboard::B)) {
-                        	        // bot.play(state,engine.char_sel,engine);
                         	        
+                        	         bot1.play(engine,engine.char_sel,state);
                         	         engine.Update(state);
                        	 	         state.Update();
                         	         render.Update(state);

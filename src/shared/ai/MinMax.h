@@ -35,6 +35,7 @@ namespace ai {
     engine::Command list_command;
     std::vector<ai::Node> tree;
     state::State state_tempo;
+    int Team;
     // Operations
   public:
     MinMax ();
@@ -44,6 +45,7 @@ namespace ai {
     void score (ai::Node& node, const state::State& state, int team);
     int solve (const state::State& state, int team, std::vector<ai::Node> tree);
     void play (engine::Engine& engine, int character, state::State& state);
+    MinMax (int  team);
     // Setters and Getters
   };
 
