@@ -14,39 +14,34 @@ namespace ai {
   /// class Node - 
   class Node {
     // Attributes
-  protected:
+  public:
     int team;
-    int score;
     int id;
-    int width;
+    int depth;
+    int site;
+  protected:
+    int score;
+    int id_parent;
     int nb_child;
     int ind_sol;
-    int depth;
     // Operations
   public:
     Node ();
     ~Node ();
-    Node (int depth);
-    Node (int depth, int width, int team);
+    Node (int depth, int id, int team, int id_parent, int site);
     int get_ind_sol ();
     int get_score ();
     void set_score (int score);
     void set_ind_sol (int ind_sol);
     // Setters and Getters
-    int getTeam() const;
-    void setTeam(int team);
     int getScore() const;
     void setScore(int score);
-    int getId() const;
-    void setId(int id);
-    int getWidth() const;
-    void setWidth(int width);
+    int getId_parent() const;
+    void setId_parent(int id_parent);
     int getNb_child() const;
     void setNb_child(int nb_child);
     int getInd_sol() const;
     void setInd_sol(int ind_sol);
-    int getDepth() const;
-    void setDepth(int depth);
   };
 
 };

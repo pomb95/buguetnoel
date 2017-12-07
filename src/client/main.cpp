@@ -247,7 +247,7 @@ int main(int argc, char* argv[]) {
 
     }
 
-    if ((argv[1] != NULL) && string(argv[1]) == "minmax") {
+    if ((argv[1] != NULL) && string(argv[1]) == "deep_ai") {
 	       std::cout<<"Appuyer sur B pour effectuer une action "<<std::endl;
   
            State state;
@@ -275,6 +275,7 @@ int main(int argc, char* argv[]) {
                           if(sf::Keyboard::isKeyPressed(sf::Keyboard::B)) {
                         	        
                         	         bot1.play(engine,engine.char_sel,state);
+					 bot0.play(engine,engine.char_sel,state);
                         	         engine.Update(state);
                        	 	         state.Update();
                         	         render.Update(state);

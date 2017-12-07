@@ -15,7 +15,7 @@
 int droite;
 engine::Command::Command() {}
 engine::Command::~Command() {}
-void engine::Command::execute (state::State& state){
+int engine::Command::execute (state::State& state){
     //Commande de déplacement
     if(Id==1){
             		//std::cout << "position actuelle : " << state.list_element[character].getPosX() << ", " <<state.list_element[character].getPosY() << std::endl;
@@ -32,47 +32,56 @@ void engine::Command::execute (state::State& state){
             //std::cout << "nombre d'element " << state.list_element[7].getName() << std::endl;
 
 
-        	if(direction==5){
+        	if(direction==5){return -1;
                               }
 
                 else if(direction==6){
 				if  ( state.list_element[character].getPosX()>=672-40){
-				      std::cout << "déplacement pas possible"<<std::endl;}
+				     // std::cout << "déplacement pas possible vers droite"<<std::endl;
+return -1;}
 
 				else{
-				      state.list_element[character].setPosX(state.list_element[character].getPosX() + 28);}
+				      state.list_element[character].setPosX(state.list_element[character].getPosX() + 28);
+//std::cout << "droite"<<std::endl;}
 
-                              }
+                              }}
 
                 else if(direction==8){
 				if  ( state.list_element[character].getPosY()<=0){
-				      std::cout << "déplacement pas possible"<<std::endl;}
+				      //std::cout << "déplacement pas possible vers haut"<<std::endl;
+return -1;}
 
 				else{
-				      state.list_element[character].setPosY(state.list_element[character].getPosY() - 28);}
+				      state.list_element[character].setPosY(state.list_element[character].getPosY() - 28);
+//std::cout << "haut"<<std::endl;}
 
-                              }
+                              }}
 
                 else if(direction==2){
 
 				if  ( state.list_element[character].getPosY()>=672-40){
-				      std::cout << "déplacement pas possible"<<std::endl;}
+				     // std::cout << "déplacement pas possible vers bas"<<std::endl;
+return -1;}
 
 				else{
-                   		      state.list_element[character].setPosY(state.list_element[character].getPosY() + 28);}
+                   		      state.list_element[character].setPosY(state.list_element[character].getPosY() + 28);
+//std::cout << "bas"<<std::endl;}
 
-                              }
+                              }}
 
                 else if(direction==4){
 				if  ( state.list_element[character].getPosX()<=0){
-				      std::cout << "déplacement pas possible"<<std::endl;}
+				     // std::cout << "déplacement pas possible vers gauche"<<std::endl;
+return -1;}
 
 				else{
                    		      state.list_element[character].setPosX(state.list_element[character].getPosX() - 28);
+//std::cout << "gauche"<<std::endl;
                                  state.list_element[character].setDirection(0);}
 
         }else{
-            std::cout<<"cette direction n'existe pas :)"<<std::endl;
+            //std::cout<<"cette direction n'existe pas :)"<<std::endl;
+return -1;
         }
 
         //std::cout << "new position : " << state.list_element[character].getPosX() << ", " << state.list_element[character].getPosY() << std::endl;
@@ -94,18 +103,21 @@ void engine::Command::execute (state::State& state){
                     if (state.list_element[victime].getLife() < 0){
                         state.list_element[victime].setLife(0);
                     }
-                    std::cout << state.list_element[attaquant].getName()<< " de l'equipe "<< state.list_element[attaquant].getTeam()<< " a attaqué " <<  state.list_element[victime].getName() <<" de l'equipe "<< state.list_element[victime].getTeam()<< ". Il lui reste " << state.list_element[victime].getLife() << " point de vie." <<std::endl;
+                    //std::cout << state.list_element[attaquant].getName()<< " de l'equipe "<< state.list_element[attaquant].getTeam()<< " a attaqué " <<  state.list_element[victime].getName() <<" de l'equipe "<< state.list_element[victime].getTeam()<< ". Il lui reste " << state.list_element[victime].getLife() << " point de vie." <<std::endl;
                 }else
-                {std::cout<<"Adversaire est trop loin"<<std::endl;}
+                {//std::cout<<"Adversaire est trop loin"<<std::endl;
+return -1;}
             }
             else
             {
-                std::cout << state.list_element[victime].getName()<< " est déjà mort" <<std::endl;
+                //std::cout << state.list_element[victime].getName()<< " est déjà mort" <<std::endl;
+return -1;
             }
 	   }
-	    else{std::cout<<state.list_element[victime].getName()<<" est hors porté"<<std::endl;}
+	    else{//std::cout<<state.list_element[victime].getName()<<" est hors porté"<<std::endl;
+return -1;}
     }
-
+return 0;
 }
 
 void engine::Command::undo (state::State& state){
@@ -128,43 +140,30 @@ if(Id==1){
                           }
 
             else if(direction==6){
-            if  ( state.list_element[character].getPosX()>=672-40){
-                  std::cout << "déplacement pas possible"<<std::endl;}
-
-            else{
+            
                   state.list_element[character].setPosX(state.list_element[character].getPosX() - 28);}
 
-                          }
+                          
 
             else if(direction==8){
-            if  ( state.list_element[character].getPosY()<=0){
-                  std::cout << "déplacement pas possible"<<std::endl;}
-
-            else{
+            
                   state.list_element[character].setPosY(state.list_element[character].getPosY() + 28);}
 
-                          }
+                          
 
             else if(direction==2){
 
-            if  ( state.list_element[character].getPosY()>=672-40){
-                  std::cout << "déplacement pas possible"<<std::endl;}
-
-            else{
+           
                           state.list_element[character].setPosY(state.list_element[character].getPosY() - 28);}
 
-                          }
+                          
 
             else if(direction==4){
-            if  ( state.list_element[character].getPosX()<=0){
-                  std::cout << "déplacement pas possible"<<std::endl;}
-
-            else{
-                          state.list_element[character].setPosX(state.list_element[character].getPosX() + 28);
+                     state.list_element[character].setPosX(state.list_element[character].getPosX() + 28);
                              state.list_element[character].setDirection(0);}
 
-    }else{
-        std::cout<<"cette direction n'existe pas :)"<<std::endl;
+    else{
+       // std::cout<<"cette direction n'existe pas :)"<<std::endl;
     }
 
     //std::cout << "new position : " << state.list_element[character].getPosX() << ", " << state.list_element[character].getPosY() << std::endl;
@@ -186,12 +185,14 @@ if(Id==2){
                 if (state.list_element[victime].getLife() < 0){
                     state.list_element[victime].setLife(0);
                 }
-                std::cout << state.list_element[victime].getName() <<" de l'equipe "<< state.list_element[victime].getTeam()<< " a retrouvé  " << state.list_element[attaquant].getATK() << " point de vie." <<std::endl;
+                //std::cout << state.list_element[victime].getName() <<" de l'equipe "<< state.list_element[victime].getTeam()<< " a retrouvé  " << state.list_element[attaquant].getATK() << " point de vie." <<std::endl;
             }else
-            {std::cout<<"Aucun dégat n'a été infligé"<<std::endl;}
+            {//std::cout<<"Aucun dégat n'a été infligé"<<std::endl;
+}
         
    }
-    else{std::cout<<"Aucun dégat n'a été infligé"<<std::endl;}
+    else{//std::cout<<"Aucun dégat n'a été infligé"<<std::endl;
+}
 }
 
 }

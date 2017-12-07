@@ -29,16 +29,16 @@ namespace state{
         Eniripsa hero1(0);
         this->addElement(hero1);
 
-        Eniripsa hero2(0);
+        Eniripsa hero2(1);
         this->addElement(hero2);
 
-        Enutrof hero3(1);
+        Enutrof hero3(0);
         this->addElement(hero3);
 
-        Sram hero4(0);
+        Sram hero4(1);
         this->addElement(hero4);
 
-        Eniripsa hero5(1);
+        Eniripsa hero5(0);
         this->addElement(hero5);
 
         Enutrof hero6(1);

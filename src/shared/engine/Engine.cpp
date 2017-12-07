@@ -41,7 +41,7 @@ void engine::Engine::Update(state::State& state_game, bool rollback) {
                 mov_left=mov_left-1;
             if(commands[0].getId()==2)
                 att_left=att_left-1;
-
+	std::cout<<mov_left<<std::endl;
             commands.erase(commands.begin());
         }
         state_game.enable_state=1;

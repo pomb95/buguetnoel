@@ -40,12 +40,12 @@ namespace ai {
   public:
     MinMax ();
     ~MinMax ();
-    void create_tree (state::State& state, const engine::Engine& engine, int depth);
-    void recursive (int depth, state::State& state, int depart, std::vector<engine::Command> record, int ordre);
+    MinMax (int  team);
+    void create_tree (state::State& state, engine::Engine& engine, int depth);
+    void recursive (int depth, state::State& state, int depart, std::vector<engine::Command> record, int ordre, int id_parent, engine::Engine& engine);
     void score (ai::Node& node, const state::State& state, int team);
     int solve (const state::State& state, int team, std::vector<ai::Node> tree);
     void play (engine::Engine& engine, int character, state::State& state);
-    MinMax (int  team);
     // Setters and Getters
   };
 

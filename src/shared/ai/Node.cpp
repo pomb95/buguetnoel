@@ -7,18 +7,17 @@ ai::Node::Node (){
 ai::Node::~Node (){
    
 }
-ai::Node::Node (int depth){
+ai::Node::Node (int depth,int id,int team,int id_parent,int site){
     this->depth=depth;
-}
-ai::Node::Node (int depth,int width,int team){
-    this->depth=depth;
-    this->width=width;
+    this->id=id;
+    this->id_parent=id_parent;
     this->team=team;
+   this->site=site;
     score=0;
     ind_sol=-1;
     nb_child=0;
-    
 }
+
 
 int ai::Node::get_ind_sol(){
     return ind_sol;
