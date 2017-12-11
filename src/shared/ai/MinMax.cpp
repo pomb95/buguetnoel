@@ -5,7 +5,7 @@
 ai::MinMax::MinMax() {
 
 
-}  
+}
 
 ai::MinMax::~MinMax() {
 
@@ -40,12 +40,12 @@ void ai::MinMax::play(engine::Engine& engine,int character,state::State& state){
 	std::cout<<"C'est au tour des rouges"<<std::endl;
 
 	}
-    
+
 	}
 void ai::MinMax::create_tree(state::State& state,engine::Engine& engine, int depth) {
     state_tempo = state.clone();
     std::vector<engine::Command> record;
-    
+
     ai::Node origine(0, 0, Team,-1,tree.size());
     tree.push_back(origine);
 
@@ -68,7 +68,7 @@ if(depth <ordre +1 ){
 		list_command.push_back(list_att[i]);
 	for(unsigned i = 0 ; i<list_mov.size(); i ++)
 		list_command.push_back(list_mov[i]);
-	
+
 
 
        if(engine.att_left==0)
@@ -76,9 +76,9 @@ if(depth <ordre +1 ){
 	for(unsigned i = 0 ; i<list_mov.size(); i ++){
 		if ( list_command[i].execute(state) == 0){
 
-			
+
 			ai::Node node2(depth,i, static_cast<int>((depart-depth)/4)%2+Team,id_parent,tree.size());
-		
+
 			score(node2,state,node2.team);
 			//std::cout<<node2.get_score()<<std::endl;
 			tree.push_back(node2);
@@ -89,16 +89,16 @@ if(depth <ordre +1 ){
 
 		}
 
-		
+
 		}
 	if(engine.mov_left==0)
 	if(engine.att_left!=0)
 	for(unsigned i = list_mov.size() ; i<list_command.size(); i ++){
 		if ( list_command[i].execute(state) == 0){
 
-			
+
 			ai::Node node2(depth,i, static_cast<int>((depart-depth)/4)%2+Team,id_parent,tree.size());
-		
+
 			score(node2,state,node2.team);
 			//std::cout<<node2.get_score()<<std::endl;
 			tree.push_back(node2);
@@ -109,16 +109,16 @@ if(depth <ordre +1 ){
 
 		}
 
-		
+
 		}
 	if(engine.mov_left!=0)
 	if(engine.att_left!=0)
 	for(unsigned i = 0 ; i<list_command.size(); i ++){
 		if ( list_command[i].execute(state) == 0){
 
-			
+
 			ai::Node node2(depth,i, static_cast<int>((100000+depart-depth)/4)%2+Team,id_parent,tree.size());
-		
+
 			score(node2,state,node2.team);
 			//std::cout<<node2.get_score()<<std::endl;
 			tree.push_back(node2);
@@ -129,7 +129,7 @@ if(depth <ordre +1 ){
 
 		}
 
-		
+
 		}
 
 
@@ -140,7 +140,7 @@ if(depth <ordre +1 ){
 	}
 
 }
- 
+
 
 
 void ai::MinMax::score(ai::Node& node, const state::State& state, int team) {
@@ -151,8 +151,8 @@ void ai::MinMax::score(ai::Node& node, const state::State& state, int team) {
             pdv_0=pdv_0+state.list_element[i].getLife();
         if(state.list_element[i].getTeam()==1)
             pdv_1=pdv_1+state.list_element[i].getLife();}
-    
-    
+
+
     if(team==1)
     node.set_score(pdv_1-pdv_0);
     if(team==0)
@@ -170,32 +170,28 @@ int ai::MinMax::solve(const state::State& state, int team, std::vector<ai::Node>
 
 while (depth > 0) {
 std::cout << depth << std::endl;
-for(int i=0;i<tree.size();i++){
-	if(tree[i].depth=depth)
-		if(tree[i].team=Team){
+for(unsigned int i=0;i<tree.size();i++){
+	if(tree[i].depth == depth){
+		if(tree[i].team == Team){
 			//std::cout<<"le max est : "<<tree[i].get_score()<<std::endl;
 			if(tree[i].get_score()>max){
-max = tree[i].get_score();
-ind = tree[i].id;
+                    max = tree[i].get_score();
+                    ind = tree[i].id;
+            }
+        }
+    }
+    else {
+        if(tree[i].get_score()<min){
+            min = tree[i].get_score();
+            ind = tree[i].id;
+        }
+    }
 }
-
-}else{if(tree[i].get_score()<min){
-min = tree[i].get_score();
-ind = tree[i].id;
-
-
-}
-
-
-
-}
-
-	}	
 
 
 depth--;
 }
-	
+
 
 
 
@@ -204,13 +200,13 @@ depth--;
     int max=0;
     int min=100;
 
-   
+
 
     while (depth > 0) {
-        
+
         std::cout << depth << std::endl;
         for(int i=0;i<tree.size();i++){
-            
+
             if(tree[i].depth==depth-1){
                 if(tree[i].team==1){
                 max=0;
@@ -225,7 +221,7 @@ depth--;
                             tree[i].set_ind_sol(tree[j].width);
                             //std::cout<<"la solution est "<<tree[j].get_ind_sol()<<" pour "<<tree[i].get_ind_sol()<<std::endl;
                         }
-                                
+
                     }
                 }
                 }
@@ -242,18 +238,18 @@ depth--;
                             tree[i].set_ind_sol(tree[j].width);
                             //std::cout<<"la solution est "<<tree[j].get_ind_sol()<<" pour "<<tree[i].get_ind_sol()<<std::endl;
                         }
-                                
+
                     }
                 }
                 }
-                
-                
-                
+
+
+
             }
-                
-           
+
+
         }
-        
+
 
 
         depth--;

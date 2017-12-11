@@ -13,13 +13,14 @@
 #include <vector>
 
 
+
 engine::Engine::Engine() {
     /*engine::MoveChar command(0,0);
     this->addCommand(command);*/
     char_sel=0;
     mov_left=3;
     att_left=1;
-   
+
 }
 
 engine::Engine::~Engine() {}
@@ -32,6 +33,7 @@ void engine::Engine::addCommand(Command cmd){
 
 void engine::Engine::Update(state::State& state_game, bool rollback) {
     //std::cout << "Il reste  : " << commands.size() <<" commandes "<< std::endl;
+    mutex.lock();
     if (not(rollback)){
         state_game.list_element[char_sel].setSelected(1);
         while(!commands.empty()){
@@ -55,10 +57,10 @@ void engine::Engine::Update(state::State& state_game, bool rollback) {
             char_sel=(char_sel+1)%6;
 
             while(state_game.list_element[char_sel].getLife()<=0){
-             
+
                 char_sel=(char_sel+1)%6;
             }
-                
+
             mov_left=state_game.list_element[char_sel].getMovement();
             att_left=1;
             state_game.list_element[char_sel].setSelected(1);
@@ -68,17 +70,17 @@ void engine::Engine::Update(state::State& state_game, bool rollback) {
     //std::cout << "Engine :::On a notifié à l'état que une commande a été executé "<< std::endl;
     }
     if (rollback){
-        
+
 
 
             if(mov_left==3)
                 if(att_left==1)
             {
             state_game.list_element[char_sel].setSelected(0);
-            
+
             char_sel=(char_sel-1)%6;
-            
-           
+
+
             mov_left=0;
             att_left=0;
             state_game.list_element[char_sel].setSelected(1);
@@ -91,12 +93,13 @@ state_game.list_element[char_sel].setSelected(1);
                 mov_left=mov_left+1;
             if(save_commands[save_commands.size()-1].getId()==2)
                 att_left=att_left+1;
-       
+
             save_commands.pop_back();
         //}
         state_game.enable_state=1;
 
     }
+    mutex.unlock();
 }
 
 

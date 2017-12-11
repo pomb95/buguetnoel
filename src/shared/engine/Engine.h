@@ -3,6 +3,7 @@
 #define ENGINE__ENGINE__H
 
 #include <vector>
+#include <mutex>
 #include <state/State.h>
 
 namespace engine {
@@ -26,6 +27,7 @@ namespace engine {
     int att_left;
     std::vector<int> list_role;
     std::vector<Command> save_commands;
+    std::mutex mutex;
     // Operations
   public:
     Engine ();

@@ -1,5 +1,7 @@
 #include <iostream>
 #include <SFML/Graphics.hpp>
+#include <thread>
+#include <mutex>
 #include "state.h"
 #include "render.h"
 #include "engine.h"
@@ -196,7 +198,7 @@ int main(int argc, char* argv[]) {
            bot1.init();
            bot2.init();
            state.Update();
-          
+
 
 
         while (render.window.isOpen()) {
@@ -207,7 +209,7 @@ int main(int argc, char* argv[]) {
                          render.window.close();
               }
                       if(tour < 40){
-                    
+
                           if(event.type == sf::Event::KeyPressed) {
                               if(sf::Keyboard::isKeyPressed(sf::Keyboard::B)) {
                         	         bot1.play(engine,engine.char_sel,state);
@@ -231,7 +233,7 @@ int main(int argc, char* argv[]) {
                         	     engine.Update(state, 1);
                                      state.Update();
                                      render.Update(state);
-                                     
+
                                      tour2--;
                                }
                            }
@@ -249,7 +251,7 @@ int main(int argc, char* argv[]) {
 
     if ((argv[1] != NULL) && string(argv[1]) == "deep_ai") {
 	       std::cout<<"Appuyer sur B pour effectuer une action "<<std::endl;
-  
+
            State state;
 	       Render render;
 	       Engine engine;
@@ -257,11 +259,11 @@ int main(int argc, char* argv[]) {
            render.init(state);
            ai::MinMax bot1(1);
            ai::MinMax bot0(0);
-	   bot1.init();
+	       bot1.init();
            bot0.init();
 
            state.Update();
-          
+
 
 
         while (render.window.isOpen()) {
@@ -273,18 +275,18 @@ int main(int argc, char* argv[]) {
               }
                      if(event.type == sf::Event::KeyPressed) {
                           if(sf::Keyboard::isKeyPressed(sf::Keyboard::B)) {
-                        	        
+
                         	         bot1.play(engine,engine.char_sel,state);
 					 bot0.play(engine,engine.char_sel,state);
                         	         engine.Update(state);
                        	 	         state.Update();
                         	         render.Update(state);
-                                       
+
                           }
                      }
-                               
-                           
-		              
+
+
+
 
                	      if(state.fin==1){
                		 state.fin=0;
@@ -293,9 +295,53 @@ int main(int argc, char* argv[]) {
                  }
         }
     }
-          
+
+    if ((argv[1] != NULL) && string(argv[1]) == "thread") {
+	       std::cout<<"Appuyer sur B pour effectuer une action "<<std::endl;
+	       State state;
+	       Render render;
+	       Engine engine;
+           state.init();
+           render.init(state);
+           ai::HeuristicAi bot1(0);
+           ai::HeuristicAi bot2(1);
+           bot1.init();
+           bot2.init();
+           state.Update();
 
 
-  
+           while (render.window.isOpen()) {
+               sf::Event event;
+               while (render.window.pollEvent(event)) {
+
+		                 if(event.type == sf::Event::Closed) {
+                             render.window.close();
+                         }
+
+                         if(event.type == sf::Event::KeyPressed) {
+                             if(sf::Keyboard::isKeyPressed(sf::Keyboard::B)) {
+                                 bot1.play(engine,engine.char_sel,state);
+                    	         bot2.play(engine,engine.char_sel,state);
+                                 thread th(&engine::Engine::Update, &engine, std::ref(state), false);
+                                 th.join();
+                                 state.Update();
+                    	         render.Update(state);
+
+
+			                 }
+		                 }
+
+                         if(state.fin==1){
+               		            state.fin=0;
+                                render.window.close();
+		                 }
+                 }
+          }
+
+
+    }
+
+
+
     return 0;
 }
