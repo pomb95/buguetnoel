@@ -7,6 +7,7 @@
 #include "ai.h"
 #include <cstdlib>
 #include <iostream>
+#include <engine.h>
 #include <engine/MoveChar.h>
 #include <engine/Attack.h>
 #include <engine/CheckAround.h>

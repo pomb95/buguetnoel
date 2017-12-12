@@ -277,7 +277,7 @@ int main(int argc, char* argv[]) {
                           if(sf::Keyboard::isKeyPressed(sf::Keyboard::B)) {
 
                         	         bot1.play(engine,engine.char_sel,state);
-					 bot0.play(engine,engine.char_sel,state);
+					                 bot0.play(engine,engine.char_sel,state);
                         	         engine.Update(state);
                        	 	         state.Update();
                         	         render.Update(state);
@@ -301,6 +301,7 @@ int main(int argc, char* argv[]) {
 	       State state;
 	       Render render;
 	       Engine engine;
+           thread th(&engine::Engine::UpdateTh, &engine, std::ref(state));//thread de l'Engine
            state.init();
            render.init(state);
            ai::HeuristicAi bot1(0);
@@ -320,13 +321,19 @@ int main(int argc, char* argv[]) {
 
                          if(event.type == sf::Event::KeyPressed) {
                              if(sf::Keyboard::isKeyPressed(sf::Keyboard::B)) {
+                                 {
+                                 std::lock_guard<std::mutex> lock(engine.mutex);
+                                 if (engine.fin_tour) engine.fin_tour = false;
                                  bot1.play(engine,engine.char_sel,state);
                     	         bot2.play(engine,engine.char_sel,state);
-                                 thread th(&engine::Engine::Update, &engine, std::ref(state), false);
-                                 th.join();
-                                 state.Update();
-                    	         render.Update(state);
+                                 if (!engine.fin_tour) engine.fin_tour = true;
+                                 }
 
+                                 if (engine.engine_update){
+                                     state.Update();
+                                     render.Update(state);
+                                     if(engine.engine_update) engine.engine_update = false;
+                                 }
 
 			                 }
 		                 }
@@ -337,8 +344,7 @@ int main(int argc, char* argv[]) {
 		                 }
                  }
           }
-
-
+       th.join();
     }
 
 

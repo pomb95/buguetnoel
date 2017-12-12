@@ -30,10 +30,9 @@ void engine::Engine::addCommand(Command cmd){
 }
 
 
-
+//update sans les thread
 void engine::Engine::Update(state::State& state_game, bool rollback) {
     //std::cout << "Il reste  : " << commands.size() <<" commandes "<< std::endl;
-    mutex.lock();
     if (not(rollback)){
         state_game.list_element[char_sel].setSelected(1);
         while(!commands.empty()){
@@ -99,9 +98,57 @@ state_game.list_element[char_sel].setSelected(1);
         state_game.enable_state=1;
 
     }
-    mutex.unlock();
 }
 
+void engine::Engine::UpdateTh(state::State& state_game){//update avec thread
+    std::cout << "Lancement du thread engine" << std::endl;
+    int message = 0;
+    while(state_game.fin != 1){
+        if (!message){
+            std::cout << "En attente de commande" << std::endl;
+            message = 1;
+        }
+        if (fin_tour){
+            message = 0;
+            state_game.list_element[char_sel].setSelected(1);
+            {
+            std::lock_guard<std::mutex> lock(mutex);
+            while(!commands.empty()){
+                commands[0].execute(state_game);
+                save_commands.push_back(commands[0]);
+                if(commands[0].getId()==1)
+                    mov_left=mov_left-1;
+                if(commands[0].getId()==2)
+                    att_left=att_left-1;
+    	            std::cout<<mov_left<<std::endl;
+                    commands.erase(commands.begin());
+                std::cout << "execution des commandes dans le thread" << std::endl;
+            }
+        }
+            state_game.enable_state=1;
+
+                if(mov_left==0){
+                    if(att_left==0){
+                        state_game.list_element[char_sel].setSelected(0);
+
+                        char_sel=(char_sel+1)%6;
+
+                        while(state_game.list_element[char_sel].getLife()<=0){
+
+                            char_sel=(char_sel+1)%6;
+                        }
+
+                        mov_left=state_game.list_element[char_sel].getMovement();
+                        att_left=1;
+                        state_game.list_element[char_sel].setSelected(1);
+                    }
+                }
+
+        }
+        if(fin_tour) fin_tour = false;
+        if(!engine_update)  engine_update = true;
+    }
+}
 
 void engine::Engine::testInit(){
 }

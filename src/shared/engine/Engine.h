@@ -28,12 +28,15 @@ namespace engine {
     std::vector<int> list_role;
     std::vector<Command> save_commands;
     std::mutex mutex;
+    bool fin_tour;
+    bool engine_update;
     // Operations
   public:
     Engine ();
     ~Engine ();
     void addCommand (Command cmd);
     void Update (state::State& state_game, bool rollback = 0);
+    void UpdateTh (state::State& state_game);
     void testInit ();
     void clearCommands ();
     // Setters and Getters
