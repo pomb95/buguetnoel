@@ -7,7 +7,6 @@
 #include "Engine.h"
 #include "Command.h"
 #include "MoveChar.h"
-#include "CheckAround.h"
 #include "Attack.h"
 #include <iostream>
 #include <vector>
@@ -27,6 +26,7 @@ engine::Engine::~Engine() {}
 
 void engine::Engine::addCommand(Command cmd){
     commands.push_back(cmd);
+    
 }
 
 
@@ -42,7 +42,7 @@ void engine::Engine::Update(state::State& state_game, bool rollback) {
                 mov_left=mov_left-1;
             if(commands[0].getId()==2)
                 att_left=att_left-1;
-	std::cout<<mov_left<<std::endl;
+	//std::cout<<mov_left<<std::endl;
             commands.erase(commands.begin());
         }
         state_game.enable_state=1;

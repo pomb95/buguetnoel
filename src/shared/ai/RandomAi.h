@@ -5,6 +5,7 @@
 #include <state/State.h>
 
 namespace engine {
+  class Command;
   class Engine;
 };
 namespace state {
@@ -14,6 +15,7 @@ namespace ai {
   class Ai;
 }
 
+#include "engine/Command.h"
 #include "Ai.h"
 
 namespace ai {
@@ -25,7 +27,7 @@ namespace ai {
     RandomAi ( );
     ~RandomAi ();
     RandomAi (int Team);
-    void play (engine::Engine& engine, int character, state::State& state);
+    engine::Command play (engine::Engine& engine, int character, state::State& state);
     // Setters and Getters
   };
 

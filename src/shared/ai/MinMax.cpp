@@ -17,7 +17,7 @@ Team=team;
 }
 
 
-void ai::MinMax::play(engine::Engine& engine,int character,state::State& state){
+engine::Command ai::MinMax::play(engine::Engine& engine,int character,state::State& state){
     if(state.list_element[character].getTeam()==Team){
     	create_tree(state,engine,2);
 	engine::Command command=list_mov[solve(state, Team,tree)];
@@ -40,7 +40,8 @@ void ai::MinMax::play(engine::Engine& engine,int character,state::State& state){
 	std::cout<<"C'est au tour des rouges"<<std::endl;
 
 	}
-
+	engine::Command com;
+return com;
 	}
 void ai::MinMax::create_tree(state::State& state,engine::Engine& engine, int depth) {
     state_tempo = state.clone();

@@ -10,7 +10,7 @@
 #include <engine.h>
 #include <engine/MoveChar.h>
 #include <engine/Attack.h>
-#include <engine/CheckAround.h>
+
 #include <sys/time.h>
 
 

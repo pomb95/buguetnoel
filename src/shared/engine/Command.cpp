@@ -6,7 +6,6 @@
 
 #include "Command.h"
 #include "ai.h"
-#include "CheckAround.h"
 #include <iostream>
 #include <math.h>
 

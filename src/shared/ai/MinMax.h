@@ -45,7 +45,7 @@ namespace ai {
     void recursive (int depth, state::State& state, int depart, std::vector<engine::Command> record, int ordre, int id_parent, engine::Engine& engine);
     void score (ai::Node& node, const state::State& state, int team);
     int solve (const state::State& state, int team, std::vector<ai::Node> tree);
-    void play (engine::Engine& engine, int character, state::State& state);
+    engine::Command play (engine::Engine& engine, int character, state::State& state);
     // Setters and Getters
   };
 

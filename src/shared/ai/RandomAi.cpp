@@ -11,7 +11,6 @@
 #include <iostream>
 #include <engine/MoveChar.h>
 #include <engine/Attack.h>
-#include <engine/CheckAround.h>
 #include <sys/time.h>
 
 ai::RandomAi::RandomAi() {
@@ -23,7 +22,7 @@ ai::RandomAi::RandomAi(int team) {
     Team=team;
 }
 
-void ai::RandomAi::play(engine::Engine& engine,int character,state::State& state){
+engine::Command ai::RandomAi::play(engine::Engine& engine,int character,state::State& state){
 
 
          struct timeval time;
@@ -52,7 +51,34 @@ void ai::RandomAi::play(engine::Engine& engine,int character,state::State& state
                 }//else{
             //std::cout<<"Ce n'est pas le tour de l'IA "<<Team<<std::endl;
                // }
-
+	engine::Command com;
+return com;
 
 
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

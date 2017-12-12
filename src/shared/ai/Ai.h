@@ -32,7 +32,7 @@ namespace ai {
     std::vector<int> score_mov;
     // Operations
   public:
-    virtual void play (engine::Engine& engine, int character, state::State& state) = 0;
+    virtual engine::Command play (engine::Engine& engine, int character, state::State& state) = 0;
     Ai ();
     ~Ai ();
     void init ( );

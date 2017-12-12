@@ -5,6 +5,7 @@
 #include <state/State.h>
 
 namespace engine {
+  class Command;
   class Engine;
 };
 namespace state {
@@ -14,6 +15,7 @@ namespace ai {
   class Ai;
 }
 
+#include "engine/Command.h"
 #include "Ai.h"
 
 namespace ai {
@@ -25,7 +27,7 @@ namespace ai {
     HeuristicAi ();
     ~HeuristicAi ();
     HeuristicAi (int Team);
-    void play (engine::Engine& engine, int character, state::State& state);
+    engine::Command play (engine::Engine& engine, int character, state::State& state);
     void scor_mov (state::State& state, int character, engine::Engine& engine);
     void scor_att (state::State& state, int character);
     // Setters and Getters

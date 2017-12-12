@@ -15,7 +15,6 @@
 #include "ai.h"
 #include <engine/MoveChar.h>
 #include <engine/Attack.h>
-#include <engine/CheckAround.h>
 #include <sys/time.h>
 
 std::vector<int> distance(int x1, int y1, int x2, int y2);
@@ -32,12 +31,13 @@ ai::HeuristicAi::HeuristicAi(int team) {
 
 
 
-void ai::HeuristicAi::play(engine::Engine& engine,int character,state::State& state){
+engine::Command ai::HeuristicAi::play(engine::Engine& engine,int character,state::State& state){
 //engine.fin_tour = 0;
 int id_max_mov = 0;
 int id_max_att = 0;
 int max_att = 0;
 int max_mov = 0;
+engine::Command com;
 //engine::CheckAround command0(character);
 //engine.addCommand(command0);
 if(state.list_element[character].getTeam()==Team){
@@ -80,23 +80,27 @@ if(state.list_element[character].getTeam()==Team){
                 engine::Command command=list_att[id_max_att];
                 command.setAttaquant(character);
                 engine.addCommand(command);
+                com=command;
              }
              else if (engine.att_left==0){
                  engine::Command command=list_mov[id_max_mov];
             command.setCharacter(character);
             engine.addCommand(command);
+            com=command;
 
              }
              else if(max_att<max_mov){
                  engine::Command command=list_mov[id_max_mov];
             command.setCharacter(character);
             engine.addCommand(command);
+            com=command;
 
              }
              else {
                  engine::Command command=list_att[id_max_att];
                 command.setAttaquant(character);
                 engine.addCommand(command);
+                com=command;
              }
 
 
@@ -106,6 +110,8 @@ if(state.list_element[character].getTeam()==Team){
             for(unsigned i=0;i<score_att.size();i++)
                     score_att[i]=0;
     }
+    
+    return com;
 
     //engine.fin_tour = 1;//on indique la fin du tour
 
