@@ -10,7 +10,7 @@ namespace state {
     Sram::Sram(){
         Name = "Sram";
         Range = 5;
-        ATK = 3;
+        ATK = 5;
 	Life = 10;
 	Alive = 1;
         typeId = SRAM;
@@ -19,7 +19,7 @@ namespace state {
      Sram::Sram(int team){
         Name = "Sram";
         Range = 5;
-        ATK = 3;
+        ATK = 5;
 	Life = 10;
 	Alive = 1;
         typeId = SRAM;
