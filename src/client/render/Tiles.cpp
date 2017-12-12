@@ -78,7 +78,7 @@ void render::Tiles::convert(const state::State state_game) {
                    list_pos_center.push_back(sf::Vector2i(i * 28, j * 28));    
                }
             
-               if (static_cast<int> (image.getPixel(i, j).b) == 100) {
+               if (static_cast<int> (image.getPixel(i, j).g) == 150) {
                    list_pos_tower.push_back(sf::Vector2i(i * 28, j * 28));
                    tab[i + j * static_cast<int> (image_dim.y)] = 4;    
                }

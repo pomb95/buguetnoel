@@ -11,7 +11,7 @@ namespace state {
     Eniripsa::Eniripsa() : Hero() {
         Name = "Eniripsa";
         Range = 5;
-        ATK = 2;
+        ATK = 3;
 	    Life = 10;
 	    Alive = 1; // en vie
         typeId = ENI;
@@ -23,7 +23,7 @@ namespace state {
      Eniripsa::Eniripsa(int team) : Hero() {
         Name = "Eniripsa";
         Range = 5;
-        ATK = 2;
+        ATK = 3;
      	Life = 10;
     	Alive = 1; // en vie
         typeId = ENI;
