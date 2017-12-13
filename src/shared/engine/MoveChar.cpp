@@ -16,3 +16,11 @@ void engine::MoveChar::setMoveChar(int c, int d){
     this->character = c;
     this->direction = d;
 }
+
+void engine::MoveChar::serialize(Json::Value& out){
+	out["command"]=getId();	
+	out["character"]=getCharacter();	
+	out["direction"]=getDirection();
+	
+
+}

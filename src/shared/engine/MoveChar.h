@@ -2,8 +2,10 @@
 #ifndef ENGINE__MOVECHAR__H
 #define ENGINE__MOVECHAR__H
 
+#include <json/json.h>
 
 namespace engine {
+  class MoveChar;
   class Command;
 };
 namespace state {
@@ -22,6 +24,8 @@ namespace engine {
     MoveChar (int c, int d);
     ~MoveChar ();
     void setMoveChar (int c, int d);
+    void serialize (Json::Value& out);
+    MoveChar* deserialize (const Json::Value& in);
     // Setters and Getters
   };
 

@@ -696,6 +696,7 @@ struct stdlib_includes {
    int state2;
    int state3;
    int state4;
+   int state5;
 
 };
 
@@ -721,6 +722,10 @@ void print_include_stdlib(struct stdlib_includes* si,char* name) {
 	if (!si->graphics && strstr(name,"sf::")) {
            print ("#include <SFML/Graphics.hpp>\n");
            si->graphics = 1;
+       }
+	if (!si->state5 && strstr(name,"Json")) {
+           print ("#include <json/json.h>\n");
+           si->state5 = 1;
        }
 	if (!si->state1 && strstr(name,"state::Element")) {
            print ("#include <state/Element.h>\n");

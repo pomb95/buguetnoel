@@ -27,3 +27,11 @@ void engine::Attack::setAttack(int c, int d){
     this->attaquant = c;
     this->victime = d;
 }
+
+void engine::Attack::serialize(Json::Value& out){
+	out["command"]=getId();	
+	out["character"]=getCharacter();	
+	out["attaquant"]=getAttaquant();
+	out["victime"]=getVictime();
+
+}

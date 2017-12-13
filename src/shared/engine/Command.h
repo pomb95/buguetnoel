@@ -3,11 +3,13 @@
 #define ENGINE__COMMAND__H
 
 #include <state/State.h>
+#include <json/json.h>
 
 namespace state {
   class State;
 };
 namespace engine {
+  class Command;
   class Engine;
 }
 
@@ -32,6 +34,10 @@ namespace engine {
     ~Command ();
     int execute (state::State& state);
     void undo (state::State& state);
+    void serialize (Json::Value& out);
+    /// 	
+    /// @param in		(???) 
+    Command* deserialize (const Json::Value& in);
     // Setters and Getters
     int getId() const;
     void setId(int Id);

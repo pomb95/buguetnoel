@@ -2,12 +2,18 @@
 #ifndef ENGINE__ATTACK__H
 #define ENGINE__ATTACK__H
 
+#include <json/json.h>
 
 namespace engine {
+  class Attack;
   class Command;
+};
+namespace state {
+  class MobileElement;
 }
 
 #include "Command.h"
+#include "state/MobileElement.h"
 
 namespace engine {
 
@@ -20,6 +26,10 @@ namespace engine {
     void setAttaquant (int c);
     void setAttack (int c, int d);
     Attack (int c, int d);
+    /// 			
+    /// @param out		(???) 
+    void serialize (Json::Value& out);
+    Attack* deserialize (const Json::Value& in);
     // Setters and Getters
   };
 

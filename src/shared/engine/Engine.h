@@ -4,6 +4,7 @@
 
 #include <vector>
 #include <mutex>
+#include <json/json.h>
 #include <state/State.h>
 
 namespace engine {
@@ -30,6 +31,8 @@ namespace engine {
     std::mutex mutex;
     bool fin_tour;
     bool engine_update;
+  protected:
+    Json::Value record;
     // Operations
   public:
     Engine ();
@@ -39,7 +42,10 @@ namespace engine {
     void UpdateTh (state::State& state_game);
     void testInit ();
     void clearCommands ();
+    void addCommands (const Json::Value& in);
     // Setters and Getters
+    const Json::Value& getRecord() const;
+    void setRecord(const Json::Value& record);
   };
 
 };
