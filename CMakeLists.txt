@@ -34,6 +34,7 @@ exec_program(${DIA2CODE} ARGS -ns ai     -d ../src/shared -t cpp ../src/ai.dia)
 file(GLOB_RECURSE client_sources src/client/*.cpp)
 file(GLOB_RECURSE server_sources src/server/*.cpp)
 file(GLOB_RECURSE shared_sources src/shared/*.cpp)
+file(GLOB_RECURSE exception_source src/client/render/*.cpp)
 
 #jsoncpp
 include_directories ("${PROJECT_SOURCE_DIR}/extern/jsoncpp-1.8.0")
@@ -42,7 +43,7 @@ file(GLOB_RECURSE jsoncpp_sources extern/jsoncpp-1.8.0/*.cpp)
 
 # Executables
 add_executable(client ${client_sources} ${shared_sources} ${jsoncpp_sources})
-add_executable(server ${server_sources} ${shared_sources} ${jsoncpp_sources})
+add_executable(server ${server_sources} ${shared_sources} ${exception_source} ${jsoncpp_sources})
 
 # SFML
 if(WIN32)
@@ -59,6 +60,7 @@ find_package(SFML 2 COMPONENTS graphics window system network)
 if(SFML_FOUND)
   include_directories(${SFML_INCLUDE_DIR})
   target_link_libraries(client ${SFML_LIBRARIES})
+  target_link_libraries(server ${SFML_LIBRARIES})
 endif()
 
 # libmicrohttpd

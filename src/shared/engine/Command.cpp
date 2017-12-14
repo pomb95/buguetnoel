@@ -44,7 +44,7 @@ int engine::Command::execute (state::State& state){
                         }
 
 				        else { state.list_element[character].setPosX(state.list_element[character].getPosX() + 28);
-							   //std::cout << "droite"<<std::endl;}
+							   //std::cout << "droite"<<std::endl;
 
                         }
                 }
@@ -56,7 +56,7 @@ int engine::Command::execute (state::State& state){
 					    }
 
 				        else{ state.list_element[character].setPosY(state.list_element[character].getPosY() - 28);
-							  //std::cout << "haut"<<std::endl;}
+							 // std::cout << "haut"<<std::endl;
 
                         }
                 }
@@ -68,7 +68,7 @@ int engine::Command::execute (state::State& state){
 					    }
 
 				        else{ state.list_element[character].setPosY(state.list_element[character].getPosY() + 28);
-							  //std::cout << "bas"<<std::endl;}
+							 // std::cout << "bas"<<std::endl;
 
                         }
                 }
@@ -80,7 +80,7 @@ int engine::Command::execute (state::State& state){
 					    }
 
 						else{ state.list_element[character].setPosX(state.list_element[character].getPosX() - 28);
-							   //std::cout << "gauche"<<std::endl;
+							 //  std::cout << "gauche"<<std::endl;
                                //state.list_element[character].setDirection(0);
                         }
 
@@ -119,7 +119,7 @@ int engine::Command::execute (state::State& state){
 								return -1;
 							}
 						}
-						else{ //std::cout << state.list_element[victime].getName()<< " est déjà mort" <<std::endl;
+						else{// std::cout << state.list_element[victime].getName()<< " est déjà mort" <<std::endl;
 							return -1;
 						}
 				 }

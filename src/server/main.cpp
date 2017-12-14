@@ -1,23 +1,26 @@
 #include <iostream>
-#include <SFML/Graphics.hpp>
 #include "state.h"
-#include "render.h"
 #include "engine.h"
+#include <SFML/Graphics.hpp>
 #include "ai.h"
 #include <unistd.h>
 #include "json/json.h"
 #include <iostream>
 #include <fstream>
+#include "render.h"
 
 using namespace std;
 using namespace state;
-using namespace render;
 using namespace engine;
+using namespace render;
+
+
 
 int main (int argc, char* argv[]){
  if ((argv[1] != NULL) && string(argv[1]) == "record") {
 	State state;
 	Engine engine;
+        Render render;
 	state.init();
 	ai::HeuristicAi bot1(0);
 	ai::HeuristicAi bot2(1);
@@ -30,6 +33,18 @@ int main (int argc, char* argv[]){
         Json::Value tour;
 	Command record;
         int count = 0;
+        
+        //On recupere les positions des joueurs
+        Tiles tile;
+        tile.convert(state);
+        for (unsigned i = 0; i<state.nb_hero; i++) {
+             if((state.list_element[i].getTypeId()==7)||(state.list_element[i].getTypeId()==6)||(state.list_element[i].getTypeId()==8)||(state.list_element[i].getTypeId()==9)||(state.list_element[i].getTypeId()==10)){
+                
+                state.list_element[i].setPosX(static_cast<int> (tile.list_pos_hero[i].x));
+                state.list_element[i].setPosY(static_cast<int> (tile.list_pos_hero[i].y));
+             
+             }}
+        
         std::cout<<"*****New Play ******"<<std::endl;
 	std::cout<<"*****New Turn ******"<<std::endl;
 
@@ -50,7 +65,22 @@ int main (int argc, char* argv[]){
                         command = record.serialize();
                         count = count +1;
                         
-		      if(count < state.nb_hero*4+1){
+		     
+                          
+                          
+
+               	      if(state.fin==1){
+                           tour.append(command);
+                          replay.append(tour);
+			state.fin=1;
+                        file.open("replay.txt"); 
+		
+                     file << replay;
+                     file.close();
+               		
+				
+		     }else {
+                           if(count < state.nb_hero*4+1){
                         
 			tour.append(command);
                       }else {
@@ -61,19 +91,8 @@ int main (int argc, char* argv[]){
                           tour.append(command);
                           
                       }
-                          
-                          
-
-               	      if(state.fin==1){
-                          replay.append(tour);
-			state.fin=1;
-               		 std::cout <<"Fin de Partie"<<std::endl;
-				
-		     } 
-                     file.open("replay.txt"); 
-		
-                     file << replay;
-                     file.close();
+                     } 
+                     
 		     	
                  }
 		}
@@ -95,14 +114,23 @@ int main (int argc, char* argv[]){
 		
         file >> replay;
         file.close();
-	std::cout<<replay.size()<<std::endl;
         std::cout<<"*****New Play ******"<<std::endl;
-	std::cout<<"*****New Turn ******"<<std::endl;
+	
 
 	
-            
+            //On recupere les positions des joueurs
+        Tiles tile;
+        tile.convert(state);
+        for (unsigned i = 0; i<state.nb_hero; i++) {
+             if((state.list_element[i].getTypeId()==7)||(state.list_element[i].getTypeId()==6)||(state.list_element[i].getTypeId()==8)||(state.list_element[i].getTypeId()==9)||(state.list_element[i].getTypeId()==10)){
+                
+                state.list_element[i].setPosX(static_cast<int> (tile.list_pos_hero[i].x));
+                state.list_element[i].setPosY(static_cast<int> (tile.list_pos_hero[i].y));
+             
+             }}
                        
             for(int i = 0 ;i<replay.size();i++ ){
+                 std::cout<<"*****New Turn ******"<<std::endl;
                 for (int j = 0;j<replay[i].size();j++){
                     Json::Value command;
                     command=replay[i][j];
@@ -111,31 +139,18 @@ int main (int argc, char* argv[]){
                      engine.Update(state);	
                        	state.Update();
 			usleep(50000);
+		   
+               		
                         
-                        count = count +1;
-                         if(count < state.nb_hero*4+1){
-                        			
-                      }else {
-                          std::cout<<"*****New Turn ******"<<std::endl;
-                          count  = 0;
-                                          
-                      }
-		      
-                          
-                          
-
-               	      if(state.fin==1){
-                         
-			state.fin=1;
-               		 std::cout <<"Fin de Partie"<<std::endl;
 				
 		     } 
+                       
                 }
             }
                        
-            std::cout <<"Toutes les commandes ont été joué"<<std::endl;        
+           
                  
-		}
+		
     return 0;
 }
 
