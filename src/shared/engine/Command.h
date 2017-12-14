@@ -9,7 +9,6 @@ namespace state {
   class State;
 };
 namespace engine {
-  class Command;
   class Engine;
 }
 
@@ -37,7 +36,7 @@ namespace engine {
     Json::Value serialize ();
     /// 	
     /// @param in		(???) 
-    Command* deserialize (const Json::Value& in);
+    void deserialize (Json::Value in);
     // Setters and Getters
     int getId() const;
     void setId(int Id);

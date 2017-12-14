@@ -263,3 +263,15 @@ Json::Value engine::Command::serialize(){
         return out;
 
 }
+
+void engine::Command::deserialize(Json::Value in){
+        
+        this->setId(in["Id"].asInt());	
+	this->setCharacter(in["character"].asInt());
+        this->setDirection(in["direction"].asInt());
+	this->setAttaquant(in["attaquant"].asInt());
+	this->setVictime(in["victime"].asInt());
+        
+        
+
+}
