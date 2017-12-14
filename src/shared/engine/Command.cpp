@@ -8,7 +8,14 @@
 
 
 int droite;
-engine::Command::Command() {}
+engine::Command::Command() {
+    Id=-1;
+    character=-1;
+    direction = -1;
+    attaquant = -1;
+    victime = -1;
+
+}
 engine::Command::~Command() {}
 int engine::Command::execute (state::State& state){
     //Commande de déplacement
@@ -245,10 +252,14 @@ void engine::Command::setVictime(int victime) {
     this->victime = victime;
 }
 
-void engine::Command::serialize(Json::Value& out){
-	/*out["Id"]=getId();	
-	out["character"]=getCharacter();	
-	out["attaquant"]=getAttaquant();
-	out["victime"]=getVictime();
-*/
+Json::Value engine::Command::serialize(){
+	Json::Value out;
+        out["Id"]=this->getId();	
+	out["character"]=this->getCharacter();
+        out["direction"]=this->getDirection();
+	out["attaquant"]=this->getAttaquant();
+	out["victime"]=this->getVictime();
+        
+        return out;
+
 }

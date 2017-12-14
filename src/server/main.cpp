@@ -27,11 +27,14 @@ int main (int argc, char* argv[]){
 	ofstream file;
 	Json::Value replay;
 	Json::Value command;
-	Json::Value jsonCommandes;
+        Json::Value tour;
 	Command record;
-	file.open("replay.txt"); 
+        int count = 0;
+        std::cout<<"*****New Play ******"<<std::endl;
+	std::cout<<"*****New Turn ******"<<std::endl;
 
 	while(state.fin !=1){
+            
 			if (state.list_element[engine.char_sel].getTeam()==0){
                             record = bot1.play(engine,engine.char_sel,state);
                         }
@@ -39,31 +42,38 @@ int main (int argc, char* argv[]){
                             record = bot2.play(engine,engine.char_sel,state);
                         	
                         }
-            command["commande"]=record.getId();
-	        command["character"]=record.getCharacter();
-			command["direction"]=record.getDirection();
-			command["attaquant"]=record.getAttaquant();
-			command["victime"]=record.getVictime();
-							
-			
-			replay.append(jsonCommandes);
-						
-		 	//file << serial;           
-						
-							
-                        	engine.Update(state);
-                        	
-                       	 	state.Update();
-			  	usleep(50000);
-		      
+                       
+                       
+                        engine.Update(state);	
+                       	state.Update();
+			usleep(50000);
+                        command = record.serialize();
+                        count = count +1;
+                        
+		      if(count < state.nb_hero*4+1){
+                        
+			tour.append(command);
+                      }else {
+                          std::cout<<"*****New Turn ******"<<std::endl;
+                          count  = 0;
+                          replay.append(tour);
+                          tour.clear();
+                          tour.append(command);
+                          
+                      }
+                          
+                          
 
                	      if(state.fin==1){
+                          replay.append(tour);
 			state.fin=1;
                		 std::cout <<"Fin de Partie"<<std::endl;
-				file.close();
+				
 		     } 
-		     Json::StyledWriter styledWriter;
-			file << styledWriter.write(replay);
+                     file.open("replay.txt"); 
+		
+                     file << replay;
+                     file.close();
 		     	
                  }
 		}

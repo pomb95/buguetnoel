@@ -34,7 +34,7 @@ namespace engine {
     ~Command ();
     int execute (state::State& state);
     void undo (state::State& state);
-    void serialize (Json::Value& out);
+    Json::Value serialize ();
     /// 	
     /// @param in		(???) 
     Command* deserialize (const Json::Value& in);
