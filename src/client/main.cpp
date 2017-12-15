@@ -6,6 +6,9 @@
 #include "render.h"
 #include "engine.h"
 #include "ai.h"
+#include "json/json.h"
+#include <fstream>
+#include <unistd.h>
 
 // Les lignes suivantes ne servent qu'à vérifier que la compilation avec SFML fonctionne
 void testSFML() {
@@ -301,53 +304,96 @@ int main(int argc, char* argv[]) {
 	       State state;
 	       Render render;
 	       Engine engine;
-           thread th(&engine::Engine::UpdateTh, &engine, std::ref(state));//thread de l'Engine
-           state.init();
-           render.init(state);
-           ai::HeuristicAi bot1(0);
-           ai::HeuristicAi bot2(1);
-           bot1.init();
-           bot2.init();
-           state.Update();
+	       thread th(&engine::Engine::UpdateTh, &engine, std::ref(state));//thread de l'Engine
+	       state.init();
+	       render.init(state);
+	       ai::HeuristicAi bot1(0);
+	       ai::HeuristicAi bot2(1);
+	       bot1.init();
+	       bot2.init();
+	       state.Update();
 
+	       while (render.window.isOpen()) {
+               		sf::Event event;
+               		while (render.window.pollEvent(event)) {
 
-           while (render.window.isOpen()) {
-               sf::Event event;
-               while (render.window.pollEvent(event)) {
+		              	if(event.type == sf::Event::Closed) {
+                             	      render.window.close();
+                         	}
 
-		                 if(event.type == sf::Event::Closed) {
-                             render.window.close();
-                         }
+                         	if(event.type == sf::Event::KeyPressed) {
+                             		if(sf::Keyboard::isKeyPressed(sf::Keyboard::B)) {
+                                 		{
+                                           	 std::lock_guard<std::mutex> lock(engine.mutex);
+				                 if (engine.fin_tour) engine.fin_tour = false;
+				                 	bot1.play(engine,engine.char_sel,state);
+				    	         	bot2.play(engine,engine.char_sel,state);
+				                 if (!engine.fin_tour) 
+						      engine.fin_tour = true;
+				        }
 
-                         if(event.type == sf::Event::KeyPressed) {
-                             if(sf::Keyboard::isKeyPressed(sf::Keyboard::B)) {
-                                 {
-                                 std::lock_guard<std::mutex> lock(engine.mutex);
-                                 if (engine.fin_tour) engine.fin_tour = false;
-                                 bot1.play(engine,engine.char_sel,state);
-                    	         bot2.play(engine,engine.char_sel,state);
-                                 if (!engine.fin_tour) engine.fin_tour = true;
-                                 }
+                                 	if (engine.engine_update){
+                                     		state.Update();
+                                     		render.Update(state);
+                                     		if(engine.engine_update) 
+							engine.engine_update = false;
+                                 	}
 
-                                 if (engine.engine_update){
-                                     state.Update();
-                                     render.Update(state);
-                                     if(engine.engine_update) engine.engine_update = false;
-                                 }
+			         }
+		         }
 
-			                 }
-		                 }
-
-                         if(state.fin==1){
-               		            state.fin=0;
-                                render.window.close();
-		                 }
+                if(state.fin==1){
+               	     state.fin=0;
+                     render.window.close();
+		}
                  }
-          }
+          	}
        th.join();
     }
 
 
+if ((argv[1] != NULL) && string(argv[1]) == "play") {
+	State state;
+	Engine engine;
+        Render render;
+	state.init();
+        render.init(state);
+	ai::HeuristicAi bot1(0);
+	ai::HeuristicAi bot2(1);
+	bot1.init();
+	bot2.init();
+	state.Update();
+	ifstream file; 				//Creation du fichier texte
+        Json::Value replay;			// Creation d'une variable JSON replay (  où est stocké la totalité des commandes de la partie)
+	Json::Value command;			// creation variable JSON command ( stocke une commandes)
+	Command com;				
+        file.open("replay.txt"); 		//ouverture du fichier texte où les commandes de la partie JSON sont stockées.
+        file >> replay;				
+        file.close();
+        std::cout<<"*****New Play ******"<<std::endl;
+	
 
+	
+           
+                       
+        for(unsigned i = 0 ;i<replay.size();i++ ){
+                 std::cout<<"*****New Turn ******"<<std::endl;
+                 for (unsigned j = 0;j<replay[i].size();j++){
+                    	Json::Value command;
+                    	command=replay[i][j];
+                    	com.deserialize(command);  // deserialize les commandes
+                    	engine.addCommand(com);     // on execute une commande
+                     	engine.Update(state);	   // on update l'etat.
+                       	state.Update();
+                        render.Update(state);
+			
+		   
+               		
+                        
+				
+		 } 
+                       
+        }
+  }
     return 0;
 }
