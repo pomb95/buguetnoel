@@ -355,7 +355,9 @@ int main(int argc, char* argv[]) {
 if ((argv[1] != NULL) && string(argv[1]) == "play") {
 	State state;
 	Engine engine;
+        Render render;
 	state.init();
+        render.init(state);
 	ai::HeuristicAi bot1(0);
 	ai::HeuristicAi bot2(1);
 	bot1.init();
@@ -372,18 +374,7 @@ if ((argv[1] != NULL) && string(argv[1]) == "play") {
 	
 
 	
-            //On recupere les positions des joueurs
-        Tiles tile;
-        tile.convert(state);
-        for (int i = 0; i<state.nb_hero; i++) {
-             if((state.list_element[i].getTypeId()==7)||(state.list_element[i].getTypeId()==6)||(state.list_element[i].getTypeId()==8)||(state.list_element[i].getTypeId()==9)||(state.list_element[i].getTypeId()==10)){
-                
-                state.list_element[i].setPosX(static_cast<int> (tile.list_pos_hero[i].x));
-                state.list_element[i].setPosY(static_cast<int> (tile.list_pos_hero[i].y));
-             
-             }
-	}
-
+           
                        
         for(unsigned i = 0 ;i<replay.size();i++ ){
                  std::cout<<"*****New Turn ******"<<std::endl;
@@ -394,7 +385,8 @@ if ((argv[1] != NULL) && string(argv[1]) == "play") {
                     	engine.addCommand(com);     // on execute une commande
                      	engine.Update(state);	   // on update l'etat.
                        	state.Update();
-			usleep(50000);
+                        render.Update(state);
+			
 		   
                		
                         
@@ -405,4 +397,3 @@ if ((argv[1] != NULL) && string(argv[1]) == "play") {
   }
     return 0;
 }
-
