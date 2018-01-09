@@ -253,8 +253,8 @@ int main (int argc, char* argv[]){
   }
   else{
 	  cout <<"Commandes possibles :" << endl;
-	  cout << "	record"<< endl;
-	  cout << " listen"<< endl;           
+	  cout << "record"<< endl;
+	  cout << "listen"<< endl;           
   }
     return 0;
 }
