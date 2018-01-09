@@ -2,10 +2,6 @@
 #ifndef SERVER__SERVICEEXCEPTION__H
 #define SERVER__SERVICEEXCEPTION__H
 
-<<<<<<< HEAD
-=======
-#include <string>
->>>>>>> 5461db31592b35211a8117fbef4bd86cd123af8a
 
 namespace server {
   class AbstractService;
@@ -22,11 +18,7 @@ namespace server {
     server::HttpStatus httpStatus;
     // Attributes
   protected:
-<<<<<<< HEAD
     string msg;
-=======
-    std::string msg;
->>>>>>> 5461db31592b35211a8117fbef4bd86cd123af8a
     // Operations
   public:
     ServiceException (HttpStatus status, string msg);
@@ -35,13 +27,8 @@ namespace server {
     // Setters and Getters
     HttpStatus getHttpStatus() const;
     void setHttpStatus(HttpStatus httpStatus);
-<<<<<<< HEAD
     const string& getMsg() const;
     void setMsg(const string& msg);
-=======
-    const std::string& getMsg() const;
-    void setMsg(const std::string& msg);
->>>>>>> 5461db31592b35211a8117fbef4bd86cd123af8a
   };
 
 };

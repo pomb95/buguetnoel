@@ -27,13 +27,9 @@ exec_program(${DIA2CODE} ARGS -ns state  -d ../src/shared -t cpp ../src/state.di
 exec_program(${DIA2CODE} ARGS -ns render -d ../src/client -t cpp ../src/render.dia)
 exec_program(${DIA2CODE} ARGS -ns engine -d ../src/shared -t cpp ../src/engine.dia)
 exec_program(${DIA2CODE} ARGS -ns ai     -d ../src/shared -t cpp ../src/ai.dia)
-<<<<<<< HEAD
 #exec_program(${DIA2CODE} ARGS -ns client -d ../src/client -t cpp ../src/module.dia)
 exec_program(${DIA2CODE} ARGS -ns server -d ../src/server -t cpp ../src/server.dia)
-=======
-exec_program(${DIA2CODE} ARGS -ns client -d ../src/client -t cpp ../src/module.dia)
-exec_program(${DIA2CODE} ARGS -ns server -d ../src/server -t cpp ../src/module.dia)
->>>>>>> 5461db31592b35211a8117fbef4bd86cd123af8a
+
 
 # Sources
 file(GLOB_RECURSE client_sources src/client/*.cpp)

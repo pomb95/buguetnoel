@@ -2,10 +2,6 @@
 #ifndef SERVER__USER__H
 #define SERVER__USER__H
 
-<<<<<<< HEAD
-=======
-#include <string>
->>>>>>> 5461db31592b35211a8117fbef4bd86cd123af8a
 
 namespace server {
 
@@ -13,13 +9,8 @@ namespace server {
   class User {
     // Attributes
   public:
-<<<<<<< HEAD
     string name;
     int age;
-=======
-    std::string name;
-    bool free     = true;
->>>>>>> 5461db31592b35211a8117fbef4bd86cd123af8a
     // Operations
   public:
     User (string name, int age);
