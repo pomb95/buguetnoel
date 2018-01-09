@@ -242,6 +242,7 @@ int main (int argc, char* argv[]){
                 MHD_OPTION_END);
         if (d == NULL)
             return 1;
+        cout << "Serveur lancé sur le PORT 5050" << endl;
         cout << "Pressez <entrée> pour arrêter le serveur" << endl;
         (void) getc(stdin);
         MHD_stop_daemon(d);
