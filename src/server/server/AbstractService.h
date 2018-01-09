@@ -13,7 +13,11 @@ namespace server {
   class AbstractService {
     // Attributes
   protected:
+<<<<<<< HEAD
     string pattern;
+=======
+    std::string pattern;
+>>>>>>> 5461db31592b35211a8117fbef4bd86cd123af8a
     // Operations
   public:
     AbstractService (const std::string& pattern);
