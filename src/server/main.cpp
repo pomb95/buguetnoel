@@ -219,7 +219,7 @@ int main (int argc, char* argv[]){
   
   else if ((argv[1] != NULL) && string(argv[1]) == "listen") { 
 	  
-	  
+	  int PORT = 5050;
 	  
 	  try {
         ServicesManager servicesManager;
@@ -235,13 +235,14 @@ int main (int argc, char* argv[]){
                 MHD_USE_SELECT_INTERNALLY | MHD_USE_DEBUG,
                 // MHD_USE_THREAD_PER_CONNECTION | MHD_USE_DEBUG | MHD_USE_POLL,
                 // MHD_USE_THREAD_PER_CONNECTION | MHD_USE_DEBUG,
-                5050,
+                PORT,
                 NULL, NULL, 
                 &main_handler, (void*) &servicesManager,
                 MHD_OPTION_NOTIFY_COMPLETED, request_completed, NULL,
                 MHD_OPTION_END);
         if (d == NULL)
             return 1;
+        cout << "serveur lancé sur le PORT " << PORT << endl;
         cout << "Pressez <entrée> pour arrêter le serveur" << endl;
         (void) getc(stdin);
         MHD_stop_daemon(d);
@@ -252,8 +253,8 @@ int main (int argc, char* argv[]){
   }
   else{
 	  cout <<"Commandes possibles :" << endl;
-	  cout << "	record"<< endl;
-	  cout << " listen"<< endl;           
+	  cout << "record"<< endl;
+	  cout << "listen"<< endl;           
   }
     return 0;
 }
