@@ -16,7 +16,28 @@ void testSFML() {
 }
 
 // Fin test SFML
+#include <iostream>
+#include <stdexcept>
+#include <stdio.h>
+#include <string>
 
+std::string exec(const char* cmd) {
+    char buffer[128];
+    std::string result = "";
+    FILE* pipe = popen(cmd, "r");
+    if (!pipe) throw std::runtime_error("popen() failed!");
+    try {
+        while (!feof(pipe)) {
+            if (fgets(buffer, 128, pipe) != NULL)
+                result += buffer;
+        }
+    } catch (...) {
+        pclose(pipe);
+        throw;
+    }
+    pclose(pipe);
+    return result;
+}
 
 using namespace std;
 using namespace state;
@@ -396,7 +417,30 @@ if ((argv[1] != NULL) && string(argv[1]) == "play") {
         }
   }
   if ((argv[1] != NULL) && string(argv[1]) == "network") {
-	  system("curl -X PUT --data '{\"name\":\"Jean\",\"age\":56}' http://localhost:5050/user");
+	  string name;
+	  std::cout<<"Ecrivez votre nom .."<<std::endl;
+	  std::cin >> name; 
+	  string cmd = "curl -X PUT --data '{\"name\":\""+name+"\"}' http://localhost:5050/user 2> /dev/null";
+	  string id = exec(cmd.c_str());
+	  if(id=="-1"){
+	  std::cout<<"Limite de joueur atteinte"<<std::endl;
+	   std::cout<<"Liste des joueurs: "<<std::endl;
+	  system("curl -X GET http://localhost:5050/user/1");
+	  system("curl -X GET http://localhost:5050/user/2");
+	  }else {
+	  std::cout<<"Liste des joueurs: "<<std::endl;
+	  system("curl -X GET http://localhost:5050/user/1");
+	  system("curl -X GET http://localhost:5050/user/2");
+	  
+	  std::cout<<"Appuyer sur une touche pour continuer .."<<std::endl;
+	  while ( getchar() != '\n' );
+	  getchar();
+	  string cmd1 = "curl -X DELETE http://localhost:5050/user/"+id;
+	  system(cmd1.c_str());
+	  std::cout<<"Liste des joueurs: "<<std::endl;
+	  system("curl -X GET http://localhost:5050/user/1");
+	  system("curl -X GET http://localhost:5050/user/2");}
+	  
   }
     return 0;
 }

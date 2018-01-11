@@ -10,10 +10,9 @@ namespace server {
     // Attributes
   public:
     string name;
-    int age;
     // Operations
   public:
-    User (string name, int age);
+    User (string name);
     // Setters and Getters
   };
 

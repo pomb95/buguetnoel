@@ -8,7 +8,7 @@
 #include "User.hpp"
 namespace server {
 
-	User::User (string name, int age) : name(name),age(age) {
+	User::User (string name) : name(name) {
 		
 	}
 

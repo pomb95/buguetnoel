@@ -17,9 +17,8 @@ namespace server {
 	HttpStatus UserService::get (Json::Value& out, int id) const {
 		const User* user = userDB.getUser(id);
 		if (!user)
-			throw ServiceException(HttpStatus::NOT_FOUND,"Invalid user id");
+			throw ServiceException(HttpStatus::NOT_FOUND,"personne");
 		out["name"] = user->name;
-		out["age"] = user->age;
 		return HttpStatus::OK;
 	}
 
@@ -31,17 +30,15 @@ namespace server {
 		if (in.isMember("name")) {
 			usermod->name = in["name"].asString();
 		}
-		if (in.isMember("age")) {
-			usermod->age = in["age"].asInt();
-		}
 		userDB.setUser(id,std::move(usermod));
 		return HttpStatus::NO_CONTENT;
 	}
 
 	HttpStatus UserService::put (Json::Value& out,const Json::Value& in) {
 		string name = in["name"].asString();
-		int age = in["age"].asInt();
-		out["id"] = userDB.addUser(make_unique<User>(name,age));
+		out["id"] = userDB.addUser(make_unique<User>(name));
+		if(out["id"]=="-1")
+			std::cout<<"limite atteinte "<<std::endl;
 		return HttpStatus::CREATED;
 	}
 

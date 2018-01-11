@@ -56,7 +56,7 @@ namespace server {
 			cerr << "Requête GET " << pattern << " avec id=" << id << endl;
 			Json::Value jsonOut;
 			HttpStatus status = service->get(jsonOut,id);
-			out = jsonOut.toStyledString();
+			out = jsonOut["name"].toStyledString();
 			return status;
 		}
 		else if (method == "POST") {
@@ -75,7 +75,7 @@ namespace server {
 				throw ServiceException(HttpStatus::BAD_REQUEST,"Données invalides: "+jsonReader.getFormattedErrorMessages());
 			Json::Value jsonOut;
 			HttpStatus status = service->put(jsonOut,jsonIn);
-			out = jsonOut.toStyledString();
+			out = jsonOut["id"].toStyledString();
 			return status;
 		}
 		else if (method == "DELETE") {
