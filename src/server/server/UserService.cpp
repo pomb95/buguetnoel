@@ -37,8 +37,9 @@ namespace server {
 	HttpStatus UserService::put (Json::Value& out,const Json::Value& in) {
 		string name = in["name"].asString();
 		out["id"] = userDB.addUser(make_unique<User>(name));
-		if(out["id"]=="-1")
+		if(out["id"]=="-1"){
 			std::cout<<"limite atteinte "<<std::endl;
+		}
 		return HttpStatus::CREATED;
 	}
 

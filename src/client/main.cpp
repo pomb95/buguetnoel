@@ -422,19 +422,73 @@ if ((argv[1] != NULL) && string(argv[1]) == "play") {
 	  std::cin >> name; 
 	  string cmd = "curl -X PUT --data '{\"name\":\""+name+"\"}' http://localhost:5050/user 2> /dev/null";
 	  string id = exec(cmd.c_str());
-	  if(id=="-1"){
+	   std::cout<<id<<std::endl;
+	  if((exec("curl -X GET http://localhost:5050/user/1 2> /dev/null" )!=exec("curl -X GET http://localhost:5050/user/5 2> /dev/null" ))&&(exec("curl -X GET http://localhost:5050/user/2 2> /dev/null")!=exec("curl -X GET http://localhost:5050/user/5 2> /dev/null" )))
+	  {
 	  std::cout<<"Limite de joueur atteinte"<<std::endl;
-	   std::cout<<"Liste des joueurs: "<<std::endl;
+	  std::cout<<"Liste des joueurs: "<<std::endl;
 	  system("curl -X GET http://localhost:5050/user/1");
 	  system("curl -X GET http://localhost:5050/user/2");
 	  }else {
 	  std::cout<<"Liste des joueurs: "<<std::endl;
+	  if((exec("curl -X GET http://localhost:5050/user/1 2> /dev/null" )!=exec("curl -X GET http://localhost:5050/user/5 2> /dev/null" )))
 	  system("curl -X GET http://localhost:5050/user/1");
+	  if((exec("curl -X GET http://localhost:5050/user/2 2> /dev/null" )!=exec("curl -X GET http://localhost:5050/user/5 2> /dev/null" )))
 	  system("curl -X GET http://localhost:5050/user/2");
+	  string id2=to_string(((atoi(id.c_str()))%2)+1);
+	  string cmd2="curl -X GET http://localhost:5050/user/"+id2;
+	  if(exec(cmd2.c_str())==exec("curl -X GET http://localhost:5050/user/5 2> /dev/null" )){
+	  std::cout<<"Recherche du deuxième joueur ..."<<std::endl;
+	  while((exec("curl -X GET http://localhost:5050/user/1 2> /dev/null" )==exec("curl -X GET http://localhost:5050/user/5 2> /dev/null" ))||(exec("curl -X GET http://localhost:5050/user/2 2> /dev/null")==exec("curl -X GET http://localhost:5050/user/5 2> /dev/null" )))
+	  {
+		  sleep(1);
+		  }
+	  std::cout<<"Joueur trouvé"<<std::endl;
+	  std::cout<<"Liste des joueurs: "<<std::endl;
+	  system("curl -X GET http://localhost:5050/user/1");
+	  system("curl -X GET http://localhost:5050/user/2");}
 	  
-	  std::cout<<"Appuyer sur une touche pour continuer .."<<std::endl;
-	  while ( getchar() != '\n' );
-	  getchar();
+
+		std::cout<<"Appuyer sur B pour effectuer une action "<<std::endl;
+        State state;
+        Render render;
+        Engine engine;
+        state.init();
+        render.init(state);
+        ai::HeuristicAi bot(atoi(id.c_str())%2);
+        bot.init();
+        state.Update();
+
+	 
+        while (render.window.isOpen()) {
+               sf::Event event;
+               while (render.window.pollEvent(event)) {
+
+		      if(event.type == sf::Event::Closed) {
+                         render.window.close();
+                      }
+
+                      if(event.type == sf::Event::KeyPressed) {
+                          if(sf::Keyboard::isKeyPressed(sf::Keyboard::B)) {
+                        	engine::Command command=bot.play(engine,engine.char_sel,state);
+                        	Json::Value data = command.serialize();
+                        	if(data["Id"]!=-1){
+                        	engine.addCommand(command);
+                        	
+                        	}
+                        	
+                        	engine.Update(state);
+                       	 	state.Update();
+                        	render.Update(state);
+			  }
+		       }
+
+               	      if(state.fin==1){
+               		 state.fin=0;
+                         render.window.close();
+		      }
+                 }
+          }
 	  string cmd1 = "curl -X DELETE http://localhost:5050/user/"+id;
 	  system(cmd1.c_str());
 	  std::cout<<"Liste des joueurs: "<<std::endl;

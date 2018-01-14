@@ -8,6 +8,8 @@
 #include <iostream>
 #include <fstream>
 #include "render.h"
+#include <thread>
+#include <mutex>
 
 #include <iostream>
 #include <sstream>
@@ -17,6 +19,7 @@
 #include "server/ServicesManager.hpp"
 #include "server/VersionService.hpp"
 #include "server/UserService.hpp"
+
 
 using namespace std;
 using namespace state;
@@ -133,9 +136,6 @@ main_handler (void *cls,
     return ret;
 }
 
-//*****Fin code prof*****//
-
-
 
 
 int main (int argc, char* argv[]){
@@ -220,6 +220,18 @@ int main (int argc, char* argv[]){
   else if ((argv[1] != NULL) && string(argv[1]) == "listen") { 
 	  
 	  int PORT = 5050;
+	
+	       std::cout<<"Appuyer sur B pour effectuer une action "<<std::endl;
+	       State state;
+	       Engine engine;
+	       thread th(&engine::Engine::UpdateTh, &engine, std::ref(state));//thread de l'Engine
+	       state.init();
+	       state.Update();
+
+  
+    
+	
+	
 	  
 	  try {
         ServicesManager servicesManager;
@@ -250,6 +262,7 @@ int main (int argc, char* argv[]){
     catch(exception& e) {
         cerr << "Exception: " << e.what() << endl;  
 	}
+	     th.join();
   }
   else{
 	  cout <<"Commandes possibles :" << endl;

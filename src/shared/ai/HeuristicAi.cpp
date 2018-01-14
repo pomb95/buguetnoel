@@ -99,7 +99,7 @@ if(state.list_element[character].getTeam()==Team){
              else {
                  engine::Command command=list_att[id_max_att];
                 command.setAttaquant(character);
-                engine.addCommand(command);
+                //engine.addCommand(command);
                 com=command;
              }
 

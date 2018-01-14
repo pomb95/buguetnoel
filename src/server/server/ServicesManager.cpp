@@ -56,7 +56,8 @@ namespace server {
 			cerr << "Requête GET " << pattern << " avec id=" << id << endl;
 			Json::Value jsonOut;
 			HttpStatus status = service->get(jsonOut,id);
-			out = jsonOut["name"].toStyledString();
+			//out = jsonOut["name"].toStyledString();
+			out = jsonOut.toStyledString();
 			return status;
 		}
 		else if (method == "POST") {

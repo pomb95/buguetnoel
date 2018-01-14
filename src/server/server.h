@@ -10,4 +10,7 @@
 #include "server/VersionService.h"
 #include "server/ServiceException.h"
 #include "server/ServicesManager.h"
+#include "server/Command.h"
+#include "server/CommandDB.h"
+#include "server/CommandService.h"
 #endif
