@@ -17,7 +17,7 @@ namespace server {
     // Attributes
   protected:
     int idseq;
-    map<int,unique_ptr<User> > users;
+    map<int,unique_ptr<User> > Users;
     // Operations
   public:
     UserDB ();
@@ -29,7 +29,7 @@ namespace server {
     int getIdseq() const;
     void setIdseq(int idseq);
     const map<int,unique_ptr<User> >& getUsers() const;
-    void setUsers(const map<int,unique_ptr<User> >& users);
+    void setUsers(const map<int,unique_ptr<User> >& Users);
   };
 
 };

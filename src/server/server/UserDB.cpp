@@ -1,5 +1,5 @@
 /** 
- * @file UserDB.cpp
+ * @file CommandDB.cpp
  * @author Philippe-Henri Gosselin
  * @date 9 décembre 2015
  * @copyright CNRS
@@ -13,33 +13,33 @@ namespace server {
 	}
 
 	const User* UserDB::getUser (int id) const {
-		auto ite = users.find(id);
-		if (ite == users.cend())
+		auto ite = Users.find(id);
+		if (ite == Users.cend())
 			return nullptr;
 		return ite->second.get();
 	}
 
-	int UserDB::addUser (unique_ptr<User> user) {
+	int UserDB::addUser (unique_ptr<User> User) {
 		int id = idseq++;
 		if(id>2)
 		return -1;
 		else
-		users.insert(std::make_pair(id,std::move(user)));
+		Users.insert(std::make_pair(id,std::move(User)));
 		return id;
 	}
 
-	void UserDB::setUser (int id, unique_ptr<User> user) {
-		users[id] = std::move(user);
+	void UserDB::setUser (int id, unique_ptr<User> User) {
+		Users[id] = std::move(User);
 		if (id > idseq) {
 			idseq = id;
 		}
 	}
 
 	void UserDB::removeUser (int id) {
-		auto ite = users.find(id);
-		if (ite == users.end())
+		auto ite = Users.find(id);
+		if (ite == Users.end())
 			return;
-		users.erase(ite);
+		Users.erase(ite);
 	}
 }
 

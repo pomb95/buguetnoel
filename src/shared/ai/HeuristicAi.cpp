@@ -79,20 +79,20 @@ if(state.list_element[character].getTeam()==Team){
              if(engine.mov_left==0){
                 engine::Command command=list_att[id_max_att];
                 command.setAttaquant(character);
-                engine.addCommand(command);
+                //engine.addCommand(command);
                 com=command;
              }
              else if (engine.att_left==0){
                  engine::Command command=list_mov[id_max_mov];
             command.setCharacter(character);
-            engine.addCommand(command);
+            //engine.addCommand(command);
             com=command;
 
              }
              else if(max_att<max_mov){
                  engine::Command command=list_mov[id_max_mov];
             command.setCharacter(character);
-            engine.addCommand(command);
+            //engine.addCommand(command);
             com=command;
 
              }

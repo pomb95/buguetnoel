@@ -17,7 +17,7 @@ namespace server {
     // Attributes
   protected:
     int idseq;
-    map<int,unique_ptr<Command> > commands;
+    map<int,unique_ptr<Command> > Commands;
     // Operations
   public:
     CommandDB ();
@@ -29,7 +29,7 @@ namespace server {
     int getIdseq() const;
     void setIdseq(int idseq);
     const map<int,unique_ptr<Command> >& getCommands() const;
-    void setCommands(const map<int,unique_ptr<Command> >& commands);
+    void setCommands(const map<int,unique_ptr<Command> >& Commands);
   };
 
 };

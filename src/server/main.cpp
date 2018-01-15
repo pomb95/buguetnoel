@@ -19,6 +19,8 @@
 #include "server/ServicesManager.hpp"
 #include "server/VersionService.hpp"
 #include "server/UserService.hpp"
+#include "server/CommandService.hpp"
+
 
 
 using namespace std;
@@ -136,7 +138,10 @@ main_handler (void *cls,
     return ret;
 }
 
-
+template<class T,typename ... Args>
+std::unique_ptr<T> make_unique(Args ... args) {
+    return std::unique_ptr<T>(new T(args ...));
+}
 
 int main (int argc, char* argv[]){
 	
@@ -154,7 +159,7 @@ int main (int argc, char* argv[]){
 	Json::Value replay;	  // Creation d'une variable JSON replay ( stocke la totalité des commandes de la partie)
 	Json::Value command;      // creation variable JSON command ( stocke une commandes)
         Json::Value tour;         // Creation variable JSON tour ( stocke les commands d'un tour)
-	Command record;		  // Creation d'une commande record ( permet d'obtenir les caractéristiques de chaque commande jouée)
+	engine::Command record;		  // Creation d'une commande record ( permet d'obtenir les caractéristiques de chaque commande jouée)
         int count = 0;
         
         //On recupere les positions des joueurs
@@ -238,8 +243,10 @@ int main (int argc, char* argv[]){
         servicesManager.registerService(make_unique<VersionService>());
 
         UserDB userDB;
+        CommandDB commandDB;
        
         servicesManager.registerService(make_unique<UserService>(std::ref(userDB)));
+        servicesManager.registerService(make_unique<CommandService>(std::ref(commandDB)));
 
         struct MHD_Daemon *d;
        

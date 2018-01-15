@@ -10,9 +10,19 @@
 #include <fstream>
 #include <unistd.h>
 
+
 // Les lignes suivantes ne servent qu'à vérifier que la compilation avec SFML fonctionne
 void testSFML() {
     sf::Texture texture;
+}
+
+void ReplaceStringInPlace(std::string& subject, const std::string& search,
+                          const std::string& replace) {
+    size_t pos = 0;
+    while ((pos = subject.find(search, pos)) != std::string::npos) {
+         subject.replace(pos, search.length(), replace);
+         pos += replace.length();
+    }
 }
 
 // Fin test SFML
@@ -422,8 +432,8 @@ if ((argv[1] != NULL) && string(argv[1]) == "play") {
 	  std::cin >> name; 
 	  string cmd = "curl -X PUT --data '{\"name\":\""+name+"\"}' http://localhost:5050/user 2> /dev/null";
 	  string id = exec(cmd.c_str());
-	   std::cout<<id<<std::endl;
-	  if((exec("curl -X GET http://localhost:5050/user/1 2> /dev/null" )!=exec("curl -X GET http://localhost:5050/user/5 2> /dev/null" ))&&(exec("curl -X GET http://localhost:5050/user/2 2> /dev/null")!=exec("curl -X GET http://localhost:5050/user/5 2> /dev/null" )))
+	   
+	  if(atoi(id.c_str())==-1)
 	  {
 	  std::cout<<"Limite de joueur atteinte"<<std::endl;
 	  std::cout<<"Liste des joueurs: "<<std::endl;
@@ -468,25 +478,49 @@ if ((argv[1] != NULL) && string(argv[1]) == "play") {
                          render.window.close();
                       }
 
-                      if(event.type == sf::Event::KeyPressed) {
-                          if(sf::Keyboard::isKeyPressed(sf::Keyboard::B)) {
+                      //if(event.type == sf::Event::KeyPressed) {
+                      //    if(sf::Keyboard::isKeyPressed(sf::Keyboard::B)) {
                         	engine::Command command=bot.play(engine,engine.char_sel,state);
                         	Json::Value data = command.serialize();
+							
+							
+                        	
                         	if(data["Id"]!=-1){
                         	engine.addCommand(command);
-                        	
-                        	}
-                        	
-                        	engine.Update(state);
+                        	string cmd = "curl -X PUT --data "+data.toStyledString()+" http://localhost:5050/command 2> /dev/null";
+                        	ReplaceStringInPlace(cmd,"\n","");
+                        	ReplaceStringInPlace(cmd,"{","'{");
+                        	ReplaceStringInPlace(cmd,"}","}'");
+                        	string sortir = exec(cmd.c_str());
+                        	if(sortir=="1")engine.addCommand(command);
+                        	else std::cout<<"Attendre l'autre joueur"<<std::endl;}
+							
+							
+								
+							else{
+							string data_recp=exec("curl -X GET http://localhost:5050/command/1");
+							Json::Value root; 
+							Json::Reader reader;
+							reader.parse( data_recp.c_str(), root );
+							engine::Command commandadv;
+							commandadv.deserialize(	root);
+							engine.addCommand(commandadv);
+							exec("curl -X DELETE http://localhost:5050/command/1");}
+							
+							
+								
+							//}
+              //  }
+                engine.Update(state);
                        	 	state.Update();
                         	render.Update(state);
-			  }
-		       }
-
+                        	sleep(1);
                	      if(state.fin==1){
                		 state.fin=0;
                          render.window.close();
 		      }
+		      
+		      
                  }
           }
 	  string cmd1 = "curl -X DELETE http://localhost:5050/user/"+id;

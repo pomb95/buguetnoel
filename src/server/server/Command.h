@@ -9,14 +9,14 @@ namespace server {
   class Command {
     // Attributes
   public:
-    string Id;
+    int Id;
     int character;
     int direction;
     int attaquant;
     int victime;
     // Operations
   public:
-    User (string name);
+    Command (int Id, int character, int direction, int attaquant, int victime);
     // Setters and Getters
   };
 

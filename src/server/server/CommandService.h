@@ -20,17 +20,17 @@ namespace server {
     // Associations
     // Attributes
   protected:
-    CommandDB& userDB;
+    server::CommandDB& commandDB;
     // Operations
   public:
-    CommandService (CommandDB& CommandDB);
+    CommandService (server::CommandDB& CommandDB);
     HttpStatus get (Json::Value& out, int id) const;
     HttpStatus post (const Json::Value& in, int id);
     HttpStatus put (Json::Value& out, const Json::Value& in);
     HttpStatus remove (int id);
     // Setters and Getters
-    CommandDB& getUserDB() const;
-    void setUserDB(const CommandDB&& userDB);
+    server::CommandDB& getCommandDB() const;
+    void setCommandDB(const server::CommandDB&& commandDB);
   };
 
 };
