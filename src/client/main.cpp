@@ -11,6 +11,7 @@
 #include <unistd.h>
 
 
+
 // Les lignes suivantes ne servent qu'à vérifier que la compilation avec SFML fonctionne
 void testSFML() {
     sf::Texture texture;
@@ -460,17 +461,18 @@ if ((argv[1] != NULL) && string(argv[1]) == "play") {
 	  
 
 		std::cout<<"Appuyer sur B pour effectuer une action "<<std::endl;
-        State state;
-        Render render;
-        Engine engine;
-        state.init();
-        render.init(state);
+	       State state;
+	       Render render;
+	       Engine engine;
+	       thread th(&engine::Engine::UpdateTh, &engine, std::ref(state));//thread de l'Engine
+	       state.init();
+	       render.init(state);
         ai::HeuristicAi bot(atoi(id.c_str())%2);
         bot.init();
         state.Update();
 
 	 
-        while (render.window.isOpen()) {
+        /*while (render.window.isOpen()) {
                sf::Event event;
                while (render.window.pollEvent(event)) {
 
@@ -478,8 +480,8 @@ if ((argv[1] != NULL) && string(argv[1]) == "play") {
                          render.window.close();
                       }
 
-                      //if(event.type == sf::Event::KeyPressed) {
-                      //    if(sf::Keyboard::isKeyPressed(sf::Keyboard::B)) {
+                      if(event.type == sf::Event::KeyPressed) {
+                         if(sf::Keyboard::isKeyPressed(sf::Keyboard::B)) {
                         	engine::Command command=bot.play(engine,engine.char_sel,state);
                         	Json::Value data = command.serialize();
 							
@@ -491,9 +493,10 @@ if ((argv[1] != NULL) && string(argv[1]) == "play") {
                         	ReplaceStringInPlace(cmd,"\n","");
                         	ReplaceStringInPlace(cmd,"{","'{");
                         	ReplaceStringInPlace(cmd,"}","}'");
-                        	string sortir = exec(cmd.c_str());
-                        	if(sortir=="1")engine.addCommand(command);
-                        	else std::cout<<"Attendre l'autre joueur"<<std::endl;}
+                        	exec(cmd.c_str());
+                        	//if(exec(cmd.c_str())!=exec(cmd.c_str()))engine.addCommand(command);
+                        	//else std::cout<<"Attendre l'autre joueur"<<std::endl;
+                        	}
 							
 							
 								
@@ -509,12 +512,12 @@ if ((argv[1] != NULL) && string(argv[1]) == "play") {
 							
 							
 								
-							//}
-              //  }
+							}
+                }
                 engine.Update(state);
                        	 	state.Update();
                         	render.Update(state);
-                        	sleep(1);
+                        	
                	      if(state.fin==1){
                		 state.fin=0;
                          render.window.close();
@@ -522,7 +525,55 @@ if ((argv[1] != NULL) && string(argv[1]) == "play") {
 		      
 		      
                  }
-          }
+          }*/
+          while (render.window.isOpen()) {
+               		sf::Event event;
+               		while (render.window.pollEvent(event)) {
+
+		              	if(event.type == sf::Event::Closed) {
+                             	      render.window.close();
+                         	}
+
+                         	if(event.type == sf::Event::KeyPressed) {
+                            		if(sf::Keyboard::isKeyPressed(sf::Keyboard::B)) {
+                                 		
+                                           	 std::lock_guard<std::mutex> lock(engine.mutex);
+				                 if (engine.fin_tour) engine.fin_tour = false;
+				                 	engine::Command command=bot.play(engine,engine.char_sel,state);
+                        	Json::Value data = command.serialize();
+							
+							
+                        	
+                        	if(data["Id"]!=-1){
+                        	
+                        	string cmd = "curl -X PUT --data "+data.toStyledString()+" http://localhost:5050/command 2> /dev/null";
+                        	ReplaceStringInPlace(cmd,"\n","");
+                        	ReplaceStringInPlace(cmd,"{","'{");
+                        	ReplaceStringInPlace(cmd,"}","}'");
+                        	exec(cmd.c_str());
+                        	}else {std::cout<<"Ce n'est pas à toi de jouer"<<std::endl;}
+							
+							
+				    	         	
+				               
+
+			         }
+		         }}
+				engine.fin_tour = true;
+				state.Update();
+                render.Update(state);
+               
+                if(state.fin==1){
+               	     state.fin=0;
+                     render.window.close();
+		}
+                 }
+          	
+       th.join();
+          
+          
+          
+          
 	  string cmd1 = "curl -X DELETE http://localhost:5050/user/"+id;
 	  system(cmd1.c_str());
 	  std::cout<<"Liste des joueurs: "<<std::endl;
@@ -532,3 +583,4 @@ if ((argv[1] != NULL) && string(argv[1]) == "play") {
   }
     return 0;
 }
+

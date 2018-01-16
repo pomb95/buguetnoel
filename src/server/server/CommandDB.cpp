@@ -24,9 +24,6 @@ namespace server {
 
 	int CommandDB::addCommand (unique_ptr<Command> Command) {
 		int id = idseq++;
-		if(id>1)
-		return -1;
-		else
 		Commands.insert(std::make_pair(id,std::move(Command)));
 		return id;
 	}
@@ -40,7 +37,6 @@ namespace server {
 
 	void CommandDB::removeCommand (int id) {
 		auto ite = Commands.find(id);
-		idseq=id;
 		if (ite == Commands.end())
 			return;
 		Commands.erase(ite);

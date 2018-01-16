@@ -56,10 +56,7 @@ namespace server {
 		int direction = in["direction"].asInt();
 		int attaquant = in["attaquant"].asInt();
 		int victime = in["victime"].asInt();
-		out["id"] = commandDB.addCommand(std::unique_ptr<Command>(new Command(Id,character,direction,attaquant,victime)));
-		if(out["id"]=="-1"){
-			std::cout<<"limite atteinte "<<std::endl;
-		}
+		commandDB.addCommand(std::unique_ptr<Command>(new Command(Id,character,direction,attaquant,victime)));
 		return HttpStatus::CREATED;
 	}
 

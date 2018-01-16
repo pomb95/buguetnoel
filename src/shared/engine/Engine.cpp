@@ -10,6 +10,8 @@
 #include "Attack.h"
 #include <iostream>
 #include <vector>
+#include "json/json.h"
+
 
 
 
@@ -103,12 +105,39 @@ state_game.list_element[char_sel].setSelected(1);
 void engine::Engine::UpdateTh(state::State& state_game){//update avec thread
     std::cout << "Lancement du thread engine" << std::endl;
     int message = 0;
+    int nb_command = 1;
     while(state_game.fin != 1){
         if (!message){
-            std::cout << "En attente de commande" << std::endl;
+          //  std::cout << "En attente de commande" << std::endl;
             message = 1;
         }
         if (fin_tour){
+			std::string comm="curl -X GET http://localhost:5050/command/"+std::to_string(nb_command);
+			    char buffer[128];
+				std::string result = "";
+				FILE* pipe = popen(comm.c_str(), "r");
+				if (!pipe) throw std::runtime_error("popen() failed!");
+				try {
+				while (!feof(pipe)) {
+				if (fgets(buffer, 128, pipe) != NULL)
+					result += buffer;
+					}
+					} catch (...) {
+			pclose(pipe);
+					throw;
+				}
+				pclose(pipe);
+				
+							Json::Value root; 
+							Json::Reader reader;
+							reader.parse( result.c_str(), root );
+							if((root["Id"]==1)||(root["Id"]==2)){
+							engine::Command commandadv;
+							commandadv.deserialize(	root);
+							
+							this->addCommand(commandadv);
+							nb_command++;
+							std::cout<<nb_command<<std::endl;}
             message = 0;
             state_game.list_element[char_sel].setSelected(1);
             {
@@ -120,9 +149,9 @@ void engine::Engine::UpdateTh(state::State& state_game){//update avec thread
                     mov_left=mov_left-1;
                 if(commands[0].getId()==2)
                     att_left=att_left-1;
-    	            std::cout<<mov_left<<std::endl;
+    	          //  std::cout<<mov_left<<std::endl;
                     commands.erase(commands.begin());
-                std::cout << "execution des commandes dans le thread" << std::endl;
+                //std::cout << "execution des commandes dans le thread" << std::endl;
             }
         }
             state_game.enable_state=1;
@@ -149,6 +178,8 @@ void engine::Engine::UpdateTh(state::State& state_game){//update avec thread
         if(!engine_update)  engine_update = true;
     }
 }
+
+
 
 void engine::Engine::testInit(){
 }
