@@ -431,26 +431,26 @@ if ((argv[1] != NULL) && string(argv[1]) == "play") {
 	  string name;
 	  std::cout<<"Ecrivez votre nom .."<<std::endl;
 	  std::cin >> name; 
-	  string cmd = "curl -X PUT --data '{\"name\":\""+name+"\"}' http://localhost:5050/user 2> /dev/null";
+	  string cmd = "curl --silent -X PUT --data '{\"name\":\""+name+"\"}' http://localhost:5050/user 2> /dev/null";
 	  string id = exec(cmd.c_str());
 	   
 	  if(atoi(id.c_str())==-1)
 	  {
 	  std::cout<<"Limite de joueur atteinte"<<std::endl;
 	  std::cout<<"Liste des joueurs: "<<std::endl;
-	  system("curl -X GET http://localhost:5050/user/1");
-	  system("curl -X GET http://localhost:5050/user/2");
+	  system("curl --silent -X GET http://localhost:5050/user/1");
+	  system("curl --silent -X GET http://localhost:5050/user/2");
 	  }else {
 	  std::cout<<"Liste des joueurs: "<<std::endl;
-	  if((exec("curl -X GET http://localhost:5050/user/1 2> /dev/null" )!=exec("curl -X GET http://localhost:5050/user/5 2> /dev/null" )))
-	  system("curl -X GET http://localhost:5050/user/1");
-	  if((exec("curl -X GET http://localhost:5050/user/2 2> /dev/null" )!=exec("curl -X GET http://localhost:5050/user/5 2> /dev/null" )))
-	  system("curl -X GET http://localhost:5050/user/2");
+	  if((exec("curl --silent -X GET http://localhost:5050/user/1 2> /dev/null" )!=exec("curl --silent -X GET http://localhost:5050/user/5 2> /dev/null" )))
+	  system("curl --silent -X GET http://localhost:5050/user/1");
+	  if((exec("curl --silent -X GET http://localhost:5050/user/2 2> /dev/null" )!=exec("curl --silent -X GET http://localhost:5050/user/5 2> /dev/null" )))
+	  system("curl --silent -X GET http://localhost:5050/user/2");
 	  string id2=to_string(((atoi(id.c_str()))%2)+1);
-	  string cmd2="curl -X GET http://localhost:5050/user/"+id2;
-	  if(exec(cmd2.c_str())==exec("curl -X GET http://localhost:5050/user/5 2> /dev/null" )){
+	  string cmd2="curl --silent -X GET http://localhost:5050/user/"+id2;
+	  if(exec(cmd2.c_str())==exec("curl --silent -X GET http://localhost:5050/user/5 2> /dev/null" )){
 	  std::cout<<"Recherche du deuxième joueur ..."<<std::endl;
-	  while((exec("curl -X GET http://localhost:5050/user/1 2> /dev/null" )==exec("curl -X GET http://localhost:5050/user/5 2> /dev/null" ))||(exec("curl -X GET http://localhost:5050/user/2 2> /dev/null")==exec("curl -X GET http://localhost:5050/user/5 2> /dev/null" )))
+	  while((exec("curl --silent -X GET http://localhost:5050/user/1 2> /dev/null" )==exec("curl --silent -X GET http://localhost:5050/user/5 2> /dev/null" ))||(exec("curl -X GET http://localhost:5050/user/2 2> /dev/null")==exec("curl -X GET http://localhost:5050/user/5 2> /dev/null" )))
 	  {
 		  sleep(1);
 		  }
@@ -460,116 +460,83 @@ if ((argv[1] != NULL) && string(argv[1]) == "play") {
 	  system("curl -X GET http://localhost:5050/user/2");}
 	  
 
-		std::cout<<"Appuyer sur B pour effectuer une action "<<std::endl;
+		std::cout<<"Appuyer sur B quand vous êtes pret .. "<<std::endl;
 	       State state;
 	       Render render;
 	       Engine engine;
 	       thread th(&engine::Engine::UpdateTh, &engine, std::ref(state));//thread de l'Engine
 	       state.init();
 	       render.init(state);
+	       Json::Value data;
         ai::HeuristicAi bot(atoi(id.c_str())%2);
         bot.init();
         state.Update();
-
-	 
-        /*while (render.window.isOpen()) {
-               sf::Event event;
-               while (render.window.pollEvent(event)) {
-
-		      if(event.type == sf::Event::Closed) {
-                         render.window.close();
-                      }
-
-                      if(event.type == sf::Event::KeyPressed) {
-                         if(sf::Keyboard::isKeyPressed(sf::Keyboard::B)) {
-                        	engine::Command command=bot.play(engine,engine.char_sel,state);
-                        	Json::Value data = command.serialize();
-							
-							
-                        	
-                        	if(data["Id"]!=-1){
-                        	engine.addCommand(command);
-                        	string cmd = "curl -X PUT --data "+data.toStyledString()+" http://localhost:5050/command 2> /dev/null";
-                        	ReplaceStringInPlace(cmd,"\n","");
-                        	ReplaceStringInPlace(cmd,"{","'{");
-                        	ReplaceStringInPlace(cmd,"}","}'");
-                        	exec(cmd.c_str());
-                        	//if(exec(cmd.c_str())!=exec(cmd.c_str()))engine.addCommand(command);
-                        	//else std::cout<<"Attendre l'autre joueur"<<std::endl;
-                        	}
-							
-							
-								
-							else{
-							string data_recp=exec("curl -X GET http://localhost:5050/command/1");
-							Json::Value root; 
-							Json::Reader reader;
-							reader.parse( data_recp.c_str(), root );
-							engine::Command commandadv;
-							commandadv.deserialize(	root);
-							engine.addCommand(commandadv);
-							exec("curl -X DELETE http://localhost:5050/command/1");}
-							
-							
-								
-							}
-                }
-                engine.Update(state);
-                       	 	state.Update();
-                        	render.Update(state);
-                        	
-               	      if(state.fin==1){
-               		 state.fin=0;
-                         render.window.close();
-		      }
-		      
-		      
-                 }
-          }*/
+		int count = 1;
+		int start=0;
+		
+        int c = 0;
+    while (c != '\n' && c != EOF)
+    {
+        c = getchar();
+    }
           while (render.window.isOpen()) {
                		sf::Event event;
-               		while (render.window.pollEvent(event)) {
+               		if (render.window.pollEvent(event)) {
 
 		              	if(event.type == sf::Event::Closed) {
                              	      render.window.close();
                          	}
-
+                         	
                          	if(event.type == sf::Event::KeyPressed) {
                             		if(sf::Keyboard::isKeyPressed(sf::Keyboard::B)) {
-                                 		
-                                           	 std::lock_guard<std::mutex> lock(engine.mutex);
+										start=1;}}
+                         	}
+
+                         if(start==1){
 				                 if (engine.fin_tour) engine.fin_tour = false;
+				                 if(count==50){
 				                 	engine::Command command=bot.play(engine,engine.char_sel,state);
-                        	Json::Value data = command.serialize();
+									data = command.serialize();
+									count =1;}
+									else{data["Id"]=-2;
+										count=count + 1;}
 							
 							
                         	
-                        	if(data["Id"]!=-1){
+                        	if((data["Id"]==1)||(data["Id"]==2)){
                         	
                         	string cmd = "curl --silent -X PUT --data "+data.toStyledString()+" http://localhost:5050/command 2> /dev/null";
                         	ReplaceStringInPlace(cmd,"\n","");
                         	ReplaceStringInPlace(cmd,"{","'{");
                         	ReplaceStringInPlace(cmd,"}","}'");
                         	exec(cmd.c_str());
-                        	}else {std::cout<<"Ce n'est pas à toi de jouer"<<std::endl;}
+                        	std::cout<<"A jouer"<<std::endl;
+                        	}
+                        	 if(data["Id"]==-1){
+								 if(exec(cmd2.c_str())==exec("curl --silent -X GET http://localhost:5050/user/5 2> /dev/null" ))
+								 {std::cout<<"Attente de joueur adverse"<<std::endl;}
+								 else std::cout<<"Ce n'est pas à toi de jouer"<<std::endl;}
+                        	 
 							
 							
 				    	         	
 				               
 
-			         }
-		         }}
+			       //  }
+		       //  }}
 				engine.fin_tour = true;
 				state.Update();
                 render.Update(state);
                
+               
                 if(state.fin==1){
                	     state.fin=0;
                      render.window.close();
+                     
 		}
-                 }
+                 }}
           	
-       th.join();
+   
           
           
           
@@ -578,7 +545,8 @@ if ((argv[1] != NULL) && string(argv[1]) == "play") {
 	  system(cmd1.c_str());
 	  std::cout<<"Liste des joueurs: "<<std::endl;
 	  system("curl -X GET http://localhost:5050/user/1");
-	  system("curl -X GET http://localhost:5050/user/2");}
+	  system("curl -X GET http://localhost:5050/user/2");
+	  th.join();}
 	  
   }
     return 0;

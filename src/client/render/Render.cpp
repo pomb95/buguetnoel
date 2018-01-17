@@ -28,6 +28,7 @@ render::View view;
       window.create(sf::VideoMode(window_width, window_heigth), window_title);
       window.setPosition(pos_window);
       window.setFramerateLimit(frame_fps_limit);
+      window.setVerticalSyncEnabled(false);	
       view.init(state_game);
       view.draw(window,state_game);
       window.display();

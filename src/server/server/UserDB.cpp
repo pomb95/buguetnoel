@@ -37,6 +37,7 @@ namespace server {
 
 	void UserDB::removeUser (int id) {
 		auto ite = Users.find(id);
+		idseq=id;
 		if (ite == Users.end())
 			return;
 		Users.erase(ite);

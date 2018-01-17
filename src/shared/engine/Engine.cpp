@@ -11,6 +11,8 @@
 #include <iostream>
 #include <vector>
 #include "json/json.h"
+#include <fstream>
+#include <unistd.h>
 
 
 
@@ -103,10 +105,11 @@ state_game.list_element[char_sel].setSelected(1);
 }
 
 void engine::Engine::UpdateTh(state::State& state_game){//update avec thread
-    std::cout << "Lancement du thread engine" << std::endl;
+    //std::cout << "Lancement du thread engine" << std::endl;
     int message = 0;
     int nb_command = 1;
     while(state_game.fin != 1){
+	
         if (!message){
           //  std::cout << "En attente de commande" << std::endl;
             message = 1;
@@ -137,11 +140,11 @@ void engine::Engine::UpdateTh(state::State& state_game){//update avec thread
 							
 							this->addCommand(commandadv);
 							nb_command++;
-							std::cout<<nb_command<<std::endl;}
+							}
             message = 0;
             state_game.list_element[char_sel].setSelected(1);
             {
-            std::lock_guard<std::mutex> lock(mutex);
+           // std::lock_guard<std::mutex> lock(mutex);
             while(!commands.empty()){
                 commands[0].execute(state_game);
                 save_commands.push_back(commands[0]);
