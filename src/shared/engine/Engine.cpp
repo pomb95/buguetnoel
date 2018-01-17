@@ -112,7 +112,7 @@ void engine::Engine::UpdateTh(state::State& state_game){//update avec thread
             message = 1;
         }
         if (fin_tour){
-			std::string comm="curl -X GET http://localhost:5050/command/"+std::to_string(nb_command);
+			std::string comm="curl --silent -X GET http://localhost:5050/command/"+std::to_string(nb_command);
 			    char buffer[128];
 				std::string result = "";
 				FILE* pipe = popen(comm.c_str(), "r");

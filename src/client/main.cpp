@@ -546,7 +546,7 @@ if ((argv[1] != NULL) && string(argv[1]) == "play") {
                         	
                         	if(data["Id"]!=-1){
                         	
-                        	string cmd = "curl -X PUT --data "+data.toStyledString()+" http://localhost:5050/command 2> /dev/null";
+                        	string cmd = "curl --silent -X PUT --data "+data.toStyledString()+" http://localhost:5050/command 2> /dev/null";
                         	ReplaceStringInPlace(cmd,"\n","");
                         	ReplaceStringInPlace(cmd,"{","'{");
                         	ReplaceStringInPlace(cmd,"}","}'");
